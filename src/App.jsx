@@ -1,16 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material"; // MUI Tema için gerekli bileşenler
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import theme from "./theme";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-    <h1>Ana sayfa</h1>
-    </>
-  )
-}
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* Global stil reseti */}
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
