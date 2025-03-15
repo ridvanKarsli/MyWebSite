@@ -1,16 +1,16 @@
 import React from "react";
 import { Box, Typography } from "@mui/material"; 
+import Education from "../components/Education";
+import Experience from "../components/Experience";
+import Skills from "../components/Skills";
 
 const About = () => {
   return (
-    <Box sx={{ padding: "40px" }}>
-      <Typography variant="h3" gutterBottom>
-        About Us
-      </Typography>
-      <Typography variant="body1" paragraph>
-        We are a small team dedicated to providing quality services. Our goal is to make your experience enjoyable and meaningful.
-      </Typography>
-    </Box>
+    <>
+    <Skills/>
+    <Education/>
+    <Experience/>    
+    </>
   );
 };
 

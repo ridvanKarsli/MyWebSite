@@ -11,7 +11,7 @@ const Hero = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: "linear-gradient(135deg, #6200ea, #f44336)", // Koyu kırmızı ve mor geçişi
+        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah ve Kırmızı geçişi
         color: "white",
         padding: "0 20px",
       }}
@@ -23,12 +23,23 @@ const Hero = () => {
           transition={{ duration: 1 }}
         >
           <Typography variant="h3" fontWeight="bold">
-            Merhaba, Ben Rıdvan Şevki Karslı! 
+            Merhaba, Ben Rıdvan Şevki Karslı!
           </Typography>
           <Typography variant="h6" sx={{ mt: 2, mb: 4 }}>
             Yazılım dünyasında tutkulu bir geliştirici olarak yenilikçi projeler ile çözüm odaklı çalışmalar yapıyorum.
           </Typography>
-          <Button variant="contained" color="secondary" size="large" href="/about">
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#ff0000",
+              color: "#fff",
+              "&:hover": {
+                backgroundColor: "#cc0000",
+              },
+            }}
+            size="large"
+            href="/about"
+          >
             Daha Fazla Bilgi
           </Button>
         </motion.div>

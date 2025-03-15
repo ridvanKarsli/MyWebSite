@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Box, Typography, Card, CardContent } from "@mui/material";
 import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles";
 
 const features = [
   { title: "⚡ Hızlı Performans", description: "En iyi deneyimi sunar." },
@@ -10,10 +9,14 @@ const features = [
 ];
 
 const FeatureList = () => {
-  const theme = useTheme();
-
   return (
-    <Box sx={{ py: 8, textAlign: "center", backgroundColor: "#121212" }}>
+    <Box
+      sx={{
+        py: 8,
+        textAlign: "center",
+        background: "linear-gradient(135deg, #ff0000, #000000)", // Kırmızı → Siyah geçişi
+      }}
+    >
       <Typography variant="h4" gutterBottom sx={{ color: "#fff" }}>
         Öne Çıkan Özellikler
       </Typography>
@@ -30,7 +33,7 @@ const FeatureList = () => {
                   p: 3,
                   borderRadius: 3,
                   boxShadow: 4,
-                  background: `linear-gradient(135deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 100%)`,
+                  background: "rgba(0, 0, 0, 0.8)", // Siyah opaklık sağda
                   color: "#fff",
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {

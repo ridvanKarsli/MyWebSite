@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, Container, Box, useMediaQuery, Drawer } from "@mui/material"; 
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Box,
+  useMediaQuery,
+  Drawer,
+} from "@mui/material";
 import { Link } from "react-router-dom";
-import { useTheme } from "@mui/material/styles"; 
+import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [openMenu, setOpenMenu] = useState(false); // Hamburger menüsünü açma kapama durumu
+  const [openMenu, setOpenMenu] = useState(false);
 
   const handleMenuToggle = () => {
     setOpenMenu(!openMenu);
+  };
+
+  const handleMenuItemClick = () => {
+    setOpenMenu(false); // Menü öğesine tıklandığında menüyü kapat
   };
 
   const MenuItems = () => (
@@ -17,16 +31,17 @@ const Header = () => {
       <Button
         component={Link}
         to="/"
+        onClick={handleMenuItemClick}
         sx={{
-          color: theme.palette.text.primary,
+          color: "#fff",
           fontWeight: "600",
           fontSize: isMobile ? "1rem" : "1.1rem",
           textTransform: "none",
           fontFamily: "'Poppins', sans-serif",
           "&:hover": {
-            color: theme.palette.secondary.main,
+            color: "#ff0000",
             backgroundColor: "transparent",
-            transform: "scale(1.05)", // Hover animasyonu
+            transform: "scale(1.05)",
           },
         }}
       >
@@ -35,39 +50,22 @@ const Header = () => {
       <Button
         component={Link}
         to="/about"
+        onClick={handleMenuItemClick}
         sx={{
-          color: theme.palette.text.primary,
+          color: "#fff",
           fontWeight: "600",
           fontSize: isMobile ? "1rem" : "1.1rem",
           textTransform: "none",
           fontFamily: "'Poppins', sans-serif",
           "&:hover": {
-            color: theme.palette.secondary.main,
+            color: "#ff0000",
             backgroundColor: "transparent",
             transform: "scale(1.05)",
           },
         }}
       >
         Hakkında
-      </Button>
-      <Button
-        component={Link}
-        to="/contact"
-        sx={{
-          color: theme.palette.text.primary,
-          fontWeight: "600",
-          fontSize: isMobile ? "1rem" : "1.1rem",
-          textTransform: "none",
-          fontFamily: "'Poppins', sans-serif",
-          "&:hover": {
-            color: theme.palette.secondary.main,
-            backgroundColor: "transparent",
-            transform: "scale(1.05)",
-          },
-        }}
-      >
-        İletişim
-      </Button>
+      </Button>     
     </>
   );
 
@@ -75,8 +73,8 @@ const Header = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+        backgroundColor: "#000", // Tamamen siyah arka plan
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.8)",
         padding: isMobile ? "10px 0" : "15px 0",
       }}
     >
@@ -89,22 +87,31 @@ const Header = () => {
             padding: "0",
           }}
         >
+          {/* Logo ve Başlık */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: "700",
-                color: theme.palette.primary.main,
-                fontSize: isMobile ? "1.3rem" : "1.8rem",
-                textAlign: "left",
-                fontFamily: "'Poppins', sans-serif",
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              Rıdvan ŞK
-            </Typography>
+              <Typography
+                component={Link}
+                to="/"
+                variant="h5"
+                sx={{
+                  fontWeight: "bold",
+                  background: "linear-gradient(to right, #000, #ff0000)", // Siyah & Kırmızı başlık rengi
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  cursor: "pointer",
+                }}
+              >
+                Rıdvan ŞK
+              </Typography>
+            </motion.div>
           </Box>
 
-          {/* Menü Butonları */}
+          {/* Menü Butonları - Masaüstü için */}
           <Box
             sx={{
               display: isMobile ? "none" : "flex",
@@ -120,7 +127,7 @@ const Header = () => {
           <Box sx={{ display: isMobile ? "block" : "none" }}>
             <Button
               sx={{
-                color: theme.palette.text.primary,
+                color: "#fff",
                 fontSize: "1.8rem",
                 textTransform: "none",
                 fontFamily: "'Poppins', sans-serif",
@@ -146,8 +153,8 @@ const Header = () => {
           "& .MuiDrawer-paper": {
             width: "250px",
             padding: "20px",
-            backgroundColor: theme.palette.background.paper,
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+            backgroundColor: "#000",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.8)",
           },
         }}
       >
