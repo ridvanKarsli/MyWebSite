@@ -12,7 +12,7 @@ const Skills = () => {
     <Box
       sx={{
         py: 8,
-        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah → Kırmızı geçişi
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)", // Siyah → Kırmızı geçişi
         color: "#fff",
         textAlign: "center",
       }}
@@ -175,7 +175,7 @@ const Skills = () => {
                   API Yazma
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 1 }}>
-                  RESTful API'ler ve GraphQL kullanarak backend sistemler geliştirdim.
+                  Spring Boot kullanarak backend sistemler geliştirdim.
                 </Typography>
               </Paper>
             </motion.div>
@@ -209,7 +209,7 @@ const Skills = () => {
                   Database Yönetimi
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 1 }}>
-                  SQL ve NoSQL veritabanları ile verimli veri yönetimi sağlıyorum, veri yapıları ve optimizasyonları konusunda deneyimliyim.
+                  PostgreSQL veritabanları ile verimli veri yönetimi sağlıyorum, veri yapıları ve optimizasyon konusunda deneyimim var.
                 </Typography>
               </Paper>
             </motion.div>

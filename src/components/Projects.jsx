@@ -29,7 +29,7 @@ const Projects = () => {
       sx={{
         py: 8,
         textAlign: "center",
-        background: "linear-gradient(135deg, #ff0000, #000000)", // Kırmızı → Siyah geçişi (Siyah sağda olacak)
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)",
         color: "#fff",
       }}
     >
@@ -75,8 +75,23 @@ const Projects = () => {
                   </Typography>
                   <Button
                     variant="contained"
-                    color="secondary"
-                    sx={{ mt: 3 }}
+                    sx={{
+                      backgroundColor: "#990000",
+                      color: "#fff",
+                      padding: "15px 30px",
+                      fontSize: "1.2rem",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      borderRadius: "50px",
+                      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                      "&:hover": {
+                        backgroundColor: "#770000",
+                        boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.2)",
+                        transform: "scale(1.05)",
+                        transition: "all 0.3s ease",
+                      },
+                    }}
+                    size="large"
                     onClick={() => handleOpen(project)}
                   >
                     Detaylar
@@ -115,7 +130,27 @@ const Projects = () => {
           <Typography variant="body1" sx={{ mb: 3 }}>
             {selectedProject?.details}
           </Typography>
-          <Button variant="contained" color="secondary" onClick={handleClose}>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#990000",
+              color: "#fff",
+              padding: "15px 30px",
+              fontSize: "1.2rem",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              borderRadius: "50px",
+              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+              "&:hover": {
+                backgroundColor: "#770000",
+                boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.2)",
+                transform: "scale(1.05)",
+                transition: "all 0.3s ease",
+              },
+            }}
+            size="large"
+            onClick={handleClose}
+          >
             Kapat
           </Button>
         </Box>

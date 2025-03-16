@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,15 +8,32 @@ import {
   Box,
   useMediaQuery,
   Drawer,
+  IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
+import MenuIcon from '@mui/icons-material/Menu'; // Hamburger menü ikonu
 
 const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [openMenu, setOpenMenu] = useState(false);
+  const [opacity, setOpacity] = useState(1);
+
+  // Scroll eventini izleyerek opaklık seviyesini güncelle
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newOpacity = Math.max(1 - scrollPosition / 500, 0.5); // Scroll 500px'den sonra %50'ye kadar saydamlaşır
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleMenuToggle = () => {
     setOpenMenu(!openMenu);
@@ -34,14 +51,16 @@ const Header = () => {
         onClick={handleMenuItemClick}
         sx={{
           color: "#fff",
-          fontWeight: "600",
-          fontSize: isMobile ? "1rem" : "1.1rem",
-          textTransform: "none",
-          fontFamily: "'Poppins', sans-serif",
+          fontWeight: "500",
+          fontSize: "1.1rem",
+          textTransform: "uppercase",
+          letterSpacing: "0.05rem",
+          fontFamily: "'Roboto', sans-serif",
           "&:hover": {
-            color: "#ff0000",
+            color: "#ff1744", // Kırmızı highlight
             backgroundColor: "transparent",
             transform: "scale(1.05)",
+            transition: "all 0.3s ease",
           },
         }}
       >
@@ -53,19 +72,21 @@ const Header = () => {
         onClick={handleMenuItemClick}
         sx={{
           color: "#fff",
-          fontWeight: "600",
-          fontSize: isMobile ? "1rem" : "1.1rem",
-          textTransform: "none",
-          fontFamily: "'Poppins', sans-serif",
+          fontWeight: "500",
+          fontSize: "1.1rem",
+          textTransform: "uppercase",
+          letterSpacing: "0.05rem",
+          fontFamily: "'Roboto', sans-serif",
           "&:hover": {
-            color: "#ff0000",
+            color: "#ff1744",
             backgroundColor: "transparent",
             transform: "scale(1.05)",
+            transition: "all 0.3s ease",
           },
         }}
       >
         Hakkında
-      </Button>     
+      </Button>
     </>
   );
 
@@ -74,8 +95,10 @@ const Header = () => {
       position="sticky"
       sx={{
         backgroundColor: "#000", // Tamamen siyah arka plan
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.8)",
-        padding: isMobile ? "10px 0" : "15px 0",
+        boxShadow: "none", // Gölgeyi kaldırdık
+        padding: isMobile ? "8px 0" : "12px 0", // Daha ince header
+        transition: "all 0.3s ease",
+        opacity: opacity, // Opaklık burada dinamik olarak ayarlandı
       }}
     >
       <Container maxWidth="lg">
@@ -87,29 +110,42 @@ const Header = () => {
             padding: "0",
           }}
         >
-          {/* Logo ve Başlık */}
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+          {/* Başlık */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 0.5 }} // Yavaşça yazılacak animasyon
+          >
+            <Typography
+              component={Link}
+              to="/"
+              variant="h5"
+              sx={{
+                fontWeight: "600",
+                color: "#fff",
+                letterSpacing: "2px",
+                fontFamily: "'Roboto', sans-serif",
+                textDecoration: "none",
+                cursor: "pointer",
+                fontSize: "1.5rem",
+                display: "inline-block",
+                "&::after": {
+                  content: "''",
+                  display: "block",
+                  width: "100%",
+                  height: "2px",
+                  backgroundColor: "#ff1744", // Kırmızı alt çizgi
+                  marginTop: "5px",
+                  transition: "width 0.3s ease",
+                },
+                "&:hover::after": {
+                  width: "100%",
+                },
+              }}
             >
-              <Typography
-                component={Link}
-                to="/"
-                variant="h5"
-                sx={{
-                  fontWeight: "bold",
-                  background: "linear-gradient(to right, #000, #ff0000)", // Siyah & Kırmızı başlık rengi
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  cursor: "pointer",
-                }}
-              >
-                Rıdvan ŞK
-              </Typography>
-            </motion.div>
-          </Box>
+              Rıdvan
+            </Typography>
+          </motion.div>
 
           {/* Menü Butonları - Masaüstü için */}
           <Box
@@ -125,21 +161,19 @@ const Header = () => {
 
           {/* Hamburger Menü - Mobilde görünür */}
           <Box sx={{ display: isMobile ? "block" : "none" }}>
-            <Button
+            <IconButton
               sx={{
                 color: "#fff",
-                fontSize: "1.8rem",
-                textTransform: "none",
-                fontFamily: "'Poppins', sans-serif",
+                fontSize: "2rem",
                 "&:hover": {
                   backgroundColor: "transparent",
-                  transform: "scale(1.05)",
+                  transform: "scale(1.1)",
                 },
               }}
               onClick={handleMenuToggle}
             >
-              ☰
-            </Button>
+              <MenuIcon />
+            </IconButton>
           </Box>
         </Toolbar>
       </Container>
@@ -151,10 +185,10 @@ const Header = () => {
         onClose={handleMenuToggle}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "250px",
-            padding: "20px",
-            backgroundColor: "#000",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.8)",
+            width: "200px", // Küçük bir alan açılacak
+            padding: "10px",
+            backgroundColor: "#000", // Koyu siyah
+            boxShadow: "none", // Gölgeyi kaldırdık
           },
         }}
       >

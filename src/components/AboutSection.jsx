@@ -3,15 +3,15 @@ import { Box, Typography, Container, Button, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn"; // LinkedIn simgesi
-import MailIcon from "@mui/icons-material/Mail"; // Mail simgesi
+import LinkedInIcon from "@mui/icons-material/LinkedIn"; 
+import MailIcon from "@mui/icons-material/Mail"; 
 
 const AboutSection = () => {
   return (
     <Box
       sx={{
         py: 8,
-        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah → Kırmızı geçişi
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)", // Kırmızı → Siyah geçişi
         color: "#fff",
         textAlign: "center",
       }}
@@ -33,93 +33,41 @@ const AboutSection = () => {
         >
           <Typography
             variant="body1"
-            sx={{ lineHeight: 1.7, maxWidth: "700px", mx: "auto" }}
+            sx={{ lineHeight: 1.7, maxWidth: "700px", mx: "auto", color: "#ddd" }}
           >
-            Ben, yazılım geliştirme konusunda tutkulu bir yazılımcıyım. Yaratıcı ve kullanıcı dostu çözümler sunarak
-            teknolojiyi günlük yaşamda daha erişilebilir kılmayı amaçlıyorum. Teknolojinin hızla gelişen dünyasında, 
-            her zaman yeni şeyler öğrenmeye ve uygulamaya açığım. Mobil uygulama geliştirme, web geliştirme ve 
-            yapay zeka alanlarında projeler geliştirmeyi seviyorum.
+Kütahya Dumlupınar Üniversitesi Bilgisayar Programcılığı mezunu, ardından Manisa Celal Bayar Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Eğitim hayatımda yazılım geliştirme, algoritma tasarımı ve çözümü üzerine yoğunlaştım ve modern yazılım tekniklerinde uzmanlık kazandım. Profesyonel kariyerime Kalem Web Software'de web geliştirici olarak başladım ve burada takım çalışması, proje yönetimi gibi önemli deneyimler edindim. Şu anda ENM Digital'de Stajyer olarak çalışıyorum.
           </Typography>
         </motion.div>
 
-        {/* Social Links */}
+        {/* Sosyal Medya Butonları */}
         <Grid container spacing={3} justifyContent="center" sx={{ mt: 4 }}>
-          <Grid item>
-            <Button
-              variant="outlined"
-              color="secondary"
-              href="https://github.com/ridvanKarsli"
-              target="_blank"
-              startIcon={<GitHubIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#fff",
-                "&:hover": {
-                  borderColor: "#ff0000",
-                  color: "#ff0000",
-                },
-              }}
-            >
-              GitHub
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              variant="outlined"
-              color="secondary"
-              href="https://www.instagram.com/ridvanskarsli/"
-              target="_blank"
-              startIcon={<InstagramIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#fff",
-                "&:hover": {
-                  borderColor: "#ff0000",
-                  color: "#ff0000",
-                },
-              }}
-            >
-              Instagram
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              variant="outlined"
-              color="secondary"
-              href="https://www.linkedin.com/in/rıdvan-karslı-44a783294/"
-              target="_blank"
-              startIcon={<LinkedInIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#fff",
-                "&:hover": {
-                  borderColor: "#ff0000",
-                  color: "#ff0000",
-                },
-              }}
-            >
-              LinkedIn
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              variant="outlined"
-              color="secondary"
-              href="mailto:rden.35050@gmail.com"
-              target="_blank"
-              startIcon={<MailIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#fff",
-                "&:hover": {
-                  borderColor: "#ff0000",
-                  color: "#ff0000",
-                },
-              }}
-            >
-              E-posta
-            </Button>
-          </Grid>
+          {[
+            { icon: <GitHubIcon />, label: "GitHub", link: "https://github.com/ridvanKarsli" },
+            { icon: <InstagramIcon />, label: "Instagram", link: "https://www.instagram.com/ridvanskarsli/" },
+            { icon: <LinkedInIcon />, label: "LinkedIn", link: "https://www.linkedin.com/in/rıdvan-karslı-44a783294/" },
+            { icon: <MailIcon />, label: "E-posta", link: "mailto:rden.35050@gmail.com" }
+          ].map((item, index) => (
+            <Grid item key={index}>
+              <Button
+                variant="outlined"
+                color="secondary"
+                href={item.link}
+                target="_blank"
+                startIcon={item.icon}
+                sx={{
+                  color: "#fff",
+                  borderColor: "#fff",
+                  "&:hover": {
+                    borderColor: "#ff0000",
+                    background: "#ff0000",
+                    color: "#000",
+                  },
+                }}
+              >
+                {item.label}
+              </Button>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Box>

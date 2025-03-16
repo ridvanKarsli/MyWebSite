@@ -7,7 +7,7 @@ const Experience = () => {
     <Box
       sx={{
         py: 8,
-        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah → Kırmızı geçişi
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)", // Siyah → Kırmızı geçişi
         color: "#fff",
         textAlign: "center",
       }}
@@ -64,7 +64,7 @@ const Experience = () => {
                   Kalem Web Yazılım Ltd.
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 1, color: "#bbb" }}>
-                  Yazılım Mühendisi | 2022 - Devam Ediyor
+                  Yazılım Mühendisi | 2022 - 2024
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 2 }}>
                   Şirket içindeki yazılım geliştirme süreçlerinde aktif bir rol aldım. 

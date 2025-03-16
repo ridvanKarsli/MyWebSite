@@ -3,10 +3,15 @@ import { Grid, Box, Typography, Card, CardContent } from "@mui/material";
 import { motion } from "framer-motion";
 
 const features = [
-  { title: "⚡ Hızlı Performans", description: "En iyi deneyimi sunar." },
-  { title: "🎨 Modern Tasarım", description: "Şık ve sezgisel arayüz." },
-  { title: "🔒 Güvenlik Öncelikli", description: "Verileriniz emin ellerde." },
+  { title: "💻 Kod Sever", description: "Yazılım geliştirmeyi bir tutku olarak görüyorum. Her satır kodda bir çözüm, her hata da yeni bir öğrenme fırsatı." },
+  { title: "🚀 Sürekli Öğrenen", description: "Yeni teknolojilere meraklıyım. Her gün bir şeyler öğrenerek kendimi geliştirmeyi ilke edinmiş bir yazılımcıyım." },
+  { title: "🛠️ Problem Çözme Uzmanı", description: "Zorluklarla karşılaştığımda, karmaşık sorunları basit ve etkili çözümlerle aşmak en büyük motivasyonum." },
+  { title: "🎯 Detaylara Özen Gösteren", description: "Proje ne kadar büyük olursa olsun, küçük detayları asla gözden kaçırmam. Her şeyin mükemmel olması için çalışırım." },
+  { title: "📈 Performansa Odaklı", description: "Uygulamaların hız ve verimlilik açısından en yüksek performansa ulaşması için optimize etmekten keyif alırım." },
+  { title: "💡 Yaratıcı Çözümler", description: "Yazılımda sıradışı düşünmeyi seviyorum. Yaratıcı ve yenilikçi çözümler üretmek, kod yazmanın en heyecan verici kısmı." },
+  { title: "🤖 Otomasyon Meraklısı", description: "Tekrar eden işleri otomatikleştirerek zaman kazanmayı ve iş süreçlerini daha verimli hale getirmeyi çok severim." }
 ];
+
 
 const FeatureList = () => {
   return (
@@ -14,7 +19,7 @@ const FeatureList = () => {
       sx={{
         py: 8,
         textAlign: "center",
-        background: "linear-gradient(135deg, #ff0000, #000000)", // Kırmızı → Siyah geçişi
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)",
       }}
     >
       <Typography variant="h4" gutterBottom sx={{ color: "#fff" }}>
@@ -33,7 +38,7 @@ const FeatureList = () => {
                   p: 3,
                   borderRadius: 3,
                   boxShadow: 4,
-                  background: "rgba(0, 0, 0, 0.8)", // Siyah opaklık sağda
+                  background: "rgba(0, 0, 0, 0.8)", // Kart arkaplanı hafif opak siyah
                   color: "#fff",
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {

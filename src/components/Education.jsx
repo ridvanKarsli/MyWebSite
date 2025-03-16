@@ -7,9 +7,14 @@ const Education = () => {
     <Box
       sx={{
         py: 8,
-        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah → Kırmızı geçişi
-        color: "#fff",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         textAlign: "center",
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)",
+        color: "white",
+        padding: "0 20px",
       }}
     >
       <Container maxWidth="md">

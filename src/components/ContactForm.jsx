@@ -18,8 +18,15 @@ const ContactForm = () => {
   return (
     <Box
       sx={{
-        padding: "60px 20px",
-        background: "linear-gradient(135deg, #000000, #ff0000)", // Siyah → Kırmızı geçişi
+        py: 8,
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)",
+        color: "white",
+        padding: "0 20px",
       }}
     >
       <Container maxWidth="md">
@@ -79,11 +86,23 @@ const ContactForm = () => {
             <Button
               type="submit"
               variant="contained"
-              color="secondary"
               sx={{
-                transition: "all 0.3s ease",
-                "&:hover": { backgroundColor: "#ff0000" },
+                backgroundColor: "#990000",
+                color: "#fff",
+                padding: "15px 30px",
+                fontSize: "1.2rem",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                borderRadius: "50px",
+                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                "&:hover": {
+                  backgroundColor: "#770000",
+                  boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.2)",
+                  transform: "scale(1.05)",
+                  transition: "all 0.3s ease",
+                },
               }}
+              size="large"
             >
               Gönder
             </Button>
