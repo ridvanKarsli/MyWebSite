@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -63,6 +64,8 @@ const Hero = () => {
           >
             <Button
               variant="contained"
+              component={Link}
+              to="/about"
               sx={{
                 backgroundColor: "#990000",
                 color: "#fff",
@@ -80,7 +83,7 @@ const Hero = () => {
                 },
               }}
               size="large"
-              href="/about"
+              
             >
               Daha Fazla Bilgi
             </Button>
