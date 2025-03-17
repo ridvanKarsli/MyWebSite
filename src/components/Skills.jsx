@@ -20,6 +20,10 @@ const Skills = () => {
         textAlign: "center",
         position: "relative",
         overflow: "hidden", // Hero ile aynı taşma kontrolü
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center',  // Ortalamayı sağlayan özellikler
+        justifyContent: 'center'
       }}
     >
       <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
@@ -114,6 +118,8 @@ const Skills = () => {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
+                    alignItems: 'center', // Ortalamayı sağlamak için eklenen özellik
+                    justifyContent: 'center', // Ortalamayı sağlamak için eklenen özellik
                     "&:hover": {
                       transform: "translateY(-3px)", // Hero ile aynı hover efekti
                       boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge artışı
