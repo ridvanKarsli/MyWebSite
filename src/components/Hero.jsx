@@ -2,8 +2,11 @@ import React from "react";
 import { Box, Button, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTheme } from "@mui/material/styles"; // To access the theme in the component
 
 const Hero = () => {
+  const theme = useTheme(); // Access the current theme
+
   return (
     <Box
       sx={{
@@ -12,54 +15,64 @@ const Hero = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: "linear-gradient(to bottom, #000000 0%, #550000 15%, #990000 40%, #990000 60%, #550000 85%, #000000 100%)",
-        color: "white",
+        color: theme.palette.text.primary, // Using theme's text color
         padding: "0 20px",
+        position: "relative",
+        overflow: "hidden",
+        background: theme.palette.background.default, // Using theme's background color
       }}
     >
-      <Container>
-        {/* Animasyonlu Başlangıç */}
+      <Container sx={{ position: "relative", zIndex: 2 }}>
+        {/* Animasyonlu Başlık */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
         >
           <Typography
-            variant="h3"
-            fontWeight="bold"
+            variant="h1"
             sx={{
-              animation: "fadeIn 2s ease-out",
-              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
-              letterSpacing: "2px",
-              lineHeight: 1.2,
+              fontSize: { xs: "2.5rem", sm: "4rem", md: "6rem" },
+              fontWeight: 900,
+              letterSpacing: "0.1rem",
+              background: "linear-gradient(to right, #00ddeb, #ff007a)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
             }}
           >
-            Merhaba, Ben Rıdvan Şevki Karslı!
+            RIDVAN ŞEVKİ KARSLI
           </Typography>
+
+          {/* Alt Başlık */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
-                mt: 2,
-                mb: 4,
-                fontSize: { xs: "1rem", sm: "1.2rem", md: "1.5rem" },
-                opacity: 0.8,
-                letterSpacing: "0.1rem",
-                fontWeight: 400,
+                mt: 3,
+                mb: 5,
+                fontSize: { xs: "1rem", sm: "1.25rem", md: "1.75rem" },
+                fontWeight: 300,
+                color: theme.palette.text.secondary, // Using theme's secondary text color
+                maxWidth: "800px",
+                margin: "0 auto",
+                lineHeight: 1.6,
+                letterSpacing: "0.05rem",
+                textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
-              Yazılım dünyasında tutkulu bir geliştirici olarak yenilikçi projeler ile çözüm odaklı çalışmalar yapıyorum.
+              Yazılım dünyasında yenilikçi çözümler üreten, tutkulu bir geliştirici olarak projelerinizde fark yaratıyorum.
             </Typography>
           </motion.div>
 
-          {/* Hareketli Buton */}
+          {/* Buton */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
           >
             <Button
@@ -67,23 +80,21 @@ const Hero = () => {
               component={Link}
               to="/about"
               sx={{
-                backgroundColor: "#990000",
+                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                 color: "#fff",
-                padding: "15px 30px",
-                fontSize: "1.2rem",
-                fontWeight: 600,
+                padding: "16px 40px",
+                fontSize: "1.25rem",
+                fontWeight: 700,
                 textTransform: "uppercase",
                 borderRadius: "50px",
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
                 "&:hover": {
-                  backgroundColor: "#770000",
-                  boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.2)",
-                  transform: "scale(1.05)",
-                  transition: "all 0.3s ease",
+                  background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`,
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
+                  transition: "all 0.4s ease",
                 },
               }}
-              size="large"
-              
             >
               Daha Fazla Bilgi
             </Button>
