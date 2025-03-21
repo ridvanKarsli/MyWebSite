@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles"; // To access the theme in the component
 
 const ContactForm = () => {
-  const theme = useTheme(); // Access the current theme
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleInputChange = (e) => {
@@ -14,41 +12,42 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Mesajınız gönderildi!");
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent(`İletişim Formu - ${name}`);
+    const body = encodeURIComponent(`Gönderen: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+    
+    // Mailto bağlantısını kullanarak mesajı göndermek
+    window.location.href = `mailto:rdvn.35050@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <Box
       sx={{
         py: 8,
-        height: "100vh", // Hero ile aynı tam ekran yüksekliği
+        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: theme.palette.background.default, // Hero ile uyumlu tema arka planı
-        color: theme.palette.text.primary, // Tema ile uyumlu metin rengi
+        background: "inherit", // global.css'deki body arka planını miras alır
         padding: "0 20px",
         position: "relative",
-        overflow: "hidden", // Hero ile aynı taşma kontrolü
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
         <motion.div
-          initial={{ opacity: 0, y: -50 }} // Hero ile aynı animasyon
+          initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }} // Hero ile aynı spring animasyonu
+          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
         >
           <Typography
             variant="h4"
             sx={{
-              fontWeight: 900, // Hero ile uyumlu kalınlık
-              background: "linear-gradient(to right, #00ddeb, #ff007a)", // Hero ile aynı gradient
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              fontWeight: 900,
+              color: "#4e2c1d", // global.css'deki başlık rengi
               letterSpacing: "0.1rem",
-              textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge
-              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" }, // Responsive tipografi
+              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
               marginBottom: 3,
             }}
           >
@@ -57,15 +56,15 @@ const ContactForm = () => {
         </motion.div>
 
         <motion.form
-          initial={{ opacity: 0, scale: 0.9 }} // Hero'daki alt başlık animasyonuna benzer
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }} // Hero ile uyumlu gecikme
+          transition={{ duration: 1, delay: 0.5 }}
           onSubmit={handleSubmit}
         >
           {["name", "email", "message"].map((field, index) => (
             <motion.div
               key={field}
-              initial={{ opacity: 0, x: -50 }} // Hafif farklı animasyon yönü korunabilir
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
@@ -80,17 +79,16 @@ const ContactForm = () => {
                 rows={field === "message" ? 4 : 1}
                 sx={{
                   marginBottom: 2,
-                  "& .MuiInputLabel-root": { 
-                    color: theme.palette.text.secondary, // Tema ile uyumlu ikincil renk
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" }, // Responsive
+                  "& .MuiInputLabel-root": {
+                    color: "#b08d57", // global.css'deki altın sarısı (örneğin bağlantılar için)
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                   },
                   "& .MuiOutlinedInput-root": {
-                    color: theme.palette.text.primary, // Tema ile uyumlu metin rengi
-                    "& fieldset": { borderColor: theme.palette.text.secondary }, // Tema ile uyumlu kenarlık
-                    "&:hover fieldset": { borderColor: theme.palette.primary.main }, // Hover'da tema rengi
-                    "&.Mui-focused fieldset": { borderColor: theme.palette.primary.main }, // Fokuslandığında tema rengi
-                    background: `linear-gradient(45deg, ${theme.palette.primary.main}10, ${theme.palette.secondary.main}10)`, // Hafif gradient arka plan
-                    borderRadius: 2,
+                    backgroundColor: "#4e2c1d", // global.css'deki input arka planı
+                    color: "#fff", // global.css'deki input yazı rengi
+                    "& fieldset": { borderColor: "#b08d57" }, // global.css'deki input kenar rengi
+                    "&:hover fieldset": { borderColor: "#b08d57" },
+                    "&.Mui-focused fieldset": { borderColor: "#b08d57" }, // global.css ile uyumlu
                   },
                 }}
               />
@@ -98,28 +96,27 @@ const ContactForm = () => {
           ))}
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }} // Hero'daki buton animasyonuna benzer
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }} // Hero ile uyumlu gecikme
+            transition={{ duration: 1, delay: 1 }}
           >
             <Button
               type="submit"
               variant="contained"
               size="large"
               sx={{
-                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, // Hero ile aynı gradient
-                color: "#fff",
-                padding: "12px 30px", // Hero ile uyumlu boyut
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" }, // Responsive
+                backgroundColor: "#b08d57", // global.css'deki buton arka planı
+                color: "#4e2c1d", // global.css'deki buton yazı rengi
+                border: "2px solid #4e2c1d", // global.css'deki buton kenarı
+                padding: "10px 20px", // global.css ile uyumlu
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
                 fontWeight: 700,
                 textTransform: "uppercase",
-                borderRadius: "50px", // Hero ile aynı yuvarlak kenar
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile aynı gölge
+                cursor: "pointer", // global.css ile uyumlu
                 "&:hover": {
-                  background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`, // Hero ile aynı hover gradient
-                  transform: "translateY(-3px)", // Hero ile aynı hover efekti
-                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge artışı
-                  transition: "all 0.4s ease", // Hero ile aynı geçiş süresi
+                  backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
+                  color: "#fff", // global.css'deki hover yazı rengi
+                  border: "2px solid #b08d57", // global.css'deki hover kenar rengi
                 },
               }}
             >

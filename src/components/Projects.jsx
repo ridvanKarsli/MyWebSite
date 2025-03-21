@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Grid, Box, Typography, Card, CardContent, Button, Modal } from "@mui/material";
+import { Grid, Box, Typography, Button, Modal } from "@mui/material";
 import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles"; // To access the theme in the component
 
 const projects = [
   {
@@ -13,7 +12,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const theme = useTheme(); // Access the current theme
   const [open, setOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -32,28 +30,24 @@ const Projects = () => {
       sx={{
         py: 8,
         textAlign: "center",
-        background: theme.palette.background.default, // Hero ile uyumlu tema arka planı
-        color: theme.palette.text.primary, // Tema ile uyumlu metin rengi
+        background: "inherit", // global.css'deki body arka planını miras alır
         position: "relative",
-        overflow: "hidden", // Hero ile aynı taşma kontrolü
+        overflow: "hidden",
       }}
     >
       <motion.div
-        initial={{ opacity: 0, y: -50 }} // Hero ile aynı animasyon
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, type: "spring", stiffness: 100 }} // Hero ile aynı spring animasyonu
+        transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
       >
         <Typography
           variant="h4"
           gutterBottom
           sx={{
-            fontWeight: 900, // Hero ile uyumlu kalınlık
-            background: "linear-gradient(to right, #00ddeb, #ff007a)", // Hero ile aynı gradient
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            fontWeight: 900,
+            color: "#4e2c1d", // global.css'deki başlık rengi
             letterSpacing: "0.1rem",
-            textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge
-            fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" }, // Responsive tipografi
+            fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
           }}
         >
           Projelerim
@@ -64,80 +58,70 @@ const Projects = () => {
         {projects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <motion.div
-              initial={{ opacity: 0, y: 20 }} // Hero'daki buton animasyonuna benzer
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.2 }} // Hafif gecikme farkı
+              transition={{ duration: 1, delay: index * 0.2 }}
             >
-              <Card
+              <Box
                 sx={{
-                  p: 3,
-                  borderRadius: 3,
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile uyumlu gölge
-                  background: `linear-gradient(45deg, ${theme.palette.primary.main}20, ${theme.palette.secondary.main}20)`, // Hafif gradient arka plan
-                  color: theme.palette.text.primary,
-                  transition: "all 0.4s ease", // Hero ile uyumlu geçiş
+                  padding: "40px",
+                  borderRadius: "8px",
+                  transition: "transform 0.3s ease-in-out",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
                   "&:hover": {
-                    transform: "translateY(-3px)", // Hero ile aynı hover efekti
-                    boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge artışı
-                    background: `linear-gradient(45deg, ${theme.palette.primary.dark}30, ${theme.palette.secondary.dark}30)`, // Hover'da gradient değişimi
+                    transform: "translateY(-10px)", // FeatureList ile uyumlu hover efekti
                   },
                 }}
               >
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography
-                    variant="h6"
-                    fontWeight="bold"
-                    sx={{
-                      fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" }, // Responsive
-                      letterSpacing: "0.05rem",
-                      background: "linear-gradient(to right, #00ddeb, #ff007a)", // Hero ile uyumlu gradient
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)", // Hafif gölge
-                    }}
-                  >
-                    {project.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      mt: 2,
-                      color: theme.palette.text.secondary, // Tema ile uyumlu ikincil renk
-                      lineHeight: 1.6,
-                      fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" }, // Responsive
-                    }}
-                  >
-                    {project.description}
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    onClick={() => handleOpen(project)}
-                    sx={{
-                      mt: 2,
-                      background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, // Hero ile aynı gradient
-                      color: "#fff",
-                      padding: "12px 30px", // Hero ile uyumlu boyut
-                      fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" }, // Responsive
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      borderRadius: "50px", // Hero ile aynı yuvarlak kenar
-                      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile aynı gölge
-                      "&:hover": {
-                        background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`, // Hero ile aynı hover gradient
-                        transform: "translateY(-3px)", // Hero ile aynı hover efekti
-                        boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge artışı
-                        transition: "all 0.4s ease", // Hero ile aynı geçiş süresi
-                      },
-                    }}
-                  >
-                    Detaylar
-                  </Button>
-                </CardContent>
-              </Card>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 700,
+                    color: "#4e2c1d", // global.css'deki başlık rengi
+                    marginBottom: "15px",
+                    fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
+                    letterSpacing: "0.05rem",
+                  }}
+                >
+                  {project.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#4e2c1d", // global.css'deki paragraf rengi
+                    lineHeight: 1.6,
+                    fontSize: "1rem",
+                    mt: 2,
+                  }}
+                >
+                  {project.description}
+                </Typography>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={() => handleOpen(project)}
+                  sx={{
+                    mt: 2,
+                    backgroundColor: "#b08d57", // global.css'deki buton arka planı
+                    color: "#4e2c1d", // global.css'deki buton yazı rengi
+                    border: "2px solid #4e2c1d", // global.css'deki buton kenarı
+                    padding: "10px 20px",
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    cursor: "pointer",
+                    "&:hover": {
+                      backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
+                      color: "#fff", // global.css'deki hover yazı rengi
+                      border: "2px solid #b08d57", // global.css'deki hover kenar rengi
+                    },
+                  }}
+                >
+                  Detaylar
+                </Button>
+              </Box>
             </motion.div>
           </Grid>
         ))}
@@ -155,14 +139,14 @@ const Projects = () => {
       >
         <Box
           sx={{
-            background: `linear-gradient(45deg, ${theme.palette.primary.main}20, ${theme.palette.secondary.main}20)`, // Kartlarla uyumlu gradient
-            color: theme.palette.text.primary,
+            backgroundColor: "#4e2c1d", // global.css'deki input/textarea arka planı
+            color: "#fff", // global.css'deki input/textarea yazı rengi
+            border: "2px solid #b08d57", // global.css'deki input/textarea kenar rengi
             borderRadius: 3,
             padding: 4,
             maxWidth: "600px",
             width: "80%",
             textAlign: "center",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile uyumlu gölge
           }}
         >
           <Typography
@@ -170,10 +154,7 @@ const Projects = () => {
             gutterBottom
             sx={{
               fontWeight: 700,
-              background: "linear-gradient(to right, #00ddeb, #ff007a)", // Hero ile aynı gradient
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge
+              color: "#fff", // Modal içeriği beyaz yazı rengi
             }}
           >
             {selectedProject?.title}
@@ -182,7 +163,7 @@ const Projects = () => {
             variant="body1"
             sx={{
               mb: 3,
-              color: theme.palette.text.secondary, // Tema ile uyumlu ikincil renk
+              color: "#fff", // Modal içeriği beyaz yazı rengi
               lineHeight: 1.6,
             }}
           >
@@ -193,19 +174,18 @@ const Projects = () => {
             size="large"
             onClick={handleClose}
             sx={{
-              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, // Hero ile aynı gradient
-              color: "#fff",
-              padding: "12px 30px", // Hero ile uyumlu boyut
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" }, // Responsive
+              backgroundColor: "#b08d57", // global.css'deki buton arka planı
+              color: "#4e2c1d", // global.css'deki buton yazı rengi
+              border: "2px solid #4e2c1d", // global.css'deki buton kenarı
+              padding: "10px 20px",
+              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
               fontWeight: 700,
               textTransform: "uppercase",
-              borderRadius: "50px", // Hero ile aynı yuvarlak kenar
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile aynı gölge
+              cursor: "pointer",
               "&:hover": {
-                background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`, // Hero ile aynı hover gradient
-                transform: "translateY(-3px)", // Hero ile aynı hover efekti
-                boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge artışı
-                transition: "all 0.4s ease", // Hero ile aynı geçiş süresi
+                backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
+                color: "#fff", // global.css'deki hover yazı rengi
+                border: "2px solid #b08d57", // global.css'deki hover kenar rengi
               },
             }}
           >

@@ -2,11 +2,8 @@ import React from "react";
 import { Box, Button, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useTheme } from "@mui/material/styles"; // To access the theme in the component
 
 const Hero = () => {
-  const theme = useTheme(); // Access the current theme
-
   return (
     <Box
       sx={{
@@ -15,11 +12,10 @@ const Hero = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        color: theme.palette.text.primary, // Using theme's text color
         padding: "0 20px",
         position: "relative",
         overflow: "hidden",
-        background: theme.palette.background.default, // Using theme's background color
+        background: "linear-gradient(to right, #4e2c1d, #b08d57)", // global.css ile uyumlu arka plan
       }}
     >
       <Container sx={{ position: "relative", zIndex: 2 }}>
@@ -35,9 +31,7 @@ const Hero = () => {
               fontSize: { xs: "2.5rem", sm: "4rem", md: "6rem" },
               fontWeight: 900,
               letterSpacing: "0.1rem",
-              background: "linear-gradient(to right, #00ddeb, #ff007a)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              color: "#4e2c1d", // global.css'deki başlık rengi
               textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
             }}
           >
@@ -57,7 +51,7 @@ const Hero = () => {
                 mb: 5,
                 fontSize: { xs: "1rem", sm: "1.25rem", md: "1.75rem" },
                 fontWeight: 300,
-                color: theme.palette.text.secondary, // Using theme's secondary text color
+                color: "#4e2c1d", // global.css'deki paragraf rengi
                 maxWidth: "800px",
                 margin: "0 auto",
                 lineHeight: 1.6,
@@ -65,7 +59,8 @@ const Hero = () => {
                 textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
-              Yazılım dünyasında yenilikçi çözümler üreten, tutkulu bir geliştirici olarak projelerinizde fark yaratıyorum.
+              Yazılım dünyasında yenilikçi çözümler üreten, tutkulu bir
+              geliştirici olarak projelerinizde fark yaratıyorum.
             </Typography>
           </motion.div>
 
@@ -80,17 +75,20 @@ const Hero = () => {
               component={Link}
               to="/about"
               sx={{
-                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                color: "#fff",
-                padding: "16px 40px",
+                backgroundColor: "#b08d57", // global.css'deki buton arka planı
+                color: "#4e2c1d", // global.css'deki buton yazı rengi
+                border: "2px solid #4e2c1d", // global.css'deki buton kenarı
+                padding: "10px 20px", // global.css ile uyumlu padding
                 fontSize: "1.25rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
-                borderRadius: "50px",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+                borderRadius: "4px", // global.css'de yuvarlaklık yok, ama isteğe bağlı eklenebilir
+                cursor: "pointer", // global.css ile uyumlu
                 "&:hover": {
-                  background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.secondary.dark})`,
-                  transform: "translateY(-3px)",
+                  backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
+                  color: "#fff", // global.css'deki hover yazı rengi
+                  border: "2px solid #b08d57", // global.css'deki hover kenar rengi
+                  transform: "translateY(-3px)", // Ekstra animasyon
                   boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
                   transition: "all 0.4s ease",
                 },

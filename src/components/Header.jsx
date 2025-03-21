@@ -10,37 +10,39 @@ import {
   Drawer,
   IconButton,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
+import { Link, useLocation } from "react-router-dom"; // useLocation eklendi
 import { motion } from "framer-motion";
-import MenuIcon from "@mui/icons-material/Menu"; // Hamburger menü ikonu
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Header = () => {
-  const theme = useTheme(); // Access the current theme
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery("(max-width:600px)");
   const [openMenu, setOpenMenu] = useState(false);
   const [opacity, setOpacity] = useState(1);
+  const location = useLocation(); // Şu anki URL yolunu almak için
 
   // Scroll eventini izleyerek opaklık seviyesini güncelle
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const newOpacity = Math.max(1 - scrollPosition / 500, 0.5); // Scroll 500px'den sonra %50'ye kadar saydamlaşır
+      const newOpacity = Math.max(1 - scrollPosition / 500, 0.5);
       setOpacity(newOpacity);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Sayfa değiştiğinde en üste kaydır
+  useEffect(() => {
+    window.scrollTo(0, 0); // Her yeni sayfada kaydırma pozisyonunu sıfırla
+  }, [location.pathname]); // location.pathname değiştiğinde çalışır
 
   const handleMenuToggle = () => {
     setOpenMenu(!openMenu);
   };
 
   const handleMenuItemClick = () => {
-    setOpenMenu(false); // Menü öğesine tıklandığında menüyü kapat
+    setOpenMenu(false);
   };
 
   const MenuItems = () => (
@@ -52,19 +54,19 @@ const Header = () => {
           to={path}
           onClick={handleMenuItemClick}
           sx={{
-            color: theme.palette.text.primary, // Tema ile uyumlu metin rengi
+            backgroundColor: "#b08d57",
+            color: "#4e2c1d",
+            border: "2px solid #4e2c1d",
             fontWeight: 700,
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" }, // Responsive
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
             textTransform: "uppercase",
             letterSpacing: "0.05rem",
-            padding: "8px 16px",
-            borderRadius: "50px", // Hero ile uyumlu yuvarlak kenar
+            padding: "10px 20px",
+            cursor: "pointer",
             "&:hover": {
-              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, // Hero ile uyumlu gradient
+              backgroundColor: "#4e2c1d",
               color: "#fff",
-              transform: "translateY(-2px)", // Hero ile benzer hover efekti
-              boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)", // Hafif gölge
-              transition: "all 0.4s ease", // Hero ile uyumlu geçiş
+              border: "2px solid #b08d57",
             },
           }}
         >
@@ -78,11 +80,10 @@ const Header = () => {
     <AppBar
       position="sticky"
       sx={{
-        background: `linear-gradient(45deg, ${theme.palette.primary.main}90, ${theme.palette.secondary.main}90)`, // Hero ile uyumlu gradient arka plan
-        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile uyumlu gölge
-        padding: isMobile ? "8px 0" : "12px 0",
+        backgroundColor: "#4e2c1d",
+        padding: isMobile ? "8px 0" : "20px",
         transition: "all 0.3s ease",
-        opacity: opacity, // Dinamik opaklık korunuyor
+        opacity: opacity,
       }}
     >
       <Container maxWidth="lg">
@@ -96,29 +97,24 @@ const Header = () => {
         >
           {/* Başlık */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }} // Hero ile uyumlu animasyon
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, type: "spring", stiffness: 100 }} // Hero ile aynı spring animasyonu
+            transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
           >
             <Typography
               component={Link}
               to="/"
               variant="h5"
               sx={{
-                fontWeight: 900, // Hero ile uyumlu kalınlık
-                color: theme.palette.text.primary, // Tema ile uyumlu renk
+                fontWeight: 900,
+                color: "#fff",
                 letterSpacing: "0.1rem",
                 fontFamily: "'Roboto', sans-serif",
                 textDecoration: "none",
                 cursor: "pointer",
-                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" }, // Responsive
-                background: "linear-gradient(to right, #00ddeb, #ff007a)", // Hero ile aynı gradient
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // Hero ile aynı gölge
+                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
                 "&:hover": {
-                  transform: "scale(1.05)", // Hover efekti
-                  transition: "all 0.4s ease", // Hero ile uyumlu geçiş
+                  color: "#b08d57",
                 },
               }}
             >
@@ -142,12 +138,10 @@ const Header = () => {
           <Box sx={{ display: isMobile ? "block" : "none" }}>
             <IconButton
               sx={{
-                color: theme.palette.text.primary, // Tema ile uyumlu renk
+                color: "#fff",
                 fontSize: "2rem",
                 "&:hover": {
-                  background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, // Hero ile uyumlu gradient
-                  transform: "scale(1.1)", // Hafif büyüme
-                  transition: "all 0.4s ease", // Hero ile uyumlu geçiş
+                  color: "#b08d57",
                 },
               }}
               onClick={handleMenuToggle}
@@ -165,10 +159,9 @@ const Header = () => {
         onClose={handleMenuToggle}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "200px", // Küçük bir alan açılacak
+            width: "200px",
             padding: "10px",
-            background: `linear-gradient(45deg, ${theme.palette.primary.main}90, ${theme.palette.secondary.main}90)`, // Hero ile uyumlu gradient
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)", // Hero ile uyumlu gölge
+            backgroundColor: "#4e2c1d",
           },
         }}
       >
