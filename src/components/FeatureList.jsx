@@ -18,7 +18,7 @@ const FeatureList = () => {
       sx={{
         padding: "60px 20px",
         textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır
+        background: "inherit", // global.css'deki body arka planı (linear-gradient) miras alınır
       }}
     >
       <Container>
@@ -33,7 +33,7 @@ const FeatureList = () => {
               fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
               fontWeight: 900,
               letterSpacing: "0.1rem",
-              color: "#4e2c1d", // global.css'deki başlık rengi
+              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
               marginBottom: "40px",
             }}
           >
@@ -61,6 +61,7 @@ const FeatureList = () => {
                 sx={{
                   padding: "40px",
                   borderRadius: "8px",
+                  backgroundColor: "rgba(78, 44, 29, 0.8)", // #4e2c1d'nin hafif şeffaf hali
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {
                     transform: "translateY(-10px)",
@@ -70,7 +71,7 @@ const FeatureList = () => {
                 <Box
                   sx={{
                     fontSize: "3rem",
-                    color: "#b08d57", // global.css'deki bağlantı/a rengi (altın sarısı)
+                    color: "#b08d57", // global.css'deki bağlantı rengi (altın sarısı)
                     marginBottom: "20px",
                   }}
                 >
@@ -80,7 +81,7 @@ const FeatureList = () => {
                   variant="h5"
                   sx={{
                     fontWeight: 700,
-                    color: "#4e2c1d", // global.css'deki başlık rengi
+                    color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
                     marginBottom: "15px",
                   }}
                 >
@@ -89,8 +90,8 @@ const FeatureList = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    color: "#4e2c1d", // global.css'deki paragraf rengi
-                    lineHeight: 1.6,
+                    color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
+                    lineHeight: 1.6, // global.css ile uyumlu
                     fontSize: "1rem",
                   }}
                 >

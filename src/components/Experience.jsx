@@ -7,7 +7,7 @@ const Experience = () => {
     <Box
       sx={{
         py: 8,
-        background: "inherit", // global.css'deki body arka planını miras alır
+        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
         textAlign: "center",
         position: "relative",
         overflow: "hidden",
@@ -25,7 +25,7 @@ const Experience = () => {
             gutterBottom
             sx={{
               fontWeight: 900,
-              color: "#4e2c1d", // global.css'deki başlık rengi
+              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
               letterSpacing: "0.1rem",
               fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
             }}
@@ -41,10 +41,10 @@ const Experience = () => {
           <Typography
             variant="body1"
             sx={{
-              lineHeight: 1.7,
+              lineHeight: 1.6, // global.css ile uyumlu
               maxWidth: "800px",
               mx: "auto",
-              color: "#4e2c1d", // global.css'deki paragraf rengi
+              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
               fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
             }}
           >
@@ -87,6 +87,7 @@ const Experience = () => {
                   sx={{
                     padding: "40px",
                     borderRadius: "8px",
+                    backgroundColor: "rgba(78, 44, 29, 0.8)", // #4e2c1d'nin hafif şeffaf hali
                     transition: "transform 0.3s ease-in-out",
                     height: "100%",
                     display: "flex",
@@ -100,7 +101,7 @@ const Experience = () => {
                     variant="h5"
                     sx={{
                       fontWeight: 700,
-                      color: "#4e2c1d", // global.css'deki başlık rengi
+                      color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
                       marginBottom: "15px",
                       fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
                       letterSpacing: "0.05rem",
@@ -111,9 +112,9 @@ const Experience = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#4e2c1d", // global.css'deki paragraf rengi
+                      color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
                       fontSize: "1rem",
-                      lineHeight: 1.6,
+                      lineHeight: 1.6, // global.css ile uyumlu
                       mt: 1,
                     }}
                   >
@@ -122,9 +123,9 @@ const Experience = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#4e2c1d", // global.css'deki paragraf rengi
+                      color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
                       fontSize: "1rem",
-                      lineHeight: 1.6,
+                      lineHeight: 1.6, // global.css ile uyumlu
                       mt: 2,
                     }}
                   >

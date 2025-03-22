@@ -30,7 +30,7 @@ const Projects = () => {
       sx={{
         py: 8,
         textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır
+        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
         position: "relative",
         overflow: "hidden",
       }}
@@ -45,7 +45,7 @@ const Projects = () => {
           gutterBottom
           sx={{
             fontWeight: 900,
-            color: "#4e2c1d", // global.css'deki başlık rengi
+            color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
             letterSpacing: "0.1rem",
             fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
           }}
@@ -66,6 +66,7 @@ const Projects = () => {
                 sx={{
                   padding: "40px",
                   borderRadius: "8px",
+                  backgroundColor: "rgba(78, 44, 29, 0.8)", // #4e2c1d'nin hafif şeffaf hali
                   transition: "transform 0.3s ease-in-out",
                   height: "100%",
                   display: "flex",
@@ -79,7 +80,7 @@ const Projects = () => {
                   variant="h5"
                   sx={{
                     fontWeight: 700,
-                    color: "#4e2c1d", // global.css'deki başlık rengi
+                    color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
                     marginBottom: "15px",
                     fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
                     letterSpacing: "0.05rem",
@@ -90,8 +91,8 @@ const Projects = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    color: "#4e2c1d", // global.css'deki paragraf rengi
-                    lineHeight: 1.6,
+                    color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
+                    lineHeight: 1.6, // global.css ile uyumlu
                     fontSize: "1rem",
                     mt: 2,
                   }}
@@ -114,7 +115,7 @@ const Projects = () => {
                     cursor: "pointer",
                     "&:hover": {
                       backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                      color: "#fff", // global.css'deki hover yazı rengi
+                      color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
                       border: "2px solid #b08d57", // global.css'deki hover kenar rengi
                     },
                   }}
@@ -140,7 +141,7 @@ const Projects = () => {
         <Box
           sx={{
             backgroundColor: "#4e2c1d", // global.css'deki input/textarea arka planı
-            color: "#fff", // global.css'deki input/textarea yazı rengi
+            color: "#f5f0e1", // global.css'deki input/textarea yazı rengi (kırık beyaz)
             border: "2px solid #b08d57", // global.css'deki input/textarea kenar rengi
             borderRadius: 3,
             padding: 4,
@@ -154,7 +155,7 @@ const Projects = () => {
             gutterBottom
             sx={{
               fontWeight: 700,
-              color: "#fff", // Modal içeriği beyaz yazı rengi
+              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
             }}
           >
             {selectedProject?.title}
@@ -163,8 +164,8 @@ const Projects = () => {
             variant="body1"
             sx={{
               mb: 3,
-              color: "#fff", // Modal içeriği beyaz yazı rengi
-              lineHeight: 1.6,
+              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
+              lineHeight: 1.6, // global.css ile uyumlu
             }}
           >
             {selectedProject?.details}
@@ -184,7 +185,7 @@ const Projects = () => {
               cursor: "pointer",
               "&:hover": {
                 backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                color: "#fff", // global.css'deki hover yazı rengi
+                color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
                 border: "2px solid #b08d57", // global.css'deki hover kenar rengi
               },
             }}

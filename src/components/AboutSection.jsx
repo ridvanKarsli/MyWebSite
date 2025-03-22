@@ -18,7 +18,7 @@ const AboutSection = () => {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        background: "inherit", // global.css'deki body arka planını miras alır
+        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
       }}
     >
       <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
@@ -33,7 +33,7 @@ const AboutSection = () => {
             fontWeight="bold"
             gutterBottom
             sx={{
-              color: "#4e2c1d", // global.css'deki başlık rengi
+              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
               letterSpacing: "0.1rem",
               fontSize: { xs: "2.5rem", sm: "4rem", md: "5rem" },
             }}
@@ -51,10 +51,10 @@ const AboutSection = () => {
           <Typography
             variant="h6"
             sx={{
-              lineHeight: 1.7,
+              lineHeight: 1.6, // global.css ile uyumlu
               maxWidth: "800px",
               mx: "auto",
-              color: "#4e2c1d", // global.css'deki paragraf rengi
+              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
               fontSize: { xs: "1rem", sm: "1.25rem", md: "1.75rem" },
               letterSpacing: "0.05rem",
             }}
@@ -116,7 +116,7 @@ const AboutSection = () => {
                     cursor: "pointer", // global.css ile uyumlu
                     "&:hover": {
                       backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                      color: "#fff", // global.css'deki hover yazı rengi
+                      color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
                       border: "2px solid #b08d57", // global.css'deki hover kenar rengi
                     },
                   }}

@@ -29,7 +29,7 @@ const ContactForm = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır
+        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
         padding: "0 20px",
         position: "relative",
         overflow: "hidden",
@@ -45,7 +45,7 @@ const ContactForm = () => {
             variant="h4"
             sx={{
               fontWeight: 900,
-              color: "#4e2c1d", // global.css'deki başlık rengi
+              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
               letterSpacing: "0.1rem",
               fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
               marginBottom: 3,
@@ -85,10 +85,10 @@ const ContactForm = () => {
                   },
                   "& .MuiOutlinedInput-root": {
                     backgroundColor: "#4e2c1d", // global.css'deki input arka planı
-                    color: "#fff", // global.css'deki input yazı rengi
+                    color: "#f5f0e1", // global.css'deki input yazı rengi (kırık beyaz)
                     "& fieldset": { borderColor: "#b08d57" }, // global.css'deki input kenar rengi
                     "&:hover fieldset": { borderColor: "#b08d57" },
-                    "&.Mui-focused fieldset": { borderColor: "#b08d57" }, // global.css ile uyumlu
+                    "&.Mui-focused fieldset": { borderColor: "#b08d57" }, // global.css ile uyumlu focus rengi
                   },
                 }}
               />
@@ -115,7 +115,7 @@ const ContactForm = () => {
                 cursor: "pointer", // global.css ile uyumlu
                 "&:hover": {
                   backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                  color: "#fff", // global.css'deki hover yazı rengi
+                  color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
                   border: "2px solid #b08d57", // global.css'deki hover kenar rengi
                 },
               }}

@@ -10,9 +10,9 @@ const Footer = () => {
         bottom: 0,
         left: 0,
         right: 0,
-        padding: "20px", // global.css'deki footer padding ile uyumlu
-        backgroundColor: "#4e2c1d", // global.css'deki header/footer arka planı
-        color: "#fff", // global.css'deki header/footer yazı rengi
+        padding: "20px",
+        backgroundColor: "#4e2c1d",
+        color: "#f5f0e1",
         textAlign: "center",
       }}
     >
@@ -28,7 +28,7 @@ const Footer = () => {
               fontWeight: 700,
               fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
               letterSpacing: "0.05rem",
-              color: "#fff", // global.css'deki footer yazı rengi
+              color: "#f5f0e1",
             }}
           >
             © 2025 Rıdvan Şevki Karslı. Tüm hakları saklıdır.
@@ -40,7 +40,7 @@ const Footer = () => {
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
               marginTop: "5px",
               display: "block",
-              color: "#b08d57", // global.css'deki footer bağlantı rengi
+              color: "#b08d57",
             }}
           >
             Designed with ❤️ by Rıdvan Şevki Karslı
