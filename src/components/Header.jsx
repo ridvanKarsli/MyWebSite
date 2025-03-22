@@ -42,23 +42,27 @@ const Header = () => {
       {["/", "/about"].map((path, index) => (
         <Button
           key={index}
+          variant="contained"
           component={Link}
           to={path}
           onClick={handleMenuItemClick}
           sx={{
             backgroundColor: "#b08d57",
-            color: "#4e2c1d",
-            border: "2px solid #4e2c1d",
+            color: "#000000",
+            border: "2px solid #b08d57",
             fontWeight: 700,
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
             textTransform: "uppercase",
             letterSpacing: "0.05rem",
             padding: "10px 20px",
             cursor: "pointer",
             "&:hover": {
-              backgroundColor: "#4e2c1d",
-              color: "#f5f0e1",
+              backgroundColor: "#000000",
+              color: "#b08d57",
               border: "2px solid #b08d57",
+              transform: "translateY(-3px)",
+              boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
+              transition: "all 0.4s ease",
             },
           }}
         >
@@ -72,10 +76,17 @@ const Header = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: "#4e2c1d",
+        backgroundColor: "#000000",
         padding: isMobile ? "8px 0" : "20px",
         transition: "all 0.3s ease",
         opacity: opacity,
+        backgroundImage: `
+          linear-gradient(45deg, #b08d57 10%, transparent 10%),
+          linear-gradient(-45deg, #b08d57 10%, transparent 10%)
+        `,
+        backgroundSize: "20px 20px",
+        backgroundPosition: "left, right",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <Container maxWidth="lg">
@@ -92,24 +103,31 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
           >
-            <Typography
+            <Box
               component={Link}
               to="/"
-              variant="h5"
               sx={{
-                fontWeight: 900,
-                color: "#f5f0e1",
-                letterSpacing: "0.1rem",
+                display: "flex",
+                alignItems: "center",
                 textDecoration: "none",
                 cursor: "pointer",
-                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
+                background: "linear-gradient(to right, #ffffff, #000000)", // Beyazdan siyaha gradient
+                padding: "5px", // Gradientin logoyu çevrelemesi için padding
+                borderRadius: "8px", // Kenarları yumuşatmak için
                 "&:hover": {
-                  color: "#b08d57",
+                  filter: "brightness(1.2)",
                 },
               }}
             >
-              Rıdvan
-            </Typography>
+              <img
+                src="/logo.png"
+                alt="Logo"
+                style={{
+                  height: isMobile ? "70px" : "80px", // Büyük logo
+                  width: "auto",
+                }}
+              />
+            </Box>
           </motion.div>
 
           <Box
@@ -126,7 +144,7 @@ const Header = () => {
           <Box sx={{ display: isMobile ? "block" : "none" }}>
             <IconButton
               sx={{
-                color: "#f5f0e1",
+                color: "#ffffff",
                 fontSize: "2rem",
                 "&:hover": { color: "#b08d57" },
               }}
@@ -146,7 +164,7 @@ const Header = () => {
           "& .MuiDrawer-paper": {
             width: "200px",
             padding: "10px",
-            backgroundColor: "#4e2c1d",
+            backgroundColor: "#000000",
           },
         }}
       >

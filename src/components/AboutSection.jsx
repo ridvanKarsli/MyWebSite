@@ -106,18 +106,22 @@ const AboutSection = () => {
                   target="_blank"
                   startIcon={item.icon}
                   sx={{
-                    backgroundColor: "#b08d57", // global.css'deki buton arka planı
-                    color: "#4e2c1d", // global.css'deki buton yazı rengi
-                    border: "2px solid #4e2c1d", // global.css'deki buton kenarı
-                    padding: "10px 20px", // global.css ile uyumlu
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
+                    backgroundColor: "#b08d57",
+                    color: "#000000",
+                    border: "2px solid #b08d57",
                     fontWeight: 700,
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
                     textTransform: "uppercase",
-                    cursor: "pointer", // global.css ile uyumlu
+                    letterSpacing: "0.05rem",
+                    padding: "10px 20px",
+                    cursor: "pointer",
                     "&:hover": {
-                      backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                      color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
-                      border: "2px solid #b08d57", // global.css'deki hover kenar rengi
+                      backgroundColor: "#000000",
+                      color: "#b08d57",
+                      border: "2px solid #b08d57",
+                      transform: "translateY(-3px)",
+                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
+                      transition: "all 0.4s ease",
                     },
                   }}
                 >

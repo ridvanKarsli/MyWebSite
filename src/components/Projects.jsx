@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "🌟 MoodMate",
+    title: "MoodMate",
     description: "Duygusal zeka ile film, müzik, dizi ve podcast önerisi.",
     details:
       "MoodMate, kullanıcının yazdığı yazıya göre duygusal durumunu analiz ederek ona uygun içerik önerileri sunan bir uygulamadır. Kullanıcı yazılarını analiz ederek en uygun film, müzik, dizi ve podcast önerilerini yapar.",
@@ -66,7 +66,7 @@ const Projects = () => {
                 sx={{
                   padding: "40px",
                   borderRadius: "8px",
-                  backgroundColor: "rgba(78, 44, 29, 0.8)", // #4e2c1d'nin hafif şeffaf hali
+                  // backgroundColor removed to make it transparent
                   transition: "transform 0.3s ease-in-out",
                   height: "100%",
                   display: "flex",
@@ -105,18 +105,22 @@ const Projects = () => {
                   onClick={() => handleOpen(project)}
                   sx={{
                     mt: 2,
-                    backgroundColor: "#b08d57", // global.css'deki buton arka planı
-                    color: "#4e2c1d", // global.css'deki buton yazı rengi
-                    border: "2px solid #4e2c1d", // global.css'deki buton kenarı
-                    padding: "10px 20px",
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
+                    backgroundColor: "#b08d57",
+                    color: "#000000",
+                    border: "2px solid #b08d57",
                     fontWeight: 700,
+                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
                     textTransform: "uppercase",
+                    letterSpacing: "0.05rem",
+                    padding: "10px 20px",
                     cursor: "pointer",
                     "&:hover": {
-                      backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                      color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
-                      border: "2px solid #b08d57", // global.css'deki hover kenar rengi
+                      backgroundColor: "#000000",
+                      color: "#b08d57",
+                      border: "2px solid #b08d57",
+                      transform: "translateY(-3px)",
+                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
+                      transition: "all 0.4s ease",
                     },
                   }}
                 >
@@ -140,7 +144,7 @@ const Projects = () => {
       >
         <Box
           sx={{
-            backgroundColor: "#4e2c1d", // global.css'deki input/textarea arka planı
+            backgroundColor: "#000000", // global.css'deki input/textarea arka planı
             color: "#f5f0e1", // global.css'deki input/textarea yazı rengi (kırık beyaz)
             border: "2px solid #b08d57", // global.css'deki input/textarea kenar rengi
             borderRadius: 3,
@@ -175,18 +179,22 @@ const Projects = () => {
             size="large"
             onClick={handleClose}
             sx={{
-              backgroundColor: "#b08d57", // global.css'deki buton arka planı
-              color: "#4e2c1d", // global.css'deki buton yazı rengi
-              border: "2px solid #4e2c1d", // global.css'deki buton kenarı
-              padding: "10px 20px",
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
+              backgroundColor: "#b08d57",
+              color: "#000000",
+              border: "2px solid #b08d57",
               fontWeight: 700,
+              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
               textTransform: "uppercase",
+              letterSpacing: "0.05rem",
+              padding: "10px 20px",
               cursor: "pointer",
               "&:hover": {
-                backgroundColor: "#4e2c1d", // global.css'deki hover arka planı
-                color: "#f5f0e1", // global.css'deki hover yazı rengi (kırık beyaz)
-                border: "2px solid #b08d57", // global.css'deki hover kenar rengi
+                backgroundColor: "#000000",
+                color: "#b08d57",
+                border: "2px solid #b08d57",
+                transform: "translateY(-3px)",
+                boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
+                transition: "all 0.4s ease",
               },
             }}
           >

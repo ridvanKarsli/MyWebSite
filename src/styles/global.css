@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Roboto Mono', monospace; /* Tek aralıklı, dikkat çekici bir font */
-  background: linear-gradient(to right, #4e2c1d, #b08d57); /* Koyu kahverenginden altın sarısına geçiş */
+  background: linear-gradient(to right, #000000, #b08d57);
   color: #f5f0e1; /* Yazı rengi kırık beyaz */
   line-height: 1.6;
 }
@@ -32,17 +32,25 @@ a:hover {
 
 button {
   background-color: #b08d57; /* Altın sarısı buton rengi */
-  color: #4e2c1d; /* Buton yazı rengi koyu kahverengi */
-  border: 2px solid #4e2c1d; /* Buton kenar rengi koyu kahverengi */
-  padding: 10px 20px;
+  color: #000000; /* Yazı rengi siyah (Hero ile uyumlu) */
+  border: 2px solid #b08d57; /* Kenar rengi altın sarısı */
+  padding: 12px 24px; /* Daha geniş padding (Hero ile uyumlu) */
   cursor: pointer;
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* İlgi çekici font (Hero ile uyumlu) */
+  font-weight: 900; /* Daha kalın ve dikkat çekici (Hero ile uyumlu) */
+  font-size: 1.25rem; /* Varsayılan büyük font boyutu (md için 1.5rem idi, burada sabit) */
+  text-transform: uppercase; /* Büyük harf */
+  letter-spacing: 0.1rem; /* Harfler arası boşluk artırıldı */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hafif gölge (Hero ile uyumlu) */
+  transition: all 0.4s ease; /* Pürüzsüz geçiş (Hero ile uyumlu) */
 }
 
 button:hover {
-  background-color: #4e2c1d; /* Button hover rengi koyu kahverengi */
-  color: #f5f0e1; /* Buton hover yazı rengi kırık beyaz */
-  border: 2px solid #b08d57; /* Buton hover kenar rengi altın sarısı */
+  background-color: #000000; /* Hover rengi siyah (Hero ile uyumlu) */
+  color: #b08d57; /* Hover yazı rengi altın sarısı (Hero ile uyumlu) */
+  border: 2px solid #b08d57; /* Hover kenar rengi altın sarısı */
+  transform: translateY(-3px); /* Hafif yükselme efekti (Hero ile uyumlu) */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Daha belirgin gölge (Hero ile uyumlu) */
 }
 
 input, textarea {

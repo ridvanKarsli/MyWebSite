@@ -82,7 +82,7 @@ const Education = () => {
                   sx={{
                     padding: "40px",
                     borderRadius: "8px",
-                    backgroundColor: "rgba(78, 44, 29, 0.8)", // #4e2c1d'nin hafif şeffaf hali
+                    // Background removed to make it transparent
                     transition: "transform 0.3s ease-in-out",
                     height: "100%",
                     display: "flex",

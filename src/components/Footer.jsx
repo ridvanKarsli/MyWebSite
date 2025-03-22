@@ -11,9 +11,17 @@ const Footer = () => {
         left: 0,
         right: 0,
         padding: "20px",
-        backgroundColor: "#4e2c1d",
+        backgroundColor: "#000000", // Background changed to black
         color: "#f5f0e1",
         textAlign: "center",
+        // Diagonal stripes using linear-gradient
+        backgroundImage: `
+          linear-gradient(45deg, #b08d57 10%, transparent 10%),
+          linear-gradient(-45deg, #b08d57 10%, transparent 10%)
+        `,
+        backgroundSize: "20px 20px",
+        backgroundPosition: "left, right",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <Container maxWidth="lg">
@@ -31,7 +39,7 @@ const Footer = () => {
               color: "#f5f0e1",
             }}
           >
-            © 2025 Rıdvan Şevki Karslı. Tüm hakları saklıdır.
+            © 2025 Rıdvan Şevki Karslı.
           </Typography>
           <Typography
             variant="caption"
@@ -43,7 +51,7 @@ const Footer = () => {
               color: "#b08d57",
             }}
           >
-            Designed with ❤️ by Rıdvan Şevki Karslı
+            Rıdvan Şevki Karslı tarafından geliştirilmiştir.
           </Typography>
         </motion.div>
       </Container>
