@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Container,
   Box,
@@ -47,8 +46,8 @@ const Header = () => {
           to={path}
           onClick={handleMenuItemClick}
           sx={{
-            backgroundColor: "#b08d57",
-            color: "#000000",
+            backgroundColor: "#b08d57", // Altın rengi
+            color: "#000000", // Siyah yazı
             border: "2px solid #b08d57",
             fontWeight: 700,
             fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
@@ -57,8 +56,8 @@ const Header = () => {
             padding: "10px 20px",
             cursor: "pointer",
             "&:hover": {
-              backgroundColor: "#000000",
-              color: "#b08d57",
+              backgroundColor: "#000000", // Hover'da siyah arka plan
+              color: "#b08d57", // Altın rengi metin
               border: "2px solid #b08d57",
               transform: "translateY(-3px)",
               boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
@@ -76,17 +75,12 @@ const Header = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: "#000000",
-        padding: isMobile ? "8px 0" : "20px",
+        padding: isMobile ? "8px 0" : "20px", // Padding eklenmesi
         transition: "all 0.3s ease",
         opacity: opacity,
-        backgroundImage: `
-          linear-gradient(45deg, #b08d57 10%, transparent 10%),
-          linear-gradient(-45deg, #b08d57 10%, transparent 10%)
-        `,
-        backgroundSize: "20px 20px",
-        backgroundPosition: "left, right",
-        backgroundRepeat: "no-repeat",
+        backgroundColor: "rgba(0, 0, 0, 0.5)", // Şeffaf siyah arka plan
+        backdropFilter: "blur(5px)", // Hafif bulanıklaştırma efekti
+        boxShadow: "none", // Gölgeyi kaldırma
       }}
     >
       <Container maxWidth="lg">
@@ -120,7 +114,7 @@ const Header = () => {
               }}
             >
               <img
-                src="/logo.png"
+                src="/RLogo.jpg"
                 alt="Logo"
                 style={{
                   height: isMobile ? "70px" : "80px", // Büyük logo
@@ -144,9 +138,9 @@ const Header = () => {
           <Box sx={{ display: isMobile ? "block" : "none" }}>
             <IconButton
               sx={{
-                color: "#ffffff",
+                color: "#ffffff", // Menü iconu rengi
                 fontSize: "2rem",
-                "&:hover": { color: "#b08d57" },
+                "&:hover": { color: "#b08d57" }, // Hover'da altın rengi
               }}
               onClick={handleMenuToggle}
             >
@@ -164,7 +158,7 @@ const Header = () => {
           "& .MuiDrawer-paper": {
             width: "200px",
             padding: "10px",
-            backgroundColor: "#000000",
+            backgroundColor: "#000000", // Arka plan siyah
           },
         }}
       >

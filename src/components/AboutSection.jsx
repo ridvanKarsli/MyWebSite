@@ -12,17 +12,17 @@ const AboutSection = () => {
       sx={{
         py: 10,
         textAlign: "center",
-        height: "100vh", // Tam ekran yüksekliği
+        height: "100vh", // Full screen height
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
+        background: "inherit", // Inherit background from global.css (linear-gradient)
       }}
     >
       <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
-        {/* Animasyonlu Başlık */}
+        {/* Animated Title */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ const AboutSection = () => {
             fontWeight="bold"
             gutterBottom
             sx={{
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
+              color: "#f5f0e1", // Title color from global.css (off-white)
               letterSpacing: "0.1rem",
               fontSize: { xs: "2.5rem", sm: "4rem", md: "5rem" },
             }}
@@ -42,7 +42,7 @@ const AboutSection = () => {
           </Typography>
         </motion.div>
 
-        {/* Animasyonlu Metin */}
+        {/* Animated Text */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -51,26 +51,19 @@ const AboutSection = () => {
           <Typography
             variant="h6"
             sx={{
-              lineHeight: 1.6, // global.css ile uyumlu
+              lineHeight: 1.6, // Matches global.css line height
               maxWidth: "800px",
               mx: "auto",
-              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
+              color: "#f5f0e1", // Text color from global.css (off-white)
               fontSize: { xs: "1rem", sm: "1.25rem", md: "1.75rem" },
               letterSpacing: "0.05rem",
             }}
           >
-            Kütahya Dumlupınar Üniversitesi Bilgisayar Programcılığı mezunu,
-            ardından Manisa Celal Bayar Üniversitesi Bilgisayar Mühendisliği
-            öğrencisiyim. Eğitim hayatımda yazılım geliştirme, algoritma tasarımı
-            ve çözümü üzerine yoğunlaştım ve modern yazılım tekniklerinde
-            uzmanlık kazandım. Profesyonel kariyerime Kalem Web Software'de web
-            geliştirici olarak başladım ve burada takım çalışması, proje yönetimi
-            gibi önemli deneyimler edindim. Şu anda ENM Digital'de Stajyer olarak
-            çalışıyorum.
+            Kütahya Dumlupınar Üniversitesi Bilgisayar Programcılığı mezunu, ardından Manisa Celal Bayar Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Eğitim hayatımda yazılım geliştirme, algoritma tasarımı ve çözümü üzerine yoğunlaştım ve modern yazılım tekniklerinde uzmanlık kazandım. Profesyonel kariyerime Kalem Web Software'de web geliştirici olarak başladım ve burada takım çalışması, proje yönetimi gibi önemli deneyimler edindim. Şu anda ENM Digital'de Stajyer olarak çalışıyorum.
           </Typography>
         </motion.div>
 
-        {/* Sosyal Medya Butonları */}
+        {/* Social Media Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

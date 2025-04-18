@@ -56,7 +56,7 @@ const Skills = () => {
               fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
             }}
           >
-            Yazılım geliştirme dünyasında bir çok alanda yeteneklerim ve
+            Yazılım geliştirme dünyasında birçok alanda yeteneklerim ve
             deneyimlerimle projeler üretiyorum. Web geliştirmeden mobil uygulama
             geliştirmeye, API yazmaktan veri tabanı yönetimine kadar birçok
             teknolojiyi kullanarak çözümler üretiyorum.
@@ -91,7 +91,7 @@ const Skills = () => {
             },
             {
               icon: <StorageIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "Database Yönetimi",
+              title: "Veritabanı Yönetimi",
               description:
                 "PostgreSQL veritabanları ile verimli veri yönetimi sağlıyorum, veri yapıları ve optimizasyon konusunda deneyimim var.",
             },
@@ -106,7 +106,6 @@ const Skills = () => {
                   sx={{
                     padding: "40px",
                     borderRadius: "8px",
-                    // Background removed to make it transparent
                     transition: "transform 0.3s ease-in-out",
                     "&:hover": {
                       transform: "translateY(-10px)",

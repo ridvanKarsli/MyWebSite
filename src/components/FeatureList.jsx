@@ -35,6 +35,7 @@ const FeatureList = () => {
               letterSpacing: "0.1rem",
               color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
               marginBottom: "40px",
+              textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // global.css'deki başlık gölge efekti
             }}
           >
             Özellikler
@@ -61,17 +62,18 @@ const FeatureList = () => {
                 sx={{
                   padding: "40px",
                   borderRadius: "8px",
-                  // backgroundColor removed to make it transparent
+                  background: "transparent", // Küresel stil gereği şeffaf arka plan
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {
                     transform: "translateY(-10px)",
+                    boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // hoverda belirginleşen gölge efekti
                   },
                 }}
               >
                 <Box
                   sx={{
                     fontSize: "3rem",
-                    color: "#b08d57", // global.css'deki bağlantı rengi (altın sarısı)
+                    color: "#b08d57", // global.css'deki ikon rengi (altın sarısı)
                     marginBottom: "20px",
                   }}
                 >
@@ -83,6 +85,7 @@ const FeatureList = () => {
                     fontWeight: 700,
                     color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
                     marginBottom: "15px",
+                    letterSpacing: "0.05rem", // Yazı aralığı
                   }}
                 >
                   {feature.title}
@@ -93,6 +96,7 @@ const FeatureList = () => {
                     color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
                     lineHeight: 1.6, // global.css ile uyumlu
                     fontSize: "1rem",
+                    letterSpacing: "0.05rem", // Yazı aralığı
                   }}
                 >
                   {feature.description}

@@ -28,7 +28,7 @@ const theme = createTheme({
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       letterSpacing: "0.1rem",
-      textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // Hafif gölge
+      textShadow: "0 5px 15px rgba(193, 5, 5, 0.3)", // Hafif gölge
     },
     body1: {
       color: "#ffd700", // Altın sarısı metin rengi

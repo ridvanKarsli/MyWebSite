@@ -11,10 +11,9 @@ const Footer = () => {
         left: 0,
         right: 0,
         padding: "20px",
-        backgroundColor: "#000000", // Background changed to black
-        color: "#f5f0e1",
+        backgroundColor: "inherit", // global.css'deki arka plan rengini miras alır
+        color: "#f5f0e1", // global.css'deki metin rengi (kırık beyaz)
         textAlign: "center",
-        // Diagonal stripes using linear-gradient
         backgroundImage: `
           linear-gradient(45deg, #b08d57 10%, transparent 10%),
           linear-gradient(-45deg, #b08d57 10%, transparent 10%)
@@ -36,7 +35,7 @@ const Footer = () => {
               fontWeight: 700,
               fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
               letterSpacing: "0.05rem",
-              color: "#f5f0e1",
+              color: "#f5f0e1", // global.css'deki metin rengi (kırık beyaz)
             }}
           >
             © 2025 Rıdvan Şevki Karslı.
@@ -48,7 +47,7 @@ const Footer = () => {
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
               marginTop: "5px",
               display: "block",
-              color: "#b08d57",
+              color: "#b08d57", // global.css'deki başlık rengi (altın tonu)
             }}
           >
             Rıdvan Şevki Karslı tarafından geliştirilmiştir.
