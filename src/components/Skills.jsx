@@ -111,7 +111,7 @@ const Skills = () => {
         color: 'white',
         position: 'relative',
         overflow: 'hidden',
-        py: 8,
+        py: 8,r
       }}
     >
       <Container maxWidth="lg">
