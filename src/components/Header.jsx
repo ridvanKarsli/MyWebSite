@@ -19,6 +19,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { useLanguage } from '../context/LanguageContext';
 import TranslateIcon from '@mui/icons-material/Translate';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -49,8 +50,8 @@ const Header = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Box
-        component="a"
-        href="/"
+        component={Link}
+        to="/"
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -76,8 +77,8 @@ const Header = () => {
         {pages.map((page) => (
           <ListItem
             key={page.title}
-            component="a"
-            href={page.path}
+            component={Link}
+            to={page.path}
             sx={{
               color: '#8892b0',
               '&:hover': {
@@ -120,8 +121,8 @@ const Header = () => {
         <Toolbar disableGutters>
           {/* Desktop Logo */}
           <Box
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               display: { xs: 'none', md: 'flex' },
               alignItems: 'center',
@@ -179,8 +180,8 @@ const Header = () => {
 
           {/* Mobile Logo */}
           <Box
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
@@ -207,15 +208,13 @@ const Header = () => {
             {pages.map((page) => (
               <Button
                 key={page.title}
-                component="a"
-                href={page.path}
+                component={Link}
+                to={page.path}
                 onClick={handleCloseNavMenu}
                 sx={{
+                  my: 2,
                   color: '#8892b0',
                   display: 'block',
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                  mx: 1,
                   '&:hover': {
                     color: '#00e5ff',
                     backgroundColor: 'rgba(0, 229, 255, 0.1)',
@@ -225,19 +224,20 @@ const Header = () => {
                 {page.title}
               </Button>
             ))}
-            <IconButton
+            <Button
               onClick={toggleLanguage}
               sx={{
+                my: 2,
                 color: '#8892b0',
-                ml: 1,
+                display: 'block',
                 '&:hover': {
                   color: '#00e5ff',
                   backgroundColor: 'rgba(0, 229, 255, 0.1)',
                 },
               }}
             >
-              <TranslateIcon />
-            </IconButton>
+              {language === 'en' ? 'Türkçe' : 'English'}
+            </Button>
           </Box>
         </Toolbar>
       </Container>

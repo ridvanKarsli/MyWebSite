@@ -19,7 +19,7 @@ export default defineConfig({
     strictPort: true,
     port: 5174
   },
-  base: '/',
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -27,6 +27,7 @@ export default defineConfig({
       output: {
         manualChunks: undefined
       }
-    }
+    },
+    sourcemap: true
   }
 })
