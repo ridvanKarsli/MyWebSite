@@ -1,129 +1,127 @@
-import React from "react";
-import { Box, Typography, Container, Button, Grid } from "@mui/material";
-import { motion } from "framer-motion";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import MailIcon from "@mui/icons-material/Mail";
+import React from 'react';
+import { Box, Container, Typography, Grid } from '@mui/material';
+import TechButton from './TechButton';
+import { useLanguage } from '../context/LanguageContext';
 
 const AboutSection = () => {
+  const { translations, language } = useLanguage();
+
+  const skills = [
+    'JavaScript',
+    'React',
+    'Node.js',
+    'TypeScript',
+    'Python',
+    'MongoDB',
+    'SQL',
+    'Git',
+    'Docker',
+    'AWS',
+  ];
+
   return (
     <Box
       sx={{
-        py: 10,
-        textAlign: "center",
-        height: "100vh", // Full screen height
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
-        background: "inherit", // Inherit background from global.css (linear-gradient)
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#0a192f',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
+        py: 8,
       }}
     >
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
-        {/* Animated Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
-        >
-          <Typography
-            variant="h3"
-            fontWeight="bold"
-            gutterBottom
-            sx={{
-              color: "#f5f0e1", // Title color from global.css (off-white)
-              letterSpacing: "0.1rem",
-              fontSize: { xs: "2.5rem", sm: "4rem", md: "5rem" },
-            }}
-          >
-            Hakkımda
-          </Typography>
-        </motion.div>
-
-        {/* Animated Text */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
-              lineHeight: 1.6, // Matches global.css line height
-              maxWidth: "800px",
-              mx: "auto",
-              color: "#f5f0e1", // Text color from global.css (off-white)
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.75rem" },
-              letterSpacing: "0.05rem",
-            }}
-          >
-            Kütahya Dumlupınar Üniversitesi Bilgisayar Programcılığı mezunu, ardından Manisa Celal Bayar Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Eğitim hayatımda yazılım geliştirme, algoritma tasarımı ve çözümü üzerine yoğunlaştım ve modern yazılım tekniklerinde uzmanlık kazandım. Profesyonel kariyerime Kalem Web Software'de web geliştirici olarak başladım ve burada takım çalışması, proje yönetimi gibi önemli deneyimler edindim. Şu anda ENM Digital'de Stajyer olarak çalışıyorum.
-          </Typography>
-        </motion.div>
-
-        {/* Social Media Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <Grid container spacing={3} justifyContent="center" sx={{ mt: 4 }}>
-            {[
-              {
-                icon: <GitHubIcon />,
-                label: "GitHub",
-                link: "https://github.com/ridvanKarsli",
-              },
-              {
-                icon: <InstagramIcon />,
-                label: "Instagram",
-                link: "https://www.instagram.com/ridvanskarsli/",
-              },
-              {
-                icon: <LinkedInIcon />,
-                label: "LinkedIn",
-                link: "https://www.linkedin.com/in/rıdvan-karslı-44a783294/",
-              },
-              {
-                icon: <MailIcon />,
-                label: "E-posta",
-                link: "mailto:rden.35050@gmail.com",
-              },
-            ].map((item, index) => (
-              <Grid item key={index}>
-                <Button
-                  variant="contained"
-                  href={item.link}
-                  target="_blank"
-                  startIcon={item.icon}
-                  sx={{
-                    backgroundColor: "#b08d57",
-                    color: "#000000",
-                    border: "2px solid #b08d57",
-                    fontWeight: 700,
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05rem",
-                    padding: "10px 20px",
-                    cursor: "pointer",
-                    "&:hover": {
-                      backgroundColor: "#000000",
-                      color: "#b08d57",
-                      border: "2px solid #b08d57",
-                      transform: "translateY(-3px)",
-                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
-                      transition: "all 0.4s ease",
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
-              </Grid>
-            ))}
+      <Container maxWidth="lg">
+        <Grid container spacing={6} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h2"
+              component="h2"
+              sx={{
+                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontWeight: 'bold',
+                mb: 2,
+                fontFamily: 'monospace',
+              }}
+            >
+              {translations[language].about.title}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                mb: 3,
+                color: '#8892b0',
+                fontSize: '1.1rem',
+                lineHeight: 1.8,
+              }}
+            >
+              {translations[language].about.journey.content1}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                mb: 4,
+                color: '#8892b0',
+                fontSize: '1.1rem',
+                lineHeight: 1.8,
+              }}
+            >
+              {translations[language].about.journey.content2}
+            </Typography>
+            <TechButton
+              variant="outlined"
+              onClick={() => window.open('/resume.pdf', '_blank')}
+            >
+              {translations[language].about.downloadResume}
+            </TechButton>
           </Grid>
-        </motion.div>
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '8px',
+                p: 4,
+              }}
+            >
+              <Typography
+                variant="h3"
+                sx={{
+                  fontSize: '1.5rem',
+                  color: '#00e5ff',
+                  mb: 3,
+                  fontFamily: 'monospace',
+                }}
+              >
+                {translations[language].about.timeline.skills.title}
+              </Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 2,
+                }}
+              >
+                {skills.map((skill) => (
+                  <Typography
+                    key={skill}
+                    sx={{
+                      backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                      color: '#00e5ff',
+                      px: 2,
+                      py: 1,
+                      borderRadius: '4px',
+                      fontSize: '0.9rem',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    {skill}
+                  </Typography>
+                ))}
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );

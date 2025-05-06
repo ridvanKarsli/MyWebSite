@@ -1,133 +1,158 @@
-import React, { useState } from "react";
-import { Box, Button, TextField, Typography, Container } from "@mui/material";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Box, Container, Typography, TextField, Grid } from '@mui/material';
+import TechButton from './TechButton';
+import { useLanguage } from '../context/LanguageContext';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, message } = formData;
-    const subject = encodeURIComponent(`İletişim Formu - ${name}`);
-    const body = encodeURIComponent(`Gönderen: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
-    
-    // Mailto bağlantısını kullanarak mesajı göndermek
-    window.location.href = `mailto:rdvn.35050@gmail.com?subject=${subject}&body=${body}`;
-  };
+  const { translations, language } = useLanguage();
 
   return (
     <Box
       sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#0a192f',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
         py: 8,
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
-        padding: "0 20px",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
+      <Container maxWidth="md">
+        <Typography
+          variant="h2"
+          component="h2"
+          sx={{
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            fontWeight: 'bold',
+            mb: 2,
+            fontFamily: 'monospace',
+            textAlign: 'center',
+          }}
         >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 900,
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-              letterSpacing: "0.1rem",
-              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
-              marginBottom: 3,
-            }}
-          >
-            İletişime Geçin
-          </Typography>
-        </motion.div>
+          {translations[language].contact.title}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: 6,
+            color: '#8892b0',
+            fontSize: '1.1rem',
+            textAlign: 'center',
+            maxWidth: '600px',
+            mx: 'auto',
+          }}
+        >
+          {translations[language].contact.description}
+        </Typography>
 
-        <motion.form
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          onSubmit={handleSubmit}
+        <Box
+          component="form"
+          sx={{
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '8px',
+            p: 4,
+          }}
         >
-          {["name", "email", "message"].map((field, index) => (
-            <motion.div
-              key={field}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
               <TextField
-                label={field === "name" ? "Adınız" : field === "email" ? "E-posta" : "Mesajınız"}
-                name={field}
-                value={formData[field]}
-                onChange={handleInputChange}
                 fullWidth
-                required
-                multiline={field === "message"}
-                rows={field === "message" ? 4 : 1}
+                label={translations[language].contact.form.namePlaceholder}
+                variant="outlined"
                 sx={{
-                  marginBottom: 2,
-                  "& .MuiInputLabel-root": {
-                    color: "#b08d57", // global.css'deki altın sarısı (örneğin bağlantılar için)
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'white',
+                    '& fieldset': {
+                      borderColor: 'rgba(0, 229, 255, 0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#00e5ff',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#00e5ff',
+                    },
                   },
-                  "& .MuiOutlinedInput-root": {
-                    backgroundColor: "#000000", // global.css'deki input arka planı
-                    color: "#f5f0e1", // global.css'deki input yazı rengi (kırık beyaz)
-                    "& fieldset": { borderColor: "#b08d57" }, // global.css'deki input kenar rengi
-                    "&:hover fieldset": { borderColor: "#b08d57" },
-                    "&.Mui-focused fieldset": { borderColor: "#b08d57" }, // global.css ile uyumlu focus rengi
+                  '& .MuiInputLabel-root': {
+                    color: '#8892b0',
+                    '&.Mui-focused': {
+                      color: '#00e5ff',
+                    },
                   },
                 }}
               />
-            </motion.div>
-          ))}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: "#b08d57",
-                color: "#000000", // Kahve rengi yerine siyah
-                border: "2px solid #b08d57",
-                fontWeight: 700,
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
-                textTransform: "uppercase",
-                letterSpacing: "0.05rem",
-                padding: "10px 20px",
-                cursor: "pointer",
-                "&:hover": {
-                  backgroundColor: "#000000", // Kahve rengi yerine siyah
-                  color: "#b08d57",
-                  border: "2px solid #b08d57",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
-                  transition: "all 0.4s ease",
-                },
-              }}
-            >
-              Gönder
-            </Button>
-          </motion.div>
-        </motion.form>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                label={translations[language].contact.form.emailPlaceholder}
+                variant="outlined"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    color: 'white',
+                    '& fieldset': {
+                      borderColor: 'rgba(0, 229, 255, 0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#00e5ff',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#00e5ff',
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: '#8892b0',
+                    '&.Mui-focused': {
+                      color: '#00e5ff',
+                    },
+                  },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label={translations[language].contact.form.messagePlaceholder}
+                multiline
+                rows={4}
+                variant="outlined"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    color: 'white',
+                    '& fieldset': {
+                      borderColor: 'rgba(0, 229, 255, 0.3)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#00e5ff',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#00e5ff',
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: '#8892b0',
+                    '&.Mui-focused': {
+                      color: '#00e5ff',
+                    },
+                  },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <TechButton
+                  variant="outlined"
+                  sx={{
+                    minWidth: '200px',
+                  }}
+                >
+                  {translations[language].contact.form.sendButton}
+                </TechButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
     </Box>
   );

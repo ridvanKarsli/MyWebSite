@@ -1,171 +1,246 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import {
   AppBar,
-  Toolbar,
-  Button,
-  Container,
   Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+  useTheme,
   useMediaQuery,
   Drawer,
-  IconButton,
-} from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import MenuIcon from "@mui/icons-material/Menu";
+  List,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useLanguage } from '../context/LanguageContext';
+import TranslateIcon from '@mui/icons-material/Translate';
 
 const Header = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
-  const [openMenu, setOpenMenu] = useState(false);
-  const [opacity, setOpacity] = useState(1);
-  const location = useLocation();
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language, toggleLanguage, translations } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const newOpacity = Math.max(1 - scrollPosition / 500, 0.5);
-      setOpacity(newOpacity);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-  const handleMenuToggle = () => setOpenMenu(!openMenu);
-  const handleMenuItemClick = () => setOpenMenu(false);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-  const MenuItems = () => (
-    <>
-      {["/", "/about"].map((path, index) => (
-        <Button
-          key={index}
-          variant="contained"
-          component={Link}
-          to={path}
-          onClick={handleMenuItemClick}
+  const pages = [
+    { title: translations[language].nav.home, path: '/' },
+    { title: translations[language].nav.about, path: '/about' },
+    { title: translations[language].nav.projects, path: '/projects' },
+    { title: translations[language].nav.contact, path: '/contact' },
+  ];
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Box
+        component="a"
+        href="/"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          py: 2,
+          textDecoration: 'none',
+        }}
+      >
+        <Typography
+          variant="h6"
+          component="h1"
           sx={{
-            backgroundColor: "#b08d57", // Altın rengi
-            color: "#000000", // Siyah yazı
-            border: "2px solid #b08d57",
-            fontWeight: 700,
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
-            textTransform: "uppercase",
-            letterSpacing: "0.05rem",
-            padding: "10px 20px",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: "#000000", // Hover'da siyah arka plan
-              color: "#b08d57", // Altın rengi metin
-              border: "2px solid #b08d57",
-              transform: "translateY(-3px)",
-              boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
-              transition: "all 0.4s ease",
+            color: '#00e5ff',
+            fontFamily: 'monospace',
+            fontWeight: 'bold',
+            fontSize: '1.5rem',
+          }}
+        >
+          RIDVAN KARSLI
+        </Typography>
+      </Box>
+      <List>
+        {pages.map((page) => (
+          <ListItem
+            key={page.title}
+            component="a"
+            href={page.path}
+            sx={{
+              color: '#8892b0',
+              '&:hover': {
+                color: '#00e5ff',
+                backgroundColor: 'rgba(0, 229, 255, 0.1)',
+              },
+            }}
+          >
+            <ListItemText primary={page.title} />
+          </ListItem>
+        ))}
+        <ListItem
+          onClick={toggleLanguage}
+          sx={{
+            color: '#8892b0',
+            cursor: 'pointer',
+            '&:hover': {
+              color: '#00e5ff',
+              backgroundColor: 'rgba(0, 229, 255, 0.1)',
             },
           }}
         >
-          {path === "/" ? "Anasayfa" : "Hakkında"}
-        </Button>
-      ))}
-    </>
+          <ListItemText primary={language === 'en' ? 'Türkçe' : 'English'} />
+        </ListItem>
+      </List>
+    </Box>
   );
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
-        padding: isMobile ? "8px 0" : "20px", // Padding eklenmesi
-        transition: "all 0.3s ease",
-        opacity: opacity,
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Şeffaf siyah arka plan
-        backdropFilter: "blur(5px)", // Hafif bulanıklaştırma efekti
-        boxShadow: "none", // Gölgeyi kaldırma
+        backgroundColor: 'rgba(10, 25, 47, 0.9)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: 'none',
+        borderBottom: '1px solid rgba(0, 229, 255, 0.1)',
       }}
     >
-      <Container maxWidth="lg">
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0",
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          {/* Desktop Logo */}
+          <Box
+            component="a"
+            href="/"
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              alignItems: 'center',
+              textDecoration: 'none',
+              mr: 2,
+            }}
           >
-            <Box
-              component={Link}
-              to="/"
+            <Typography
+              variant="h6"
+              component="h1"
               sx={{
-                display: "flex",
-                alignItems: "center",
-                textDecoration: "none",
-                cursor: "pointer",
-                background: "linear-gradient(to right, #ffffff, #000000)", // Beyazdan siyaha gradient
-                padding: "5px", // Gradientin logoyu çevrelemesi için padding
-                borderRadius: "8px", // Kenarları yumuşatmak için
-                "&:hover": {
-                  filter: "brightness(1.2)",
+                color: '#00e5ff',
+                fontFamily: 'monospace',
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+              }}
+            >
+              RIDVAN KARSLI
+            </Typography>
+          </Box>
+
+          {/* Mobile Menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="menu"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleDrawerToggle}
+              sx={{ color: '#8892b0' }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              variant="temporary"
+              anchor="left"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                '& .MuiDrawer-paper': {
+                  boxSizing: 'border-box',
+                  width: 240,
+                  backgroundColor: '#0a192f',
+                  borderRight: '1px solid rgba(0, 229, 255, 0.1)',
                 },
               }}
             >
-              <img
-                src="/RLogo.jpg"
-                alt="Logo"
-                style={{
-                  height: isMobile ? "70px" : "80px", // Büyük logo
-                  width: "auto",
-                }}
-              />
-            </Box>
-          </motion.div>
-
-          <Box
-            sx={{
-              display: isMobile ? "none" : "flex",
-              gap: 3,
-              justifyContent: "flex-end",
-              alignItems: "center",
-            }}
-          >
-            <MenuItems />
+              {drawer}
+            </Drawer>
           </Box>
 
-          <Box sx={{ display: isMobile ? "block" : "none" }}>
-            <IconButton
+          {/* Mobile Logo */}
+          <Box
+            component="a"
+            href="/"
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              alignItems: 'center',
+              textDecoration: 'none',
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="h1"
               sx={{
-                color: "#ffffff", // Menü iconu rengi
-                fontSize: "2rem",
-                "&:hover": { color: "#b08d57" }, // Hover'da altın rengi
+                color: '#00e5ff',
+                fontFamily: 'monospace',
+                fontWeight: 'bold',
+                fontSize: '1.2rem',
               }}
-              onClick={handleMenuToggle}
             >
-              <MenuIcon />
+              RIDVAN KARSLI
+            </Typography>
+          </Box>
+
+          {/* Desktop Menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
+            {pages.map((page) => (
+              <Button
+                key={page.title}
+                component="a"
+                href={page.path}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  color: '#8892b0',
+                  display: 'block',
+                  fontFamily: 'monospace',
+                  fontSize: '0.9rem',
+                  mx: 1,
+                  '&:hover': {
+                    color: '#00e5ff',
+                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                  },
+                }}
+              >
+                {page.title}
+              </Button>
+            ))}
+            <IconButton
+              onClick={toggleLanguage}
+              sx={{
+                color: '#8892b0',
+                ml: 1,
+                '&:hover': {
+                  color: '#00e5ff',
+                  backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                },
+              }}
+            >
+              <TranslateIcon />
             </IconButton>
           </Box>
         </Toolbar>
       </Container>
-
-      <Drawer
-        anchor="right"
-        open={openMenu}
-        onClose={handleMenuToggle}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: "200px",
-            padding: "10px",
-            backgroundColor: "#000000", // Arka plan siyah
-          },
-        }}
-      >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}>
-          <MenuItems />
-        </Box>
-      </Drawer>
     </AppBar>
   );
 };

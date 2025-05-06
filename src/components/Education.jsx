@@ -1,133 +1,128 @@
-import React from "react";
-import { Box, Typography, Container, Grid } from "@mui/material";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Box, Container, Typography, Grid } from '@mui/material';
+import SchoolIcon from '@mui/icons-material/School';
+import { useLanguage } from '../context/LanguageContext';
 
 const Education = () => {
+  const { translations, language } = useLanguage();
+
+  const education = [
+    {
+      degree: translations[language].about.timeline.education.degree1,
+      school: translations[language].about.timeline.education.school1,
+      period: '2022 - Present',
+      description: translations[language].about.timeline.education.description1,
+    },
+    {
+      degree: translations[language].about.timeline.education.degree2,
+      school: translations[language].about.timeline.education.school2,
+      period: '2019 - 2022',
+      description: translations[language].about.timeline.education.description2,
+    },
+  ];
+
   return (
     <Box
       sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#0a192f',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
         py: 8,
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
-        padding: "0 20px",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
+          sx={{
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            fontWeight: 'bold',
+            mb: 2,
+            fontFamily: 'monospace',
+            textAlign: 'center',
+          }}
         >
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            gutterBottom
-            sx={{
-              fontWeight: 900,
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-              letterSpacing: "0.1rem",
-              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
-            }}
-          >
-            Eğitim Bilgilerim
-          </Typography>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          {translations[language].about.timeline.education.title}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: 6,
+            color: '#8892b0',
+            fontSize: '1.1rem',
+            textAlign: 'center',
+            maxWidth: '600px',
+            mx: 'auto',
+          }}
         >
-          <Typography
-            variant="body1"
-            sx={{
-              lineHeight: 1.6, // global.css ile uyumlu
-              maxWidth: "800px",
-              mx: "auto",
-              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-            }}
-          >
-            Eğitim hayatım boyunca bilgisayar bilimi ve mühendisliği alanında
-            derinlemesine bilgi edinmeyi ve kendimi geliştirmeyi hedefledim.
-          </Typography>
-        </motion.div>
+          {translations[language].about.timeline.education.subtitle}
+        </Typography>
 
-        {/* Education List */}
-        <Grid container spacing={3} justifyContent="center" sx={{ mt: 4 }}>
-          {[
-            {
-              title: "Kütahya Dumlupınar Üniversitesi",
-              period: "Bilgisayar Programcılığı - 2020 - 2022",
-              status: "Mezuniyet Yılı: 2022",
-            },
-            {
-              title: "Manisa Celal Bayar Üniversitesi",
-              period: "Bilgisayar Mühendisliği - 2022 - Devam Ediyor",
-              status: "Öğrenim Durumu: Devam Ediyor",
-            },
-          ].map((edu, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: index * 0.2 }}
+        <Grid container spacing={4}>
+          {education.map((edu, index) => (
+            <Grid item xs={12} md={6} key={index}>
+              <Box
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  p: 4,
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
+                  },
+                }}
               >
-                <Box
+                <Box sx={{ mb: 2, color: '#00e5ff' }}>
+                  <SchoolIcon sx={{ fontSize: 40 }} />
+                </Box>
+                <Typography
+                  variant="h5"
                   sx={{
-                    padding: "40px",
-                    borderRadius: "8px",
-                    // Background removed to make it transparent
-                    transition: "transform 0.3s ease-in-out",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    "&:hover": {
-                      transform: "translateY(-10px)", // FeatureList ile uyumlu hover efekti
-                    },
+                    color: '#00e5ff',
+                    mb: 2,
+                    fontFamily: 'monospace',
                   }}
                 >
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 700,
-                      color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-                      marginBottom: "15px",
-                      fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                      letterSpacing: "0.05rem",
-                    }}
-                  >
-                    {edu.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-                      fontSize: "1rem",
-                      lineHeight: 1.6, // global.css ile uyumlu
-                      mt: 1,
-                    }}
-                  >
-                    {edu.period}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-                      fontSize: "1rem",
-                      lineHeight: 1.6, // global.css ile uyumlu
-                      mt: 2,
-                    }}
-                  >
-                    {edu.status}
-                  </Typography>
-                </Box>
-              </motion.div>
+                  {edu.degree}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: '#8892b0',
+                    mb: 1,
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  {edu.school}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#8892b0',
+                    mb: 2,
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  {edu.period}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#8892b0',
+                  }}
+                >
+                  {edu.description}
+                </Typography>
+              </Box>
             </Grid>
           ))}
         </Grid>

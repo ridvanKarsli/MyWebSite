@@ -1,207 +1,221 @@
-import React, { useState } from "react";
-import { Grid, Box, Typography, Button, Modal } from "@mui/material";
-import { motion } from "framer-motion";
-
-const projects = [
-  {
-    title: "MoodMate",
-    description: "Duygusal zeka ile film, müzik, dizi ve podcast önerisi.",
-    details:
-      "MoodMate, kullanıcının yazdığı yazıya göre duygusal durumunu analiz ederek ona uygun içerik önerileri sunan bir uygulamadır. Kullanıcı yazılarını analiz ederek en uygun film, müzik, dizi ve podcast önerilerini yapar.",
-  },
-];
+import React, { useState, useEffect } from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Chip,
+  IconButton,
+  Tooltip,
+  useTheme,
+  useMediaQuery,
+  Button,
+} from '@mui/material';
+import { motion } from 'framer-motion';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
+import ProjectDialog from './ProjectDialog';
+import { useLanguage } from '../context/LanguageContext';
+import ProjectCard from './ProjectCard';
 
 const Projects = () => {
-  const [open, setOpen] = useState(false);
+  const { translations, language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleOpen = (project) => {
-    setSelectedProject(project);
-    setOpen(true);
+  useEffect(() => {
+    setProjects([
+      {
+        title: translations[language].projects.project1.title,
+        description: translations[language].projects.project1.description,
+        image: '/images/project1.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+        github: 'https://github.com/yourusername/project1',
+        demo: 'https://project1-demo.com',
+      },
+      {
+        title: translations[language].projects.project2.title,
+        description: translations[language].projects.project2.description,
+        image: '/images/project2.jpg',
+        technologies: ['React', 'Firebase', 'Material-UI'],
+        github: 'https://github.com/yourusername/project2',
+        demo: 'https://project2-demo.com',
+      },
+    ]);
+  }, [language, translations]);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedProject(null);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const floatingAnimation = {
+    initial: { y: 0 },
+    animate: {
+      y: [-5, 5, -5],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
   };
 
   return (
     <Box
+      component="section"
+      id="projects"
       sx={{
-        py: 8,
-        textAlign: "center",
-        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
-        position: "relative",
-        overflow: "hidden",
+        backgroundColor: '#0a192f',
+        color: 'white',
+        py: { xs: 8, md: 12 },
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%)',
+          animation: 'pulse 8s ease-in-out infinite',
+        },
+        '@keyframes pulse': {
+          '0%': { opacity: 0.3 },
+          '50%': { opacity: 0.5 },
+          '100%': { opacity: 0.3 },
+        },
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
-      >
-        <Typography
-          variant="h4"
-          gutterBottom
-          sx={{
-            fontWeight: 900,
-            color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-            letterSpacing: "0.1rem",
-            fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
-          }}
-        >
-          Projelerim
-        </Typography>
-      </motion.div>
-
-      <Grid container spacing={3} justifyContent="center">
-        {projects.map((project, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.2 }}
-            >
-              <Box
-                sx={{
-                  padding: "40px",
-                  borderRadius: "8px",
-                  // backgroundColor removed to make it transparent
-                  transition: "transform 0.3s ease-in-out",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  "&:hover": {
-                    transform: "translateY(-10px)", // FeatureList ile uyumlu hover efekti
-                  },
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-                    marginBottom: "15px",
-                    fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                    letterSpacing: "0.05rem",
-                  }}
-                >
-                  {project.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-                    lineHeight: 1.6, // global.css ile uyumlu
-                    fontSize: "1rem",
-                    mt: 2,
-                  }}
-                >
-                  {project.description}
-                </Typography>
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={() => handleOpen(project)}
-                  sx={{
-                    mt: 2,
-                    backgroundColor: "#b08d57",
-                    color: "#000000",
-                    border: "2px solid #b08d57",
-                    fontWeight: 700,
-                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05rem",
-                    padding: "10px 20px",
-                    cursor: "pointer",
-                    "&:hover": {
-                      backgroundColor: "#000000",
-                      color: "#b08d57",
-                      border: "2px solid #b08d57",
-                      transform: "translateY(-3px)",
-                      boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
-                      transition: "all 0.4s ease",
-                    },
-                  }}
-                >
-                  Detaylar
-                </Button>
-              </Box>
-            </motion.div>
-          </Grid>
-        ))}
-      </Grid>
-
-      {/* Modal */}
-      <Modal
-        open={open}
-        onClose={handleClose}
+      {/* Animated background elements */}
+      <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
         }}
       >
-        <Box
-          sx={{
-            backgroundColor: "#000000", // global.css'deki input/textarea arka planı
-            color: "#f5f0e1", // global.css'deki input/textarea yazı rengi (kırık beyaz)
-            border: "2px solid #b08d57", // global.css'deki input/textarea kenar rengi
-            borderRadius: 3,
-            padding: 4,
-            maxWidth: "600px",
-            width: "80%",
-            textAlign: "center",
-          }}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            style={{
+              position: 'absolute',
+              width: '2px',
+              height: '2px',
+              backgroundColor: '#00e5ff',
+              opacity: 0.3,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </Box>
+
+      <Container maxWidth="lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <Typography
-            variant="h5"
-            gutterBottom
+            variant="h2"
+            component="h2"
             sx={{
-              fontWeight: 700,
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+              fontWeight: 'bold',
+              mb: 2,
+              fontFamily: 'monospace',
+              textAlign: 'center',
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: '-10px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60px',
+                height: '3px',
+                background: 'linear-gradient(90deg, #00e5ff, transparent)',
+              },
             }}
           >
-            {selectedProject?.title}
+            {translations[language].projects.title}
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              mb: 3,
-              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-              lineHeight: 1.6, // global.css ile uyumlu
+              mb: 6,
+              color: '#8892b0',
+              fontSize: '1.1rem',
+              textAlign: 'center',
+              maxWidth: '600px',
+              mx: 'auto',
             }}
           >
-            {selectedProject?.details}
+            {translations[language].projects.description}
           </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            onClick={handleClose}
-            sx={{
-              backgroundColor: "#b08d57",
-              color: "#000000",
-              border: "2px solid #b08d57",
-              fontWeight: 700,
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
-              textTransform: "uppercase",
-              letterSpacing: "0.05rem",
-              padding: "10px 20px",
-              cursor: "pointer",
-              "&:hover": {
-                backgroundColor: "#000000",
-                color: "#b08d57",
-                border: "2px solid #b08d57",
-                transform: "translateY(-3px)",
-                boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
-                transition: "all 0.4s ease",
-              },
-            }}
-          >
-            Kapat
-          </Button>
-        </Box>
-      </Modal>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Grid container spacing={4}>
+            {projects.map((project, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <motion.div variants={itemVariants}>
+                  <ProjectCard
+                    project={project}
+                    onClick={() => setSelectedProject(project)}
+                  />
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </motion.div>
+      </Container>
+
+      <ProjectDialog
+        project={selectedProject}
+        open={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </Box>
   );
 };

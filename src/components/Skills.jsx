@@ -1,148 +1,205 @@
-import React from "react";
-import { Box, Typography, Container, Grid } from "@mui/material";
-import { motion } from "framer-motion";
-import WebIcon from "@mui/icons-material/Language";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import AppleIcon from "@mui/icons-material/Apple";
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
+import React from 'react';
+import { Box, Container, Typography, Grid } from '@mui/material';
+import CodeIcon from '@mui/icons-material/Code';
+import StorageIcon from '@mui/icons-material/Storage';
+import BrushIcon from '@mui/icons-material/Brush';
+import DevicesIcon from '@mui/icons-material/Devices';
+import SecurityIcon from '@mui/icons-material/Security';
+import SpeedIcon from '@mui/icons-material/Speed';
+import { useLanguage } from '../context/LanguageContext';
 
 const Skills = () => {
+  const { translations, language } = useLanguage();
+
+  const skillCategories = [
+    {
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'Frontend Development',
+      skills: [
+        { name: 'React', level: 90 },
+        { name: 'JavaScript', level: 85 },
+        { name: 'TypeScript', level: 80 },
+        { name: 'HTML/CSS', level: 90 },
+        { name: 'Material-UI', level: 85 },
+        { name: 'TailwindCSS', level: 80 },
+      ],
+    },
+    {
+      icon: <StorageIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'Backend Development',
+      skills: [
+        { name: 'Node.js', level: 85 },
+        { name: 'Express', level: 80 },
+        { name: 'MongoDB', level: 75 },
+        { name: 'SQL', level: 70 },
+        { name: 'REST APIs', level: 85 },
+        { name: 'GraphQL', level: 70 },
+      ],
+    },
+    {
+      icon: <BrushIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'UI/UX Design',
+      skills: [
+        { name: 'Figma', level: 80 },
+        { name: 'Adobe XD', level: 75 },
+        { name: 'Responsive Design', level: 90 },
+        { name: 'Wireframing', level: 85 },
+        { name: 'Prototyping', level: 80 },
+        { name: 'User Research', level: 75 },
+      ],
+    },
+    {
+      icon: <DevicesIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'Mobile Development',
+      skills: [
+        { name: 'React Native', level: 75 },
+        { name: 'Flutter', level: 70 },
+        { name: 'Mobile UI', level: 80 },
+        { name: 'App Store', level: 70 },
+        { name: 'Play Store', level: 70 },
+        { name: 'PWA', level: 80 },
+      ],
+    },
+    {
+      icon: <SecurityIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'DevOps & Tools',
+      skills: [
+        { name: 'Git', level: 85 },
+        { name: 'Docker', level: 70 },
+        { name: 'CI/CD', level: 75 },
+        { name: 'AWS', level: 65 },
+        { name: 'Linux', level: 70 },
+        { name: 'NPM', level: 85 },
+      ],
+    },
+    {
+      icon: <SpeedIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
+      title: 'Performance & Testing',
+      skills: [
+        { name: 'Jest', level: 80 },
+        { name: 'React Testing', level: 75 },
+        { name: 'Performance', level: 80 },
+        { name: 'SEO', level: 75 },
+        { name: 'Analytics', level: 70 },
+        { name: 'Debugging', level: 85 },
+      ],
+    },
+  ];
+
+  const skills = [
+    {
+      category: translations[language].about.timeline.skills.frontend.title,
+      items: translations[language].about.timeline.skills.frontend.items,
+    },
+    {
+      category: translations[language].about.timeline.skills.backend.title,
+      items: translations[language].about.timeline.skills.backend.items,
+    },
+    {
+      category: translations[language].about.timeline.skills.tools.title,
+      items: translations[language].about.timeline.skills.tools.items,
+    },
+  ];
+
   return (
     <Box
       sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#0a192f',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
         py: 8,
-        background: "inherit", // global.css'deki body arka planını miras alır (linear-gradient)
-        textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
+          sx={{
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            fontWeight: 'bold',
+            mb: 2,
+            fontFamily: 'monospace',
+            textAlign: 'center',
+          }}
         >
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{
-              fontWeight: 900,
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-              letterSpacing: "0.1rem",
-              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
-            }}
-          >
-            Yeteneklerim
-          </Typography>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          {translations[language].about.timeline.skills.title}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: 6,
+            color: '#8892b0',
+            fontSize: '1.1rem',
+            textAlign: 'center',
+            maxWidth: '600px',
+            mx: 'auto',
+          }}
         >
-          <Typography
-            variant="body1"
-            sx={{
-              lineHeight: 1.6, // global.css ile uyumlu
-              maxWidth: "800px",
-              mx: "auto",
-              color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-            }}
-          >
-            Yazılım geliştirme dünyasında birçok alanda yeteneklerim ve
-            deneyimlerimle projeler üretiyorum. Web geliştirmeden mobil uygulama
-            geliştirmeye, API yazmaktan veri tabanı yönetimine kadar birçok
-            teknolojiyi kullanarak çözümler üretiyorum.
-          </Typography>
-        </motion.div>
+          {translations[language].about.timeline.skills.subtitle}
+        </Typography>
 
-        {/* Skills List */}
-        <Grid container spacing={3} justifyContent="center" sx={{ mt: 4 }}>
-          {[
-            {
-              icon: <WebIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "Web Geliştirme",
-              description:
-                "HTML, CSS, JavaScript, React ve Next.js gibi teknolojilerle modern ve kullanıcı dostu web uygulamaları geliştiriyorum.",
-            },
-            {
-              icon: <PhoneAndroidIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "Android Uygulama Geliştirme",
-              description:
-                "Kotlin ve Java kullanarak Android platformu için güçlü ve verimli mobil uygulamalar geliştiriyorum.",
-            },
-            {
-              icon: <AppleIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "iOS Uygulama Geliştirme",
-              description:
-                "Swift ve Objective-C ile iOS platformunda yenilikçi uygulamalar geliştirmekteyim.",
-            },
-            {
-              icon: <CodeIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "API Yazma",
-              description: "Spring Boot kullanarak backend sistemler geliştirdim.",
-            },
-            {
-              icon: <StorageIcon sx={{ fontSize: 60, color: "#b08d57" }} />,
-              title: "Veritabanı Yönetimi",
-              description:
-                "PostgreSQL veritabanları ile verimli veri yönetimi sağlıyorum, veri yapıları ve optimizasyon konusunda deneyimim var.",
-            },
-          ].map((skill, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: index * 0.2 }}
+        <Grid container spacing={4}>
+          {skills.map((skillGroup, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <Box
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  p: 4,
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
+                  },
+                }}
               >
-                <Box
+                <Box sx={{ mb: 2, color: '#00e5ff' }}>
+                  <CodeIcon sx={{ fontSize: 40 }} />
+                </Box>
+                <Typography
+                  variant="h5"
                   sx={{
-                    padding: "40px",
-                    borderRadius: "8px",
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-10px)",
-                    },
+                    color: '#00e5ff',
+                    mb: 3,
+                    fontFamily: 'monospace',
                   }}
                 >
-                  <Box
-                    sx={{
-                      fontSize: "3rem",
-                      color: "#b08d57", // global.css'deki bağlantı/a rengi (altın sarısı)
-                      marginBottom: "20px",
-                    }}
-                  >
-                    {skill.icon}
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 700,
-                      color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-                      marginBottom: "15px",
-                    }}
-                  >
-                    {skill.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-                      lineHeight: 1.6, // global.css ile uyumlu
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {skill.description}
-                  </Typography>
+                  {skillGroup.category}
+                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: 1,
+                    justifyContent: 'center',
+                  }}
+                >
+                  {skillGroup.items.map((skill) => (
+                    <Typography
+                      key={skill}
+                      sx={{
+                        backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                        color: '#00e5ff',
+                        px: 2,
+                        py: 1,
+                        borderRadius: '4px',
+                        fontSize: '0.9rem',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {skill}
+                    </Typography>
+                  ))}
                 </Box>
-              </motion.div>
+              </Box>
             </Grid>
           ))}
         </Grid>

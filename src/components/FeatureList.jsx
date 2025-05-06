@@ -1,110 +1,103 @@
-import React from "react";
-import { Box, Typography, Container } from "@mui/material";
-import { motion } from "framer-motion";
-import { FaRocket, FaTools, FaBullseye, FaChartLine, FaLightbulb, FaRobot } from 'react-icons/fa';
+import React from 'react';
+import { Box, Container, Typography, Grid } from '@mui/material';
+import CodeIcon from '@mui/icons-material/Code';
+import BrushIcon from '@mui/icons-material/Brush';
+import DevicesIcon from '@mui/icons-material/Devices';
+import SpeedIcon from '@mui/icons-material/Speed';
+import { useLanguage } from '../context/LanguageContext';
 
 const FeatureList = () => {
-  const features = [
-    { icon: <FaRocket />, title: "Yenilikçi Teknolojiler", description: "Yeni nesil çözümler ve teknolojilerle projelerinizi hızlandırın." },
-    { icon: <FaTools />, title: "Gelişmiş Araçlar", description: "Her türlü yazılım geliştirme ihtiyacınız için güçlü araçlar." },
-    { icon: <FaBullseye />, title: "Hedef Odaklı Çözümler", description: "Projelerinizde başarıya ulaşmanızı sağlayacak stratejiler." },
-    { icon: <FaChartLine />, title: "Veri Analizi", description: "Veri odaklı kararlar ile daha etkili sonuçlar elde edin." },
-    { icon: <FaLightbulb />, title: "Yaratıcı Fikirler", description: "Yaratıcı ve etkili çözümler ile projelerinizi yeniden şekillendirin." },
-    { icon: <FaRobot />, title: "Otomasyon", description: "Süreçlerinizi otomatikleştirerek verimliliği arttırın." },
-  ];
+  const { translations, language } = useLanguage();
+
+  const features = translations[language].about.features.items.map((feature, index) => ({
+    icon: [<CodeIcon />, <DevicesIcon />, <BrushIcon />, <SpeedIcon />][index],
+    title: feature.title,
+    description: feature.description,
+  }));
 
   return (
     <Box
       sx={{
-        padding: "60px 20px",
-        textAlign: "center",
-        background: "inherit", // global.css'deki body arka planı (linear-gradient) miras alınır
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#0a192f',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
+        py: 8,
       }}
     >
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
-        >
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
-              fontWeight: 900,
-              letterSpacing: "0.1rem",
-              color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-              marginBottom: "40px",
-              textShadow: "0 5px 15px rgba(0, 0, 0, 0.3)", // global.css'deki başlık gölge efekti
-            }}
-          >
-            Özellikler
-          </Typography>
-        </motion.div>
-
-        <Box
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
           sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
-            gap: 4,
-            textAlign: "center",
-            marginTop: "20px",
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            fontWeight: 'bold',
+            mb: 2,
+            fontFamily: 'monospace',
+            textAlign: 'center',
           }}
         >
+          {translations[language].about.features.title}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: 6,
+            color: '#8892b0',
+            fontSize: '1.1rem',
+            textAlign: 'center',
+            maxWidth: '600px',
+            mx: 'auto',
+          }}
+        >
+          {translations[language].about.description}
+        </Typography>
+
+        <Grid container spacing={4}>
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: index * 0.2 }}
-            >
+            <Grid item xs={12} sm={6} md={3} key={index}>
               <Box
                 sx={{
-                  padding: "40px",
-                  borderRadius: "8px",
-                  background: "transparent", // Küresel stil gereği şeffaf arka plan
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "translateY(-10px)",
-                    boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)", // hoverda belirginleşen gölge efekti
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  p: 4,
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
                   },
                 }}
               >
-                <Box
-                  sx={{
-                    fontSize: "3rem",
-                    color: "#b08d57", // global.css'deki ikon rengi (altın sarısı)
-                    marginBottom: "20px",
-                  }}
-                >
-                  {feature.icon}
-                </Box>
+                <Box sx={{ mb: 2, color: '#00e5ff' }}>{feature.icon}</Box>
                 <Typography
                   variant="h5"
                   sx={{
-                    fontWeight: 700,
-                    color: "#f5f0e1", // global.css'deki başlık rengi (kırık beyaz)
-                    marginBottom: "15px",
-                    letterSpacing: "0.05rem", // Yazı aralığı
+                    color: '#00e5ff',
+                    mb: 2,
+                    fontFamily: 'monospace',
                   }}
                 >
                   {feature.title}
                 </Typography>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   sx={{
-                    color: "#f5f0e1", // global.css'deki paragraf rengi (kırık beyaz)
-                    lineHeight: 1.6, // global.css ile uyumlu
-                    fontSize: "1rem",
-                    letterSpacing: "0.05rem", // Yazı aralığı
+                    color: '#8892b0',
                   }}
                 >
                   {feature.description}
                 </Typography>
               </Box>
-            </motion.div>
+            </Grid>
           ))}
-        </Box>
+        </Grid>
       </Container>
     </Box>
   );
