@@ -41,17 +41,17 @@ const Header = () => {
   };
 
   const pages = [
-    { title: translations[language].nav.home, path: '/#/' },
-    { title: translations[language].nav.about, path: '/#/about' },
-    { title: translations[language].nav.projects, path: '/#/projects' },
-    { title: translations[language].nav.contact, path: '/#/contact' },
+    { title: translations[language].nav.home, path: '/' },
+    { title: translations[language].nav.about, path: '/about' },
+    { title: translations[language].nav.projects, path: '/projects' },
+    { title: translations[language].nav.contact, path: '/contact' },
   ];
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Box
         component={Link}
-        to="/#/"
+        to="/"
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -122,7 +122,7 @@ const Header = () => {
           {/* Desktop Logo */}
           <Box
             component={Link}
-            to="/#/"
+            to="/"
             sx={{
               display: { xs: 'none', md: 'flex' },
               alignItems: 'center',
@@ -181,7 +181,7 @@ const Header = () => {
           {/* Mobile Logo */}
           <Box
             component={Link}
-            to="/#/"
+            to="/"
             sx={{
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
