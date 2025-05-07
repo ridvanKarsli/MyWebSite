@@ -7,20 +7,30 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import { LanguageProvider } from './context/LanguageContext';
+import { Box } from "@mui/material";
 
 const App = () => {
   return (
     <LanguageProvider>
       <ThemeProvider>
         <Router>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Layout>
+          <Box
+            sx={{
+              minHeight: '100vh',
+              backgroundColor: '#0a192f',
+              color: 'white',
+              pt: { xs: '80px', md: '100px' },
+            }}
+          >
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Layout>
+          </Box>
         </Router>
       </ThemeProvider>
     </LanguageProvider>

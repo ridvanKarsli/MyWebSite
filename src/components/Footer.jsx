@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { title: translations[language].footer.quickLinks.home, href: '#home' },
+    { title: translations[language].footer.quickLinks.home, href: '#/' },
     { title: translations[language].footer.quickLinks.about, href: '#about' },
     { title: translations[language].footer.quickLinks.projects, href: '#projects' },
     { title: translations[language].footer.quickLinks.contact, href: '#contact' },
@@ -141,45 +141,22 @@ const Footer = () => {
                 {translations[language].footer.quickLinks.title}
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <IconButton
-                  href="https://github.com/ridvankarsli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: '#8892b0',
-                    '&:hover': {
-                      color: '#00e5ff',
-                    },
-                  }}
-                >
-                  <GitHubIcon />
-                </IconButton>
-                <IconButton
-                  href="https://linkedin.com/in/ridvankarsli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: '#8892b0',
-                    '&:hover': {
-                      color: '#00e5ff',
-                    },
-                  }}
-                >
-                  <LinkedInIcon />
-                </IconButton>
-                <IconButton
-                  href="https://twitter.com/ridvankarsli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: '#8892b0',
-                    '&:hover': {
-                      color: '#00e5ff',
-                    },
-                  }}
-                >
-                  <TwitterIcon />
-                </IconButton>
+                {socialLinks.map((link, index) => (
+                  <IconButton
+                    key={link.label}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#8892b0',
+                      '&:hover': {
+                        color: '#00e5ff',
+                      },
+                    }}
+                  >
+                    {link.icon}
+                  </IconButton>
+                ))}
               </Box>
             </motion.div>
           </Grid>

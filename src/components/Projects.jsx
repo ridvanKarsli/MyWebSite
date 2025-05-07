@@ -19,6 +19,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import ProjectDialog from './ProjectDialog';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectCard from './ProjectCard';
+import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
   const { translations, language } = useLanguage();
@@ -26,6 +27,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
 
   useEffect(() => {
     setProjects([
@@ -47,6 +49,10 @@ const Projects = () => {
       },
     ]);
   }, [language, translations]);
+
+  const handleProjectClick = (project) => {
+    navigate('/projects');
+  };
 
   // Animation variants
   const containerVariants = {
@@ -202,7 +208,7 @@ const Projects = () => {
                 <motion.div variants={itemVariants}>
                   <ProjectCard
                     project={project}
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() => handleProjectClick(project)}
                   />
                 </motion.div>
               </Grid>
