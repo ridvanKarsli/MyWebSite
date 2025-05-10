@@ -58,6 +58,7 @@ const Projects = () => {
         description: translations[language].projects.project2.description,
         image: '/projects/taskmanager.jpg',
         technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'Swift', 'React'],
+
         github: 'https://github.com/yourusername/project2',
         demo: 'https://project2-demo.com',
         stats: {
