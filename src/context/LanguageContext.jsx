@@ -14,73 +14,73 @@ export const translations = {
     hero: {
       greeting: 'Hi, my name is',
       name: 'RIDVAN KARSLI',
-      title: 'Full Stack Developer',
-      description: 'I build modern web applications with a focus on user experience and clean code.',
-      viewWork: 'View My Work',
+      title: 'Java Backend and Full Stack Developer',
+      description: 'I build scalable backend systems with Spring Boot and intuitive user interfaces using React and Swift.',
+      viewWork: 'See My Projects',
       contactMe: 'Contact Me',
     },
     about: {
       title: 'About Me',
-      description: "I'm a passionate full-stack developer with a focus on creating modern and user-friendly web applications.",
+      description: 'I am a highly motivated and solution-oriented Java Backend & Full Stack Developer specialized in Spring Boot systems.',
       journey: {
         title: 'My Journey',
-        content1: "I started my journey in web development with a passion for creating beautiful and functional applications. Over the years, I've worked on various projects, from small business websites to complex enterprise applications.",
-        content2: "My focus is on building modern web applications using the latest technologies and best practices. I believe in writing clean, maintainable code and creating intuitive user experiences.",
+        content1: 'I actively take part in full-cycle software projects, delivering sustainable and scalable solutions.',
+        content2: 'With expertise in layered architecture, RESTful APIs, and PostgreSQL, I also build user interfaces using React and Swift.',
       },
       timeline: {
         title: 'Timeline',
         education: {
           title: 'Education',
-          content: 'Computer Science Degree from XYZ University',
+          content: 'Manisa Celal Bayar University – Computer Engineering (2022 – Present)\nKütahya Dumlupınar University – Computer Programming (2020 – 2022)',
         },
         experience: {
           title: 'Work Experience',
-          content: 'Senior Developer at Tech Company',
+          content: 'Java Backend Developer – EMN Digital (Dec 2024 – Present)\nSoftware Developer – Kalem Web Software (Feb 2023 – Oct 2024)',
         },
         skills: {
           title: 'Skills',
-          content: 'Full Stack Development, React, Node.js, and more',
+          content: 'Java, Spring Boot, PostgreSQL, OOP, SOLID, Clean Code, Layered Architecture, Python (ML), React, Swift, Git, Mobile Development, Algorithms & Data Structures',
         },
       },
       features: {
         title: 'What I Do',
         items: [
           {
-            title: 'Web Development',
-            description: 'Building responsive and modern web applications using the latest technologies.',
-          },
-          {
-            title: 'Mobile Development',
-            description: 'Creating cross-platform mobile applications with React Native.',
-          },
-          {
-            title: 'UI/UX Design',
-            description: 'Designing intuitive and user-friendly interfaces with a focus on user experience.',
-          },
-          {
             title: 'Backend Development',
-            description: 'Developing robust and scalable backend systems using Node.js and Python.',
+            description: 'Developing robust backend systems with Java and Spring Boot.',
+          },
+          {
+            title: 'Database Design',
+            description: 'Designing and managing databases effectively using PostgreSQL.',
+          },
+          {
+            title: 'Frontend Development',
+            description: 'Creating user interfaces with React and Swift.',
+          },
+          {
+            title: 'Machine Learning',
+            description: 'Delivering data analytics solutions using Python-based ML algorithms.',
           },
         ],
       },
     },
     projects: {
       title: 'My Projects',
-      description: 'Here are some of my recent projects. Each one was built with a focus on user experience and modern technologies.',
+      description: 'Highlighted projects built with modern technologies and a strong focus on user experience.',
       viewGithub: 'View on GitHub',
-      viewDemo: 'View Live Demo',
+      viewDemo: 'Live Demo',
       project1: {
-        title: 'E-Commerce Platform',
-        description: 'A full-stack e-commerce platform with real-time inventory management.',
+        title: 'MSET – Fault Detection System',
+        description: 'Developed with Python and PostgreSQL to predict failures in industrial facilities using machine learning.',
       },
       project2: {
-        title: 'Task Management App',
-        description: 'A collaborative task management application with real-time updates.',
+        title: 'Saglikta – AI-Powered Health Platform',
+        description: 'A digital platform connecting chronic patients with expert doctors using Spring Boot, PostgreSQL, React, Swift, and Java.',
       },
     },
     contact: {
       title: 'Get In Touch',
-      description: "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+      description: "I'm open to new opportunities. Whether it's a project or a question, feel free to reach out.",
       name: 'Name',
       email: 'Email',
       message: 'Message',
@@ -95,7 +95,7 @@ export const translations = {
       },
       form: {
         title: 'Send Me a Message',
-        subtitle: 'Feel free to contact me for any work or suggestions below',
+        subtitle: 'Contact me for collaborations, freelance work, or inquiries.',
         namePlaceholder: 'Your Name',
         emailPlaceholder: 'Your Email',
         messagePlaceholder: 'Your Message',
@@ -114,7 +114,7 @@ export const translations = {
     },
     footer: {
       title: 'RIDVAN KARSLI',
-      description: 'A passionate full-stack developer focused on creating modern and user-friendly web applications.',
+      description: 'A dedicated Java Backend & Full Stack Developer delivering scalable and modern applications with Spring Boot and React.',
       copyright: '© 2024 Ridvan Karsli. All rights reserved.',
       quickLinks: {
         title: 'Quick Links',
