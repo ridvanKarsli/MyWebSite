@@ -18,20 +18,20 @@ const ContactInfo = ({ chartOptions, chartData }) => {
     {
       icon: <FaEnvelope />,
       title: translations[language].contact.contactInfo.email,
-      content: 'ridvan@example.com',
-      link: 'mailto:ridvan@example.com',
+      content: 'rdvn.35050@gmail.com',
+      link: 'mailto:rdvn.35050@gmail.com',
     },
     {
       icon: <FaPhone />,
       title: translations[language].contact.contactInfo.phone,
-      content: '+90 555 123 4567',
-      link: 'tel:+905551234567',
+      content: '05536999119',
+      link: 'tel:05536999119',
     },
     {
       icon: <FaMapMarkerAlt />,
       title: translations[language].contact.contactInfo.location,
-      content: 'İstanbul, Türkiye',
-      link: 'https://maps.google.com',
+      content: 'izmir türkiye',
+      link: 'https://maps.google.com/?q=izmir türkiye',
     },
   ];
 

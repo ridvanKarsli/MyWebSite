@@ -50,20 +50,20 @@ const Contact = () => {
     {
       icon: <EmailIcon />,
       title: translations[language].contact.contactInfo.email,
-      content: 'ridvankarsli@gmail.com',
-      link: 'mailto:ridvankarsli@gmail.com',
+      content: 'rdvn.35050@gmail.com',
+      link: 'mailto:rdvn.35050@gmail.com',
     },
     {
       icon: <PhoneIcon />,
       title: translations[language].contact.contactInfo.phone,
-      content: '+90 553 699 9119',
-      link: 'tel:+905536999119',
+      content: '05536999119',
+      link: 'tel:05536999119',
     },
     {
       icon: <LocationIcon />,
       title: translations[language].contact.contactInfo.location,
-      content: 'Izmir, Turkey',
-      link: 'https://maps.google.com/?q=Izmir,Turkey',
+      content: 'izmir türkiye',
+      link: 'https://maps.google.com/?q=izmir türkiye',
     },
   ];
 
