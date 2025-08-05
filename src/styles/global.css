@@ -1,83 +1,42 @@
-/* Global Stil ve Geçişler */
+/* Minimal Global Styles - Let Material-UI theme handle most styling */
+/* Only essential overrides that don't conflict with the theme system */
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto Mono', monospace; /* Tek aralıklı, dikkat çekici bir font */
-  background: #1C2526; /* Mat siyah arka plan */
-  color: #F5F0E1; /* Yazı rengi kırık beyaz */
-  line-height: 1.6;
+/* Custom scrollbar for webkit browsers - enhances the theme */
+*::-webkit-scrollbar {
+  width: 8px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #F5F0E1; /* Başlıklar için kırık beyaz */
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-p {
-  color: #F5F0E1; /* Paragraflar için kırık beyaz */
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00e5ff, #1affb8);
+  border-radius: 4px;
 }
 
-a {
-  color: #B08D57; /* Bağlantılar için altın sarısı */
-  text-decoration: none;
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00b8d4, #00e5ff);
 }
 
-a:hover {
-  text-decoration: underline;
-  color: #F5F0E1; /* Bağlantı hover rengi kırık beyaz */
+/* Selection colors to match theme */
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #f1f5f9;
 }
 
-button {
-  background-color: #B08D57; /* Altın sarısı buton rengi */
-  color: #1C2526; /* Yazı rengi mat siyah */
-  border: 2px solid #B08D57; /* Kenar rengi altın sarısı */
-  padding: 12px 24px; /* Daha geniş padding */
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif; /* İlgi çekici font */
-  font-weight: 900; /* Daha kalın ve dikkat çekici */
-  font-size: 1.25rem; /* Varsayılan büyük font boyutu */
-  text-transform: uppercase; /* Büyük harf */
-  letter-spacing: 0.1rem; /* Harfler arası boşluk artırıldı */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hafif gölge */
-  transition: all 0.4s ease; /* Pürüzsüz geçiş */
+::-moz-selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #f1f5f9;
 }
 
-button:hover {
-  background-color: #1C2526; /* Hover rengi mat siyah */
-  color: #B08D57; /* Hover yazı rengi altın sarısı */
-  border: 2px solid #B08D57; /* Hover kenar rengi altın sarısı */
-  transform: translateY(-3px); /* Hafif yükselme efekti */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Daha belirgin gölge */
-}
-
-input, textarea {
-  background-color: #4E2C1D; /* Koyu kahverengi input ve textarea arka planı */
-  color: #F5F0E1; /* Yazı rengi kırık beyaz */
-  border: 2px solid #B08D57; /* Kenar rengi altın sarısı */
-  padding: 8px 12px;
-  font-size: 16px;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #B08D57; /* Focus halindeki kenar rengi altın sarısı */
-}
-
-header, footer {
-  background-color: #4E2C1D; /* Koyu kahverengi header ve footer arka planı */
-  color: #F5F0E1; /* Yazı rengi kırık beyaz */
-  padding: 20px;
-  text-align: center;
-}
-
-header a, footer a {
-  color: #B08D57; /* Bağlantılar için altın sarısı */
-}
-
-header a:hover, footer a:hover {
-  text-decoration: underline;
-  color: #F5F0E1; /* Bağlantı hover rengi kırık beyaz */
+/* Smooth focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid #00e5ff;
+  outline-offset: 2px;
+  border-radius: 4px;
 }

@@ -17,8 +17,6 @@ const App = () => {
           <Box
             sx={{
               minHeight: '100vh',
-              backgroundColor: '#0a192f',
-              color: 'white',
               pt: { xs: '80px', md: '100px' },
             }}
           >

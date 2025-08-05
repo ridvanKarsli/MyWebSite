@@ -16,10 +16,12 @@ import {
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
+import CodeIcon from '@mui/icons-material/Code';
 import ProjectDialog from './ProjectDialog';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectCard from './ProjectCard';
 import { useNavigate } from 'react-router-dom';
+import { designTokens } from '../theme/ThemeProvider';
 
 const Projects = () => {
   const { translations, language } = useLanguage();
@@ -93,9 +95,9 @@ const Projects = () => {
       component="section"
       id="projects"
       sx={{
-        backgroundColor: '#0a192f',
+        background: designTokens.gradients.background,
         color: 'white',
-        py: { xs: 8, md: 12 },
+        py: { xs: 10, md: 15 },
         position: 'relative',
         overflow: 'hidden',
         '&::before': {
@@ -105,17 +107,15 @@ const Projects = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%)',
-          animation: 'pulse 8s ease-in-out infinite',
-        },
-        '@keyframes pulse': {
-          '0%': { opacity: 0.3 },
-          '50%': { opacity: 0.5 },
-          '100%': { opacity: 0.3 },
+          background: `
+            radial-gradient(circle at 20% 80%, ${designTokens.colors.primary[500]}08 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, ${designTokens.colors.accent[500]}06 0%, transparent 50%)
+          `,
+          pointerEvents: 'none',
         },
       }}
     >
-      {/* Animated background elements */}
+      {/* Enhanced background particles */}
       <Box
         sx={{
           position: 'absolute',
@@ -127,74 +127,95 @@ const Projects = () => {
           pointerEvents: 'none',
         }}
       >
-        {[...Array(15)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             style={{
               position: 'absolute',
-              width: '2px',
-              height: '2px',
-              backgroundColor: '#00e5ff',
-              opacity: 0.3,
+              width: Math.random() * 3 + 1 + 'px',
+              height: Math.random() * 3 + 1 + 'px',
+              backgroundColor: i % 3 === 0 
+                ? designTokens.colors.accent[500] 
+                : i % 3 === 1 
+                ? designTokens.colors.primary[500] 
+                : designTokens.colors.accent[300],
+              borderRadius: '50%',
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100 + 100}%`,
+              opacity: 0.4,
             }}
             animate={{
-              y: [0, -100],
-              opacity: [0, 1, 0],
+              y: [0, -150, -300],
+              opacity: [0, 0.6, 0],
+              scale: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 4 + 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeOut",
             }}
           />
         ))}
       </Box>
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <Typography
-            variant="h2"
-            component="h2"
-            sx={{
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              fontWeight: 'bold',
-              mb: 2,
-              fontFamily: 'monospace',
-              textAlign: 'center',
-              position: 'relative',
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                bottom: '-10px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '60px',
-                height: '3px',
-                background: 'linear-gradient(90deg, #00e5ff, transparent)',
-              },
-            }}
-          >
-            {translations[language].projects.title}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 6,
-              color: '#8892b0',
-              fontSize: '1.1rem',
-              textAlign: 'center',
-              maxWidth: '600px',
-              mx: 'auto',
-            }}
-          >
-            {translations[language].projects.description}
-          </Typography>
+          <motion.div variants={itemVariants}>
+            <Box sx={{ textAlign: 'center', mb: 8 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3 }}>
+                <Box
+                  sx={{
+                    background: designTokens.gradients.accent,
+                    borderRadius: '16px',
+                    p: 2,
+                    mr: 3,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <CodeIcon 
+                    sx={{ 
+                      fontSize: '2rem', 
+                      color: designTokens.colors.background.primary 
+                    }} 
+                  />
+                </Box>
+                <Typography
+                  variant="h2"
+                  component="h2"
+                  sx={{
+                    fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
+                    fontWeight: 700,
+                    background: designTokens.gradients.accent,
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  {translations[language].projects.title}
+                </Typography>
+              </Box>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: designTokens.colors.text.secondary,
+                  fontSize: { xs: '1.2rem', md: '1.4rem' },
+                  maxWidth: '700px',
+                  mx: 'auto',
+                  lineHeight: 1.6,
+                }}
+              >
+                {translations[language].projects.description}
+              </Typography>
+            </Box>
+          </motion.div>
         </motion.div>
 
         <motion.div

@@ -13,12 +13,15 @@ import {
   useMediaQuery,
   Typography,
   Container,
+  Backdrop,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import TranslateIcon from '@mui/icons-material/Translate';
+import CloseIcon from '@mui/icons-material/Close';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { designTokens } from '../theme/ThemeProvider';
 
 const Header = () => {
   const { language, translations, toggleLanguage } = useLanguage();
@@ -55,224 +58,387 @@ const Header = () => {
     { path: '/contact', label: translations[language].nav.contact },
   ];
 
+  // Enhanced animations for mobile menu
+  const drawerVariants = {
+    hidden: {
+      x: '100%',
+      transition: {
+        type: 'tween',
+        duration: 0.3,
+      },
+    },
+    visible: {
+      x: 0,
+      transition: {
+        type: 'tween',
+        duration: 0.3,
+      },
+    },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.3,
+      },
+    }),
+  };
+
   const drawer = (
-    <Box
-      sx={{
-        width: 250,
-        background: 'rgba(17, 34, 64, 0.95)',
-        backdropFilter: 'blur(10px)',
-        height: '100%',
-        borderRight: '1px solid rgba(0, 229, 255, 0.1)',
-      }}
+    <motion.div
+      variants={drawerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
     >
-      <List>
-        {navItems.map((item) => (
-          <ListItem
-            button
-            component={RouterLink}
-            to={item.path}
-            key={item.path}
+      <Box
+        sx={{
+          width: 280,
+          background: designTokens.colors.background.glass,
+          backdropFilter: 'blur(20px)',
+          height: '100%',
+          borderLeft: `1px solid ${designTokens.colors.accent[500]}30`,
+          position: 'relative',
+        }}
+      >
+        {/* Header of drawer */}
+        <Box
+          sx={{
+            p: 2,
+            borderBottom: `1px solid ${designTokens.colors.accent[500]}20`,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              color: designTokens.colors.accent[500],
+              fontWeight: 600,
+              fontSize: '1.2rem',
+            }}
+          >
+            Menu
+          </Typography>
+          <IconButton
             onClick={handleDrawerToggle}
             sx={{
-              borderLeft: location.pathname === item.path ? '3px solid #00e5ff' : 'none',
+              color: designTokens.colors.text.secondary,
               '&:hover': {
-                background: 'rgba(0, 229, 255, 0.1)',
+                color: designTokens.colors.accent[500],
+                backgroundColor: `${designTokens.colors.accent[500]}15`,
               },
             }}
           >
-            <ListItemText
-              primary={item.label}
-              sx={{
-                color: location.pathname === item.path ? '#00e5ff' : '#8892b0',
-                '&:hover': {
-                  color: '#00e5ff',
-                },
-              }}
-            />
-          </ListItem>
-        ))}
-        <ListItem
-          button
-          onClick={() => {
-            toggleLanguage();
-            handleDrawerToggle();
-          }}
-          sx={{
-            '&:hover': {
-              background: 'rgba(0, 229, 255, 0.1)',
-            },
-          }}
-        >
-          <ListItemText
-            primary={language === 'en' ? 'Türkçe' : 'English'}
-            sx={{
-              color: '#8892b0',
-              '&:hover': {
-                color: '#00e5ff',
-              },
-            }}
-          />
-        </ListItem>
-      </List>
-    </Box>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+
+        <List sx={{ pt: 2 }}>
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.path}
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="visible"
+              custom={index}
+            >
+              <ListItem
+                button
+                component={RouterLink}
+                to={item.path}
+                onClick={handleDrawerToggle}
+                sx={{
+                  py: 1.5,
+                  px: 3,
+                  margin: '4px 12px',
+                  borderRadius: '12px',
+                  borderLeft: location.pathname === item.path 
+                    ? `3px solid ${designTokens.colors.accent[500]}` 
+                    : '3px solid transparent',
+                  backgroundColor: location.pathname === item.path 
+                    ? `${designTokens.colors.accent[500]}15` 
+                    : 'transparent',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: `${designTokens.colors.accent[500]}20`,
+                    transform: 'translateX(8px)',
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.label}
+                  sx={{
+                    '& .MuiTypography-root': {
+                      color: location.pathname === item.path 
+                        ? designTokens.colors.accent[500] 
+                        : designTokens.colors.text.secondary,
+                      fontWeight: location.pathname === item.path ? 600 : 400,
+                      fontSize: '1.1rem',
+                    },
+                  }}
+                />
+              </ListItem>
+            </motion.div>
+          ))}
+          
+          <motion.div
+            variants={menuItemVariants}
+            initial="hidden"
+            animate="visible"
+            custom={navItems.length}
+          >
+            <Box sx={{ px: 3, pt: 2 }}>
+              <Button
+                fullWidth
+                variant="outlined"
+                onClick={() => {
+                  toggleLanguage();
+                  handleDrawerToggle();
+                }}
+                startIcon={<TranslateIcon />}
+                sx={{
+                  py: 1.5,
+                  borderRadius: '12px',
+                  fontSize: '1rem',
+                  fontWeight: 500,
+                }}
+              >
+                {language === 'en' ? 'Türkçe' : 'English'}
+              </Button>
+            </Box>
+          </motion.div>
+        </List>
+      </Box>
+    </motion.div>
   );
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        sx={{
-          background: scrolled
-            ? 'rgba(10, 25, 47, 0.95)'
-            : 'transparent',
-          backdropFilter: scrolled ? 'blur(10px)' : 'none',
-          boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(0, 229, 255, 0.1)' : 'none',
-          transition: 'all 0.3s ease-in-out',
-        }}
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <Container maxWidth="lg">
-          <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
-            <Typography
-              component={RouterLink}
-              to="/"
-              sx={{
-                textDecoration: 'none',
-                color: '#00e5ff',
-                fontSize: '1.8rem',
-                fontWeight: 'bold',
-                letterSpacing: '2px',
-                fontFamily: '"Roboto Mono", monospace',
-                position: 'relative',
-                padding: '0.5rem 1rem',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  border: '2px solid #00e5ff',
-                  borderRadius: '4px',
-                  opacity: 0.3,
-                  transition: 'all 0.3s ease',
-                },
-                '&:hover': {
-                  color: '#00b0ff',
-                  '&::before': {
-                    opacity: 0.6,
-                    transform: 'scale(1.05)',
-                  },
-                },
-              }}
-            >
-              <span style={{ color: '#00e5ff' }}>R</span>
-              <span style={{ color: '#8892b0' }}>K</span>
-            </Typography>
-
-            {isMobile ? (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <IconButton
-                  onClick={toggleLanguage}
+        <AppBar
+          position="fixed"
+          elevation={0}
+          sx={{
+            background: scrolled
+              ? designTokens.colors.background.glass
+              : 'transparent',
+            backdropFilter: scrolled ? 'blur(20px)' : 'none',
+            boxShadow: scrolled ? designTokens.shadows.card : 'none',
+            borderBottom: scrolled 
+              ? `1px solid ${designTokens.colors.accent[500]}20` 
+              : 'none',
+            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          <Container maxWidth="lg">
+            <Toolbar sx={{ justifyContent: 'space-between', py: 1.5 }}>
+              {/* Enhanced Logo */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Typography
+                  component={RouterLink}
+                  to="/"
                   sx={{
-                    color: '#00e5ff',
+                    textDecoration: 'none',
+                    color: designTokens.colors.accent[500],
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    letterSpacing: '1px',
+                    fontFamily: '"Inter", sans-serif',
+                    position: 'relative',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '12px',
+                    background: `${designTokens.colors.accent[500]}10`,
+                    border: `1px solid ${designTokens.colors.accent[500]}30`,
+                    transition: 'all 0.3s ease',
                     '&:hover': {
-                      color: '#00b0ff',
+                      color: designTokens.colors.accent[400],
+                      background: `${designTokens.colors.accent[500]}20`,
+                      borderColor: `${designTokens.colors.accent[500]}50`,
+                      boxShadow: designTokens.shadows.glowSoft,
                     },
                   }}
                 >
-                  <TranslateIcon />
-                </IconButton>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  sx={{
-                    color: '#00e5ff',
-                    '&:hover': {
-                      color: '#00b0ff',
-                    },
-                  }}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Box>
-            ) : (
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                {navItems.map((item) => (
-                  <motion.div
-                    key={item.path}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <Box
+                    component="span"
+                    sx={{
+                      background: designTokens.gradients.accent,
+                      backgroundClip: 'text',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
                   >
-                    <Button
-                      component={RouterLink}
-                      to={item.path}
+                    RK
+                  </Box>
+                </Typography>
+              </motion.div>
+
+              {/* Mobile Navigation */}
+              {isMobile ? (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                    <IconButton
+                      onClick={toggleLanguage}
                       sx={{
-                        color: location.pathname === item.path ? '#00e5ff' : '#8892b0',
-                        position: 'relative',
-                        '&::after': {
-                          content: '""',
-                          position: 'absolute',
-                          width: location.pathname === item.path ? '100%' : '0%',
-                          height: '2px',
-                          bottom: 0,
-                          left: 0,
-                          backgroundColor: '#00e5ff',
-                          transition: 'width 0.3s ease-in-out',
-                        },
+                        color: designTokens.colors.text.secondary,
+                        borderRadius: '12px',
                         '&:hover': {
-                          color: '#00e5ff',
-                          '&::after': {
-                            width: '100%',
-                          },
+                          color: designTokens.colors.accent[500],
+                          backgroundColor: `${designTokens.colors.accent[500]}15`,
                         },
                       }}
                     >
-                      {item.label}
+                      <TranslateIcon />
+                    </IconButton>
+                  </motion.div>
+                  
+                  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                    <IconButton
+                      onClick={handleDrawerToggle}
+                      sx={{
+                        color: designTokens.colors.text.secondary,
+                        borderRadius: '12px',
+                        '&:hover': {
+                          color: designTokens.colors.accent[500],
+                          backgroundColor: `${designTokens.colors.accent[500]}15`,
+                        },
+                      }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </motion.div>
+                </Box>
+              ) : (
+                /* Desktop Navigation */
+                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.path}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.3 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Button
+                        component={RouterLink}
+                        to={item.path}
+                        sx={{
+                          color: location.pathname === item.path 
+                            ? designTokens.colors.accent[500] 
+                            : designTokens.colors.text.secondary,
+                          position: 'relative',
+                          px: 2,
+                          py: 1,
+                          borderRadius: '12px',
+                          fontSize: '1rem',
+                          fontWeight: location.pathname === item.path ? 600 : 400,
+                          transition: 'all 0.3s ease',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            width: location.pathname === item.path ? '80%' : '0%',
+                            height: '2px',
+                            bottom: '6px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            background: designTokens.gradients.accent,
+                            borderRadius: '1px',
+                            transition: 'width 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                          },
+                          '&:hover': {
+                            color: designTokens.colors.accent[500],
+                            backgroundColor: `${designTokens.colors.accent[500]}10`,
+                            '&::after': {
+                              width: '80%',
+                            },
+                          },
+                        }}
+                      >
+                        {item.label}
+                      </Button>
+                    </motion.div>
+                  ))}
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
+                    whileHover={{ scale: 1.05 }} 
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      onClick={toggleLanguage}
+                      startIcon={<TranslateIcon />}
+                      variant="outlined"
+                      sx={{
+                        ml: 1,
+                        px: 2,
+                        py: 1,
+                        borderRadius: '12px',
+                        fontSize: '0.9rem',
+                        fontWeight: 500,
+                        textTransform: 'none',
+                      }}
+                    >
+                      {language === 'en' ? 'TR' : 'EN'}
                     </Button>
                   </motion.div>
-                ))}
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
-                    onClick={toggleLanguage}
-                    startIcon={<TranslateIcon />}
-                    sx={{
-                      color: '#8892b0',
-                      '&:hover': {
-                        color: '#00e5ff',
-                      },
-                    }}
-                  >
-                    {language === 'en' ? 'Türkçe' : 'English'}
-                  </Button>
-                </motion.div>
-              </Box>
-            )}
-          </Toolbar>
-        </Container>
-      </AppBar>
+                </Box>
+              )}
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </motion.div>
 
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 250,
-            background: 'rgba(10, 25, 47, 0.95)',
-            backdropFilter: 'blur(10px)',
-          },
-        }}
-      >
-        {drawer}
-      </Drawer>
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <Backdrop
+              open={mobileOpen}
+              onClick={handleDrawerToggle}
+              sx={{
+                zIndex: theme.zIndex.drawer - 1,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(5px)',
+              }}
+            />
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: false,
+                BackdropComponent: () => null, // Custom backdrop above
+              }}
+              sx={{
+                '& .MuiDrawer-paper': {
+                  boxSizing: 'border-box',
+                  width: 280,
+                  background: 'transparent',
+                  boxShadow: 'none',
+                  border: 'none',
+                },
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 };
