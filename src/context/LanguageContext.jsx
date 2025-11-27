@@ -59,6 +59,24 @@ export const translations = {
           },
         ],
       },
+      services: {
+        title: 'Services',
+        subtitle: 'Professional software development services tailored to your needs',
+        items: [
+          {
+            title: 'Dynamic Websites',
+            description: 'Modern, responsive and interactive web applications built with React and modern technologies.',
+          },
+          {
+            title: 'Backend Systems',
+            description: 'Scalable and secure backend systems developed with Java, Spring Boot and PostgreSQL.',
+          },
+          {
+            title: 'Software Solutions',
+            description: 'Complete software solutions from design to deployment, covering all aspects of development.',
+          },
+        ],
+      },
     },
     projects: {
       title: 'My Projects',
@@ -170,6 +188,24 @@ export const translations = {
           {
             title: 'Arayüz Geliştirme',
             description: 'React ve Swift ile kullanıcı arayüzleri geliştiriyorum.',
+          },
+        ],
+      },
+      services: {
+        title: 'Verilen Hizmetler',
+        subtitle: 'İhtiyaçlarınıza özel profesyonel yazılım geliştirme hizmetleri',
+        items: [
+          {
+            title: 'Dinamik Web Siteleri',
+            description: 'React ve modern teknolojilerle geliştirilmiş, responsive ve interaktif web uygulamaları.',
+          },
+          {
+            title: 'Backend Sistemleri',
+            description: 'Java, Spring Boot ve PostgreSQL ile geliştirilmiş ölçeklenebilir ve güvenli backend sistemleri.',
+          },
+          {
+            title: 'Yazılım Çözümleri',
+            description: 'Tasarımdan deploy aşamasına kadar tüm geliştirme süreçlerini kapsayan eksiksiz yazılım çözümleri.',
           },
         ],
       },

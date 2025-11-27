@@ -35,10 +35,10 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { title: translations[language].footer.quickLinks.home, href: '#/' },
-    { title: translations[language].footer.quickLinks.about, href: '#about' },
-    { title: translations[language].footer.quickLinks.projects, href: '#projects' },
-    { title: translations[language].footer.quickLinks.contact, href: '#contact' },
+    { title: translations[language].footer.quickLinks.home, href: '/' },
+    { title: translations[language].footer.quickLinks.about, href: '/about' },
+    { title: translations[language].footer.quickLinks.projects, href: '/projects' },
+    { title: translations[language].footer.quickLinks.contact, href: '/contact' },
   ];
 
   // Enhanced animation variants

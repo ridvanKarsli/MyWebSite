@@ -1,5 +1,6 @@
 import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import ThemeProvider from "./theme/ThemeProvider";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -11,9 +12,10 @@ import { Box } from "@mui/material";
 
 const App = () => {
   return (
-    <LanguageProvider>
-      <ThemeProvider>
-        <Router>
+    <HelmetProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <Router>
           <Box
             sx={{
               minHeight: '100vh',
@@ -32,6 +34,7 @@ const App = () => {
         </Router>
       </ThemeProvider>
     </LanguageProvider>
+    </HelmetProvider>
   );
 };
 
