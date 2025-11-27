@@ -7,7 +7,7 @@ import {
   IconButton,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Line } from 'react-chartjs-2';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -45,11 +45,6 @@ const ContactInfo = ({ chartOptions, chartData }) => {
       icon: <FaLinkedin />,
       title: 'LinkedIn',
       link: 'https://linkedin.com/in/yourusername',
-    },
-    {
-      icon: <FaTwitter />,
-      title: 'Twitter',
-      link: 'https://twitter.com/yourusername',
     },
   ];
 

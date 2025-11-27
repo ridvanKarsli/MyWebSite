@@ -37,17 +37,9 @@ const Projects = () => {
         title: translations[language].projects.project1.title,
         description: translations[language].projects.project1.description,
         image: '/images/project1.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-        github: 'https://github.com/yourusername/project1',
-        demo: 'https://project1-demo.com',
-      },
-      {
-        title: translations[language].projects.project2.title,
-        description: translations[language].projects.project2.description,
-        image: '/images/project2.jpg',
-        technologies: ['React', 'Firebase', 'Material-UI'],
-        github: 'https://github.com/yourusername/project2',
-        demo: 'https://project2-demo.com',
+        technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'React', 'Swift'],
+        github: 'https://github.com/ridvanKarsli/SagliktanWeb',
+        demo: 'https://sagliktan.com',
       },
     ]);
   }, [language, translations]);

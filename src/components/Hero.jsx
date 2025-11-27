@@ -138,7 +138,7 @@ const Hero = () => {
         },
       }}
     >
-      {/* Enhanced animated background particles */}
+      {/* Enhanced animated background particles with multiple layers */}
       <Box
         sx={{
           position: 'absolute',
@@ -150,90 +150,111 @@ const Hero = () => {
           pointerEvents: 'none',
         }}
       >
-        {[...Array(30)].map((_, i) => (
+        {/* Large glowing particles */}
+        {[...Array(50)].map((_, i) => (
           <motion.div
-            key={i}
+            key={`particle-${i}`}
             style={{
               position: 'absolute',
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
-              backgroundColor: i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500],
+              width: Math.random() * 6 + 3 + 'px',
+              height: Math.random() * 6 + 3 + 'px',
+              backgroundColor: i % 3 === 0 ? designTokens.colors.accent[500] : 
+                              i % 3 === 1 ? designTokens.colors.primary[500] : 
+                              designTokens.colors.accent[400],
               borderRadius: '50%',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100 + 100}%`,
+              boxShadow: `0 0 ${Math.random() * 10 + 5}px ${i % 3 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500]}`,
             }}
-            variants={particleVariants}
-            animate="animate"
-            style={{
-              ...{
-                position: 'absolute',
-                width: Math.random() * 4 + 2 + 'px',
-                height: Math.random() * 4 + 2 + 'px',
-                backgroundColor: i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500],
-                borderRadius: '50%',
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100 + 100}%`,
-              },
-              animationDelay: `${Math.random() * 3}s`,
+            animate={{
+              y: [0, -Math.random() * 200 - 100, -Math.random() * 400 - 200],
+              opacity: [0, Math.random() * 0.8 + 0.2, 0],
+              scale: [0, Math.random() * 0.5 + 0.5, 0],
+              x: [0, Math.random() * 50 - 25, 0],
             }}
             transition={{
-              duration: Math.random() * 4 + 3,
+              duration: Math.random() * 5 + 4,
               repeat: Infinity,
               delay: Math.random() * 3,
               ease: "easeOut",
             }}
           />
         ))}
+        
+        {/* Floating orbs */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            style={{
+              position: 'absolute',
+              width: Math.random() * 100 + 50 + 'px',
+              height: Math.random() * 100 + 50 + 'px',
+              borderRadius: '50%',
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              background: `radial-gradient(circle, ${i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500]}20 0%, transparent 70%)`,
+              filter: 'blur(20px)',
+            }}
+            animate={{
+              y: [0, Math.random() * 100 - 50, 0],
+              x: [0, Math.random() * 100 - 50, 0],
+              scale: [1, Math.random() * 0.5 + 1.2, 1],
+              opacity: [0.3, Math.random() * 0.3 + 0.2, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </Box>
 
-      {/* Floating geometric shapes */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          right: '10%',
-          width: '100px',
-          height: '100px',
-          opacity: 0.1,
-          pointerEvents: 'none',
-        }}
-      >
-        <motion.div
-          animate={floatingAnimation}
-          style={{
-            width: '100%',
-            height: '100%',
-            border: `2px solid ${designTokens.colors.accent[500]}`,
-            borderRadius: '20px',
-            rotate: '45deg',
+      {/* Enhanced floating geometric shapes with glow */}
+      {[
+        { top: '10%', right: '10%', size: 120, shape: 'square', color: designTokens.colors.accent[500], delay: 0 },
+        { bottom: '20%', left: '5%', size: 80, shape: 'circle', color: designTokens.colors.primary[500], delay: 1 },
+        { top: '60%', right: '5%', size: 60, shape: 'triangle', color: designTokens.colors.accent[400], delay: 2 },
+        { bottom: '10%', right: '30%', size: 100, shape: 'square', color: designTokens.colors.primary[400], delay: 0.5 },
+      ].map((shape, i) => (
+        <Box
+          key={i}
+          sx={{
+            position: 'absolute',
+            [shape.top ? 'top' : 'bottom']: shape.top || shape.bottom,
+            [shape.right ? 'right' : 'left']: shape.right || shape.left,
+            width: `${shape.size}px`,
+            height: `${shape.size}px`,
+            opacity: 0.15,
+            pointerEvents: 'none',
+            filter: `blur(${shape.size / 10}px)`,
           }}
-        />
-      </Box>
-
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '20%',
-          left: '5%',
-          width: '60px',
-          height: '60px',
-          opacity: 0.1,
-          pointerEvents: 'none',
-        }}
-      >
-        <motion.div
-          animate={{
-            ...floatingAnimation,
-            transition: { ...floatingAnimation.transition, delay: 1 },
-          }}
-          style={{
-            width: '100%',
-            height: '100%',
-            border: `2px solid ${designTokens.colors.primary[500]}`,
-            borderRadius: '50%',
-          }}
-        />
-      </Box>
+        >
+          <motion.div
+            animate={{
+              y: [-30, 30, -30],
+              rotate: shape.shape === 'square' ? [0, 180, 360] : [0, 360],
+              scale: [1, 1.2, 1],
+              opacity: [0.15, 0.25, 0.15],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              delay: shape.delay,
+              ease: "easeInOut",
+            }}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: `3px solid ${shape.color}`,
+              borderRadius: shape.shape === 'circle' ? '50%' : shape.shape === 'triangle' ? '0' : '20px',
+              boxShadow: `0 0 ${shape.size / 2}px ${shape.color}40`,
+              clipPath: shape.shape === 'triangle' ? 'polygon(50% 0%, 0% 100%, 100% 100%)' : 'none',
+            }}
+          />
+        </Box>
+      ))}
 
       <Container maxWidth="lg">
         <motion.div
@@ -259,20 +280,36 @@ const Hero = () => {
                   </Typography>
                 </motion.div>
 
-                <motion.div variants={textVariants}>
+                <motion.div 
+                  variants={textVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
                   <Typography
                     variant="h1"
                     component="h1"
                     sx={{
-                      fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5rem' },
-                      fontWeight: 700,
+                      fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' },
+                      fontWeight: 800,
                       mb: 1,
                       background: designTokens.gradients.accent,
                       backgroundClip: 'text',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       lineHeight: 1.1,
-                      letterSpacing: '-0.02em',
+                      letterSpacing: '-0.03em',
+                      textShadow: `0 0 30px ${designTokens.colors.accent[500]}30`,
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: '-10px',
+                        left: 0,
+                        width: '100px',
+                        height: '4px',
+                        background: designTokens.gradients.accent,
+                        borderRadius: '2px',
+                        boxShadow: designTokens.shadows.glowSoft,
+                      },
                     }}
                   >
                     {translations[language].hero.name}
@@ -321,18 +358,42 @@ const Hero = () => {
                   >
                     <motion.div
                       variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: designTokens.shadows.glow,
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Button
                         variant="contained"
                         onClick={() => scrollToSection('projects')}
                         startIcon={<RocketLaunchIcon />}
                         sx={{
-                          minWidth: { xs: '200px', sm: '180px' },
-                          py: 1.5,
-                          fontSize: '1.1rem',
-                          fontWeight: 600,
+                          minWidth: { xs: '200px', sm: '220px' },
+                          py: 1.8,
+                          fontSize: '1.15rem',
+                          fontWeight: 700,
+                          background: designTokens.gradients.accent,
+                          boxShadow: designTokens.shadows.glowSoft,
+                          position: 'relative',
+                          overflow: 'hidden',
+                          '&::before': {
+                            content: '""',
+                            position: 'absolute',
+                            top: 0,
+                            left: '-100%',
+                            width: '100%',
+                            height: '100%',
+                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                            transition: 'left 0.5s',
+                          },
+                          '&:hover::before': {
+                            left: '100%',
+                          },
+                          '&:hover': {
+                            boxShadow: designTokens.shadows.glow,
+                            transform: 'translateY(-2px)',
+                          },
                         }}
                       >
                         {translations[language].hero.viewWork}
@@ -341,18 +402,48 @@ const Hero = () => {
                     
                     <motion.div
                       variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: designTokens.shadows.glowSoft,
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Button
                         variant="outlined"
                         onClick={() => scrollToSection('contact')}
                         startIcon={<EmailIcon />}
                         sx={{
-                          minWidth: { xs: '200px', sm: '180px' },
-                          py: 1.5,
-                          fontSize: '1.1rem',
-                          fontWeight: 600,
+                          minWidth: { xs: '200px', sm: '220px' },
+                          py: 1.8,
+                          fontSize: '1.15rem',
+                          fontWeight: 700,
+                          borderWidth: '2px',
+                          borderColor: designTokens.colors.accent[500],
+                          color: designTokens.colors.accent[500],
+                          background: 'transparent',
+                          backdropFilter: 'blur(10px)',
+                          position: 'relative',
+                          '&::before': {
+                            content: '""',
+                            position: 'absolute',
+                            inset: 0,
+                            borderRadius: 'inherit',
+                            padding: '2px',
+                            background: designTokens.gradients.accent,
+                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'xor',
+                            maskComposite: 'exclude',
+                            opacity: 0,
+                            transition: 'opacity 0.3s',
+                          },
+                          '&:hover::before': {
+                            opacity: 1,
+                          },
+                          '&:hover': {
+                            backgroundColor: `${designTokens.colors.accent[500]}15`,
+                            transform: 'translateY(-2px)',
+                            boxShadow: designTokens.shadows.glowSoft,
+                          },
                         }}
                       >
                         {translations[language].hero.contactMe}
@@ -455,13 +546,36 @@ const Hero = () => {
                     zIndex: 3,
                   }}
                 >
-                  <CodeIcon 
-                    sx={{ 
-                      fontSize: { xs: 100, sm: 120, md: 140 }, 
-                      color: designTokens.colors.accent[500],
-                      filter: `drop-shadow(0 0 20px ${designTokens.colors.accent[500]}50)`,
-                    }} 
-                  />
+                  <motion.div
+                    animate={{
+                      rotate: [0, 360],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      rotate: {
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                      },
+                      scale: {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  >
+                    <CodeIcon 
+                      sx={{ 
+                        fontSize: { xs: 120, sm: 150, md: 180 }, 
+                        color: designTokens.colors.accent[500],
+                        filter: `drop-shadow(0 0 30px ${designTokens.colors.accent[500]}) drop-shadow(0 0 60px ${designTokens.colors.accent[500]}50)`,
+                        background: designTokens.gradients.accent,
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }} 
+                    />
+                  </motion.div>
                 </motion.div>
                 
                 {/* Animated code lines */}

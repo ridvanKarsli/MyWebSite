@@ -14,7 +14,6 @@ import { motion } from 'framer-motion';
 import {
   GitHub as GitHubIcon,
   LinkedIn as LinkedInIcon,
-  Twitter as TwitterIcon,
   Email as EmailIcon,
   Code as CodeIcon,
   Favorite as FavoriteIcon,
@@ -32,8 +31,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: <GitHubIcon />, url: 'https://github.com/ridvankarsli', label: 'GitHub' },
     { icon: <LinkedInIcon />, url: 'https://linkedin.com/in/ridvankarsli', label: 'LinkedIn' },
-    { icon: <TwitterIcon />, url: 'https://twitter.com/ridvankarsli', label: 'Twitter' },
-    { icon: <EmailIcon />, url: 'mailto:ridvankarsli@gmail.com', label: 'Email' },
+    { icon: <EmailIcon />, url: 'mailto:rdvn.35050@gmail.com', label: 'Email' },
   ];
 
   const quickLinks = [

@@ -39,14 +39,14 @@ export const translations = {
         },
         skills: {
           title: 'Skills',
-          content: 'Java, Spring Boot, PostgreSQL, OOP, SOLID, Clean Code, Layered Architecture, Python (ML), React, Swift, Git, Mobile Development, Algorithms & Data Structures',
+          content: 'Java, Spring Boot, Java Backend, PostgreSQL, Database Design, OOP, SOLID, Clean Code, Layered Architecture, RESTful APIs, React, Swift, Git, Mobile Development, Algorithms & Data Structures',
         },
       },
       features: {
         title: 'What I Do',
         items: [
           {
-            title: 'Backend Development',
+            title: 'Java Backend Development',
             description: 'Developing robust backend systems with Java and Spring Boot.',
           },
           {
@@ -57,10 +57,6 @@ export const translations = {
             title: 'Frontend Development',
             description: 'Creating user interfaces with React and Swift.',
           },
-          {
-            title: 'Machine Learning',
-            description: 'Delivering data analytics solutions using Python-based ML algorithms.',
-          },
         ],
       },
     },
@@ -70,11 +66,7 @@ export const translations = {
       viewGithub: 'View on GitHub',
       viewDemo: 'Live Demo',
       project1: {
-        title: 'MSET – Fault Detection System',
-        description: 'Developed with Python and PostgreSQL to predict failures in industrial facilities using machine learning.',
-      },
-      project2: {
-        title: 'Saglikta – AI-Powered Health Platform',
+        title: 'Saglikta – Health Platform',
         description: 'A digital platform connecting chronic patients with expert doctors using Spring Boot, PostgreSQL, React, Swift, and Java.',
       },
     },
@@ -161,14 +153,14 @@ export const translations = {
         },
         skills: {
           title: 'Yetenekler',
-          content: 'Java, Spring Boot, PostgreSQL, OOP, SOLID, Clean Code, Katmanlı Mimari, Python ML, React, Swift, Git, Mobil Geliştirme, Algoritmalar & Veri Yapıları',
+          content: 'Java, Spring Boot, Java Backend, PostgreSQL, Veritabanı Tasarımı, OOP, SOLID, Clean Code, Katmanlı Mimari, RESTful API, React, Swift, Git, Mobil Geliştirme, Algoritmalar & Veri Yapıları',
         },
       },
       features: {
         title: 'Neler Yapıyorum',
         items: [
           {
-            title: 'Backend Geliştirme',
+            title: 'Java Backend Geliştirme',
             description: 'Java ve Spring Boot ile güçlü backend sistemleri geliştiriyorum.',
           },
           {
@@ -179,10 +171,6 @@ export const translations = {
             title: 'Arayüz Geliştirme',
             description: 'React ve Swift ile kullanıcı arayüzleri geliştiriyorum.',
           },
-          {
-            title: 'Makine Öğrenmesi',
-            description: 'Python ile veri analitiği çözümleri sunuyorum.',
-          },
         ],
       },
     },
@@ -192,11 +180,7 @@ export const translations = {
       viewGithub: "GitHub'da Gör",
       viewDemo: 'Canlı Demo',
       project1: {
-        title: 'MSET – Arıza Tespit Sistemi',
-        description: 'Python ve PostgreSQL kullanılarak geliştirilen sistem, sanayi tesislerinde arızaları tahmin eder.',
-      },
-      project2: {
-        title: 'Sağlıkta – Yapay Zeka Sağlık Platformu',
+        title: 'Sağlıkta – Sağlık Platformu',
         description: 'Spring Boot, PostgreSQL, React, Swift ve Java teknolojileriyle kronik hastaları uzmanlarla buluşturur.',
       },
     },

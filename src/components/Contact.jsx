@@ -203,25 +203,38 @@ const Contact = () => {
                     height: '100%',
                     position: 'relative',
                     overflow: 'hidden',
+                    background: designTokens.colors.background.glass,
+                    backdropFilter: 'blur(20px)',
+                    borderRadius: '24px',
+                    border: `1px solid ${designTokens.colors.accent[500]}30`,
+                    boxShadow: designTokens.shadows.card,
                     '&::before': {
                       content: '""',
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       right: 0,
-                      bottom: 0,
-                      background: `radial-gradient(circle at 10% 20%, ${designTokens.colors.accent[500]}05 0%, transparent 50%)`,
-                      pointerEvents: 'none',
+                      height: '4px',
+                      background: designTokens.gradients.accent,
+                      boxShadow: designTokens.shadows.glowSoft,
+                    },
+                    '&:hover': {
+                      borderColor: `${designTokens.colors.accent[500]}50`,
+                      boxShadow: designTokens.shadows.cardHover,
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4, position: 'relative', zIndex: 1 }}>
+                  <CardContent sx={{ p: { xs: 3, md: 4 }, position: 'relative', zIndex: 1 }}>
                     <Typography
                       variant="h4"
                       sx={{
-                        color: designTokens.colors.accent[500],
+                        background: designTokens.gradients.accent,
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
                         mb: 3,
-                        fontWeight: 600,
+                        fontWeight: 700,
+                        fontSize: { xs: '1.8rem', md: '2rem' },
                       }}
                     >
                       {translations[language].contact.form.title}
@@ -241,6 +254,31 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
+                          sx={{
+                            '& .MuiOutlinedInput-root': {
+                              color: designTokens.colors.text.primary,
+                              background: 'rgba(15, 23, 42, 0.5)',
+                              backdropFilter: 'blur(10px)',
+                              borderRadius: '12px',
+                              '& fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}30`,
+                                borderWidth: '2px',
+                              },
+                              '&:hover fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}60`,
+                              },
+                              '&.Mui-focused fieldset': {
+                                borderColor: designTokens.colors.accent[500],
+                                boxShadow: designTokens.shadows.glowSoft,
+                              },
+                            },
+                            '& .MuiInputLabel-root': {
+                              color: designTokens.colors.text.tertiary,
+                              '&.Mui-focused': {
+                                color: designTokens.colors.accent[500],
+                              },
+                            },
+                          }}
                         />
                       </motion.div>
 
@@ -258,6 +296,31 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
+                          sx={{
+                            '& .MuiOutlinedInput-root': {
+                              color: designTokens.colors.text.primary,
+                              background: 'rgba(15, 23, 42, 0.5)',
+                              backdropFilter: 'blur(10px)',
+                              borderRadius: '12px',
+                              '& fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}30`,
+                                borderWidth: '2px',
+                              },
+                              '&:hover fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}60`,
+                              },
+                              '&.Mui-focused fieldset': {
+                                borderColor: designTokens.colors.accent[500],
+                                boxShadow: designTokens.shadows.glowSoft,
+                              },
+                            },
+                            '& .MuiInputLabel-root': {
+                              color: designTokens.colors.text.tertiary,
+                              '&.Mui-focused': {
+                                color: designTokens.colors.accent[500],
+                              },
+                            },
+                          }}
                         />
                       </motion.div>
 
@@ -276,6 +339,31 @@ const Contact = () => {
                           value={formData.message}
                           onChange={handleChange}
                           required
+                          sx={{
+                            '& .MuiOutlinedInput-root': {
+                              color: designTokens.colors.text.primary,
+                              background: 'rgba(15, 23, 42, 0.5)',
+                              backdropFilter: 'blur(10px)',
+                              borderRadius: '12px',
+                              '& fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}30`,
+                                borderWidth: '2px',
+                              },
+                              '&:hover fieldset': {
+                                borderColor: `${designTokens.colors.accent[500]}60`,
+                              },
+                              '&.Mui-focused fieldset': {
+                                borderColor: designTokens.colors.accent[500],
+                                boxShadow: designTokens.shadows.glowSoft,
+                              },
+                            },
+                            '& .MuiInputLabel-root': {
+                              color: designTokens.colors.text.tertiary,
+                              '&.Mui-focused': {
+                                color: designTokens.colors.accent[500],
+                              },
+                            },
+                          }}
                         />
                       </motion.div>
 
@@ -292,10 +380,16 @@ const Contact = () => {
                           fullWidth
                           startIcon={<SendIcon />}
                           sx={{
-                            py: 1.5,
+                            py: 1.8,
                             fontSize: '1.1rem',
-                            fontWeight: 600,
+                            fontWeight: 700,
                             textTransform: 'none',
+                            background: designTokens.gradients.accent,
+                            boxShadow: designTokens.shadows.glowSoft,
+                            '&:hover': {
+                              boxShadow: designTokens.shadows.glow,
+                              transform: 'translateY(-2px)',
+                            },
                           }}
                         >
                           {translations[language].contact.form.sendButton}
@@ -312,14 +406,41 @@ const Contact = () => {
                 variants={cardVariants}
                 style={{ height: '100%' }}
               >
-                <Card sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
-                  <CardContent sx={{ p: 4, height: '100%' }}>
+                <Card sx={{ 
+                  height: '100%', 
+                  position: 'relative', 
+                  overflow: 'hidden',
+                  background: designTokens.colors.background.glass,
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '24px',
+                  border: `1px solid ${designTokens.colors.accent[500]}30`,
+                  boxShadow: designTokens.shadows.card,
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '4px',
+                    background: designTokens.gradients.accent,
+                    boxShadow: designTokens.shadows.glowSoft,
+                  },
+                  '&:hover': {
+                    borderColor: `${designTokens.colors.accent[500]}50`,
+                    boxShadow: designTokens.shadows.cardHover,
+                  },
+                }}>
+                  <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%' }}>
                     <Typography
                       variant="h4"
                       sx={{
-                        color: designTokens.colors.accent[500],
+                        background: designTokens.gradients.accent,
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
                         mb: 4,
-                        fontWeight: 600,
+                        fontWeight: 700,
+                        fontSize: { xs: '1.8rem', md: '2rem' },
                       }}
                     >
                       {translations[language].contact.contactInfo.title}

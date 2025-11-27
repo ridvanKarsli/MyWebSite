@@ -43,24 +43,10 @@ const Projects = () => {
       {
         title: translations[language].projects.project1.title,
         description: translations[language].projects.project1.description,
-        image: '/projects/ecommerce.jpg',
-        technologies: ['PostgreSQL', 'Python', 'Machine Learning'],
-        github: 'https://github.com/yourusername/project1',
-        demo: 'https://project1-demo.com',
-        stats: {
-          users: '10K+',
-          revenue: '$500K+',
-          growth: [30, 45, 60, 75, 90, 100],
-        },
-      },
-      {
-        title: translations[language].projects.project2.title,
-        description: translations[language].projects.project2.description,
         image: '/projects/taskmanager.jpg',
         technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'Swift', 'React'],
-
-        github: 'https://github.com/yourusername/project2',
-        demo: 'https://project2-demo.com',
+        github: 'https://github.com/ridvanKarsli/SagliktanWeb',
+        demo: 'https://sagliktan.com',
         stats: {
           users: '5K+',
           tasks: '50K+',

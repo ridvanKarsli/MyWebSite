@@ -55,15 +55,19 @@ const designTokens = {
     },
   },
   shadows: {
-    glow: '0 0 20px rgba(0, 229, 255, 0.3)',
-    glowSoft: '0 0 10px rgba(0, 229, 255, 0.2)',
-    card: '0 4px 20px rgba(0, 0, 0, 0.15)',
-    cardHover: '0 8px 40px rgba(0, 0, 0, 0.25)',
+    glow: '0 0 30px rgba(0, 229, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.3)',
+    glowSoft: '0 0 20px rgba(0, 229, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.15)',
+    glowStrong: '0 0 50px rgba(0, 229, 255, 0.7), 0 0 100px rgba(0, 229, 255, 0.4)',
+    card: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 229, 255, 0.1)',
+    cardHover: '0 12px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 229, 255, 0.3)',
+    neon: '0 0 5px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.5), 0 0 15px rgba(0, 229, 255, 0.5)',
   },
   gradients: {
-    primary: 'linear-gradient(135deg, #1890ff 0%, #00e5ff 100%)',
-    accent: 'linear-gradient(135deg, #00e5ff 0%, #1affb8 100%)',
-    background: 'linear-gradient(135deg, #0a0f23 0%, #111827 100%)',
+    primary: 'linear-gradient(135deg, #1890ff 0%, #00e5ff 50%, #1affb8 100%)',
+    accent: 'linear-gradient(135deg, #00e5ff 0%, #1affb8 50%, #00ff88 100%)',
+    background: 'linear-gradient(135deg, #0a0f23 0%, #111827 50%, #0f172a 100%)',
+    glow: 'radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%)',
+    rainbow: 'linear-gradient(90deg, #ff006e 0%, #8338ec 25%, #3a86ff 50%, #06ffa5 75%, #ffbe0b 100%)',
   },
 };
 

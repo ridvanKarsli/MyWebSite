@@ -7,11 +7,17 @@ import {
   Typography,
   Box,
   Grid,
+  Button,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
 import { Line } from 'react-chartjs-2';
+import { useLanguage } from '../context/LanguageContext';
+import { designTokens } from '../theme/ThemeProvider';
 
 const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
+  const { translations, language } = useLanguage();
   if (!project) return null;
 
   return (
@@ -22,9 +28,12 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
       fullWidth
       PaperProps={{
         sx: {
-          backgroundColor: '#0a192f',
+          background: designTokens.colors.background.glass,
+          backdropFilter: 'blur(20px)',
           color: 'white',
-          borderRadius: '8px',
+          borderRadius: '24px',
+          border: `1px solid ${designTokens.colors.accent[500]}30`,
+          boxShadow: designTokens.shadows.cardHover,
         },
       }}
     >
@@ -98,18 +107,64 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
                 <Typography
                   key={tech}
                   sx={{
-                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                    color: '#00e5ff',
-                    px: 1,
+                    backgroundColor: `${designTokens.colors.accent[500]}15`,
+                    color: designTokens.colors.accent[500],
+                    px: 1.5,
                     py: 0.5,
-                    borderRadius: '4px',
-                    fontSize: '0.8rem',
+                    borderRadius: '8px',
+                    fontSize: '0.85rem',
                     fontFamily: 'monospace',
+                    fontWeight: 500,
+                    border: `1px solid ${designTokens.colors.accent[500]}30`,
                   }}
                 >
                   {tech}
                 </Typography>
               ))}
+            </Box>
+            <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
+              {project.github && (
+                <Button
+                  component="a"
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  startIcon={<GitHubIcon />}
+                  sx={{
+                    color: designTokens.colors.accent[500],
+                    borderColor: designTokens.colors.accent[500],
+                    borderWidth: '2px',
+                    '&:hover': {
+                      borderColor: designTokens.colors.accent[400],
+                      backgroundColor: `${designTokens.colors.accent[500]}15`,
+                      boxShadow: designTokens.shadows.glowSoft,
+                    },
+                  }}
+                >
+                  {translations[language].projects.viewGithub}
+                </Button>
+              )}
+              {project.demo && (
+                <Button
+                  component="a"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  startIcon={<LaunchIcon />}
+                  sx={{
+                    background: designTokens.gradients.accent,
+                    boxShadow: designTokens.shadows.glowSoft,
+                    '&:hover': {
+                      boxShadow: designTokens.shadows.glow,
+                      transform: 'translateY(-2px)',
+                    },
+                  }}
+                >
+                  {translations[language].projects.viewDemo}
+                </Button>
+              )}
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
