@@ -35,6 +35,7 @@ const ContactForm = () => {
 
   return (
     <Box
+      id="contact"
       ref={ref}
       sx={{
         minHeight: '100vh',

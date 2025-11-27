@@ -14,9 +14,32 @@ const Hero = () => {
   const theme = useTheme();
 
   const scrollToSection = (sectionId) => {
+    // First try to find element by ID
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Calculate offset for navbar
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      // If element not found, try scrolling after a short delay (for dynamic content)
+      setTimeout(() => {
+        const retryElement = document.getElementById(sectionId);
+        if (retryElement) {
+          const offset = 100;
+          const elementPosition = retryElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     }
   };
 
