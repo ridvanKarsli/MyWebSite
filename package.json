@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install || true"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
