@@ -41,25 +41,25 @@ const Footer = () => {
     { title: translations[language].footer.quickLinks.contact, href: '/contact' },
   ];
 
-  // Enhanced animation variants
+  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -161,8 +161,9 @@ const Footer = () => {
                   {quickLinks.map((link, index) => (
                     <motion.div
                       key={link.title}
-                      whileHover={{ x: 10, scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ x: 8 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <Link
                         href={link.href}
@@ -216,8 +217,9 @@ const Footer = () => {
                   {socialLinks.map((link, index) => (
                     <motion.div
                       key={link.label}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <IconButton
                         href={link.url}
@@ -259,6 +261,7 @@ const Footer = () => {
             <Box sx={{ textAlign: 'center' }}>
               <Typography
                 variant="body2"
+                component="div"
                 sx={{
                   color: designTokens.colors.text.tertiary,
                   fontSize: '1rem',
@@ -271,20 +274,16 @@ const Footer = () => {
                 {translations[language].footer.copyright.replace('❤️', '')}
                 <motion.div
                   animate={{ 
-                    scale: [1, 1.3, 1],
-                    color: [
-                      designTokens.colors.status.error,
-                      designTokens.colors.accent[500],
-                      designTokens.colors.status.error
-                    ]
+                    scale: [1, 1.15, 1],
                   }}
                   transition={{ 
-                    duration: 2,
+                    duration: 1.5,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "linear"
                   }}
+                  style={{ willChange: 'transform' }}
                 >
-                  <FavoriteIcon sx={{ fontSize: '1.2rem' }} />
+                  <FavoriteIcon sx={{ fontSize: '1.2rem', color: designTokens.colors.status.error }} />
                 </motion.div>
               </Typography>
             </Box>

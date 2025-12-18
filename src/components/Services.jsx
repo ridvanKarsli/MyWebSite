@@ -23,21 +23,20 @@ const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.4,
+        ease: "easeOut",
       },
     },
   };
@@ -70,7 +69,7 @@ const Services = () => {
         },
       }}
     >
-      {/* Animated background particles */}
+      {/* Optimized background particles */}
       <Box
         sx={{
           position: 'absolute',
@@ -82,29 +81,29 @@ const Services = () => {
           pointerEvents: 'none',
         }}
       >
-        {[...Array(15)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={`service-particle-${i}`}
             style={{
               position: 'absolute',
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
+              width: '2px',
+              height: '2px',
               backgroundColor: i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500],
               borderRadius: '50%',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100 + 100}%`,
               opacity: 0.3,
+              willChange: 'transform, opacity',
             }}
             animate={{
-              y: [0, -Math.random() * 150 - 100, -Math.random() * 300 - 200],
-              opacity: [0, Math.random() * 0.5 + 0.2, 0],
-              scale: [0, Math.random() * 0.5 + 0.5, 0],
+              y: [0, -200],
+              opacity: [0, 0.5, 0],
             }}
             transition={{
-              duration: Math.random() * 4 + 3,
+              duration: Math.random() * 3 + 2,
               repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeOut",
+              delay: Math.random() * 2,
+              ease: "linear",
             }}
           />
         ))}
@@ -112,9 +111,9 @@ const Services = () => {
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.4 }}
         >
           <Typography
             variant="h2"
@@ -161,9 +160,9 @@ const Services = () => {
                 <motion.div
                   variants={itemVariants}
                   whileHover={{ 
-                    scale: 1.05,
-                    y: -10,
+                    y: -5,
                   }}
+                  transition={{ duration: 0.2 }}
                   style={{ height: '100%' }}
                 >
                   <Box
@@ -203,28 +202,16 @@ const Services = () => {
                       },
                     }}
                   >
-                    <motion.div
-                      animate={{
-                        rotate: [0, 10, -10, 0],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
+                    <Box 
+                      sx={{ 
+                        mb: 3,
+                        color: designTokens.colors.accent[500],
+                        fontSize: '4rem',
+                        filter: `drop-shadow(0 0 15px ${designTokens.colors.accent[500]}40)`,
                       }}
                     >
-                      <Box 
-                        sx={{ 
-                          mb: 3,
-                          color: designTokens.colors.accent[500],
-                          fontSize: '4rem',
-                          filter: `drop-shadow(0 0 20px ${designTokens.colors.accent[500]}50)`,
-                        }}
-                      >
-                        {service.icon}
-                      </Box>
-                    </motion.div>
+                      {service.icon}
+                    </Box>
                     <Typography
                       variant="h5"
                       sx={{
@@ -262,5 +249,7 @@ const Services = () => {
 };
 
 export default Services;
+
+
 
 

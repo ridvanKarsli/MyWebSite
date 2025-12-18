@@ -48,38 +48,26 @@ const Projects = () => {
     navigate('/projects');
   };
 
-  // Animation variants
+  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
-  };
-
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [-5, 5, -5],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
   };
 
   return (
@@ -107,7 +95,7 @@ const Projects = () => {
         },
       }}
     >
-      {/* Enhanced background particles */}
+      {/* Optimized background particles */}
       <Box
         sx={{
           position: 'absolute',
@@ -119,33 +107,31 @@ const Projects = () => {
           pointerEvents: 'none',
         }}
       >
-        {[...Array(20)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             style={{
               position: 'absolute',
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              backgroundColor: i % 3 === 0 
+              width: '2px',
+              height: '2px',
+              backgroundColor: i % 2 === 0 
                 ? designTokens.colors.accent[500] 
-                : i % 3 === 1 
-                ? designTokens.colors.primary[500] 
-                : designTokens.colors.accent[300],
+                : designTokens.colors.primary[500],
               borderRadius: '50%',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100 + 100}%`,
               opacity: 0.4,
+              willChange: 'transform, opacity',
             }}
             animate={{
-              y: [0, -150, -300],
-              opacity: [0, 0.6, 0],
-              scale: [0.5, 1, 0.5],
+              y: [0, -200],
+              opacity: [0, 0.5, 0],
             }}
             transition={{
-              duration: Math.random() * 4 + 3,
+              duration: Math.random() * 3 + 2,
               repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeOut",
+              delay: Math.random() * 2,
+              ease: "linear",
             }}
           />
         ))}

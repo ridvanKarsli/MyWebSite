@@ -43,80 +43,77 @@ const Hero = () => {
     }
   };
 
-  // Enhanced animation variants
+  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const textVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
-  };
-
-  const buttonVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.03,
+      transition: {
+        duration: 0.15,
+      },
+    },
+    tap: {
+      scale: 0.97,
+    },
+  };
+
+  const socialVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
         ease: "easeOut",
       },
     },
     hover: {
       scale: 1.05,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut",
-      },
-    },
-    tap: {
-      scale: 0.95,
-    },
-  };
-
-  const socialVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    hover: {
-      scale: 1.1,
       y: -2,
       transition: {
-        duration: 0.2,
+        duration: 0.15,
       },
     },
   };
 
-  // Floating animation for the visual element
+  // Optimized floating animation
   const floatingAnimation = {
-    y: [-20, 20, -20],
-    rotate: [-5, 5, -5],
+    y: [-10, 10, -10],
     transition: {
-      duration: 6,
+      duration: 4,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "linear",
     },
   };
 
@@ -161,7 +158,7 @@ const Hero = () => {
         },
       }}
     >
-      {/* Enhanced animated background particles with multiple layers */}
+      {/* Optimized animated background particles */}
       <Box
         sx={{
           position: 'absolute',
@@ -173,73 +170,66 @@ const Hero = () => {
           pointerEvents: 'none',
         }}
       >
-        {/* Large glowing particles */}
-        {[...Array(50)].map((_, i) => (
+        {/* Reduced particles for better performance */}
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
             style={{
               position: 'absolute',
-              width: Math.random() * 6 + 3 + 'px',
-              height: Math.random() * 6 + 3 + 'px',
-              backgroundColor: i % 3 === 0 ? designTokens.colors.accent[500] : 
-                              i % 3 === 1 ? designTokens.colors.primary[500] : 
-                              designTokens.colors.accent[400],
+              width: Math.random() * 4 + 2 + 'px',
+              height: Math.random() * 4 + 2 + 'px',
+              backgroundColor: i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500],
               borderRadius: '50%',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100 + 100}%`,
-              boxShadow: `0 0 ${Math.random() * 10 + 5}px ${i % 3 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500]}`,
+              willChange: 'transform, opacity',
             }}
             animate={{
-              y: [0, -Math.random() * 200 - 100, -Math.random() * 400 - 200],
-              opacity: [0, Math.random() * 0.8 + 0.2, 0],
-              scale: [0, Math.random() * 0.5 + 0.5, 0],
-              x: [0, Math.random() * 50 - 25, 0],
+              y: [0, -Math.random() * 300 - 200],
+              opacity: [0, 0.6, 0],
+              scale: [0, 0.8, 0],
             }}
             transition={{
-              duration: Math.random() * 5 + 4,
+              duration: Math.random() * 3 + 3,
               repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeOut",
+              delay: Math.random() * 2,
+              ease: "linear",
             }}
           />
         ))}
         
-        {/* Floating orbs */}
-        {[...Array(8)].map((_, i) => (
+        {/* Reduced floating orbs */}
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={`orb-${i}`}
             style={{
               position: 'absolute',
-              width: Math.random() * 100 + 50 + 'px',
-              height: Math.random() * 100 + 50 + 'px',
+              width: Math.random() * 80 + 40 + 'px',
+              height: Math.random() * 80 + 40 + 'px',
               borderRadius: '50%',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              background: `radial-gradient(circle, ${i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500]}20 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500]}15 0%, transparent 70%)`,
               filter: 'blur(20px)',
+              willChange: 'transform',
             }}
             animate={{
-              y: [0, Math.random() * 100 - 50, 0],
-              x: [0, Math.random() * 100 - 50, 0],
-              scale: [1, Math.random() * 0.5 + 1.2, 1],
-              opacity: [0.3, Math.random() * 0.3 + 0.2, 0.3],
+              y: [0, Math.random() * 60 - 30, 0],
+              x: [0, Math.random() * 60 - 30, 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 8 + 8,
               repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
+              ease: "linear",
             }}
           />
         ))}
       </Box>
 
-      {/* Enhanced floating geometric shapes with glow */}
+      {/* Optimized floating geometric shapes */}
       {[
-        { top: '10%', right: '10%', size: 120, shape: 'square', color: designTokens.colors.accent[500], delay: 0 },
-        { bottom: '20%', left: '5%', size: 80, shape: 'circle', color: designTokens.colors.primary[500], delay: 1 },
-        { top: '60%', right: '5%', size: 60, shape: 'triangle', color: designTokens.colors.accent[400], delay: 2 },
-        { bottom: '10%', right: '30%', size: 100, shape: 'square', color: designTokens.colors.primary[400], delay: 0.5 },
+        { top: '10%', right: '10%', size: 100, shape: 'square', color: designTokens.colors.accent[500] },
+        { bottom: '20%', left: '5%', size: 70, shape: 'circle', color: designTokens.colors.primary[500] },
       ].map((shape, i) => (
         <Box
           key={i}
@@ -249,31 +239,26 @@ const Hero = () => {
             [shape.right ? 'right' : 'left']: shape.right || shape.left,
             width: `${shape.size}px`,
             height: `${shape.size}px`,
-            opacity: 0.15,
+            opacity: 0.1,
             pointerEvents: 'none',
-            filter: `blur(${shape.size / 10}px)`,
+            filter: `blur(${shape.size / 12}px)`,
           }}
         >
           <motion.div
             animate={{
-              y: [-30, 30, -30],
-              rotate: shape.shape === 'square' ? [0, 180, 360] : [0, 360],
-              scale: [1, 1.2, 1],
-              opacity: [0.15, 0.25, 0.15],
+              y: [-20, 20, -20],
             }}
             transition={{
-              duration: 8 + i * 2,
+              duration: 6,
               repeat: Infinity,
-              delay: shape.delay,
-              ease: "easeInOut",
+              ease: "linear",
             }}
             style={{
               width: '100%',
               height: '100%',
-              border: `3px solid ${shape.color}`,
-              borderRadius: shape.shape === 'circle' ? '50%' : shape.shape === 'triangle' ? '0' : '20px',
-              boxShadow: `0 0 ${shape.size / 2}px ${shape.color}40`,
-              clipPath: shape.shape === 'triangle' ? 'polygon(50% 0%, 0% 100%, 100% 100%)' : 'none',
+              border: `2px solid ${shape.color}`,
+              borderRadius: shape.shape === 'circle' ? '50%' : '15px',
+              willChange: 'transform',
             }}
           />
         </Box>
@@ -561,44 +546,22 @@ const Hero = () => {
                   },
                 }}
               >
-                {/* Central Code Icon */}
+                {/* Central Code Icon - Optimized */}
                 <motion.div
                   animate={floatingAnimation}
                   style={{
                     position: 'relative',
                     zIndex: 3,
+                    willChange: 'transform',
                   }}
                 >
-                  <motion.div
-                    animate={{
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      rotate: {
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                      },
-                      scale: {
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                  >
-                    <CodeIcon 
-                      sx={{ 
-                        fontSize: { xs: 120, sm: 150, md: 180 }, 
-                        color: designTokens.colors.accent[500],
-                        filter: `drop-shadow(0 0 30px ${designTokens.colors.accent[500]}) drop-shadow(0 0 60px ${designTokens.colors.accent[500]}50)`,
-                        background: designTokens.gradients.accent,
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                      }} 
-                    />
-                  </motion.div>
+                  <CodeIcon 
+                    sx={{ 
+                      fontSize: { xs: 120, sm: 150, md: 180 }, 
+                      color: designTokens.colors.accent[500],
+                      filter: `drop-shadow(0 0 20px ${designTokens.colors.accent[500]}80)`,
+                    }} 
+                  />
                 </motion.div>
                 
                 {/* Animated code lines */}
@@ -625,17 +588,18 @@ const Hero = () => {
                   ].map((line, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, x: -30 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ 
-                        delay: i * 0.3 + 0.5,
-                        duration: 0.6,
+                        delay: i * 0.15 + 0.3,
+                        duration: 0.4,
                         ease: "easeOut"
                       }}
                       style={{
                         marginBottom: '0.6rem',
                         display: 'flex',
                         alignItems: 'center',
+                        willChange: 'transform, opacity',
                       }}
                     >
                       <Box
@@ -662,69 +626,20 @@ const Hero = () => {
                   ))}
                 </Box>
 
-                {/* Decorative Elements */}
+                {/* Simplified Decorative Elements */}
                 <Box
                   sx={{
                     position: 'absolute',
                     bottom: '10%',
                     right: '10%',
-                    width: '60px',
-                    height: '60px',
+                    width: '50px',
+                    height: '50px',
                     border: `2px solid ${designTokens.colors.accent[500]}`,
                     borderRadius: '12px',
-                    opacity: 0.3,
-                    zIndex: 1,
-                  }}
-                >
-                  <motion.div
-                    animate={{
-                      rotate: [0, 360],
-                      transition: {
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                      },
-                    }}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      border: `1px solid ${designTokens.colors.primary[500]}`,
-                      borderRadius: '12px',
-                    }}
-                  />
-                </Box>
-
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: '20%',
-                    left: '15%',
-                    width: '40px',
-                    height: '40px',
-                    border: `2px solid ${designTokens.colors.primary[500]}`,
-                    borderRadius: '50%',
                     opacity: 0.2,
                     zIndex: 1,
                   }}
-                >
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.2, 0.4, 0.2],
-                      transition: {
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      backgroundColor: designTokens.colors.primary[500],
-                      borderRadius: '50%',
-                    }}
-                  />
-                </Box>
+                />
               </Box>
             </motion.div>
           </Grid>

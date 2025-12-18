@@ -23,39 +23,29 @@ const About = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { translations, language } = useLanguage();
 
-  // Animation variants
+  // Optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   };
 
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [-5, 5, -5],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
+  // Removed floating animation for better performance
 
   const timelineItems = [
     {
@@ -113,7 +103,7 @@ const About = () => {
         },
       }}
     >
-      {/* Animated background elements */}
+      {/* Optimized background elements */}
       <Box
         sx={{
           position: 'absolute',
@@ -125,7 +115,7 @@ const About = () => {
           pointerEvents: 'none',
         }}
       >
-        {[...Array(15)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             style={{
@@ -136,15 +126,17 @@ const About = () => {
               opacity: 0.3,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              willChange: 'transform, opacity',
             }}
             animate={{
-              y: [0, -100],
-              opacity: [0, 1, 0],
+              y: [0, -80],
+              opacity: [0, 0.6, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 2 + 2,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "linear",
             }}
           />
         ))}
@@ -231,11 +223,7 @@ const About = () => {
                     },
                   }}
                 >
-                  <motion.div
-                    variants={floatingAnimation}
-                    initial="initial"
-                    animate="animate"
-                  >
+                  <div>
                     <Typography
                       variant="h5"
                       component="h3"
@@ -269,7 +257,7 @@ const About = () => {
                     >
                       {translations[language].about.journey.content2}
                     </Typography>
-                  </motion.div>
+                  </div>
                 </Paper>
               </motion.div>
             </Grid>
@@ -303,11 +291,7 @@ const About = () => {
                     },
                   }}
                 >
-                  <motion.div
-                    variants={floatingAnimation}
-                    initial="initial"
-                    animate="animate"
-                  >
+                  <div>
                     <Typography
                       variant="h5"
                       component="h3"
@@ -326,9 +310,9 @@ const About = () => {
                       {timelineItems.map((item, index) => (
                         <motion.div
                           key={item.title}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: -15 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.2 }}
+                          transition={{ delay: index * 0.1, duration: 0.3 }}
                         >
                           <Box
                             sx={{
@@ -399,7 +383,7 @@ const About = () => {
                         </motion.div>
                       ))}
                     </Box>
-                  </motion.div>
+                  </div>
                 </Paper>
               </motion.div>
             </Grid>

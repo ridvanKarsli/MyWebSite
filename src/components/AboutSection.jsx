@@ -15,21 +15,20 @@ const AboutSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.4,
+        ease: "easeOut",
       },
     },
   };
@@ -60,7 +59,7 @@ const AboutSection = () => {
         },
       }}
     >
-      {/* Animated background elements */}
+      {/* Simplified background element */}
       <Box
         sx={{
           position: 'absolute',
@@ -68,25 +67,13 @@ const AboutSection = () => {
           right: '5%',
           width: '200px',
           height: '200px',
-          background: `radial-gradient(circle, ${designTokens.colors.accent[500]}10 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${designTokens.colors.accent[500]}08 0%, transparent 70%)`,
           borderRadius: '50%',
           filter: 'blur(40px)',
           pointerEvents: 'none',
+          opacity: 0.4,
         }}
-      >
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{ width: '100%', height: '100%' }}
-        />
-      </Box>
+      />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
@@ -158,8 +145,8 @@ const AboutSection = () => {
                   </Typography>
                 </motion.div>
                 <motion.div
-                  whileHover={{ x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Typography
                     variant="body1"
@@ -183,7 +170,6 @@ const AboutSection = () => {
             <Grid item xs={12} md={6}>
               <motion.div 
                 variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
               >
                 <Box
                   sx={{
@@ -259,8 +245,8 @@ const AboutSection = () => {
                   </Box>
                   <Box sx={{ mb: 4 }}>
                     <motion.div
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400 }}
+                      whileHover={{ x: 3 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <Typography
                         variant="h6"
@@ -289,8 +275,8 @@ const AboutSection = () => {
                   </Box>
                   <Box>
                     <motion.div
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400 }}
+                      whileHover={{ x: 3 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <Typography
                         variant="h6"
