@@ -18,6 +18,10 @@ export const translations = {
       description: 'I build scalable backend systems with Spring Boot and intuitive user interfaces using React and Swift.',
       viewWork: 'See My Projects',
       contactMe: 'Contact Me',
+      openToWork: 'Open to Work',
+      location: 'Turkey',
+      backendDeveloper: 'Backend Developer',
+      backendSpecialty: 'Specialized in building scalable backend systems and RESTful APIs',
     },
     about: {
       title: 'About Me',
@@ -27,6 +31,15 @@ export const translations = {
         content1: 'I actively take part in full-cycle software projects, delivering sustainable and scalable solutions.',
         content2: 'With expertise in layered architecture, RESTful APIs, and PostgreSQL, I also build user interfaces using React and Swift.',
       },
+      keyStrengths: {
+        title: 'Key Strengths',
+        item1: 'Backend Development Specialist',
+        item2: 'Spring Boot & Java Expert',
+        item3: 'RESTful API Design',
+        item4: 'Database Optimization',
+        item5: 'Microservices Architecture',
+        quote: 'Building robust and scalable backend solutions',
+      },
       timeline: {
         title: 'Timeline',
         education: {
@@ -35,7 +48,7 @@ export const translations = {
         },
         experience: {
           title: 'Work Experience',
-          content: 'Java Backend Developer – EMN Digital (Dec 2024 – Present)\nSoftware Developer – Kalem Web Software (Feb 2023 – Oct 2024)',
+          content: 'Software & Database Specialist – Yalın Otomasyon (2025 – Present)\nJava Developer – ENM Digital (2024 – Present)\nSoftware Engineer – Kalem Web Software (2023 – 2024)',
         },
         skills: {
           title: 'Skills',
@@ -83,6 +96,7 @@ export const translations = {
       description: 'Highlighted projects built with modern technologies and a strong focus on user experience.',
       viewGithub: 'View on GitHub',
       viewDemo: 'Live Demo',
+      viewAllProjects: 'View All Projects',
       project1: {
         title: 'Saglikta – Health Platform',
         description: 'A digital platform connecting chronic patients with expert doctors using Spring Boot, PostgreSQL, React, Swift, and Java.',
@@ -134,6 +148,68 @@ export const translations = {
         contact: 'Contact',
       },
     },
+    workExperience: {
+      title: 'Work Experience',
+      subtitle: 'Professional journey and key contributions in software development',
+      keyAchievements: 'Key Achievements',
+      technologiesUsed: 'Technologies Used',
+      yalin: {
+        jobTitle: 'Software & Database Specialist',
+        company: 'Yalın Otomasyon',
+        duration: '2025 - Present',
+        type: 'Full-time',
+        location: 'Turkey',
+        description: 'Developing backend modules and control algorithms that process real-time data. Designing real-time backend modules that process sensor data. Creating data collection, analysis, and reporting systems on PostgreSQL.',
+        achievements: [
+          'Developed software modules that increase the stability of the production process',
+          'Created systems that reduce error detection time',
+          'Designed real-time backend modules that process sensor data',
+          'Developed data collection, analysis, and reporting systems on PostgreSQL',
+        ],
+      },
+      emn: {
+        jobTitle: 'Java Developer',
+        company: 'ENM Digital',
+        duration: '2024 - Present',
+        type: 'Volunteer',
+        location: 'Turkey (Remote)',
+        description: 'Developing REST services running in production environment with Spring Boot. Developing interface/mobile components with React, Kotlin, and Swift. Working on service design, validation, error management, and multi-layered architecture. Developing API integrations for AI-powered systems.',
+        achievements: [
+          'Developed REST services running in production environment',
+          'Created service architectures that reduce processing times on platforms',
+          'Designed service architectures that strengthen modular structure',
+          'Developed API integrations for AI-powered systems',
+        ],
+      },
+      kalem: {
+        jobTitle: 'Software Engineer',
+        company: 'Kalem Web Software',
+        duration: '2023 - 2024',
+        type: 'Full-time',
+        location: 'Turkey',
+        description: 'Developed Java & React-based enterprise web applications. Created and optimized database models on PostgreSQL. Participated in API integration processes. Developed software components actively running in production environment.',
+        achievements: [
+          'Developed Java & React-based enterprise web applications',
+          'Designed backend modules that increase the stability of customer applications',
+          'Created software components that reduce maintenance costs',
+          'Created and optimized database models on PostgreSQL',
+        ],
+      },
+    },
+    skillCategories: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      mobile: 'Mobile',
+      database: 'Database',
+      tools: 'Tools',
+    },
+    common: {
+      technicalSkills: 'Technical Skills',
+      present: 'Present',
+      fullTime: 'Full-time',
+      volunteer: 'Volunteer',
+      remote: 'Remote',
+    },
   },
   tr: {
     nav: {
@@ -150,6 +226,10 @@ export const translations = {
       description: 'Spring Boot ile sağlam backend sistemleri ve React ile kullanıcı dostu arayüzler geliştiriyorum.',
       viewWork: 'Projelerimi Gör',
       contactMe: 'İletişime Geç',
+      openToWork: 'İş Arıyorum',
+      location: 'Türkiye',
+      backendDeveloper: 'Backend Geliştirici',
+      backendSpecialty: 'Ölçeklenebilir backend sistemleri ve RESTful API geliştirme konusunda uzmanım',
     },
     about: {
       title: 'Hakkımda',
@@ -159,6 +239,15 @@ export const translations = {
         content1: 'Uçtan uca yazılım projelerinde aktif rol alarak sürdürülebilir ve ölçeklenebilir çözümler sunuyorum.',
         content2: 'Katmanlı mimari, RESTful API ve PostgreSQL uzmanlığımın yanında React ve Swift ile arayüzler geliştiriyorum.',
       },
+      keyStrengths: {
+        title: 'Temel Güçlü Yönlerim',
+        item1: 'Backend Geliştirme Uzmanı',
+        item2: 'Spring Boot & Java Uzmanı',
+        item3: 'RESTful API Tasarımı',
+        item4: 'Veritabanı Optimizasyonu',
+        item5: 'Mikroservis Mimarisi',
+        quote: 'Güçlü ve ölçeklenebilir backend çözümleri geliştiriyorum',
+      },
       timeline: {
         title: 'Zaman Çizelgesi',
         education: {
@@ -167,7 +256,7 @@ export const translations = {
         },
         experience: {
           title: 'İş Deneyimi',
-          content: 'EMN Digital – Java Backend Developer (Aralık 2024 – Devam Ediyor)\nKalem Web Software – Yazılım Geliştirici (Şubat 2023 – Ekim 2024)',
+          content: 'Yazılım & Veritabanı Uzmanı – Yalın Otomasyon (2025 – Devam Ediyor)\nJava Developer – ENM Digital (2024 – Devam Ediyor)\nYazılım Mühendisi – Kalem Web Software (2023 – 2024)',
         },
         skills: {
           title: 'Yetenekler',
@@ -215,6 +304,7 @@ export const translations = {
       description: 'İşte öne çıkan projelerim. Her biri kullanıcı deneyimi ve modern teknolojilere odaklıdır.',
       viewGithub: "GitHub'da Gör",
       viewDemo: 'Canlı Demo',
+      viewAllProjects: 'Tüm Projeleri Gör',
       project1: {
         title: 'Sağlıkta – Sağlık Platformu',
         description: 'Spring Boot, PostgreSQL, React, Swift ve Java teknolojileriyle kronik hastaları uzmanlarla buluşturur.',
@@ -265,6 +355,68 @@ export const translations = {
         projects: 'Projeler',
         contact: 'İletişim',
       },
+    },
+    workExperience: {
+      title: 'İş Deneyimi',
+      subtitle: 'Yazılım geliştirme alanındaki profesyonel yolculuğum ve önemli katkılarım',
+      keyAchievements: 'Önemli Başarılar',
+      technologiesUsed: 'Kullanılan Teknolojiler',
+      yalin: {
+        jobTitle: 'Yazılım & Veritabanı Uzmanı',
+        company: 'Yalın Otomasyon',
+        duration: '2025 - Devam Ediyor',
+        type: 'Tam Zamanlı',
+        location: 'Türkiye',
+        description: 'Gerçek zamanlı veri işleyen backend modülleri ve kontrol algoritmaları geliştiriyorum. Sensör verilerini işleyen gerçek zamanlı backend modülleri tasarlıyorum. PostgreSQL üzerinde veri toplama, analiz ve raporlama sistemleri oluşturuyorum.',
+        achievements: [
+          'Üretim sürecinin stabilitesini artıran yazılım modülleri geliştirdim',
+          'Hata tespit süresini kısaltan sistemler oluşturdum',
+          'Sensör verilerini işleyen gerçek zamanlı backend modülleri tasarladım',
+          'PostgreSQL üzerinde veri toplama, analiz ve raporlama sistemleri geliştirdim',
+        ],
+      },
+      emn: {
+        jobTitle: 'Java Developer',
+        company: 'ENM Digital',
+        duration: '2024 - Devam Ediyor',
+        type: 'Gönüllü',
+        location: 'Türkiye (Uzaktan)',
+        description: 'Spring Boot ile üretim ortamında çalışan REST servisleri geliştiriyorum. React, Kotlin ve Swift ile arayüz/mobil bileşenler geliştiriyorum. Servis tasarımı, validasyon, hata yönetimi ve çok katmanlı mimari üzerinde çalışıyorum. Yapay zeka destekli sistemler için API entegrasyonları geliştiriyorum.',
+        achievements: [
+          'Üretim ortamında çalışan REST servisleri geliştirdim',
+          'Platformlardaki işlem sürelerini azaltan servis mimarileri oluşturdum',
+          'Modüler yapıyı güçlendiren servis mimarileri tasarladım',
+          'Yapay zeka destekli sistemler için API entegrasyonları geliştirdim',
+        ],
+      },
+      kalem: {
+        jobTitle: 'Yazılım Mühendisi',
+        company: 'Kalem Web Software',
+        duration: '2023 - 2024',
+        type: 'Tam Zamanlı',
+        location: 'Türkiye',
+        description: 'Java & React tabanlı kurumsal web uygulamaları geliştirdim. PostgreSQL üzerinde veritabanı modelleri oluşturdum ve optimize ettim. API entegrasyon süreçlerinde görev aldım. Üretim ortamında aktif çalışan yazılım bileşenleri geliştirdim.',
+        achievements: [
+          'Java & React tabanlı kurumsal web uygulamaları geliştirdim',
+          'Müşteri uygulamalarının stabilitesini artıran backend modülleri tasarladım',
+          'Bakım maliyetini azaltan yazılım bileşenleri oluşturdum',
+          'PostgreSQL üzerinde veritabanı modelleri oluşturdum ve optimize ettim',
+        ],
+      },
+    },
+    skillCategories: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      mobile: 'Mobil',
+      database: 'Veritabanı',
+      tools: 'Araçlar',
+    },
+    common: {
+      technicalSkills: 'Teknik Yetenekler',
+      present: 'Devam Ediyor',
+      fullTime: 'Tam Zamanlı',
+      volunteer: 'Gönüllü',
+      remote: 'Uzaktan',
     },
   },
 };

@@ -242,47 +242,76 @@ const Header = () => {
         >
           <Container maxWidth="lg">
             <Toolbar sx={{ justifyContent: 'space-between', py: 1.5 }}>
-              {/* Enhanced Logo */}
+              {/* Professional Logo */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Typography
+                <Box
                   component={RouterLink}
                   to="/"
                   sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1.5,
                     textDecoration: 'none',
-                    color: designTokens.colors.accent[500],
-                    fontSize: '2rem',
-                    fontWeight: 700,
-                    letterSpacing: '1px',
-                    fontFamily: '"Inter", sans-serif',
-                    position: 'relative',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '12px',
-                    background: `${designTokens.colors.accent[500]}10`,
-                    border: `1px solid ${designTokens.colors.accent[500]}30`,
                     transition: 'all 0.3s ease',
-                    '&:hover': {
-                      color: designTokens.colors.accent[400],
-                      background: `${designTokens.colors.accent[500]}20`,
-                      borderColor: `${designTokens.colors.accent[500]}50`,
-                      boxShadow: designTokens.shadows.glowSoft,
-                    },
                   }}
                 >
+                  {/* Logo Icon */}
                   <Box
-                    component="span"
                     sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: '10px',
                       background: designTokens.gradients.accent,
-                      backgroundClip: 'text',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 800,
+                      fontSize: '1.2rem',
+                      color: 'white',
+                      fontFamily: '"Inter", sans-serif',
+                      boxShadow: designTokens.shadows.glowSoft,
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        boxShadow: designTokens.shadows.glow,
+                        transform: 'rotate(-5deg)',
+                      },
                     }}
                   >
                     RK
                   </Box>
-                </Typography>
+                  
+                  {/* Logo Text - Only on Desktop */}
+                  {!isMobile && (
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: designTokens.colors.text.primary,
+                          fontSize: '1.1rem',
+                          fontWeight: 700,
+                          lineHeight: 1.2,
+                          fontFamily: '"Inter", sans-serif',
+                          letterSpacing: '-0.02em',
+                        }}
+                      >
+                        Rıdvan Karslı
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: designTokens.colors.accent[500],
+                          fontSize: '0.7rem',
+                          fontWeight: 500,
+                          letterSpacing: '0.05em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {translations[language].hero.backendDeveloper}
+                    </Typography>
+                  </Box>
+                )}
+                </Box>
               </motion.div>
 
               {/* Mobile Navigation */}

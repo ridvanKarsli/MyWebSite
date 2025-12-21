@@ -7,45 +7,44 @@ import {
   Paper,
   useTheme,
   useMediaQuery,
+  Chip,
+  Stack,
+  Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import StarIcon from '@mui/icons-material/Star';
-import PhoneIcon from '@mui/icons-material/Phone';
-import BrushIcon from '@mui/icons-material/Brush';
-import StorageIcon from '@mui/icons-material/Storage';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { useLanguage } from '../context/LanguageContext';
+import { designTokens } from '../theme/ThemeProvider';
 
 const About = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { translations, language } = useLanguage();
 
-  // Optimized animation variants
+  // Minimal professional animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
       },
     },
   };
-
-  // Removed floating animation for better performance
 
   const timelineItems = [
     {
@@ -53,57 +52,44 @@ const About = () => {
       title: translations[language].about.timeline.education.title,
       content: translations[language].about.timeline.education.content,
       year: '2018-2022',
+      color: designTokens.colors.accent[500],
     },
     {
       icon: <WorkIcon />,
       title: translations[language].about.timeline.experience.title,
       content: translations[language].about.timeline.experience.content,
       year: '2022-Present',
+      color: designTokens.colors.accent[600],
     },
     {
       icon: <CodeIcon />,
       title: translations[language].about.timeline.skills.title,
       content: translations[language].about.timeline.skills.content,
       year: 'Ongoing',
+      color: designTokens.colors.accent[400],
     },
   ];
 
-  const features = translations[language].about.features.items.map((feature, index) => ({
-    ...feature,
-    icon: index === 0 ? <WorkIcon /> : 
-          index === 1 ? <PhoneIcon /> : 
-          index === 2 ? <BrushIcon /> : 
-          <StorageIcon />
-  }));
+  const skills = {
+    backend: ['Java', 'Spring Boot', 'REST API', 'Microservices', 'PostgreSQL', 'MySQL'],
+    frontend: ['React', 'JavaScript', 'HTML/CSS', 'Material-UI'],
+    mobile: ['Swift', 'iOS Development'],
+    tools: ['Git', 'Docker', 'Jenkins', 'Postman'],
+  };
 
   return (
     <Box
       component="section"
       id="about"
       sx={{
-        backgroundColor: '#0a192f',
+        background: designTokens.gradients.background,
         color: 'white',
-        py: { xs: 8, md: 12 },
+        py: { xs: 10, md: 15 },
         position: 'relative',
         overflow: 'hidden',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%)',
-          animation: 'pulse 8s ease-in-out infinite',
-        },
-        '@keyframes pulse': {
-          '0%': { opacity: 0.3 },
-          '50%': { opacity: 0.5 },
-          '100%': { opacity: 0.3 },
-        },
       }}
     >
-      {/* Optimized background elements */}
+      {/* Subtle grid background */}
       <Box
         sx={{
           position: 'absolute',
@@ -111,339 +97,341 @@ const About = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          overflow: 'hidden',
+          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+          opacity: 0.3,
           pointerEvents: 'none',
         }}
-      >
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: '2px',
-              height: '2px',
-              backgroundColor: '#00e5ff',
-              opacity: 0.3,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              willChange: 'transform, opacity',
-            }}
-            animate={{
-              y: [0, -80],
-              opacity: [0, 0.6, 0],
-            }}
-            transition={{
-              duration: Math.random() * 2 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </Box>
+      />
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
         >
           <Typography
             variant="h2"
             component="h2"
             sx={{
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              fontWeight: 'bold',
+              fontSize: { xs: '2.5rem', sm: '3rem' },
+              fontWeight: 700,
               mb: 2,
-              fontFamily: 'monospace',
               textAlign: 'center',
-              position: 'relative',
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                bottom: '-10px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '60px',
-                height: '3px',
-                background: 'linear-gradient(90deg, #00e5ff, transparent)',
-              },
+              color: designTokens.colors.text.primary,
             }}
           >
             {translations[language].about.title}
           </Typography>
           <Typography
             variant="body1"
-            component="p"
             sx={{
-              color: '#8892b0',
-              mb: 6,
+              color: designTokens.colors.text.secondary,
+              mb: 8,
               textAlign: 'center',
-              maxWidth: '600px',
+              maxWidth: '700px',
               mx: 'auto',
-              fontSize: { xs: '1rem', md: '1.1rem' },
+              fontSize: { xs: '1rem', md: '1.125rem' },
+              lineHeight: 1.7,
             }}
           >
             {translations[language].about.description}
           </Typography>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <motion.div variants={itemVariants}>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    backgroundColor: 'rgba(10, 25, 47, 0.7)',
-                    p: 4,
-                    borderRadius: '8px',
-                    height: '100%',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0) 100%)',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                    },
-                    '&:hover': {
-                      '&::before': {
-                        opacity: 1,
-                      },
-                    },
-                  }}
-                >
-                  <div>
-                    <Typography
-                      variant="h5"
-                      component="h3"
-                      sx={{
-                        fontFamily: 'monospace',
-                        color: '#00e5ff',
-                        mb: 3,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                      }}
-                    >
-                      <StarIcon /> {translations[language].about.journey.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: '#8892b0',
-                        mb: 3,
-                        lineHeight: 1.8,
-                      }}
-                    >
-                      {translations[language].about.journey.content1}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: '#8892b0',
-                        lineHeight: 1.8,
-                      }}
-                    >
-                      {translations[language].about.journey.content2}
-                    </Typography>
-                  </div>
-                </Paper>
-              </motion.div>
-            </Grid>
+        <Grid container spacing={4}>
+          {/* Professional Journey */}
+          <Grid item xs={12} md={6}>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Paper
+                elevation={0}
+                sx={{
+                  background: designTokens.colors.background.glass,
+                  backdropFilter: 'blur(20px)',
+                  p: 4,
+                  borderRadius: '20px',
+                  height: '100%',
+                  border: `1px solid ${designTokens.colors.accent[500]}30`,
+                  boxShadow: designTokens.shadows.card,
+                  position: 'relative',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: designTokens.gradients.accent,
+                  },
+                }}
+              >
+                <Stack direction="row" alignItems="center" spacing={2} mb={3}>
+                  <Box
+                    sx={{
+                      p: 1.5,
+                      borderRadius: '12px',
+                      background: designTokens.gradients.accent,
+                      display: 'flex',
+                    }}
+                  >
+                    <EmojiEventsIcon sx={{ color: 'white', fontSize: 28 }} />
+                  </Box>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: designTokens.colors.text.primary,
+                      fontWeight: 700,
+                      fontSize: { xs: '1.5rem', md: '1.75rem' },
+                    }}
+                  >
+                    {translations[language].about.journey.title}
+                  </Typography>
+                </Stack>
 
-            <Grid item xs={12} md={6}>
-              <motion.div variants={itemVariants}>
-                <Paper
-                  elevation={0}
+                <Typography
+                  variant="body1"
                   sx={{
-                    backgroundColor: 'rgba(10, 25, 47, 0.7)',
-                    p: 4,
-                    borderRadius: '8px',
-                    height: '100%',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(45deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0) 100%)',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                    },
-                    '&:hover': {
-                      '&::before': {
-                        opacity: 1,
-                      },
-                    },
+                    color: designTokens.colors.text.secondary,
+                    mb: 2,
+                    lineHeight: 1.8,
                   }}
                 >
-                  <div>
-                    <Typography
-                      variant="h5"
-                      component="h3"
-                      sx={{
-                        fontFamily: 'monospace',
-                        color: '#00e5ff',
-                        mb: 3,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                      }}
+                  {translations[language].about.journey.content1}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: designTokens.colors.text.secondary,
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {translations[language].about.journey.content2}
+                </Typography>
+              </Paper>
+            </motion.div>
+          </Grid>
+
+          {/* Timeline */}
+          <Grid item xs={12} md={6}>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Paper
+                elevation={0}
+                sx={{
+                  background: designTokens.colors.background.glass,
+                  backdropFilter: 'blur(20px)',
+                  p: 4,
+                  borderRadius: '20px',
+                  height: '100%',
+                  border: `1px solid ${designTokens.colors.accent[500]}30`,
+                  boxShadow: designTokens.shadows.card,
+                  position: 'relative',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: designTokens.gradients.accent,
+                  },
+                }}
+              >
+                <Typography
+                  variant="h4"
+                  sx={{
+                    color: designTokens.colors.text.primary,
+                    mb: 3,
+                    fontWeight: 700,
+                    fontSize: { xs: '1.5rem', md: '1.75rem' },
+                  }}
+                >
+                  {translations[language].about.timeline.title}
+                </Typography>
+                <Box sx={{ position: 'relative', pl: 2 }}>
+                  {timelineItems.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      variants={itemVariants}
                     >
-                      <CodeIcon /> {translations[language].about.timeline.title}
-                    </Typography>
-                    <Box sx={{ position: 'relative' }}>
-                      {timelineItems.map((item, index) => (
-                        <motion.div
-                          key={item.title}
-                          initial={{ opacity: 0, x: -15 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1, duration: 0.3 }}
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          gap: 3,
+                          mb: index !== timelineItems.length - 1 ? 4 : 0,
+                          position: 'relative',
+                        }}
+                      >
+                        {/* Timeline Line & Icon */}
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            position: 'relative',
+                          }}
                         >
                           <Box
                             sx={{
+                              minWidth: 50,
+                              height: 50,
+                              borderRadius: '12px',
+                              background: item.color,
                               display: 'flex',
-                              alignItems: 'flex-start',
-                              mb: 3,
-                              position: 'relative',
-                              '&::before': {
-                                content: '""',
-                                position: 'absolute',
-                                left: '12px',
-                                top: '24px',
-                                bottom: '-12px',
-                                width: '2px',
-                                backgroundColor: 'rgba(0, 229, 255, 0.2)',
-                                display: index === timelineItems.length - 1 ? 'none' : 'block',
-                              },
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              color: 'white',
+                              fontSize: '1.5rem',
+                              boxShadow: `0 0 20px ${item.color}40`,
+                              zIndex: 2,
                             }}
                           >
+                            {item.icon}
+                          </Box>
+                          {index !== timelineItems.length - 1 && (
                             <Box
                               sx={{
-                                backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                                borderRadius: '50%',
-                                p: 1,
-                                mr: 2,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#00e5ff',
+                                width: '2px',
+                                flex: 1,
+                                minHeight: '60px',
+                                background: `linear-gradient(180deg, ${item.color}60, ${designTokens.colors.accent[500]}20)`,
+                                mt: 1,
+                              }}
+                            />
+                          )}
+                        </Box>
+
+                        {/* Content */}
+                        <Box flex={1} sx={{ pb: 2 }}>
+                          <Stack direction="row" alignItems="center" spacing={1.5} mb={1}>
+                            <Typography
+                              variant="h6"
+                              sx={{
+                                color: designTokens.colors.text.primary,
+                                fontSize: '1.1rem',
+                                fontWeight: 600,
                               }}
                             >
-                              {item.icon}
-                            </Box>
-                            <Box>
-                              <Typography
-                                variant="h6"
-                                sx={{
-                                  fontFamily: 'monospace',
-                                  color: '#00e5ff',
-                                  fontSize: '1rem',
-                                  mb: 0.5,
-                                }}
-                              >
-                                {item.title}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{
-                                  color: '#8892b0',
-                                  fontSize: '0.9rem',
-                                  mb: 0.5,
-                                }}
-                              >
-                                {item.content}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                sx={{
-                                  color: '#00e5ff',
-                                  fontFamily: 'monospace',
-                                  fontSize: '0.8rem',
-                                }}
-                              >
-                                {item.year}
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </motion.div>
-                      ))}
-                    </Box>
-                  </div>
-                </Paper>
-              </motion.div>
-            </Grid>
-          </Grid>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          sx={{ mt: 4 }}
-        >
-          <Grid container spacing={4}>
-            {features.map((feature, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <Box
-                  sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    borderRadius: '8px',
-                    p: 4,
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    transition: 'transform 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-10px)',
-                    },
-                  }}
-                >
-                  <Box sx={{ mb: 2, color: '#00e5ff' }}>
-                    {feature.icon}
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: '#00e5ff',
-                      mb: 2,
-                      fontFamily: 'monospace',
-                    }}
-                  >
-                    {feature.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#8892b0',
-                    }}
-                  >
-                    {feature.description}
-                  </Typography>
+                              {item.title}
+                            </Typography>
+                            <Chip
+                              label={item.year}
+                              size="small"
+                              sx={{
+                                height: 24,
+                                backgroundColor: `${item.color}20`,
+                                color: item.color,
+                                fontWeight: 600,
+                                fontSize: '0.75rem',
+                                border: `1px solid ${item.color}40`,
+                              }}
+                            />
+                          </Stack>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: designTokens.colors.text.secondary,
+                              lineHeight: 1.8,
+                              whiteSpace: 'pre-line',
+                              fontSize: '0.95rem',
+                            }}
+                          >
+                            {item.content}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </motion.div>
+                  ))}
                 </Box>
-              </Grid>
-            ))}
+              </Paper>
+            </motion.div>
           </Grid>
+        </Grid>
+
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <Box sx={{ mt: 6 }}>
+            <Typography
+              variant="h3"
+              sx={{
+                color: designTokens.colors.text.primary,
+                mb: 4,
+                fontWeight: 700,
+                textAlign: 'center',
+                fontSize: { xs: '1.75rem', md: '2rem' },
+              }}
+            >
+              {translations[language].common.technicalSkills}
+            </Typography>
+            <Grid container spacing={3}>
+              {Object.entries(skills).map(([category, skillList]) => (
+                <Grid item xs={12} sm={6} md={3} key={category}>
+                  <Paper
+                    sx={{
+                      p: 3,
+                      background: designTokens.colors.background.glass,
+                      backdropFilter: 'blur(20px)',
+                      borderRadius: '16px',
+                      border: `1px solid ${designTokens.colors.accent[500]}30`,
+                      height: '100%',
+                      transition: 'all 0.3s',
+                      '&:hover': {
+                        borderColor: `${designTokens.colors.accent[500]}60`,
+                        transform: 'translateY(-4px)',
+                        boxShadow: designTokens.shadows.cardHover,
+                      },
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: designTokens.colors.accent[500],
+                        mb: 2,
+                        fontWeight: 600,
+                        textTransform: 'capitalize',
+                      }}
+                    >
+                      {translations[language].skillCategories[category] || category}
+                    </Typography>
+                    <Stack spacing={1}>
+                      {skillList.map((skill) => (
+                        <Chip
+                          key={skill}
+                          label={skill}
+                          size="small"
+                          sx={{
+                            backgroundColor: `${designTokens.colors.accent[500]}15`,
+                            color: designTokens.colors.text.primary,
+                            fontWeight: 500,
+                            justifyContent: 'flex-start',
+                          }}
+                        />
+                      ))}
+                    </Stack>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </motion.div>
       </Container>
     </Box>
   );
 };
 
-export default About; 
+export default About;

@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import FeatureList from "../components/FeatureList";
 import Services from "../components/Services";
 import AboutSection from "../components/AboutSection";
+import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
 import ContactForm from "../components/ContactForm";
 
@@ -24,6 +25,7 @@ const Home = () => {
         <link rel="canonical" href="https://www.ridvankarsli.com/" />
       </Helmet>
       <Hero/>
+      <WorkExperience/>
       <FeatureList/>    
       <Services/>
       <AboutSection/>    

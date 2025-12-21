@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { Box, Container, Typography, Grid } from '@mui/material';
-import { motion, useInView } from 'framer-motion';
+import { Box, Container, Typography, Grid, Paper, Stack } from '@mui/material';
+import { motion } from 'framer-motion';
 import WebIcon from '@mui/icons-material/Web';
 import StorageIcon from '@mui/icons-material/Storage';
 import BuildIcon from '@mui/icons-material/Build';
@@ -10,12 +10,12 @@ import { designTokens } from '../theme/ThemeProvider';
 const Services = () => {
   const { translations, language } = useLanguage();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const services = translations[language].about.services.items.map((service, index) => ({
     icon: [<WebIcon />, <StorageIcon />, <BuildIcon />][index],
     title: service.title,
     description: service.description,
+    color: [designTokens.colors.accent[500], designTokens.colors.accent[600], designTokens.colors.accent[400]][index],
   }));
 
   const containerVariants = {
@@ -24,7 +24,6 @@ const Services = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.1,
       },
     },
   };
@@ -36,7 +35,6 @@ const Services = () => {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: "easeOut",
       },
     },
   };
@@ -54,22 +52,9 @@ const Services = () => {
         position: 'relative',
         overflow: 'hidden',
         py: { xs: 10, md: 15 },
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `
-            radial-gradient(circle at 50% 20%, ${designTokens.colors.accent[500]}10 0%, transparent 50%),
-            radial-gradient(circle at 50% 80%, ${designTokens.colors.primary[500]}08 0%, transparent 50%)
-          `,
-          pointerEvents: 'none',
-        },
       }}
     >
-      {/* Optimized background particles */}
+      {/* Grid background */}
       <Box
         sx={{
           position: 'absolute',
@@ -77,58 +62,29 @@ const Services = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          overflow: 'hidden',
+          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+          opacity: 0.3,
           pointerEvents: 'none',
         }}
-      >
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`service-particle-${i}`}
-            style={{
-              position: 'absolute',
-              width: '2px',
-              height: '2px',
-              backgroundColor: i % 2 === 0 ? designTokens.colors.accent[500] : designTokens.colors.primary[500],
-              borderRadius: '50%',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100 + 100}%`,
-              opacity: 0.3,
-              willChange: 'transform, opacity',
-            }}
-            animate={{
-              y: [0, -200],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </Box>
+      />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4 }}
         >
           <Typography
             variant="h2"
             component="h2"
             sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              fontWeight: 800,
+              fontSize: { xs: '2.5rem', md: '3rem' },
+              fontWeight: 700,
               mb: 2,
-              fontFamily: 'monospace',
               textAlign: 'center',
-              background: designTokens.gradients.accent,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              position: 'relative',
+              color: designTokens.colors.text.primary,
             }}
           >
             {translations[language].about.services.title}
@@ -138,11 +94,11 @@ const Services = () => {
             sx={{
               mb: 8,
               color: designTokens.colors.text.secondary,
-              fontSize: { xs: '1.1rem', md: '1.2rem' },
+              fontSize: { xs: '1rem', md: '1.125rem' },
               textAlign: 'center',
               maxWidth: '700px',
               mx: 'auto',
-              lineHeight: 1.8,
+              lineHeight: 1.7,
             }}
           >
             {translations[language].about.services.subtitle}
@@ -152,24 +108,18 @@ const Services = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true }}
         >
           <Grid container spacing={4}>
             {services.map((service, index) => (
               <Grid item xs={12} md={4} key={index}>
-                <motion.div
-                  variants={itemVariants}
-                  whileHover={{ 
-                    y: -5,
-                  }}
-                  transition={{ duration: 0.2 }}
-                  style={{ height: '100%' }}
-                >
-                  <Box
+                <motion.div variants={itemVariants}>
+                  <Paper
                     sx={{
                       background: designTokens.colors.background.glass,
                       backdropFilter: 'blur(20px)',
-                      borderRadius: '24px',
+                      borderRadius: '20px',
                       p: 4,
                       height: '100%',
                       display: 'flex',
@@ -180,34 +130,36 @@ const Services = () => {
                       boxShadow: designTokens.shadows.card,
                       position: 'relative',
                       overflow: 'hidden',
-                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transition: 'all 0.3s',
                       '&::before': {
                         content: '""',
                         position: 'absolute',
                         top: 0,
                         left: 0,
                         right: 0,
-                        height: '4px',
-                        background: designTokens.gradients.accent,
-                        transform: 'scaleX(0)',
-                        transformOrigin: 'left',
-                        transition: 'transform 0.3s ease',
+                        height: '3px',
+                        background: `linear-gradient(90deg, ${service.color}, transparent)`,
                       },
                       '&:hover': {
                         borderColor: `${designTokens.colors.accent[500]}60`,
+                        transform: 'translateY(-8px)',
                         boxShadow: designTokens.shadows.cardHover,
-                        '&::before': {
-                          transform: 'scaleX(1)',
-                        },
                       },
                     }}
                   >
-                    <Box 
-                      sx={{ 
+                    <Box
+                      sx={{
+                        width: 90,
+                        height: 90,
+                        borderRadius: '18px',
+                        background: `linear-gradient(135deg, ${service.color}20, ${service.color}10)`,
+                        border: `2px solid ${service.color}40`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         mb: 3,
-                        color: designTokens.colors.accent[500],
-                        fontSize: '4rem',
-                        filter: `drop-shadow(0 0 15px ${designTokens.colors.accent[500]}40)`,
+                        color: service.color,
+                        fontSize: '3rem',
                       }}
                     >
                       {service.icon}
@@ -215,14 +167,10 @@ const Services = () => {
                     <Typography
                       variant="h5"
                       sx={{
-                        background: designTokens.gradients.accent,
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
+                        color: designTokens.colors.text.primary,
                         mb: 2,
-                        fontFamily: 'monospace',
                         fontWeight: 700,
-                        fontSize: { xs: '1.4rem', md: '1.6rem' },
+                        fontSize: { xs: '1.25rem', md: '1.5rem' },
                       }}
                     >
                       {service.title}
@@ -231,13 +179,13 @@ const Services = () => {
                       variant="body1"
                       sx={{
                         color: designTokens.colors.text.secondary,
-                        lineHeight: 1.8,
-                        fontSize: { xs: '1rem', md: '1.1rem' },
+                        lineHeight: 1.7,
+                        fontSize: { xs: '0.95rem', md: '1rem' },
                       }}
                     >
                       {service.description}
                     </Typography>
-                  </Box>
+                  </Paper>
                 </motion.div>
               </Grid>
             ))}
@@ -249,7 +197,3 @@ const Services = () => {
 };
 
 export default Services;
-
-
-
-

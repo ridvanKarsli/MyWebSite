@@ -2,49 +2,49 @@ import React from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-// Design Tokens - Modern Color Palette
+// Design Tokens - Professional CV Theme
 const designTokens = {
   colors: {
-    // Primary palette - Cyber blue theme
+    // Primary palette - Professional Navy/Slate
     primary: {
-      50: '#e6f7ff',
-      100: '#bae7ff',
-      200: '#91d5ff',
-      300: '#69c0ff',
-      400: '#40a9ff',
-      500: '#1890ff', // Main blue
-      600: '#096dd9',
-      700: '#0050b3',
-      800: '#003a8c',
-      900: '#002766',
+      50: '#f8fafc',
+      100: '#f1f5f9',
+      200: '#e2e8f0',
+      300: '#cbd5e1',
+      400: '#94a3b8',
+      500: '#64748b', // Main slate
+      600: '#475569',
+      700: '#334155',
+      800: '#1e293b',
+      900: '#0f172a',
     },
-    // Accent colors - Neon cyan
+    // Accent colors - Sophisticated Blue
     accent: {
-      50: '#e6fffa',
-      100: '#b3ffec',
-      200: '#80ffdb',
-      300: '#4dffca',
-      400: '#1affb8',
-      500: '#00e5ff', // Main cyan
-      600: '#00b8d4',
-      700: '#008ba3',
-      800: '#005e72',
-      900: '#003041',
+      50: '#eff6ff',
+      100: '#dbeafe',
+      200: '#bfdbfe',
+      300: '#93c5fd',
+      400: '#60a5fa',
+      500: '#3b82f6', // Main professional blue
+      600: '#2563eb',
+      700: '#1d4ed8',
+      800: '#1e40af',
+      900: '#1e3a8a',
     },
-    // Background colors
+    // Background colors - Professional dark theme
     background: {
-      primary: '#0a0f23', // Deeper navy
-      secondary: '#111827', // Dark gray
-      tertiary: '#1e293b', // Lighter dark
-      paper: 'rgba(30, 41, 59, 0.8)', // Semi-transparent
-      glass: 'rgba(15, 23, 42, 0.7)', // Glassmorphism
+      primary: '#0f172a', // Deep navy
+      secondary: '#1e293b', // Slate gray
+      tertiary: '#334155', // Medium slate
+      paper: 'rgba(30, 41, 59, 0.95)', // More solid
+      glass: 'rgba(30, 41, 59, 0.8)', // Subtle glassmorphism
     },
     // Text colors
     text: {
-      primary: '#f1f5f9',
-      secondary: '#cbd5e1',
-      tertiary: '#64748b',
-      accent: '#00e5ff',
+      primary: '#f8fafc',
+      secondary: '#e2e8f0',
+      tertiary: '#94a3b8',
+      accent: '#3b82f6',
     },
     // Status colors
     status: {
@@ -55,19 +55,19 @@ const designTokens = {
     },
   },
   shadows: {
-    glow: '0 0 30px rgba(0, 229, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.3)',
-    glowSoft: '0 0 20px rgba(0, 229, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.15)',
-    glowStrong: '0 0 50px rgba(0, 229, 255, 0.7), 0 0 100px rgba(0, 229, 255, 0.4)',
-    card: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 229, 255, 0.1)',
-    cardHover: '0 12px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 229, 255, 0.3)',
-    neon: '0 0 5px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.5), 0 0 15px rgba(0, 229, 255, 0.5)',
+    glow: '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.15)',
+    glowSoft: '0 0 15px rgba(59, 130, 246, 0.2), 0 0 30px rgba(59, 130, 246, 0.1)',
+    glowStrong: '0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2)',
+    card: '0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)',
+    cardHover: '0 8px 30px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(59, 130, 246, 0.2)',
+    subtle: '0 1px 3px rgba(0, 0, 0, 0.2)',
   },
   gradients: {
-    primary: 'linear-gradient(135deg, #1890ff 0%, #00e5ff 50%, #1affb8 100%)',
-    accent: 'linear-gradient(135deg, #00e5ff 0%, #1affb8 50%, #00ff88 100%)',
-    background: 'linear-gradient(135deg, #0a0f23 0%, #111827 50%, #0f172a 100%)',
-    glow: 'radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%)',
-    rainbow: 'linear-gradient(90deg, #ff006e 0%, #8338ec 25%, #3a86ff 50%, #06ffa5 75%, #ffbe0b 100%)',
+    primary: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+    accent: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%)',
+    background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
+    subtle: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%)',
+    overlay: 'linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.8) 100%)',
   },
 };
 
@@ -108,23 +108,23 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
+    fontFamily: '"Inter", "Segoe UI", "Roboto", -apple-system, sans-serif',
     h1: {
-      fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+      fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+      fontWeight: 700,
+      letterSpacing: '-0.025em',
+      color: designTokens.colors.text.primary,
+      lineHeight: 1.15,
+    },
+    h2: {
+      fontSize: 'clamp(1.875rem, 4vw, 2.5rem)',
       fontWeight: 700,
       letterSpacing: '-0.02em',
       color: designTokens.colors.text.primary,
-      lineHeight: 1.1,
-    },
-    h2: {
-      fontSize: 'clamp(2rem, 4vw, 3rem)',
-      fontWeight: 600,
-      letterSpacing: '-0.01em',
-      color: designTokens.colors.text.primary,
-      lineHeight: 1.2,
+      lineHeight: 1.25,
     },
     h3: {
-      fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+      fontSize: 'clamp(1.5rem, 3vw, 2rem)',
       fontWeight: 600,
       color: designTokens.colors.text.primary,
       lineHeight: 1.3,
