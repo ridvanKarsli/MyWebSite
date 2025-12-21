@@ -102,16 +102,6 @@ const Hero = () => {
                 <motion.div variants={itemVariants}>
                   <Stack direction="row" spacing={2} alignItems="center" mb={2}>
                     <Chip 
-                      icon={<WorkIcon />}
-                      label={translations[language].hero.openToWork}
-                      sx={{
-                        background: designTokens.gradients.accent,
-                        color: 'white',
-                        fontWeight: 600,
-                        '& .MuiChip-icon': { color: 'white' }
-                      }}
-                    />
-                    <Chip 
                       icon={<LocationOnIcon />}
                       label={translations[language].hero.location}
                       variant="outlined"
