@@ -8,9 +8,6 @@ import {
   Grid,
   Snackbar,
   Alert,
-  IconButton,
-  useTheme,
-  useMediaQuery,
   Link,
   Card,
   CardContent,
@@ -22,7 +19,7 @@ import {
   Send as SendIcon,
   CheckCircle as CheckCircleIcon,
 } from '@mui/icons-material';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { designTokens } from '../theme/ThemeProvider';
 
@@ -33,8 +30,6 @@ const Contact = () => {
     message: '',
   });
   const [status, setStatus] = useState({ type: '', message: '' });
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { translations, language } = useLanguage();
 
   const handleChange = (e) => {
@@ -47,7 +42,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add your form submission logic here
-    setStatus({ type: 'success', message: translations[language].contact.form.success });
+    setStatus({ type: 'success', message: translations[language].contact.success });
   };
 
   const contactInfo = [
@@ -60,14 +55,14 @@ const Contact = () => {
     {
       icon: <PhoneIcon />,
       title: translations[language].contact.contactInfo.phone,
-      content: '05536999119',
+      content: '0553 699 91 19',
       link: 'tel:05536999119',
     },
     {
       icon: <LocationIcon />,
       title: translations[language].contact.contactInfo.location,
-      content: 'izmir türkiye',
-      link: 'https://maps.google.com/?q=izmir türkiye',
+      content: 'İzmir / Bornova',
+      link: 'https://maps.google.com/?q=Izmir%20Bornova',
     },
   ];
 

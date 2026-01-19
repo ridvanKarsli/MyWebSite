@@ -29,8 +29,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <GitHubIcon />, url: 'https://github.com/ridvankarsli', label: 'GitHub' },
-    { icon: <LinkedInIcon />, url: 'https://linkedin.com/in/ridvankarsli', label: 'LinkedIn' },
+    { icon: <GitHubIcon />, url: 'https://github.com/ridvanKarsli', label: 'GitHub' },
+    { icon: <LinkedInIcon />, url: 'https://linkedin.com/in/ridvan-karsli-44a783294', label: 'LinkedIn' },
     { icon: <EmailIcon />, url: 'mailto:rdvn.35050@gmail.com', label: 'Email' },
   ];
 
@@ -220,7 +220,7 @@ const Footer = () => {
                       fontSize: '0.95rem',
                     }}
                   >
-                    Turkey
+                    Izmir / Bornova
                   </Typography>
                 </Box>
               </Stack>

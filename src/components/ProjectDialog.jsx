@@ -41,8 +41,8 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
         <Typography
           variant="h4"
           sx={{
-            color: '#00e5ff',
-            fontFamily: 'monospace',
+            color: designTokens.colors.text.primary,
+            fontWeight: 700,
           }}
         >
           {project.title}
@@ -51,9 +51,9 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
           aria-label="close"
           onClick={onClose}
           sx={{
-            color: '#8892b0',
+            color: designTokens.colors.text.tertiary,
             '&:hover': {
-              color: '#00e5ff',
+              color: designTokens.colors.accent[500],
             },
           }}
         >
@@ -89,7 +89,7 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
             <Typography
               variant="body1"
               sx={{
-                color: '#8892b0',
+                color: designTokens.colors.text.secondary,
                 mb: 3,
               }}
             >
@@ -108,12 +108,11 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
                   key={tech}
                   sx={{
                     backgroundColor: `${designTokens.colors.accent[500]}15`,
-                    color: designTokens.colors.accent[500],
+                    color: designTokens.colors.accent[300],
                     px: 1.5,
                     py: 0.5,
                     borderRadius: '8px',
                     fontSize: '0.85rem',
-                    fontFamily: 'monospace',
                     fontWeight: 500,
                     border: `1px solid ${designTokens.colors.accent[500]}30`,
                   }}
@@ -170,17 +169,18 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
           <Grid item xs={12} md={6}>
             <Box
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '8px',
+                backgroundColor: designTokens.colors.background.glass,
+                borderRadius: '16px',
                 p: 3,
                 height: '100%',
+                border: `1px solid ${designTokens.colors.accent[500]}20`,
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
-                  color: '#00e5ff',
-                  fontFamily: 'monospace',
+                  color: designTokens.colors.text.primary,
+                  fontWeight: 600,
                   mb: 3,
                 }}
               >
@@ -194,8 +194,7 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
                       key={key}
                       variant="body2"
                       sx={{
-                        color: '#8892b0',
-                        fontFamily: 'monospace',
+                        color: designTokens.colors.text.secondary,
                         mb: 1,
                       }}
                     >
@@ -206,8 +205,8 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
               <Typography
                 variant="h6"
                 sx={{
-                  color: '#00e5ff',
-                  fontFamily: 'monospace',
+                  color: designTokens.colors.text.primary,
+                  fontWeight: 600,
                   mb: 2,
                 }}
               >

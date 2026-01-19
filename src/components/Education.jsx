@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Grid } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Stack } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import { useLanguage } from '../context/LanguageContext';
+import { designTokens } from '../theme/ThemeProvider';
 
 const Education = () => {
   const { translations, language } = useLanguage();
@@ -27,23 +28,36 @@ const Education = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#0a192f',
+        background: designTokens.gradients.background,
         color: 'white',
         position: 'relative',
         overflow: 'hidden',
-        py: 8,
+        py: { xs: 10, md: 15 },
       }}
     >
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+          opacity: 0.3,
+          pointerEvents: 'none',
+        }}
+      />
       <Container maxWidth="lg">
         <Typography
           variant="h2"
           component="h2"
           sx={{
             fontSize: { xs: '2rem', md: '2.5rem' },
-            fontWeight: 'bold',
+            fontWeight: 700,
             mb: 2,
-            fontFamily: 'monospace',
             textAlign: 'center',
+            color: designTokens.colors.text.primary,
           }}
         >
           {translations[language].about.timeline.education.title}
@@ -52,7 +66,7 @@ const Education = () => {
           variant="body1"
           sx={{
             mb: 6,
-            color: '#8892b0',
+            color: designTokens.colors.text.secondary,
             fontSize: '1.1rem',
             textAlign: 'center',
             maxWidth: '600px',
@@ -65,31 +79,34 @@ const Education = () => {
         <Grid container spacing={4}>
           {education.map((edu, index) => (
             <Grid item xs={12} md={6} key={index}>
-              <Box
+              <Paper
                 sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: '8px',
+                  background: designTokens.colors.background.glass,
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '16px',
                   p: 4,
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
+                  border: `1px solid ${designTokens.colors.accent[500]}30`,
+                  boxShadow: designTokens.shadows.card,
                   transition: 'transform 0.3s ease',
                   '&:hover': {
                     transform: 'translateY(-10px)',
                   },
                 }}
               >
-                <Box sx={{ mb: 2, color: '#00e5ff' }}>
-                  <SchoolIcon sx={{ fontSize: 40 }} />
-                </Box>
+                <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2, color: designTokens.colors.accent[500] }}>
+                  <SchoolIcon sx={{ fontSize: 32 }} />
+                </Stack>
                 <Typography
                   variant="h5"
                   sx={{
-                    color: '#00e5ff',
+                    color: designTokens.colors.accent[500],
                     mb: 2,
-                    fontFamily: 'monospace',
+                    fontWeight: 600,
                   }}
                 >
                   {edu.degree}
@@ -97,9 +114,8 @@ const Education = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    color: '#8892b0',
+                    color: designTokens.colors.text.secondary,
                     mb: 1,
-                    fontFamily: 'monospace',
                   }}
                 >
                   {edu.school}
@@ -107,9 +123,8 @@ const Education = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: '#8892b0',
+                    color: designTokens.colors.text.tertiary,
                     mb: 2,
-                    fontFamily: 'monospace',
                   }}
                 >
                   {edu.period}
@@ -117,12 +132,12 @@ const Education = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: '#8892b0',
+                    color: designTokens.colors.text.secondary,
                   }}
                 >
                   {edu.description}
                 </Typography>
-              </Box>
+              </Paper>
             </Grid>
           ))}
         </Grid>

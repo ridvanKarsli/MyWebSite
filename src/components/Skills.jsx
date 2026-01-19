@@ -1,207 +1,108 @@
 import React from 'react';
-import { Box, Container, Typography, Grid } from '@mui/material';
-import CodeIcon from '@mui/icons-material/Code';
-import StorageIcon from '@mui/icons-material/Storage';
-import BrushIcon from '@mui/icons-material/Brush';
-import DevicesIcon from '@mui/icons-material/Devices';
-import SecurityIcon from '@mui/icons-material/Security';
-import SpeedIcon from '@mui/icons-material/Speed';
+import { Box, Container, Typography, Grid, Paper, Chip, Stack } from '@mui/material';
 import { useLanguage } from '../context/LanguageContext';
+import { designTokens } from '../theme/ThemeProvider';
 
 const Skills = () => {
   const { translations, language } = useLanguage();
 
-  const skillCategories = [
-    {
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'Frontend Development',
-      skills: [
-        { name: 'React', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'HTML/CSS', level: 90 },
-        { name: 'Material-UI', level: 85 },
-        { name: 'TailwindCSS', level: 80 },
-      ],
-    },
-    {
-      icon: <StorageIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'Backend Development',
-      skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'SQL', level: 70 },
-        { name: 'REST APIs', level: 85 },
-        { name: 'GraphQL', level: 70 },
-      ],
-    },
-    {
-      icon: <BrushIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'UI/UX Design',
-      skills: [
-        { name: 'Figma', level: 80 },
-        { name: 'Adobe XD', level: 75 },
-        { name: 'Responsive Design', level: 90 },
-        { name: 'Wireframing', level: 85 },
-        { name: 'Prototyping', level: 80 },
-        { name: 'User Research', level: 75 },
-      ],
-    },
-    {
-      icon: <DevicesIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'Mobile Development',
-      skills: [
-        { name: 'React Native', level: 75 },
-        { name: 'Flutter', level: 70 },
-        { name: 'Mobile UI', level: 80 },
-        { name: 'App Store', level: 70 },
-        { name: 'Play Store', level: 70 },
-        { name: 'PWA', level: 80 },
-      ],
-    },
-    {
-      icon: <SecurityIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'DevOps & Tools',
-      skills: [
-        { name: 'Git', level: 85 },
-        { name: 'Docker', level: 70 },
-        { name: 'CI/CD', level: 75 },
-        { name: 'AWS', level: 65 },
-        { name: 'Linux', level: 70 },
-        { name: 'NPM', level: 85 },
-      ],
-    },
-    {
-      icon: <SpeedIcon sx={{ fontSize: 40, color: '#00e5ff' }} />,
-      title: 'Performance & Testing',
-      skills: [
-        { name: 'Jest', level: 80 },
-        { name: 'React Testing', level: 75 },
-        { name: 'Performance', level: 80 },
-        { name: 'SEO', level: 75 },
-        { name: 'Analytics', level: 70 },
-        { name: 'Debugging', level: 85 },
-      ],
-    },
-  ];
-
-  const skills = [
-    {
-      category: translations[language].about.timeline.skills.frontend.title,
-      items: translations[language].about.timeline.skills.frontend.items,
-    },
-    {
-      category: translations[language].about.timeline.skills.backend.title,
-      items: translations[language].about.timeline.skills.backend.items,
-    },
-    {
-      category: translations[language].about.timeline.skills.tools.title,
-      items: translations[language].about.timeline.skills.tools.items,
-    },
-  ];
+  const skillsContent = translations[language].about.timeline.skills.content || '';
+  const skillList = skillsContent
+    .split(',')
+    .map((skill) => skill.trim())
+    .filter(Boolean);
 
   return (
     <Box
+      component="section"
+      id="skills"
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        backgroundColor: '#0a192f',
+        background: designTokens.gradients.background,
         color: 'white',
         position: 'relative',
         overflow: 'hidden',
-        py: 8,r
+        py: { xs: 10, md: 15 },
       }}
     >
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+          opacity: 0.3,
+          pointerEvents: 'none',
+        }}
+      />
       <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            fontSize: { xs: '2rem', md: '2.5rem' },
-            fontWeight: 'bold',
-            mb: 2,
-            fontFamily: 'monospace',
-            textAlign: 'center',
-          }}
-        >
-          {translations[language].about.timeline.skills.title}
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            mb: 6,
-            color: '#8892b0',
-            fontSize: '1.1rem',
-            textAlign: 'center',
-            maxWidth: '600px',
-            mx: 'auto',
-          }}
-        >
-          {translations[language].about.timeline.skills.subtitle}
-        </Typography>
-
-        <Grid container spacing={4}>
-          {skills.map((skillGroup, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Box
+        <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 1 }}>
+          <Grid item xs={12} md={4}>
+            <Stack spacing={2}>
+              <Typography
+                variant="h2"
+                component="h2"
                 sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: '8px',
-                  p: 4,
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                  },
+                  fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' },
+                  fontWeight: 700,
+                  color: designTokens.colors.text.primary,
                 }}
               >
-                <Box sx={{ mb: 2, color: '#00e5ff' }}>
-                  <CodeIcon sx={{ fontSize: 40 }} />
-                </Box>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: '#00e5ff',
-                    mb: 3,
-                    fontFamily: 'monospace',
-                  }}
-                >
-                  {skillGroup.category}
-                </Typography>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: 1,
-                    justifyContent: 'center',
-                  }}
-                >
-                  {skillGroup.items.map((skill) => (
-                    <Typography
-                      key={skill}
-                      sx={{
-                        backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                        color: '#00e5ff',
-                        px: 2,
-                        py: 1,
-                        borderRadius: '4px',
-                        fontSize: '0.9rem',
-                        fontFamily: 'monospace',
-                      }}
-                    >
-                      {skill}
-                    </Typography>
-                  ))}
-                </Box>
-              </Box>
-            </Grid>
-          ))}
+                {translations[language].about.timeline.skills.title}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: designTokens.colors.text.secondary,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  lineHeight: 1.7,
+                }}
+              >
+                {translations[language].about.skillsSection?.subtitle || translations[language].about.description}
+              </Typography>
+            </Stack>
+          </Grid>
+
+          <Grid item xs={12} md={8}>
+            <Paper
+              sx={{
+                background: designTokens.colors.background.glass,
+                backdropFilter: 'blur(20px)',
+                borderRadius: '20px',
+                p: { xs: 3, md: 4 },
+                border: `1px solid ${designTokens.colors.accent[500]}30`,
+                boxShadow: designTokens.shadows.card,
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3px',
+                  background: designTokens.gradients.accent,
+                },
+              }}
+            >
+              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                {skillList.map((skill) => (
+                  <Chip
+                    key={skill}
+                    label={skill}
+                    sx={{
+                      background: `${designTokens.colors.accent[500]}10`,
+                      border: `1px solid ${designTokens.colors.accent[500]}30`,
+                      color: designTokens.colors.text.primary,
+                      fontWeight: 500,
+                    }}
+                  />
+                ))}
+              </Stack>
+            </Paper>
+          </Grid>
         </Grid>
       </Container>
     </Box>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { useLanguage } from '../context/LanguageContext';
+import { designTokens } from '../theme/ThemeProvider';
 
 const ProjectCard = ({ project, onClick }) => {
   const { translations, language } = useLanguage();
@@ -24,12 +25,14 @@ const ProjectCard = ({ project, onClick }) => {
     <Card
       onClick={onClick}
       sx={{
-        backgroundColor: 'rgba(10, 25, 47, 0.7)',
-        borderRadius: '8px',
+        background: designTokens.colors.background.glass,
+        backdropFilter: 'blur(20px)',
+        borderRadius: '16px',
         transition: 'all 0.3s ease',
         position: 'relative',
         overflow: 'hidden',
         cursor: 'pointer',
+        border: `1px solid ${designTokens.colors.accent[500]}20`,
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -37,13 +40,14 @@ const ProjectCard = ({ project, onClick }) => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(45deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0) 100%)',
+          background: `linear-gradient(135deg, ${designTokens.colors.accent[500]}15 0%, transparent 100%)`,
           opacity: 0,
           transition: 'opacity 0.3s ease',
         },
         '&:hover': {
           transform: 'translateY(-5px)',
-          boxShadow: '0 10px 30px rgba(0, 229, 255, 0.1)',
+          boxShadow: designTokens.shadows.cardHover,
+          borderColor: `${designTokens.colors.accent[500]}40`,
           '&::before': {
             opacity: 1,
           },
@@ -60,10 +64,10 @@ const ProjectCard = ({ project, onClick }) => {
             variant="h5"
             component="h3"
             sx={{
-              fontFamily: 'monospace',
-              color: '#00e5ff',
+              color: designTokens.colors.text.primary,
               mb: 2,
               fontSize: { xs: '1.2rem', sm: '1.4rem' },
+              fontWeight: 600,
             }}
           >
             {project.title}
@@ -71,7 +75,7 @@ const ProjectCard = ({ project, onClick }) => {
           <Typography
             variant="body2"
             sx={{
-              color: '#8892b0',
+              color: designTokens.colors.text.secondary,
               mb: 3,
               fontSize: { xs: '0.9rem', sm: '1rem' },
             }}
@@ -92,12 +96,11 @@ const ProjectCard = ({ project, onClick }) => {
                 label={tech}
                 size="small"
                 sx={{
-                  backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                  color: '#00e5ff',
-                  fontFamily: 'monospace',
+                  backgroundColor: `${designTokens.colors.accent[500]}12`,
+                  color: designTokens.colors.accent[300],
                   fontSize: '0.8rem',
                   '&:hover': {
-                    backgroundColor: 'rgba(0, 229, 255, 0.2)',
+                    backgroundColor: `${designTokens.colors.accent[500]}20`,
                   },
                 }}
               />
@@ -110,48 +113,52 @@ const ProjectCard = ({ project, onClick }) => {
               justifyContent: 'flex-end',
             }}
           >
-            <Tooltip title={translations[language].projects.viewGithub}>
-              <IconButton
-                component="a"
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={translations[language].projects.viewGithub}
-                onClick={(e) => e.stopPropagation()}
-                sx={{
-                  color: '#8892b0',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    color: '#00e5ff',
-                    transform: 'translateY(-2px)',
-                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                  },
-                }}
-              >
-                <GitHubIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title={translations[language].projects.viewDemo}>
-              <IconButton
-                component="a"
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={translations[language].projects.viewDemo}
-                onClick={(e) => e.stopPropagation()}
-                sx={{
-                  color: '#8892b0',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    color: '#00e5ff',
-                    transform: 'translateY(-2px)',
-                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                  },
-                }}
-              >
-                <LaunchIcon />
-              </IconButton>
-            </Tooltip>
+            {project.github && (
+              <Tooltip title={translations[language].projects.viewGithub}>
+                <IconButton
+                  component="a"
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={translations[language].projects.viewGithub}
+                  onClick={(e) => e.stopPropagation()}
+                  sx={{
+                    color: designTokens.colors.text.tertiary,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: designTokens.colors.accent[500],
+                      transform: 'translateY(-2px)',
+                      backgroundColor: `${designTokens.colors.accent[500]}12`,
+                    },
+                  }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+              </Tooltip>
+            )}
+            {project.demo && (
+              <Tooltip title={translations[language].projects.viewDemo}>
+                <IconButton
+                  component="a"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={translations[language].projects.viewDemo}
+                  onClick={(e) => e.stopPropagation()}
+                  sx={{
+                    color: designTokens.colors.text.tertiary,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: designTokens.colors.accent[500],
+                      transform: 'translateY(-2px)',
+                      backgroundColor: `${designTokens.colors.accent[500]}12`,
+                    },
+                  }}
+                >
+                  <LaunchIcon />
+                </IconButton>
+              </Tooltip>
+            )}
           </Box>
         </CardContent>
       </motion.div>

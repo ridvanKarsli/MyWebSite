@@ -24,14 +24,14 @@ const ContactInfo = ({ chartOptions, chartData }) => {
     {
       icon: <FaPhone />,
       title: translations[language].contact.contactInfo.phone,
-      content: '05536999119',
+      content: '0553 699 91 19',
       link: 'tel:05536999119',
     },
     {
       icon: <FaMapMarkerAlt />,
       title: translations[language].contact.contactInfo.location,
-      content: 'izmir türkiye',
-      link: 'https://maps.google.com/?q=izmir türkiye',
+      content: 'İzmir / Bornova',
+      link: 'https://maps.google.com/?q=Izmir%20Bornova',
     },
   ];
 
@@ -39,12 +39,12 @@ const ContactInfo = ({ chartOptions, chartData }) => {
     {
       icon: <FaGithub />,
       title: 'GitHub',
-      link: 'https://github.com/yourusername',
+      link: 'https://github.com/ridvanKarsli',
     },
     {
       icon: <FaLinkedin />,
       title: 'LinkedIn',
-      link: 'https://linkedin.com/in/yourusername',
+      link: 'https://linkedin.com/in/ridvan-karsli-44a783294',
     },
   ];
 

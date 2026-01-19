@@ -5,7 +5,7 @@ const LanguageContext = createContext();
 export const translations = {
   en: {
     nav: {
-      title: 'Ridvan Karsli',
+      title: 'Rıdvan Şevki Karslı',
       home: 'Home',
       about: 'About',
       projects: 'Projects',
@@ -13,23 +13,26 @@ export const translations = {
     },
     hero: {
       greeting: 'Hi, my name is',
-      name: 'RIDVAN KARSLI',
-      title: 'Java Backend and Full Stack Developer',
-      description: 'I build scalable backend systems with Spring Boot and intuitive user interfaces using React and Swift.',
+      name: 'RIDVAN ŞEVKİ KARSLI',
+      title: 'Java Backend Developer',
+      description: 'I build scalable, high-performance backend services with Java & Spring Boot, focusing on clean architecture, security, and PostgreSQL-based data management.',
       viewWork: 'See My Projects',
       contactMe: 'Contact Me',
       openToWork: 'Open to Work',
-      location: 'Turkey',
+      location: 'Izmir / Bornova',
       backendDeveloper: 'Backend Developer',
       backendSpecialty: 'Specialized in building scalable backend systems and RESTful APIs',
     },
     about: {
       title: 'About Me',
-      description: 'I am a highly motivated and solution-oriented Java Backend & Full Stack Developer specialized in Spring Boot systems.',
+      description: 'Java & Spring Boot specialist focused on scalable, secure, and maintainable backend services for production environments.',
+      skillsSection: {
+        subtitle: 'Core technologies and tools I use in day-to-day development.',
+      },
       journey: {
         title: 'My Journey',
-        content1: 'I actively take part in full-cycle software projects, delivering sustainable and scalable solutions.',
-        content2: 'With expertise in layered architecture, RESTful APIs, and PostgreSQL, I also build user interfaces using React and Swift.',
+        content1: 'Experienced in REST API design, data modeling, layered architecture, security, and performance optimization with PostgreSQL.',
+        content2: 'I apply Clean Code, SOLID, modular architecture, and testing practices to deliver sustainable backend solutions.',
       },
       keyStrengths: {
         title: 'Key Strengths',
@@ -52,23 +55,23 @@ export const translations = {
         },
         skills: {
           title: 'Skills',
-          content: 'Java, Spring Boot, Java Backend, PostgreSQL, Database Design, OOP, SOLID, Clean Code, Layered Architecture, RESTful APIs, React, Swift, Git, Mobile Development, Algorithms & Data Structures',
+          content: 'Java, Spring Boot, REST API, Security, Microservices, OOP, Clean Code, SOLID, Swagger/OpenAPI, JUnit, PostgreSQL, SQL Optimization, Data Modeling, React, Kotlin, Swift, Git/GitHub, Algorithm Design, API Integrations',
         },
       },
       features: {
         title: 'What I Do',
         items: [
           {
-            title: 'Java Backend Development',
-            description: 'Developing robust backend systems with Java and Spring Boot.',
+            title: 'Backend Service Development',
+            description: 'Building scalable Spring Boot services with clean architecture and robust APIs.',
           },
           {
-            title: 'Database Design',
-            description: 'Designing and managing databases effectively using PostgreSQL.',
+            title: 'API & Data Modeling',
+            description: 'Designing REST APIs and PostgreSQL data models with performance optimization.',
           },
           {
-            title: 'Frontend Development',
-            description: 'Creating user interfaces with React and Swift.',
+            title: 'Integrations & Performance',
+            description: 'Implementing API integrations, security, and performance improvements.',
           },
         ],
       },
@@ -98,8 +101,12 @@ export const translations = {
       viewDemo: 'Live Demo',
       viewAllProjects: 'View All Projects',
       project1: {
-        title: 'Saglikta – Health Platform',
-        description: 'A digital platform connecting chronic patients with expert doctors using Spring Boot, PostgreSQL, React, Swift, and Java.',
+        title: 'Sagliktan – Chronic Disease Platform',
+        description: 'Platform connecting chronic patients with specialists. Built with Spring Boot, PostgreSQL, React, and AI-powered analytics.',
+      },
+      project2: {
+        title: 'MSET – Early Fault Detection System',
+        description: 'Backend modules and data pipelines for multi-sensor analysis and fault detection in automation systems.',
       },
     },
     contact: {
@@ -137,8 +144,8 @@ export const translations = {
       },
     },
     footer: {
-      title: 'RIDVAN KARSLI',
-      description: 'A dedicated Java Backend & Full Stack Developer delivering scalable and modern applications with Spring Boot and React.',
+      title: 'RIDVAN ŞEVKİ KARSLI',
+      description: 'Java Backend Developer focused on scalable, secure services with Spring Boot and PostgreSQL.',
       copyright: '© 2024 Ridvan Karsli. All rights reserved.',
       quickLinks: {
         title: 'Quick Links',
@@ -156,29 +163,29 @@ export const translations = {
       yalin: {
         jobTitle: 'Software & Database Specialist',
         company: 'Yalın Otomasyon',
-        duration: '2025 - Present',
+        duration: '2025 - 2026',
         type: 'Full-time',
-        location: 'Turkey',
-        description: 'Developing backend modules and control algorithms that process real-time data. Designing real-time backend modules that process sensor data. Creating data collection, analysis, and reporting systems on PostgreSQL.',
+        location: 'Izmir / Bornova',
+        description: 'Developing real-time data processing backend modules and control algorithms. Building data collection, analysis, and reporting systems on PostgreSQL.',
         achievements: [
-          'Developed software modules that increase the stability of the production process',
-          'Created systems that reduce error detection time',
-          'Designed real-time backend modules that process sensor data',
-          'Developed data collection, analysis, and reporting systems on PostgreSQL',
+          'Built backend modules that improve production stability',
+          'Designed real-time sensor data processing pipelines',
+          'Implemented PostgreSQL-based data analysis and reporting systems',
+          'Reduced fault detection time with automation-focused modules',
         ],
       },
       emn: {
-        jobTitle: 'Java Developer',
+        jobTitle: 'Software Engineer',
         company: 'ENM Digital',
-        duration: '2024 - Present',
-        type: 'Volunteer',
-        location: 'Turkey (Remote)',
-        description: 'Developing REST services running in production environment with Spring Boot. Developing interface/mobile components with React, Kotlin, and Swift. Working on service design, validation, error management, and multi-layered architecture. Developing API integrations for AI-powered systems.',
+        duration: '2024 - 2025 Volunteer Intern → 2025 - Present Software Engineer',
+        type: 'Internship / Full-time',
+        location: 'Remote',
+        description: 'Developing production-grade REST services with Spring Boot and supporting React, Kotlin, and Swift components. Worked as a volunteer intern in 2024–2025 and promoted to Software Engineer in 2025. Working on service design, validation, error handling, and layered architecture with AI-related API integrations.',
         achievements: [
-          'Developed REST services running in production environment',
-          'Created service architectures that reduce processing times on platforms',
-          'Designed service architectures that strengthen modular structure',
-          'Developed API integrations for AI-powered systems',
+          'Delivered production REST services with Spring Boot',
+          'Optimized service architectures to reduce processing times',
+          'Strengthened modular structure through layered design',
+          'Built API integrations for AI-powered systems',
         ],
       },
       kalem: {
@@ -187,12 +194,12 @@ export const translations = {
         duration: '2023 - 2024',
         type: 'Full-time',
         location: 'Turkey',
-        description: 'Developed Java & React-based enterprise web applications. Created and optimized database models on PostgreSQL. Participated in API integration processes. Developed software components actively running in production environment.',
+        description: 'Developed Java & React-based enterprise applications. Built and optimized PostgreSQL data models and contributed to API integrations in production systems.',
         achievements: [
-          'Developed Java & React-based enterprise web applications',
-          'Designed backend modules that increase the stability of customer applications',
-          'Created software components that reduce maintenance costs',
-          'Created and optimized database models on PostgreSQL',
+          'Delivered production-ready Java & React modules',
+          'Designed backend components that improved system stability',
+          'Reduced maintenance effort with modular backend designs',
+          'Optimized PostgreSQL data models and queries',
         ],
       },
     },
@@ -213,7 +220,7 @@ export const translations = {
   },
   tr: {
     nav: {
-      title: 'Ridvan Karsli',
+      title: 'Rıdvan Şevki Karslı',
       home: 'Ana Sayfa',
       about: 'Hakkımda',
       projects: 'Projeler',
@@ -221,23 +228,26 @@ export const translations = {
     },
     hero: {
       greeting: 'Merhaba, benim adım',
-      name: 'RIDVAN KARSLI',
-      title: 'Java Backend ve Full Stack Geliştirici',
-      description: 'Spring Boot ile sağlam backend sistemleri ve React ile kullanıcı dostu arayüzler geliştiriyorum.',
+      name: 'RIDVAN ŞEVKİ KARSLI',
+      title: 'Java Backend Geliştirici',
+      description: 'Java & Spring Boot ile ölçeklenebilir, yüksek performanslı backend servisleri geliştiriyorum; güvenlik ve PostgreSQL odaklı veri yönetimi üzerine çalışıyorum.',
       viewWork: 'Projelerimi Gör',
       contactMe: 'İletişime Geç',
       openToWork: 'İş Arıyorum',
-      location: 'Türkiye',
+      location: 'İzmir / Bornova',
       backendDeveloper: 'Backend Geliştirici',
       backendSpecialty: 'Ölçeklenebilir backend sistemleri ve RESTful API geliştirme konusunda uzmanım',
     },
     about: {
       title: 'Hakkımda',
-      description: 'Spring Boot temelli sistemlerde uzmanlaşmış, yüksek motivasyonlu bir Java Backend & Full Stack geliştiriciyim.',
+      description: 'Spring Boot odaklı, ölçeklenebilir ve sürdürülebilir backend servisleri geliştiren Java Backend geliştiricisiyim.',
+      skillsSection: {
+        subtitle: 'Günlük geliştirmede kullandığım temel teknoloji ve araçlar.',
+      },
       journey: {
         title: 'Yolculuğum',
-        content1: 'Uçtan uca yazılım projelerinde aktif rol alarak sürdürülebilir ve ölçeklenebilir çözümler sunuyorum.',
-        content2: 'Katmanlı mimari, RESTful API ve PostgreSQL uzmanlığımın yanında React ve Swift ile arayüzler geliştiriyorum.',
+        content1: 'REST API tasarımı, veri modeli oluşturma, katmanlı mimari, güvenlik ve performans optimizasyonu konularında deneyimliyim.',
+        content2: 'Clean Code, SOLID, modüler mimari ve test odaklı geliştirme prensipleriyle sürdürülebilir çözümler üretiyorum.',
       },
       keyStrengths: {
         title: 'Temel Güçlü Yönlerim',
@@ -260,23 +270,23 @@ export const translations = {
         },
         skills: {
           title: 'Yetenekler',
-          content: 'Java, Spring Boot, Java Backend, PostgreSQL, Veritabanı Tasarımı, OOP, SOLID, Clean Code, Katmanlı Mimari, RESTful API, React, Swift, Git, Mobil Geliştirme, Algoritmalar & Veri Yapıları',
+          content: 'Java, Spring Boot, REST API, Security, Mikroservis, OOP, Clean Code, SOLID, Swagger/OpenAPI, JUnit, PostgreSQL, SQL Optimizasyonu, Veri Modelleme, React, Kotlin, Swift, Git/GitHub, Algoritma Tasarımı, API Entegrasyonları',
         },
       },
       features: {
         title: 'Neler Yapıyorum',
         items: [
           {
-            title: 'Java Backend Geliştirme',
-            description: 'Java ve Spring Boot ile güçlü backend sistemleri geliştiriyorum.',
+            title: 'Backend Servis Geliştirme',
+            description: 'Spring Boot ile ölçeklenebilir ve güvenli servisler geliştiriyorum.',
           },
           {
-            title: 'Veritabanı Tasarımı',
-            description: 'PostgreSQL ile etkili veri tasarımı ve yönetimi.',
+            title: 'API & Veri Modeli Tasarımı',
+            description: 'REST API ve PostgreSQL veri modellerini performans odaklı tasarlıyorum.',
           },
           {
-            title: 'Arayüz Geliştirme',
-            description: 'React ve Swift ile kullanıcı arayüzleri geliştiriyorum.',
+            title: 'Entegrasyon & Performans',
+            description: 'API entegrasyonları, güvenlik ve performans iyileştirmeleri yapıyorum.',
           },
         ],
       },
@@ -307,7 +317,11 @@ export const translations = {
       viewAllProjects: 'Tüm Projeleri Gör',
       project1: {
         title: 'Sağlıkta – Sağlık Platformu',
-        description: 'Spring Boot, PostgreSQL, React, Swift ve Java teknolojileriyle kronik hastaları uzmanlarla buluşturur.',
+        description: 'Spring Boot, PostgreSQL ve React ile kronik hastaları uzmanlarla buluşturan platform. AI destekli analiz entegrasyonları içerir.',
+      },
+      project2: {
+        title: 'MSET – Erken Arıza Tespit Sistemi',
+        description: 'Çok değişkenli sensör verilerini işleyen veri pipeline’ları ve arıza tespit modülleri.',
       },
     },
     contact: {
@@ -345,8 +359,8 @@ export const translations = {
       },
     },
     footer: {
-      title: 'RIDVAN KARSLI',
-      description: 'Spring Boot ve modern teknolojilerle çalışan bir Java Backend ve Full Stack geliştirici.',
+      title: 'RIDVAN ŞEVKİ KARSLI',
+      description: 'Spring Boot ve PostgreSQL odaklı, ölçeklenebilir backend servisleri geliştiren Java Backend geliştiricisi.',
       copyright: '© 2024 Ridvan Karsli. Tüm hakları saklıdır.',
       quickLinks: {
         title: 'Hızlı Bağlantılar',
@@ -364,24 +378,24 @@ export const translations = {
       yalin: {
         jobTitle: 'Yazılım & Veritabanı Uzmanı',
         company: 'Yalın Otomasyon',
-        duration: '2025 - Devam Ediyor',
+        duration: '2025 - 2026',
         type: 'Tam Zamanlı',
-        location: 'Türkiye',
-        description: 'Gerçek zamanlı veri işleyen backend modülleri ve kontrol algoritmaları geliştiriyorum. Sensör verilerini işleyen gerçek zamanlı backend modülleri tasarlıyorum. PostgreSQL üzerinde veri toplama, analiz ve raporlama sistemleri oluşturuyorum.',
+        location: 'İzmir / Bornova',
+        description: 'Gerçek zamanlı veri işleyen backend modülleri ve kontrol algoritmaları geliştiriyorum. PostgreSQL üzerinde veri toplama, analiz ve raporlama sistemleri oluşturuyorum.',
         achievements: [
-          'Üretim sürecinin stabilitesini artıran yazılım modülleri geliştirdim',
-          'Hata tespit süresini kısaltan sistemler oluşturdum',
-          'Sensör verilerini işleyen gerçek zamanlı backend modülleri tasarladım',
-          'PostgreSQL üzerinde veri toplama, analiz ve raporlama sistemleri geliştirdim',
+          'Üretim sürecinin stabilitesini artıran backend modülleri geliştirdim',
+          'Sensör verilerini işleyen gerçek zamanlı modüller tasarladım',
+          'PostgreSQL tabanlı veri analiz ve raporlama sistemi kurdum',
+          'Hata tespit süresini kısaltan yazılım bileşenleri geliştirdim',
         ],
       },
       emn: {
-        jobTitle: 'Java Developer',
+        jobTitle: 'Yazılım Mühendisi',
         company: 'ENM Digital',
-        duration: '2024 - Devam Ediyor',
-        type: 'Gönüllü',
-        location: 'Türkiye (Uzaktan)',
-        description: 'Spring Boot ile üretim ortamında çalışan REST servisleri geliştiriyorum. React, Kotlin ve Swift ile arayüz/mobil bileşenler geliştiriyorum. Servis tasarımı, validasyon, hata yönetimi ve çok katmanlı mimari üzerinde çalışıyorum. Yapay zeka destekli sistemler için API entegrasyonları geliştiriyorum.',
+        duration: '2024 - 2025 Gönüllü Stajyer → 2025 - Devam Ediyor Yazılım Mühendisi',
+        type: 'Tam Zamanlı',
+        location: 'Uzaktan',
+        description: 'Spring Boot ile üretim ortamında çalışan REST servisleri geliştiriyorum. 2024–2025 döneminde gönüllü stajyer olarak başladım, 2025’te Yazılım Mühendisi rolüne terfi aldım. React, Kotlin ve Swift ile arayüz/mobil bileşenler geliştiriyorum. Servis tasarımı, validasyon, hata yönetimi ve çok katmanlı mimari üzerinde çalışıyorum. Yapay zeka destekli sistemler için API entegrasyonları geliştiriyorum.',
         achievements: [
           'Üretim ortamında çalışan REST servisleri geliştirdim',
           'Platformlardaki işlem sürelerini azaltan servis mimarileri oluşturdum',
@@ -397,10 +411,10 @@ export const translations = {
         location: 'Türkiye',
         description: 'Java & React tabanlı kurumsal web uygulamaları geliştirdim. PostgreSQL üzerinde veritabanı modelleri oluşturdum ve optimize ettim. API entegrasyon süreçlerinde görev aldım. Üretim ortamında aktif çalışan yazılım bileşenleri geliştirdim.',
         achievements: [
-          'Java & React tabanlı kurumsal web uygulamaları geliştirdim',
+          'Kurumsal web uygulamaları için Java & React modülleri geliştirdim',
           'Müşteri uygulamalarının stabilitesini artıran backend modülleri tasarladım',
-          'Bakım maliyetini azaltan yazılım bileşenleri oluşturdum',
-          'PostgreSQL üzerinde veritabanı modelleri oluşturdum ve optimize ettim',
+          'Bakım maliyetini azaltan yazılım bileşenleri geliştirdim',
+          'PostgreSQL veri modellerini oluşturup optimize ettim',
         ],
       },
     },

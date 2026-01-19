@@ -48,7 +48,6 @@ const Navbar = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          fontFamily: 'monospace',
           fontWeight: 700,
         }}
       >
@@ -146,7 +145,6 @@ const Navbar = () => {
               sx={{ 
                 flexGrow: 1, 
                 display: { xs: 'none', sm: 'block' },
-                fontFamily: 'monospace',
                 background: designTokens.gradients.accent,
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',

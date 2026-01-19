@@ -31,8 +31,8 @@ const ContactForm = () => {
 
   const contactMethods = [
     { icon: EmailIcon, label: 'Email', value: 'rdvn.35050@gmail.com', link: 'mailto:rdvn.35050@gmail.com' },
-    { icon: LinkedIn, label: 'LinkedIn', value: '/ridvankarsli', link: 'https://linkedin.com/in/ridvankarsli' },
-    { icon: GitHub, label: 'GitHub', value: '/ridvankarsli', link: 'https://github.com/ridvankarsli' },
+    { icon: LinkedIn, label: 'LinkedIn', value: '/ridvan-karsli-44a783294', link: 'https://linkedin.com/in/ridvan-karsli-44a783294' },
+    { icon: GitHub, label: 'GitHub', value: '/ridvanKarsli', link: 'https://github.com/ridvanKarsli' },
   ];
 
   const containerVariants = {

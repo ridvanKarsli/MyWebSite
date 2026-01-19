@@ -21,24 +21,24 @@ const WorkExperience = () => {
 
   const experiences = [
     {
-      title: translations[language].workExperience.yalin.jobTitle,
-      company: translations[language].workExperience.yalin.company,
-      location: translations[language].workExperience.yalin.location,
-      period: translations[language].workExperience.yalin.duration,
-      type: translations[language].workExperience.yalin.type,
-      description: translations[language].workExperience.yalin.description,
-      technologies: ['Java', 'PostgreSQL', 'Backend Development', 'Real-time Systems', 'Data Processing', 'Control Algorithms'],
-      achievements: translations[language].workExperience.yalin.achievements,
-    },
-    {
       title: translations[language].workExperience.emn.jobTitle,
       company: translations[language].workExperience.emn.company,
       location: translations[language].workExperience.emn.location,
       period: translations[language].workExperience.emn.duration,
       type: translations[language].workExperience.emn.type,
       description: translations[language].workExperience.emn.description,
-      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'React', 'Kotlin', 'Swift', 'REST API', 'AI Integration'],
+      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'REST API', 'Swagger/OpenAPI', 'React', 'Kotlin', 'Swift'],
       achievements: translations[language].workExperience.emn.achievements,
+    },
+    {
+      title: translations[language].workExperience.yalin.jobTitle,
+      company: translations[language].workExperience.yalin.company,
+      location: translations[language].workExperience.yalin.location,
+      period: translations[language].workExperience.yalin.duration,
+      type: translations[language].workExperience.yalin.type,
+      description: translations[language].workExperience.yalin.description,
+      technologies: ['Java', 'PostgreSQL', 'Real-time Systems', 'Data Processing', 'Control Algorithms', 'Reporting'],
+      achievements: translations[language].workExperience.yalin.achievements,
     },
     {
       title: translations[language].workExperience.kalem.jobTitle,
@@ -47,7 +47,7 @@ const WorkExperience = () => {
       period: translations[language].workExperience.kalem.duration,
       type: translations[language].workExperience.kalem.type,
       description: translations[language].workExperience.kalem.description,
-      technologies: ['Java', 'React', 'PostgreSQL', 'REST API', 'Web Development', 'Database Design'],
+      technologies: ['Java', 'React', 'PostgreSQL', 'REST API', 'API Integrations', 'Database Design'],
       achievements: translations[language].workExperience.kalem.achievements,
     },
   ];

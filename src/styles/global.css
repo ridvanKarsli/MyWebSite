@@ -15,28 +15,28 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00e5ff, #1affb8);
+  background: linear-gradient(45deg, #a78bfa, #8b5cf6);
   border-radius: 4px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #00b8d4, #00e5ff);
+  background: linear-gradient(45deg, #8b5cf6, #6d28d9);
 }
 
 /* Selection colors to match theme */
 ::selection {
-  background: rgba(0, 229, 255, 0.3);
-  color: #f1f5f9;
+  background: rgba(139, 92, 246, 0.35);
+  color: #f8fafc;
 }
 
 ::-moz-selection {
-  background: rgba(0, 229, 255, 0.3);
-  color: #f1f5f9;
+  background: rgba(139, 92, 246, 0.35);
+  color: #f8fafc;
 }
 
 /* Smooth focus outline for accessibility */
 *:focus-visible {
-  outline: 2px solid #00e5ff;
+  outline: 2px solid #8b5cf6;
   outline-offset: 2px;
   border-radius: 4px;
 }

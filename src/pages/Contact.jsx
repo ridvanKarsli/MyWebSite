@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import ContactForm from '../components/ContactForm';
+import Contact from '../components/Contact';
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <>
       <Helmet>
@@ -18,9 +19,9 @@ const Contact = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.ridvankarsli.com/contact" />
       </Helmet>
-      <ContactForm />
+      <Contact />
     </>
   );
 };
 
-export default Contact;
+export default ContactPage;

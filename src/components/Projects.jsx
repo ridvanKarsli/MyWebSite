@@ -39,6 +39,14 @@ const Projects = () => {
         github: 'https://github.com/ridvanKarsli/SagliktanWeb',
         demo: 'https://sagliktan.com',
       },
+      {
+        title: translations[language].projects.project2.title,
+        description: translations[language].projects.project2.description,
+        image: '/images/project2.jpg',
+        technologies: ['Java', 'Spring Boot', 'Data Processing', 'IoT', 'PostgreSQL', 'Automation'],
+        github: 'https://github.com/ridvanKarsli',
+        demo: null,
+      },
     ]);
   }, [language, translations]);
 
@@ -204,21 +212,23 @@ const Projects = () => {
                           gap: 1,
                         }}
                       >
-                        <IconButton
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          sx={{
-                            background: 'rgba(0, 0, 0, 0.5)',
-                            backdropFilter: 'blur(10px)',
-                            color: 'white',
-                            '&:hover': {
-                              background: designTokens.colors.accent[500],
-                            },
-                          }}
-                        >
-                          <GitHubIcon />
-                        </IconButton>
+                        {project.github && (
+                          <IconButton
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{
+                              background: 'rgba(0, 0, 0, 0.5)',
+                              backdropFilter: 'blur(10px)',
+                              color: 'white',
+                              '&:hover': {
+                                background: designTokens.colors.accent[500],
+                              },
+                            }}
+                          >
+                            <GitHubIcon />
+                          </IconButton>
+                        )}
                         {project.demo && (
                           <IconButton
                             href={project.demo}
