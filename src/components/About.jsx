@@ -51,14 +51,14 @@ const About = () => {
       icon: <SchoolIcon />,
       title: translations[language].about.timeline.education.title,
       content: translations[language].about.timeline.education.content,
-      year: '2018-2022',
+      year: '2020-Present',
       color: designTokens.colors.accent[500],
     },
     {
       icon: <WorkIcon />,
       title: translations[language].about.timeline.experience.title,
       content: translations[language].about.timeline.experience.content,
-      year: '2022-Present',
+      year: '2023-Present',
       color: designTokens.colors.accent[600],
     },
     {
@@ -71,10 +71,10 @@ const About = () => {
   ];
 
   const skills = {
-    backend: ['Java', 'Spring Boot', 'REST API', 'Microservices', 'PostgreSQL', 'MySQL'],
+    backend: ['Java', 'Spring Boot', 'C#', '.NET 8', 'REST API', 'Microservices', 'PostgreSQL'],
     frontend: ['React', 'JavaScript', 'HTML/CSS', 'Material-UI'],
-    mobile: ['Swift', 'iOS Development'],
-    tools: ['Git', 'Docker', 'Jenkins', 'Postman'],
+    mobile: ['SwiftUI (iOS)', 'Kotlin (Android)'],
+    tools: ['Git', 'Docker', 'Design Patterns', 'Clean Code / SOLID'],
   };
 
   return (

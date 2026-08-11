@@ -1,0 +1,20 @@
+<svg width="128" height="128" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131C2E"/>
+      <stop offset="100%" stop-color="#0A0E17"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#accentGrad)" stroke-width="2"/>
+
+  <!-- monogram -->
+  <text x="32" y="41" text-anchor="middle" font-family="'Poppins','Segoe UI',Arial,sans-serif" font-weight="800" font-size="25" letter-spacing="-0.5" fill="url(#accentGrad)">RK</text>
+
+  <!-- baseline accent -->
+  <rect x="24" y="46.5" width="16" height="2.5" rx="1.25" fill="#3B82F6" opacity="0.85"/>
+</svg>

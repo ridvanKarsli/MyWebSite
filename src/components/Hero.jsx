@@ -48,7 +48,7 @@ const Hero = () => {
     },
   };
 
-  const skills = ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'Swift', 'REST API'];
+  const skills = ['Java', 'Spring Boot', '.NET / C#', 'PostgreSQL', 'Microservices', 'REST API'];
 
   return (
     <Box

@@ -28,14 +28,26 @@ const Projects = () => {
       {
         title: translations[language].projects.project1.title,
         description: translations[language].projects.project1.description,
-        image: '/projects/taskmanager.jpg',
-        technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'Swift', 'React'],
-        github: 'https://github.com/ridvanKarsli/SagliktanWeb',
-        demo: 'https://sagliktan.com',
-        stats: {
-          users: '5K+',
-          tasks: '50K+',
-        },
+        image: '/projects/sagliktan.jpg',
+        technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'React'],
+        github: 'https://github.com/ridvanKarsli/SagliktanApi',
+        demo: 'https://sagliktan.com/groups',
+      },
+      {
+        title: translations[language].projects.project2.title,
+        description: translations[language].projects.project2.description,
+        image: '/projects/carbovira.jpg',
+        technologies: ['Spring Boot', 'PostgreSQL', 'JWT', 'Flyway', 'MapStruct', 'Docker'],
+        github: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+        demo: null,
+      },
+      {
+        title: translations[language].projects.project3.title,
+        description: translations[language].projects.project3.description,
+        image: '/projects/mset.jpg',
+        technologies: ['Java', 'Spring Boot', 'Data Processing', 'IoT', 'PostgreSQL', 'Automation'],
+        github: 'https://github.com/ridvanKarsli',
+        demo: null,
       },
     ]);
   }, [language, translations]);
@@ -65,13 +77,13 @@ const Projects = () => {
     <>
       <Helmet>
         <title>Projelerim — Rıdvan Şevki Karslı</title>
-        <meta 
-          name="description" 
-          content="Rıdvan Şevki Karslı'nın geliştirdiği projeler. Spring Boot, Java, PostgreSQL, React ve Swift teknolojileriyle oluşturulmuş yazılım projeleri." 
+        <meta
+          name="description"
+          content="Rıdvan Şevki Karslı'nın geliştirdiği projeler. Sağlıktan, Carbovira REST API ve MSET dahil Spring Boot, Java, PostgreSQL ve React ile oluşturulmuş yazılım projeleri."
         />
-        <meta name="keywords" content="Rıdvan Karslı Projeler, Java Projeler, Spring Boot Projeler, React Projeler, Yazılım Portföy" />
+        <meta name="keywords" content="Rıdvan Karslı Projeler, Java Projeler, Spring Boot Projeler, React Projeler, Yazılım Portföy, Carbovira, Sağlıktan" />
         <meta property="og:title" content="Projelerim — Rıdvan Şevki Karslı" />
-        <meta property="og:description" content="Spring Boot, Java, PostgreSQL, React ve Swift ile geliştirilmiş yazılım projeleri." />
+        <meta property="og:description" content="Spring Boot, Java, PostgreSQL ve React ile geliştirilmiş yazılım projeleri: Sağlıktan, Carbovira REST API, MSET." />
         <meta property="og:url" content="https://www.ridvankarsli.com/projects" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.ridvankarsli.com/projects" />
@@ -363,7 +375,7 @@ const Projects = () => {
                   fontWeight: 600,
                 }}
               >
-                More Projects Coming Soon
+                {language === 'tr' ? 'Yeni Projeler Yakında' : 'More Projects Coming Soon'}
               </Typography>
               <Typography
                 variant="body2"
@@ -371,7 +383,9 @@ const Projects = () => {
                   color: designTokens.colors.text.secondary,
                 }}
               >
-                Currently working on exciting new projects with cutting-edge technologies
+                {language === 'tr'
+                  ? 'Şu anda yeni ve ilgi çekici projeler üzerinde çalışıyorum'
+                  : 'Currently working on exciting new projects with cutting-edge technologies'}
               </Typography>
             </Paper>
           </motion.div>

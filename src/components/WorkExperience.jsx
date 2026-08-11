@@ -21,14 +21,14 @@ const WorkExperience = () => {
 
   const experiences = [
     {
-      title: translations[language].workExperience.emn.jobTitle,
-      company: translations[language].workExperience.emn.company,
-      location: translations[language].workExperience.emn.location,
-      period: translations[language].workExperience.emn.duration,
-      type: translations[language].workExperience.emn.type,
-      description: translations[language].workExperience.emn.description,
-      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'REST API', 'Swagger/OpenAPI', 'React', 'Kotlin', 'Swift'],
-      achievements: translations[language].workExperience.emn.achievements,
+      title: translations[language].workExperience.enmCurrent.jobTitle,
+      company: translations[language].workExperience.enmCurrent.company,
+      location: translations[language].workExperience.enmCurrent.location,
+      period: translations[language].workExperience.enmCurrent.duration,
+      type: translations[language].workExperience.enmCurrent.type,
+      description: translations[language].workExperience.enmCurrent.description,
+      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Microservices', 'REST API', 'AI Integrations'],
+      achievements: translations[language].workExperience.enmCurrent.achievements,
     },
     {
       title: translations[language].workExperience.yalin.jobTitle,
@@ -37,8 +37,18 @@ const WorkExperience = () => {
       period: translations[language].workExperience.yalin.duration,
       type: translations[language].workExperience.yalin.type,
       description: translations[language].workExperience.yalin.description,
-      technologies: ['Java', 'PostgreSQL', 'Real-time Systems', 'Data Processing', 'Control Algorithms', 'Reporting'],
+      technologies: ['Java', 'PostgreSQL', 'Automation Systems', 'Hardware Integration'],
       achievements: translations[language].workExperience.yalin.achievements,
+    },
+    {
+      title: translations[language].workExperience.enmIntern.jobTitle,
+      company: translations[language].workExperience.enmIntern.company,
+      location: translations[language].workExperience.enmIntern.location,
+      period: translations[language].workExperience.enmIntern.duration,
+      type: translations[language].workExperience.enmIntern.type,
+      description: translations[language].workExperience.enmIntern.description,
+      technologies: ['SwiftUI', 'Kotlin', 'iOS', 'Android', 'REST API'],
+      achievements: translations[language].workExperience.enmIntern.achievements,
     },
     {
       title: translations[language].workExperience.kalem.jobTitle,

@@ -35,14 +35,22 @@ const Projects = () => {
         title: translations[language].projects.project1.title,
         description: translations[language].projects.project1.description,
         image: '/images/project1.jpg',
-        technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'React', 'Swift'],
-        github: 'https://github.com/ridvanKarsli/SagliktanWeb',
-        demo: 'https://sagliktan.com',
+        technologies: ['Spring Boot', 'PostgreSQL', 'Java', 'React'],
+        github: 'https://github.com/ridvanKarsli/SagliktanApi',
+        demo: 'https://sagliktan.com/groups',
       },
       {
         title: translations[language].projects.project2.title,
         description: translations[language].projects.project2.description,
         image: '/images/project2.jpg',
+        technologies: ['Spring Boot', 'PostgreSQL', 'JWT', 'Flyway', 'Docker'],
+        github: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+        demo: null,
+      },
+      {
+        title: translations[language].projects.project3.title,
+        description: translations[language].projects.project3.description,
+        image: '/images/project3.jpg',
         technologies: ['Java', 'Spring Boot', 'Data Processing', 'IoT', 'PostgreSQL', 'Automation'],
         github: 'https://github.com/ridvanKarsli',
         demo: null,
@@ -154,7 +162,7 @@ const Projects = () => {
         >
           <Grid container spacing={4}>
             {projects.map((project, index) => (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={6} lg={4} key={index}>
                 <motion.div variants={itemVariants}>
                   <Card
                     sx={{

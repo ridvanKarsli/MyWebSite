@@ -3,9 +3,10 @@ import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/st
 import CssBaseline from '@mui/material/CssBaseline';
 
 // Design Tokens - Premium Professional Dark Theme
+// Brand palette: Deep Navy (base) + Electric Blue (primary accent) + Teal (secondary accent)
 const designTokens = {
   colors: {
-    // Primary palette - Deep Slate
+    // Primary palette - Deep Navy / Slate
     primary: {
       50: '#f8fafc',
       100: '#eef2f7',
@@ -15,59 +16,72 @@ const designTokens = {
       500: '#6b7d99',
       600: '#4f5f76',
       700: '#374559',
-      800: '#1f2a3a',
-      900: '#0b0f1a',
+      800: '#1a2332',
+      900: '#0a0e17',
     },
-    // Accent colors - Indigo/Violet
+    // Accent colors - Electric Blue (primary brand color)
     accent: {
-      50: '#f5f3ff',
-      100: '#ede9fe',
-      200: '#ddd6fe',
-      300: '#c4b5fd',
-      400: '#a78bfa',
-      500: '#8b5cf6',
-      600: '#7c3aed',
-      700: '#6d28d9',
-      800: '#5b21b6',
-      900: '#4c1d95',
+      50: '#eff6ff',
+      100: '#dbeafe',
+      200: '#bfdbfe',
+      300: '#93c5fd',
+      400: '#60a5fa',
+      500: '#3b82f6',
+      600: '#2563eb',
+      700: '#1d4ed8',
+      800: '#1e40af',
+      900: '#1e3a8a',
     },
-    // Background colors - Professional dark theme
+    // Secondary accent - Teal (brand highlight color)
+    secondary: {
+      50: '#f0fdfa',
+      100: '#ccfbf1',
+      200: '#99f6e4',
+      300: '#5eead4',
+      400: '#2dd4bf',
+      500: '#14b8a6',
+      600: '#0d9488',
+      700: '#0f766e',
+      800: '#115e59',
+      900: '#134e4a',
+    },
+    // Background colors - Professional dark navy theme
     background: {
-      primary: '#0b0f1a',
-      secondary: '#111827',
-      tertiary: '#1f2937',
-      paper: 'rgba(17, 24, 39, 0.95)',
-      glass: 'rgba(17, 24, 39, 0.8)',
+      primary: '#0a0e17',
+      secondary: '#10151f',
+      tertiary: '#1a2332',
+      paper: 'rgba(16, 21, 31, 0.95)',
+      glass: 'rgba(16, 21, 31, 0.8)',
     },
     // Text colors
     text: {
       primary: '#f8fafc',
       secondary: '#cbd5e1',
       tertiary: '#94a3b8',
-      accent: '#8b5cf6',
+      accent: '#3b82f6',
     },
     // Status colors
     status: {
-      success: '#10b981',
+      success: '#14b8a6',
       warning: '#f59e0b',
       error: '#ef4444',
-      info: '#8b5cf6',
+      info: '#3b82f6',
     },
   },
   shadows: {
-    glow: '0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.15)',
-    glowSoft: '0 0 12px rgba(139, 92, 246, 0.2), 0 0 24px rgba(139, 92, 246, 0.08)',
-    glowStrong: '0 0 30px rgba(139, 92, 246, 0.35), 0 0 60px rgba(139, 92, 246, 0.2)',
+    glow: '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(20, 184, 166, 0.15)',
+    glowSoft: '0 0 12px rgba(59, 130, 246, 0.2), 0 0 24px rgba(20, 184, 166, 0.08)',
+    glowStrong: '0 0 30px rgba(59, 130, 246, 0.35), 0 0 60px rgba(20, 184, 166, 0.2)',
     card: '0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25)',
-    cardHover: '0 16px 40px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(139, 92, 246, 0.25)',
+    cardHover: '0 16px 40px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(59, 130, 246, 0.25)',
     subtle: '0 1px 3px rgba(0, 0, 0, 0.3)',
   },
   gradients: {
-    primary: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
-    accent: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%)',
-    background: 'radial-gradient(1200px 800px at 80% 0%, rgba(139, 92, 246, 0.15), transparent 60%), radial-gradient(900px 700px at 0% 100%, rgba(99, 102, 241, 0.12), transparent 55%), #0b0f1a',
-    subtle: 'linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, transparent 100%)',
-    overlay: 'linear-gradient(180deg, transparent 0%, rgba(11, 15, 26, 0.85) 100%)',
+    primary: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+    accent: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #14b8a6 100%)',
+    background: 'radial-gradient(1200px 800px at 80% 0%, rgba(59, 130, 246, 0.14), transparent 60%), radial-gradient(900px 700px at 0% 100%, rgba(20, 184, 166, 0.1), transparent 55%), #0a0e17',
+    subtle: 'linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, transparent 100%)',
+    overlay: 'linear-gradient(180deg, transparent 0%, rgba(10, 14, 23, 0.85) 100%)',
   },
 };
 
@@ -189,7 +203,7 @@ const theme = createTheme({
           borderRadius: '4px',
         },
         '::selection': {
-          background: 'rgba(139, 92, 246, 0.35)',
+          background: 'rgba(59, 130, 246, 0.35)',
           color: designTokens.colors.text.primary,
         },
       },

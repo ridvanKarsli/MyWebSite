@@ -73,17 +73,19 @@ const Footer = () => {
               viewport={{ once: true }}
               variants={itemVariants}
             >
-              <Typography
-                variant="h5"
-                sx={{
-                  color: designTokens.colors.text.primary,
-                  fontWeight: 700,
-                  mb: 2,
-                  fontSize: '1.5rem',
-                }}
-              >
-                {translations[language].footer.title}
-              </Typography>
+              <Stack direction="row" alignItems="center" spacing={1.2} mb={2}>
+                <Box component="img" src="/logo-icon.svg" alt="Logo" sx={{ width: 36, height: 36 }} />
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: designTokens.colors.text.primary,
+                    fontWeight: 700,
+                    fontSize: '1.5rem',
+                  }}
+                >
+                  {translations[language].footer.title}
+                </Typography>
+              </Stack>
               <Typography
                 variant="body2"
                 sx={{

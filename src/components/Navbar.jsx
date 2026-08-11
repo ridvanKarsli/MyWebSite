@@ -40,19 +40,21 @@ const Navbar = () => {
 
   const drawer = (
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', pt: 2 }}>
-      <Typography 
-        variant="h6" 
-        sx={{ 
-          my: 3,
-          background: designTokens.gradients.accent,
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          fontWeight: 700,
-        }}
-      >
-        {translations[language].nav.title}
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.2, my: 3 }}>
+        <Box component="img" src="/logo-icon.svg" alt="Logo" sx={{ width: 34, height: 34 }} />
+        <Typography
+          variant="h6"
+          sx={{
+            background: designTokens.gradients.accent,
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            fontWeight: 700,
+          }}
+        >
+          {translations[language].nav.title}
+        </Typography>
+      </Box>
       <List>
         {navItems.map((item, index) => (
           <motion.div
@@ -118,7 +120,7 @@ const Navbar = () => {
       <AppBar 
         position="fixed" 
         sx={{ 
-          background: 'rgba(10, 15, 35, 0.7)',
+          background: 'rgba(10, 14, 23, 0.7)',
           backdropFilter: 'blur(20px)',
           boxShadow: 'none',
           borderBottom: `1px solid ${designTokens.colors.accent[500]}20`,
@@ -138,25 +140,34 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ flexGrow: 1, display: 'flex' }}
           >
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ 
-                flexGrow: 1, 
-                display: { xs: 'none', sm: 'block' },
-                background: designTokens.gradients.accent,
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 700,
-                fontSize: '1.3rem',
+            <Box
+              onClick={() => navigate('/')}
+              sx={{
+                display: { xs: 'flex', sm: 'flex' },
+                alignItems: 'center',
+                gap: 1.2,
                 cursor: 'pointer',
               }}
-              onClick={() => navigate('/')}
             >
-              {translations[language].nav.title}
-            </Typography>
+              <Box component="img" src="/logo-icon.svg" alt="Logo" sx={{ width: 34, height: 34, flexShrink: 0 }} />
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  display: { xs: 'none', sm: 'block' },
+                  background: designTokens.gradients.accent,
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  fontWeight: 700,
+                  fontSize: '1.3rem',
+                }}
+              >
+                {translations[language].nav.title}
+              </Typography>
+            </Box>
           </motion.div>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 1 }}>
             {navItems.map((item, index) => (
