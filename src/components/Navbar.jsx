@@ -121,7 +121,7 @@ const Navbar = () => {
         position="fixed" 
         sx={{ 
           background: 'rgba(10, 14, 23, 0.7)',
-          backdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(6px)',
           boxShadow: 'none',
           borderBottom: `1px solid ${designTokens.colors.accent[500]}20`,
           '&::before': {
@@ -284,7 +284,7 @@ const Navbar = () => {
               boxSizing: 'border-box', 
               width: 280,
               background: designTokens.colors.background.glass,
-              backdropFilter: 'blur(20px)',
+              backdropFilter: 'blur(6px)',
               color: 'white',
               borderLeft: `1px solid ${designTokens.colors.accent[500]}30`,
             },

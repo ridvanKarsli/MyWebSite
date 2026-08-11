@@ -50,8 +50,8 @@ const designTokens = {
       primary: '#0a0e17',
       secondary: '#10151f',
       tertiary: '#1a2332',
-      paper: 'rgba(16, 21, 31, 0.95)',
-      glass: 'rgba(16, 21, 31, 0.8)',
+      paper: 'rgba(16, 21, 31, 0.97)',
+      glass: 'rgba(16, 21, 31, 0.96)',
     },
     // Text colors
     text: {
@@ -68,19 +68,21 @@ const designTokens = {
       info: '#3b82f6',
     },
   },
+  // Neutral, restrained shadows — no colored glow, corporate elevation only
   shadows: {
-    glow: '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(20, 184, 166, 0.15)',
-    glowSoft: '0 0 12px rgba(59, 130, 246, 0.2), 0 0 24px rgba(20, 184, 166, 0.08)',
-    glowStrong: '0 0 30px rgba(59, 130, 246, 0.35), 0 0 60px rgba(20, 184, 166, 0.2)',
-    card: '0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25)',
-    cardHover: '0 16px 40px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(59, 130, 246, 0.25)',
+    glow: '0 6px 16px rgba(0, 0, 0, 0.3)',
+    glowSoft: '0 3px 10px rgba(0, 0, 0, 0.22)',
+    glowStrong: '0 10px 24px rgba(0, 0, 0, 0.35)',
+    card: '0 2px 10px rgba(0, 0, 0, 0.3)',
+    cardHover: '0 6px 18px rgba(0, 0, 0, 0.35)',
     subtle: '0 1px 3px rgba(0, 0, 0, 0.3)',
   },
+  // Flat, restrained fills — brand color used as a solid accent, not a decorative rainbow gradient
   gradients: {
-    primary: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-    accent: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #14b8a6 100%)',
-    background: 'radial-gradient(1200px 800px at 80% 0%, rgba(59, 130, 246, 0.14), transparent 60%), radial-gradient(900px 700px at 0% 100%, rgba(20, 184, 166, 0.1), transparent 55%), #0a0e17',
-    subtle: 'linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, transparent 100%)',
+    primary: '#3b82f6',
+    accent: '#3b82f6',
+    background: '#0a0e17',
+    subtle: 'rgba(59, 130, 246, 0.06)',
     overlay: 'linear-gradient(180deg, transparent 0%, rgba(10, 14, 23, 0.85) 100%)',
   },
 };
@@ -212,47 +214,29 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: 12,
-          padding: '12px 24px',
+          borderRadius: 8,
+          padding: '11px 22px',
           fontWeight: 500,
           fontSize: '1rem',
           letterSpacing: '0.01em',
-          position: 'relative',
-          overflow: 'hidden',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: '-100%',
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
-            transition: 'left 0.5s',
-          },
-          '&:hover::before': {
-            left: '100%',
-          },
+          transition: 'background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease',
         },
         contained: {
-          background: designTokens.gradients.accent,
-          color: designTokens.colors.background.primary,
-          boxShadow: designTokens.shadows.glowSoft,
+          background: designTokens.colors.accent[500],
+          color: '#ffffff',
+          boxShadow: 'none',
           '&:hover': {
-            boxShadow: designTokens.shadows.glow,
-            transform: 'translateY(-2px)',
+            background: designTokens.colors.accent[600],
+            boxShadow: 'none',
           },
         },
         outlined: {
           borderColor: designTokens.colors.accent[500],
           color: designTokens.colors.accent[500],
           background: 'transparent',
-          backdropFilter: 'blur(10px)',
           '&:hover': {
             borderColor: designTokens.colors.accent[400],
-            backgroundColor: `${designTokens.colors.accent[500]}15`,
-            transform: 'translateY(-2px)',
-            boxShadow: designTokens.shadows.glowSoft,
+            backgroundColor: `${designTokens.colors.accent[500]}10`,
           },
         },
       },
@@ -260,14 +244,12 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(20px)',
-          borderRadius: 16,
-          border: `1px solid ${designTokens.colors.accent[500]}20`,
+          background: designTokens.colors.background.secondary,
+          borderRadius: 10,
+          border: `1px solid rgba(255, 255, 255, 0.08)`,
           boxShadow: designTokens.shadows.card,
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
           '&:hover': {
-            transform: 'translateY(-4px)',
             boxShadow: designTokens.shadows.cardHover,
             borderColor: `${designTokens.colors.accent[500]}40`,
           },
@@ -277,10 +259,9 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(20px)',
-          borderRadius: 16,
-          border: `1px solid ${designTokens.colors.accent[500]}20`,
+          background: designTokens.colors.background.secondary,
+          borderRadius: 10,
+          border: `1px solid rgba(255, 255, 255, 0.08)`,
         },
       },
     },
@@ -288,20 +269,18 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 12,
+            borderRadius: 8,
             color: designTokens.colors.text.primary,
-            background: 'rgba(17, 24, 39, 0.6)',
-            backdropFilter: 'blur(10px)',
-            transition: 'all 0.3s ease',
+            background: designTokens.colors.background.secondary,
+            transition: 'border-color 0.2s ease',
             '& fieldset': {
-              borderColor: `${designTokens.colors.accent[500]}30`,
+              borderColor: 'rgba(255, 255, 255, 0.12)',
             },
             '&:hover fieldset': {
               borderColor: `${designTokens.colors.accent[500]}50`,
             },
             '&.Mui-focused fieldset': {
               borderColor: designTokens.colors.accent[500],
-              boxShadow: designTokens.shadows.glowSoft,
             },
           },
           '& .MuiInputLabel-root': {
@@ -316,18 +295,16 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          borderRadius: 20,
-          background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(10px)',
-          border: `1px solid ${designTokens.colors.accent[500]}30`,
+          borderRadius: 8,
+          background: designTokens.colors.background.tertiary,
+          border: `1px solid rgba(255, 255, 255, 0.08)`,
           color: designTokens.colors.text.primary,
           fontSize: '0.875rem',
           fontWeight: 500,
-          transition: 'all 0.3s ease',
+          transition: 'border-color 0.2s ease, background-color 0.2s ease',
           '&:hover': {
-            background: `${designTokens.colors.accent[500]}20`,
-            borderColor: `${designTokens.colors.accent[500]}50`,
-            transform: 'translateY(-1px)',
+            background: `${designTokens.colors.accent[500]}15`,
+            borderColor: `${designTokens.colors.accent[500]}40`,
           },
         },
       },
@@ -336,13 +313,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: designTokens.colors.text.secondary,
-          borderRadius: 12,
-          transition: 'all 0.3s ease',
+          borderRadius: 8,
+          transition: 'color 0.2s ease, background-color 0.2s ease',
           '&:hover': {
             color: designTokens.colors.accent[500],
-            backgroundColor: `${designTokens.colors.accent[500]}15`,
-            transform: 'translateY(-2px)',
-            boxShadow: designTokens.shadows.glowSoft,
+            backgroundColor: `${designTokens.colors.accent[500]}12`,
           },
         },
       },
@@ -377,19 +352,18 @@ const theme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(20px)',
-          border: `1px solid ${designTokens.colors.accent[500]}30`,
-          borderRadius: 20,
+          background: designTokens.colors.background.secondary,
+          border: `1px solid rgba(255, 255, 255, 0.08)`,
+          borderRadius: 12,
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: 'rgba(11, 15, 26, 0.8)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: `1px solid ${designTokens.colors.accent[500]}20`,
+          background: 'rgba(10, 14, 23, 0.92)',
+          backdropFilter: 'blur(8px)',
+          borderBottom: `1px solid rgba(255, 255, 255, 0.08)`,
         },
       },
     },

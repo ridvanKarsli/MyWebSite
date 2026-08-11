@@ -47,14 +47,6 @@ const Projects = () => {
         github: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
         demo: null,
       },
-      {
-        title: translations[language].projects.project3.title,
-        description: translations[language].projects.project3.description,
-        image: '/images/project3.jpg',
-        technologies: ['Java', 'Spring Boot', 'Data Processing', 'IoT', 'PostgreSQL', 'Automation'],
-        github: 'https://github.com/ridvanKarsli',
-        demo: null,
-      },
     ]);
   }, [language, translations]);
 
@@ -90,23 +82,7 @@ const Projects = () => {
         position: 'relative',
         overflow: 'hidden',
       }}
-    >
-      {/* Grid background */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          opacity: 0.3,
-          pointerEvents: 'none',
-        }}
-      />
-
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+    >      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -162,12 +138,12 @@ const Projects = () => {
         >
           <Grid container spacing={4}>
             {projects.map((project, index) => (
-              <Grid item xs={12} md={6} lg={4} key={index}>
+              <Grid item xs={12} md={6} key={index}>
                 <motion.div variants={itemVariants}>
                   <Card
                     sx={{
                       background: designTokens.colors.background.glass,
-                      backdropFilter: 'blur(20px)',
+                      backdropFilter: 'blur(6px)',
                       borderRadius: '20px',
                       border: `1px solid ${designTokens.colors.accent[500]}30`,
                       boxShadow: designTokens.shadows.card,
@@ -179,7 +155,7 @@ const Projects = () => {
                       transition: 'all 0.3s',
                       '&:hover': {
                         borderColor: `${designTokens.colors.accent[500]}60`,
-                        transform: 'translateY(-8px)',
+                        transform: 'translateY(-3px)',
                         boxShadow: designTokens.shadows.cardHover,
                       },
                       '&::before': {

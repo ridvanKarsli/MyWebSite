@@ -29,7 +29,7 @@ const ProjectDialog = ({ project, onClose, chartOptions, chartData }) => {
       PaperProps={{
         sx: {
           background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(6px)',
           color: 'white',
           borderRadius: '24px',
           border: `1px solid ${designTokens.colors.accent[500]}30`,

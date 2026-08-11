@@ -41,14 +41,6 @@ const Projects = () => {
         github: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
         demo: null,
       },
-      {
-        title: translations[language].projects.project3.title,
-        description: translations[language].projects.project3.description,
-        image: '/projects/mset.jpg',
-        technologies: ['Java', 'Spring Boot', 'Data Processing', 'IoT', 'PostgreSQL', 'Automation'],
-        github: 'https://github.com/ridvanKarsli',
-        demo: null,
-      },
     ]);
   }, [language, translations]);
 
@@ -79,11 +71,11 @@ const Projects = () => {
         <title>Projelerim — Rıdvan Şevki Karslı</title>
         <meta
           name="description"
-          content="Rıdvan Şevki Karslı'nın geliştirdiği projeler. Sağlıktan, Carbovira REST API ve MSET dahil Spring Boot, Java, PostgreSQL ve React ile oluşturulmuş yazılım projeleri."
+          content="Rıdvan Şevki Karslı'nın geliştirdiği projeler. Sağlıktan ve Carbovira REST API dahil Spring Boot, Java, PostgreSQL ve React ile oluşturulmuş yazılım projeleri."
         />
         <meta name="keywords" content="Rıdvan Karslı Projeler, Java Projeler, Spring Boot Projeler, React Projeler, Yazılım Portföy, Carbovira, Sağlıktan" />
         <meta property="og:title" content="Projelerim — Rıdvan Şevki Karslı" />
-        <meta property="og:description" content="Spring Boot, Java, PostgreSQL ve React ile geliştirilmiş yazılım projeleri: Sağlıktan, Carbovira REST API, MSET." />
+        <meta property="og:description" content="Spring Boot, Java, PostgreSQL ve React ile geliştirilmiş yazılım projeleri: Sağlıktan, Carbovira REST API." />
         <meta property="og:url" content="https://www.ridvankarsli.com/projects" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.ridvankarsli.com/projects" />
@@ -100,23 +92,7 @@ const Projects = () => {
           overflow: 'hidden',
           py: { xs: 12, md: 15 },
         }}
-      >
-        {/* Grid background */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-            opacity: 0.3,
-            pointerEvents: 'none',
-          }}
-        />
-
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      >        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,12 +144,12 @@ const Projects = () => {
           >
             <Grid container spacing={4}>
           {projects.map((project, index) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
+                <Grid item xs={12} md={6} key={index}>
                   <motion.div variants={itemVariants}>
                     <Card
                       sx={{
                         background: designTokens.colors.background.glass,
-                        backdropFilter: 'blur(20px)',
+                        backdropFilter: 'blur(6px)',
                         borderRadius: '20px',
                         border: `1px solid ${designTokens.colors.accent[500]}30`,
                         boxShadow: designTokens.shadows.card,
@@ -185,7 +161,7 @@ const Projects = () => {
                         transition: 'all 0.3s',
                         '&:hover': {
                           borderColor: `${designTokens.colors.accent[500]}60`,
-                          transform: 'translateY(-8px)',
+                          transform: 'translateY(-3px)',
                           boxShadow: designTokens.shadows.cardHover,
                         },
                         '&::before': {
@@ -361,7 +337,7 @@ const Projects = () => {
                 mt: 6,
                 p: 4,
                 background: designTokens.colors.background.glass,
-                backdropFilter: 'blur(20px)',
+                backdropFilter: 'blur(6px)',
                 borderRadius: '20px',
                 border: `1px solid ${designTokens.colors.accent[500]}30`,
                 textAlign: 'center',

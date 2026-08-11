@@ -82,7 +82,7 @@ const Experience = () => {
               <Paper
                 sx={{
                   background: designTokens.colors.background.glass,
-                  backdropFilter: 'blur(20px)',
+                  backdropFilter: 'blur(6px)',
                   borderRadius: '16px',
                   p: 4,
                   height: '100%',
@@ -94,7 +94,7 @@ const Experience = () => {
                   boxShadow: designTokens.shadows.card,
                   transition: 'transform 0.3s ease',
                   '&:hover': {
-                    transform: 'translateY(-10px)',
+                    transform: 'translateY(-3px)',
                   },
                 }}
               >

@@ -99,7 +99,7 @@ const Header = () => {
         sx={{
           width: 280,
           background: designTokens.colors.background.glass,
-          backdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(6px)',
           height: '100%',
           borderLeft: `1px solid ${designTokens.colors.accent[500]}30`,
           position: 'relative',
@@ -167,7 +167,7 @@ const Header = () => {
                   transition: 'all 0.3s ease',
                   '&:hover': {
                     backgroundColor: `${designTokens.colors.accent[500]}20`,
-                    transform: 'translateX(8px)',
+                    transform: 'translateX(2px)',
                   },
                 }}
               >
@@ -232,7 +232,7 @@ const Header = () => {
             background: scrolled
               ? designTokens.colors.background.glass
               : 'transparent',
-            backdropFilter: scrolled ? 'blur(20px)' : 'none',
+            backdropFilter: scrolled ? 'blur(6px)' : 'none',
             boxShadow: scrolled ? designTokens.shadows.card : 'none',
             borderBottom: scrolled 
               ? `1px solid ${designTokens.colors.accent[500]}20` 
@@ -242,49 +242,31 @@ const Header = () => {
         >
           <Container maxWidth="lg">
             <Toolbar sx={{ justifyContent: 'space-between', py: 1.5 }}>
-              {/* Professional Logo */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              {/* Logo */}
+              <Box
+                component={RouterLink}
+                to="/"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  textDecoration: 'none',
+                }}
               >
+                {/* Logo Icon */}
                 <Box
-                  component={RouterLink}
-                  to="/"
+                  component="img"
+                  src="/logo-icon.svg"
+                  alt="Rıdvan Karslı logosu"
                   sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1.5,
-                    textDecoration: 'none',
-                    transition: 'all 0.3s ease',
+                    width: 40,
+                    height: 40,
+                    flexShrink: 0,
                   }}
-                >
-                  {/* Logo Icon */}
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: '10px',
-                      background: designTokens.gradients.accent,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 800,
-                      fontSize: '1.2rem',
-                      color: 'white',
-                      fontFamily: '"Inter", sans-serif',
-                      boxShadow: designTokens.shadows.glowSoft,
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        boxShadow: designTokens.shadows.glow,
-                        transform: 'rotate(-5deg)',
-                      },
-                    }}
-                  >
-                    RK
-                  </Box>
-                  
-                  {/* Logo Text - Only on Desktop */}
-                  {!isMobile && (
+                />
+
+                {/* Logo Text - Only on Desktop */}
+                {!isMobile && (
                     <Box>
                       <Typography
                         sx={{
@@ -311,13 +293,12 @@ const Header = () => {
                     </Typography>
                   </Box>
                 )}
-                </Box>
-              </motion.div>
+              </Box>
 
               {/* Mobile Navigation */}
               {isMobile ? (
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                  <motion.div>
                     <IconButton
                       onClick={toggleLanguage}
                       sx={{
@@ -333,7 +314,7 @@ const Header = () => {
                     </IconButton>
                   </motion.div>
                   
-                  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                  <motion.div>
                     <IconButton
                       onClick={handleDrawerToggle}
                       sx={{
@@ -355,11 +336,9 @@ const Header = () => {
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.path}
-                      initial={{ opacity: 0, y: -20 }}
+                      initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.3 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      transition={{ delay: index * 0.05, duration: 0.25 }}
                     >
                       <Button
                         component={RouterLink}
@@ -401,12 +380,10 @@ const Header = () => {
                     </motion.div>
                   ))}
                   
-                  <motion.div 
-                    initial={{ opacity: 0, y: -20 }}
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
-                    whileHover={{ scale: 1.05 }} 
-                    whileTap={{ scale: 0.95 }}
+                    transition={{ delay: navItems.length * 0.05, duration: 0.25 }}
                   >
                     <Button
                       onClick={toggleLanguage}

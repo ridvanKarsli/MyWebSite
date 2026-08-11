@@ -74,23 +74,7 @@ const Hero = () => {
           pointerEvents: 'none',
         },
       }}
-    >
-      {/* Subtle background grid */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          opacity: 0.3,
-          pointerEvents: 'none',
-        }}
-      />
-
-      <Container maxWidth="lg">
+    >      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -248,7 +232,7 @@ const Hero = () => {
                   width: '100%',
                     height: { xs: '300px', sm: '350px', md: '450px' },
                   background: designTokens.colors.background.glass,
-                  backdropFilter: 'blur(20px)',
+                  backdropFilter: 'blur(6px)',
                     borderRadius: '20px',
                   border: `1px solid ${designTokens.colors.accent[500]}30`,
                   display: 'flex',
@@ -272,9 +256,8 @@ const Hero = () => {
                 >
                   <WorkIcon 
                       sx={{ 
-                      fontSize: { xs: 100, sm: 120, md: 150 }, 
+                      fontSize: { xs: 100, sm: 120, md: 150 },
                         color: designTokens.colors.accent[500],
-                      filter: `drop-shadow(0 0 20px ${designTokens.colors.accent[500]}40)`,
                       mb: 3,
                     }} 
                   />

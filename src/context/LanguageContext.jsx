@@ -108,10 +108,6 @@ export const translations = {
         title: 'Carbovira – Carbon Footprint & Industrial Symbiosis API',
         description: "A REST API where companies can list their waste as another company's raw material, search listings, and message each other — digitizing the industrial symbiosis concept. Feature-based modules, JWT auth, Flyway migrations, and Testcontainers-based E2E tests.",
       },
-      project3: {
-        title: 'MSET – Early Fault Detection System',
-        description: 'Backend modules and data pipelines for multi-sensor analysis and fault detection in automation systems.',
-      },
     },
     contact: {
       title: 'Get In Touch',
@@ -336,10 +332,6 @@ export const translations = {
       project2: {
         title: 'Carbovira – Karbon Ayak İzi ve Endüstriyel Simbiyoz API\'si',
         description: 'Firmaların atıklarını başka bir firmanın hammaddesi olarak ilan edebildiği, arayabildiği ve platform üzerinden iletişime geçebildiği, endüstriyel simbiyoz fikrini dijitalleştiren bir REST API. Özelliğe göre bölünmüş modüller, JWT kimlik doğrulama, Flyway migration\'ları ve Testcontainers tabanlı E2E testleri içerir.',
-      },
-      project3: {
-        title: 'MSET – Erken Arıza Tespit Sistemi',
-        description: 'Çok değişkenli sensör verilerini işleyen veri pipeline’ları ve arıza tespit modülleri.',
       },
     },
     contact: {

@@ -126,7 +126,7 @@ const ContactForm = () => {
                       sx={{
                         p: 3,
                         background: designTokens.colors.background.glass,
-                        backdropFilter: 'blur(20px)',
+                        backdropFilter: 'blur(6px)',
                         border: `1px solid ${designTokens.colors.accent[500]}30`,
                         borderRadius: '16px',
                         display: 'flex',
@@ -136,7 +136,7 @@ const ContactForm = () => {
                         transition: 'all 0.3s',
                         '&:hover': {
                           borderColor: `${designTokens.colors.accent[500]}60`,
-                          transform: 'translateY(-4px)',
+                          transform: 'translateY(-2px)',
                           boxShadow: designTokens.shadows.cardHover,
                         },
                       }}
@@ -190,7 +190,7 @@ const ContactForm = () => {
                 onSubmit={handleSubmit}
                 sx={{
                   background: designTokens.colors.background.glass,
-                  backdropFilter: 'blur(20px)',
+                  backdropFilter: 'blur(6px)',
                   borderRadius: '20px',
                   p: { xs: 3, md: 4 },
                   border: `1px solid ${designTokens.colors.accent[500]}30`,

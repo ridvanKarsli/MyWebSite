@@ -26,7 +26,7 @@ const ProjectCard = ({ project, onClick }) => {
       onClick={onClick}
       sx={{
         background: designTokens.colors.background.glass,
-        backdropFilter: 'blur(20px)',
+        backdropFilter: 'blur(6px)',
         borderRadius: '16px',
         transition: 'all 0.3s ease',
         position: 'relative',
@@ -45,7 +45,7 @@ const ProjectCard = ({ project, onClick }) => {
           transition: 'opacity 0.3s ease',
         },
         '&:hover': {
-          transform: 'translateY(-5px)',
+          transform: 'translateY(-2px)',
           boxShadow: designTokens.shadows.cardHover,
           borderColor: `${designTokens.colors.accent[500]}40`,
           '&::before': {

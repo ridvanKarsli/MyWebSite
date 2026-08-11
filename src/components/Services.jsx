@@ -53,23 +53,7 @@ const Services = () => {
         overflow: 'hidden',
         py: { xs: 10, md: 15 },
       }}
-    >
-      {/* Grid background */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          opacity: 0.3,
-          pointerEvents: 'none',
-        }}
-      />
-
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+    >      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +102,7 @@ const Services = () => {
                   <Paper
                     sx={{
                       background: designTokens.colors.background.glass,
-                      backdropFilter: 'blur(20px)',
+                      backdropFilter: 'blur(6px)',
                       borderRadius: '20px',
                       p: 4,
                       height: '100%',
@@ -142,7 +126,7 @@ const Services = () => {
                       },
                       '&:hover': {
                         borderColor: `${designTokens.colors.accent[500]}60`,
-                        transform: 'translateY(-8px)',
+                        transform: 'translateY(-3px)',
                         boxShadow: designTokens.shadows.cardHover,
                       },
                     }}

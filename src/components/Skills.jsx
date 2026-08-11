@@ -24,19 +24,6 @@ const Skills = () => {
         py: { xs: 10, md: 15 },
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `linear-gradient(${designTokens.colors.accent[500]}05 1px, transparent 1px), linear-gradient(90deg, ${designTokens.colors.accent[500]}05 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          opacity: 0.3,
-          pointerEvents: 'none',
-        }}
-      />
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 1 }}>
           <Grid item xs={12} md={4}>
@@ -69,7 +56,7 @@ const Skills = () => {
             <Paper
               sx={{
                 background: designTokens.colors.background.glass,
-                backdropFilter: 'blur(20px)',
+                backdropFilter: 'blur(6px)',
                 borderRadius: '20px',
                 p: { xs: 3, md: 4 },
                 border: `1px solid ${designTokens.colors.accent[500]}30`,
