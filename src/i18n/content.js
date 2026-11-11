@@ -5,14 +5,14 @@ export const contact = {
   phone: '0553 699 91 19',
   phoneHref: 'tel:+905536999119',
   github: 'https://github.com/ridvanKarsli',
-  linkedin: 'https://linkedin.com/in/ridvan-karsli-44a783294',
+  linkedin: 'https://www.linkedin.com/in/r%C4%B1dvan-karsl%C4%B1-44a783294/',
 };
 
 const tr = {
   meta: {
-    homeTitle: 'Rıdvan Şevki Karslı — Java Backend Geliştirici',
+    homeTitle: 'Rıdvan Şevki Karslı — Bilgisayar Mühendisi',
     homeDescription:
-      'Java, Spring Boot ve PostgreSQL ile ölçeklenebilir backend servisleri geliştiren yazılım mühendisi. İzmir.',
+      'Java, Spring Boot, .NET ve React ile uçtan uca web uygulamaları geliştiren bilgisayar mühendisi. İzmir.',
     aboutTitle: 'Hakkımda — Rıdvan Şevki Karslı',
     projectsTitle: 'Projeler — Rıdvan Şevki Karslı',
     contactTitle: 'İletişim — Rıdvan Şevki Karslı',
@@ -30,20 +30,20 @@ const tr = {
     status: 'Şu anki görev',
   },
   identity: {
-    role: 'Java Backend Geliştirici',
+    role: 'Bilgisayar Mühendisi',
     location: 'İzmir, Türkiye',
-    status: 'ENM Dijital’de yazılım mühendisi',
+    status: 'Yaşar Bilgi’de yazılım geliştirme uzman yardımcısı',
   },
   home: {
-    headline: 'Üretimde güvenle çalışan backend sistemleri geliştiriyorum.',
+    headline: 'Veritabanından arayüze, uçtan uca çalışan yazılımlar geliştiriyorum.',
     lead:
-      'Java ve Spring Boot ile REST servisleri, veri modelleri ve entegrasyonlar üzerinde çalışıyorum. Şu anda yapay zekâ destekli müşteri deneyimi platformu Plukto’nun backend mimarisini geliştiriyorum.',
+      'Full stack projeler geliştiriyorum: backend tarafında Java, Spring Boot ve .NET; arayüz tarafında React, TypeScript ve Next.js. Bir projeyi veri modelinden yayına kadar tek başıma taşıyabiliyorum.',
     primaryAction: 'İletişime geç',
     secondaryAction: 'Projeleri incele',
     factsLabel: 'Kısaca',
     facts: [
-      { value: '3+ yıl', label: 'üretim ortamında backend geliştirme' },
-      { value: '3', label: 'şirkette yazılım rolü' },
+      { value: '3+ yıl', label: 'profesyonel yazılım geliştirme' },
+      { value: '20+', label: 'GitHub’da açık proje' },
       { value: 'TR / EN', label: 'çalışma dilleri' },
     ],
   },
@@ -59,26 +59,34 @@ const tr = {
   },
   focus: [
     {
-      title: 'Backend servisleri',
-      text: 'Spring Boot ile katmanlı mimaride, test edilebilir ve bakımı kolay servisler. Gerektiğinde mikroservis ayrımı, her zaman net sınırlar.',
+      title: 'Backend ve API',
+      text: 'Spring Boot ve ASP.NET Core ile katmanlı mimaride REST servisleri; JWT, rol yönetimi, PostgreSQL veri modeli ve migration yönetimi.',
     },
     {
-      title: 'API ve veri modeli',
-      text: 'OpenAPI ile belgelenmiş REST uç noktaları; PostgreSQL’de normalize edilmiş şemalar, migration yönetimi ve sorgu optimizasyonu.',
+      title: 'Web arayüzleri',
+      text: 'React, TypeScript ve Next.js ile yönetim panelleri, kurumsal siteler ve API’yi tüketen tek sayfa uygulamalar.',
     },
     {
-      title: 'Entegrasyon ve güvenlik',
-      text: 'JWT tabanlı kimlik doğrulama, rol yönetimi, üçüncü parti API ve donanım entegrasyonları, performans iyileştirmeleri.',
+      title: 'Entegrasyon ve yayın',
+      text: 'Ödeme sistemi entegrasyonları, gerçek zamanlı bildirimler, Docker Compose, Nginx, GitHub Actions ve Vercel/Railway üzerinde yayın.',
     },
   ],
   experience: [
     {
+      role: 'Yazılım Geliştirme Uzman Yardımcısı',
+      company: 'Yaşar Bilgi',
+      period: 'Eylül 2026 — Günümüz',
+      place: 'İzmir, iş yerinde, tam zamanlı',
+      summary: 'Yaşar Bilgi’nin yazılım geliştirme ekibinde kurumsal uygulamalar üzerinde çalışıyorum.',
+      points: [],
+    },
+    {
       role: 'Yazılım Mühendisi',
-      company: 'ENM Dijital',
-      period: 'Ocak 2026 — Günümüz',
-      place: 'Uzaktan, tam zamanlı',
+      company: 'ENM Digital',
+      period: 'Aralık 2025 — Ağustos 2026',
+      place: 'Manisa, hibrit, tam zamanlı',
       summary:
-        'CeyBer Dijital’in yapay zekâ destekli müşteri deneyimi platformu Plukto için katmanlı mimari ve mikroservis yaklaşımıyla backend geliştiriyorum.',
+        'CeyBer Dijital’in yapay zekâ destekli müşteri deneyimi platformu Plukto için katmanlı mimari ve mikroservis yaklaşımıyla backend geliştirdim.',
       points: [
         'Platformun katmanlı backend mimarisini tasarladım',
         'PostgreSQL veri modellerini ve güvenli REST uç noktalarını oluşturdum',
@@ -88,35 +96,35 @@ const tr = {
     {
       role: 'Yazılım Uzmanı',
       company: 'Yalın Otomasyon',
-      period: 'Mayıs 2025 — Aralık 2025',
-      place: 'İzmir, Bornova, tam zamanlı',
+      period: 'Mart 2025 — Aralık 2025',
+      place: 'Kemalpaşa, İzmir, hibrit, tam zamanlı',
       summary:
         'Kurumsal müşteriler için otomasyon makinelerinin yazılımını geliştirdim, donanım ile yazılım arasındaki entegrasyonu yönettim.',
       points: [
-        'Üretim hattının kararlılığını artıran backend modülleri geliştirdim',
-        'Makine donanımı ile yazılım arasındaki entegrasyon süreçlerini yürüttüm',
+        'Sensör verisini gerçek zamanlı işleyen backend modülleri geliştirdim',
+        'PostgreSQL tabanlı veri toplama, analiz ve raporlama altyapısı kurdum',
         'Müşterilerle doğrudan çalışarak gereksinimleri analiz ettim ve çözümü teslim ettim',
       ],
     },
     {
       role: 'Stajyer Mühendis',
-      company: 'ENM Dijital',
+      company: 'ENM Digital',
       period: 'Aralık 2024 — Aralık 2025',
-      place: 'Uzaktan, staj',
+      place: 'Manisa, hibrit, staj',
       summary:
-        'SwiftUI (iOS) ve Kotlin (Android) ile mobil uygulama geliştirme süreçlerinde yer aldım.',
+        'Proje Sihirbazı mobil uygulamasını SwiftUI (iOS) ve Kotlin (Android) ile geliştiren ekipte yer aldım.',
       points: [
         'iOS ve Android tarafında yeni özellikler geliştirdim',
         'Backend servislerini mobil uygulamalara entegre ettim',
       ],
     },
     {
-      role: 'Yazılım Mühendisi',
-      company: 'Kalem Web Yazılım Ltd.',
+      role: 'Bilgisayar Mühendisi',
+      company: 'Kalem Web Yazılım Ltd. Şti.',
       period: 'Şubat 2023 — Ekim 2024',
-      place: 'Türkiye, tam zamanlı',
+      place: 'İzmir, uzaktan, tam zamanlı',
       summary:
-        'Kurumsal web projeleri için sürdürülebilir ve ölçeklenebilir backend altyapıları geliştirdim.',
+        'Web geliştirici olarak kurumsal projelerin API ve backend tarafında çalıştım.',
       points: [
         'Kurumsal projelere üretime hazır backend modülleri teslim ettim',
         'Modüler tasarımla bakım yükünü azalttım',
@@ -126,68 +134,136 @@ const tr = {
   projects: [
     {
       name: 'Sağlıktan',
-      kind: 'Topluluk platformu',
+      kind: 'Sağlık topluluğu platformu',
       summary:
-        'Kronik ve nadir hastalıklarla yaşayan kişileri ve yakınlarını, hastalığa özel gruplarda bir araya getiren güvenli bir paylaşım platformu.',
+        'Hastaları, hasta yakınlarını ve uzman doktorları hastalığa özel gruplarda bir araya getiren paylaşım platformu. Yayında.',
       details: [
-        'Hastalık grupları, gönderi ve yorum akışı',
-        'Rol tabanlı yetkilendirme ve moderasyon',
-        'Spring Boot REST API + React istemci',
+        'Spring Boot ve Java 21 ile REST API, Spring Security ve JWT',
+        'PostgreSQL ve Flyway ile şema yönetimi, OpenAPI dokümantasyonu',
+        'React 19 arayüz; backend Railway’de, arayüz Vercel’de',
       ],
       stack: ['Java', 'Spring Boot', 'PostgreSQL', 'React'],
       repo: 'https://github.com/ridvanKarsli/SagliktanApi',
+      live: 'https://sagliktan.com',
+      featured: true,
+    },
+    {
+      name: 'taneHesap',
+      kind: 'İşletme yönetim paneli',
+      summary:
+        'Birden fazla işletmenin modüllerini rol bazlı yönettiği, gerçek zamanlı bildirimli bir yönetim uygulaması.',
+      details: [
+        '.NET 10 Web API; Domain, Application, Infrastructure ve API katmanları',
+        'ASP.NET Core Identity, JWT ve TOTP ile iki adımlı doğrulama',
+        'React ve TypeScript arayüz, SignalR ile anlık bildirimler, PWA desteği',
+      ],
+      stack: ['.NET 10', 'ASP.NET Core', 'PostgreSQL', 'React', 'TypeScript', 'SignalR'],
+      repo: 'https://github.com/ridvanKarsli/taneHesapApi',
+      featured: true,
+    },
+    {
+      name: 'Hasatdaş',
+      kind: 'Üreticiden doğrudan alışveriş',
+      summary:
+        'Küçük üreticiden gel-al siparişi, eşikli hasat kampanyaları, ortak yolculuk ve ortak alım sunan mobil uygulamanın backend’i.',
+      details: [
+        '.NET 10 ile temiz mimari; iş kuralları hiçbir pakete bağımlı değil',
+        'SMS ile tek kullanımlık kodla giriş, rate limit, health check',
+        '68 birim testi ve 78 adımlı uçtan uca duman testi',
+      ],
+      stack: ['.NET 10', 'EF Core', 'PostgreSQL', 'Docker', 'xUnit'],
+      repo: 'https://github.com/ridvanKarsli/HasatDasAPI',
+      featured: true,
     },
     {
       name: 'Carbovira',
       kind: 'Endüstriyel simbiyoz API’si',
       summary:
-        'Firmaların atıklarını başka bir firmanın hammaddesi olarak ilan edebildiği, ilanları arayıp birbirleriyle yazışabildiği REST API.',
+        'Firmaların atıklarını başka bir firmanın hammaddesi olarak ilan edip aradığı, mesajlaşarak anlaştığı REST API.',
       details: [
-        'Özelliğe göre ayrılmış modüller',
-        'JWT kimlik doğrulama, Flyway migration’ları',
-        'Testcontainers ile uçtan uca testler',
+        'Spring Boot ve Java 25, özelliğe göre ayrılmış modüller',
+        'Flyway, MapStruct, Criteria API ile tek sorguda filtreleme',
+        'Testcontainers ile uçtan uca testler, GitHub Actions ile CI',
       ],
-      stack: ['Spring Boot', 'PostgreSQL', 'JWT', 'Flyway', 'MapStruct', 'Docker'],
+      stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Flyway', 'Testcontainers'],
       repo: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+    },
+    {
+      name: 'TAMİ Ödeme SDK',
+      kind: 'Java ödeme kütüphanesi',
+      summary:
+        'Garanti BBVA / TAMİ Sanal POS için bağımsız Java istemci kütüphanesi: satış, 3D Secure, ön otorizasyon, iptal/iade ve sorgulama.',
+      details: [
+        'Her işlem için senkron ve CompletableFuture ile asenkron kullanım',
+        'JWK/JWS (HS512) ile istek imzalama',
+        'Doğrulama, API, bağlantı ve güvenlik hatalarını ayıran istisna hiyerarşisi',
+      ],
+      stack: ['Java', 'Maven', 'JUnit'],
+      repo: 'https://github.com/ridvanKarsli/tamiPaymentSdk',
+    },
+    {
+      name: 'Blog platformu',
+      kind: 'Yönetim panelli blog',
+      summary:
+        'Yazı, kategori, etiket ve medya yönetimi olan; tam metin arama ve site haritası sunan kişisel blog altyapısı.',
+      details: [
+        'Spring Boot API, HttpOnly çerezde JWT',
+        'PostgreSQL tam metin arama, MinIO ile görsel depolama',
+        'Next.js arayüz, Docker Compose ve Nginx ile tek komutla kurulum',
+      ],
+      stack: ['Spring Boot', 'Next.js', 'PostgreSQL', 'MinIO', 'Docker'],
+      repo: 'https://github.com/ridvanKarsli/BlogBackend',
+    },
+    {
+      name: 'Mollaoğlu İnşaat',
+      kind: 'Kurumsal web sitesi',
+      summary:
+        'Bir inşaat firması için kurumsal site: hizmetler, filtrelenebilir proje listesi, proje detayları, kariyer ve teklif formu.',
+      details: [
+        'React ve Vite, çok sayfalı yönlendirme',
+        'İçerik tek veri dosyasından yönetiliyor',
+      ],
+      stack: ['React', 'Vite', 'CSS'],
+      repo: 'https://github.com/ridvanKarsli/mollaogluins',
     },
   ],
   projectsPage: {
     intro:
-      'Kişisel olarak geliştirdiğim ve kaynak kodu açık olan projeler. Şirket projeleri gizlilik nedeniyle burada yer almıyor; deneyim bölümünde özetleniyor.',
+      'Kaynak kodu açık olan full stack ve backend projelerim. Şirket projeleri gizlilik nedeniyle burada yer almıyor; deneyim bölümünde özetleniyor.',
     repo: 'Kaynak kodu',
+    live: 'Siteyi aç',
     stack: 'Teknolojiler',
-    more: 'Diğer çalışmalarım GitHub profilimde.',
+    more: 'Mobil uygulamalar ve diğer çalışmalarım GitHub profilimde.',
   },
   education: [
     {
       school: 'Manisa Celal Bayar Üniversitesi',
-      program: 'Bilgisayar Mühendisliği, lisans',
-      period: '2022 — Devam ediyor',
+      program: 'Bilgisayar Mühendisliği',
     },
     {
       school: 'Kütahya Dumlupınar Üniversitesi',
-      program: 'Bilgisayar Programcılığı, ön lisans',
-      period: '2020 — 2022',
+      program: 'Bilgisayar Programcılığı',
     },
   ],
   skills: [
-    { group: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'C#', '.NET 8', 'REST', 'Mikroservis'] },
-    { group: 'Veri', items: ['PostgreSQL', 'Entity Framework Core', 'Flyway', 'SQL optimizasyonu', 'Veri modelleme'] },
-    { group: 'Kalite', items: ['JUnit', 'Testcontainers', 'OpenAPI / Swagger', 'SOLID', 'Tasarım desenleri'] },
-    { group: 'Diğer', items: ['React', 'Kotlin', 'SwiftUI', 'Docker', 'Git'] },
+    { group: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'C#', '.NET 10', 'ASP.NET Core', 'REST'] },
+    { group: 'Arayüz', items: ['React', 'TypeScript', 'Next.js', 'Vite'] },
+    { group: 'Veri', items: ['PostgreSQL', 'EF Core', 'Flyway', 'MinIO', 'Veri modelleme'] },
+    { group: 'Kalite ve yayın', items: ['JUnit', 'xUnit', 'Testcontainers', 'GitHub Actions', 'Docker', 'Nginx'] },
+    { group: 'Mobil', items: ['SwiftUI', 'Kotlin'] },
   ],
   about: {
     title: 'Hakkımda',
     paragraphs: [
-      'Java ve Spring Boot ile üretim ortamında çalışan backend sistemleri geliştiren bir yazılım mühendisiyim. İşimin büyük kısmı servis tasarımı, veri modelleme ve sistemlerin birbiriyle güvenli şekilde konuşmasını sağlamak.',
-      'Kod yazarken önce okunabilirliği ve değiştirilebilirliği düşünürüm: net katmanlar, küçük ve test edilebilir birimler, anlamlı isimler. Performans sorunlarını tahminle değil ölçümle ele alırım.',
-      'Otomasyon sektöründe donanımla, mobil tarafta iOS ve Android ile çalışmış olmam, bir backend servisinin karşı tarafta nasıl kullanıldığını görmemi kolaylaştırıyor. Manisa Celal Bayar Üniversitesi’nde Bilgisayar Mühendisliği eğitimime devam ediyorum.',
+      'Bilgisayar mühendisiyim ve full stack projeler geliştiriyorum. Backend tarafında Java/Spring Boot ve .NET ile, arayüz tarafında React, TypeScript ve Next.js ile çalışıyorum.',
+      'Bir projeye veri modelinden başlarım: önce tabloları ve API sözleşmesini netleştirir, sonra iş kurallarını altyapıdan bağımsız katmanlarda yazar, en son arayüzü bu API’nin üzerine kurarım. Kritik akışları gerçek veritabanına karşı test eder, yayını Docker ve CI ile otomatik hale getiririm.',
+      'Otomasyon sektöründe donanımla, mobil tarafta iOS ve Android ile çalışmış olmam, yazdığım servislerin karşı tarafta nasıl kullanıldığını görmemi kolaylaştırıyor. Şu anda İzmir’de Yaşar Bilgi’de çalışıyorum.',
     ],
     principlesTitle: 'Nasıl çalışırım',
     principles: [
-      { title: 'Önce sözleşme', text: 'API’yi kodlamadan önce uç noktaları, hata yanıtlarını ve veri şeklini netleştiririm.' },
+      { title: 'Önce sözleşme', text: 'Kodlamadan önce uç noktaları, hata yanıtlarını ve veri şeklini netleştiririm.' },
       { title: 'Test edilebilir tasarım', text: 'İş kurallarını altyapıdan ayırır, kritik akışları gerçek veritabanıyla test ederim.' },
-      { title: 'Açık iletişim', text: 'Gereksinimi müşteriden veya ekipten doğrudan dinler, varsayımları yazılı hale getiririm.' },
+      { title: 'Yayına kadar', text: 'Projeyi çalışır halde teslim ederim: Docker, CI ve canlı ortam kurulumu dahil.' },
     ],
   },
   contactPage: {
@@ -222,9 +298,9 @@ const tr = {
 
 const en = {
   meta: {
-    homeTitle: 'Rıdvan Şevki Karslı — Java Backend Developer',
+    homeTitle: 'Rıdvan Şevki Karslı — Computer Engineer',
     homeDescription:
-      'Software engineer building scalable backend services with Java, Spring Boot and PostgreSQL. Based in Izmir, Turkey.',
+      'Computer engineer building end-to-end web applications with Java, Spring Boot, .NET and React. Based in Izmir, Turkey.',
     aboutTitle: 'About — Rıdvan Şevki Karslı',
     projectsTitle: 'Projects — Rıdvan Şevki Karslı',
     contactTitle: 'Contact — Rıdvan Şevki Karslı',
@@ -242,20 +318,20 @@ const en = {
     status: 'Current role',
   },
   identity: {
-    role: 'Java Backend Developer',
+    role: 'Computer Engineer',
     location: 'Izmir, Turkey',
-    status: 'Software engineer at ENM Dijital',
+    status: 'Assistant software development specialist at Yaşar Bilgi',
   },
   home: {
-    headline: 'I build backend systems that run reliably in production.',
+    headline: 'I build software that works end to end, from the database to the interface.',
     lead:
-      'I work on REST services, data models and integrations with Java and Spring Boot. I am currently developing the backend architecture of Plukto, an AI-assisted customer experience platform.',
+      'I develop full stack projects: Java, Spring Boot and .NET on the backend; React, TypeScript and Next.js on the front end. I can take a project from the data model all the way to production on my own.',
     primaryAction: 'Get in touch',
     secondaryAction: 'See projects',
     factsLabel: 'In short',
     facts: [
-      { value: '3+ years', label: 'of backend work in production' },
-      { value: '3', label: 'companies in software roles' },
+      { value: '3+ years', label: 'of professional software development' },
+      { value: '20+', label: 'public projects on GitHub' },
       { value: 'TR / EN', label: 'working languages' },
     ],
   },
@@ -271,26 +347,34 @@ const en = {
   },
   focus: [
     {
-      title: 'Backend services',
-      text: 'Spring Boot services with a layered architecture that are easy to test and maintain. Split into microservices where it pays off, with clear boundaries either way.',
+      title: 'Backend and APIs',
+      text: 'Layered REST services with Spring Boot and ASP.NET Core; JWT, role management, PostgreSQL data models and managed migrations.',
     },
     {
-      title: 'APIs and data models',
-      text: 'REST endpoints documented with OpenAPI; normalized PostgreSQL schemas, managed migrations and query optimization.',
+      title: 'Web interfaces',
+      text: 'Admin panels, company websites and single-page apps on top of the API, built with React, TypeScript and Next.js.',
     },
     {
-      title: 'Integration and security',
-      text: 'JWT-based authentication, role management, third-party API and hardware integrations, performance work.',
+      title: 'Integration and delivery',
+      text: 'Payment integrations, real-time notifications, Docker Compose, Nginx, GitHub Actions, and deployment on Vercel and Railway.',
     },
   ],
   experience: [
     {
+      role: 'Assistant Software Development Specialist',
+      company: 'Yaşar Bilgi',
+      period: 'Sep 2026 — Present',
+      place: 'Izmir, on-site, full-time',
+      summary: 'Working on enterprise applications in Yaşar Bilgi’s software development team.',
+      points: [],
+    },
+    {
       role: 'Software Engineer',
-      company: 'ENM Dijital',
-      period: 'Jan 2026 — Present',
-      place: 'Remote, full-time',
+      company: 'ENM Digital',
+      period: 'Dec 2025 — Aug 2026',
+      place: 'Manisa, hybrid, full-time',
       summary:
-        'Building the backend of Plukto, CeyBer Dijital’s AI-assisted customer experience platform, using a layered architecture and microservices.',
+        'Built the backend of Plukto, CeyBer Dijital’s AI-assisted customer experience platform, using a layered architecture and microservices.',
       points: [
         'Designed the platform’s layered backend architecture',
         'Built PostgreSQL data models and secure REST endpoints',
@@ -300,33 +384,34 @@ const en = {
     {
       role: 'Software Specialist',
       company: 'Yalın Otomasyon',
-      period: 'May 2025 — Dec 2025',
-      place: 'Izmir, Bornova, full-time',
+      period: 'Mar 2025 — Dec 2025',
+      place: 'Kemalpaşa, Izmir, hybrid, full-time',
       summary:
         'Developed software for automation machines used by corporate clients and managed hardware–software integration.',
       points: [
-        'Built backend modules that made the production line more stable',
-        'Ran integration between machine hardware and software',
+        'Built backend modules that process sensor data in real time',
+        'Set up PostgreSQL-based data collection, analysis and reporting',
         'Worked directly with clients to analyze requirements and deliver the solution',
       ],
     },
     {
       role: 'Engineering Intern',
-      company: 'ENM Dijital',
+      company: 'ENM Digital',
       period: 'Dec 2024 — Dec 2025',
-      place: 'Remote, internship',
-      summary: 'Took part in mobile development with SwiftUI (iOS) and Kotlin (Android).',
+      place: 'Manisa, hybrid, internship',
+      summary:
+        'Part of the team building the Proje Sihirbazı mobile app with SwiftUI (iOS) and Kotlin (Android).',
       points: [
         'Shipped new features on iOS and Android',
         'Integrated backend services into the mobile apps',
       ],
     },
     {
-      role: 'Software Engineer',
-      company: 'Kalem Web Software Ltd.',
+      role: 'Computer Engineer',
+      company: 'Kalem Web Yazılım Ltd. Şti.',
       period: 'Feb 2023 — Oct 2024',
-      place: 'Turkey, full-time',
-      summary: 'Built maintainable, scalable backend infrastructure for corporate web projects.',
+      place: 'Izmir, remote, full-time',
+      summary: 'Worked as a web developer on the API and backend side of corporate projects.',
       points: [
         'Delivered production-ready backend modules for corporate projects',
         'Reduced maintenance effort through modular design',
@@ -336,68 +421,133 @@ const en = {
   projects: [
     {
       name: 'Sağlıktan',
-      kind: 'Community platform',
+      kind: 'Health community platform',
       summary:
-        'A safe space that brings people living with chronic and rare diseases, and their relatives, together in illness-specific groups.',
+        'Brings patients, their relatives and specialist doctors together in illness-specific groups. Live in production.',
       details: [
-        'Illness groups with posts and comments',
-        'Role-based authorization and moderation',
-        'Spring Boot REST API with a React client',
+        'REST API with Spring Boot and Java 21, Spring Security and JWT',
+        'PostgreSQL with Flyway migrations, OpenAPI documentation',
+        'React 19 client; backend on Railway, front end on Vercel',
       ],
       stack: ['Java', 'Spring Boot', 'PostgreSQL', 'React'],
       repo: 'https://github.com/ridvanKarsli/SagliktanApi',
+      live: 'https://sagliktan.com',
+      featured: true,
+    },
+    {
+      name: 'taneHesap',
+      kind: 'Business management panel',
+      summary:
+        'A management app where several businesses run their modules with role-based access and real-time notifications.',
+      details: [
+        '.NET 10 Web API with Domain, Application, Infrastructure and API layers',
+        'ASP.NET Core Identity, JWT and TOTP two-factor authentication',
+        'React and TypeScript client, SignalR notifications, PWA support',
+      ],
+      stack: ['.NET 10', 'ASP.NET Core', 'PostgreSQL', 'React', 'TypeScript', 'SignalR'],
+      repo: 'https://github.com/ridvanKarsli/taneHesapApi',
+      featured: true,
+    },
+    {
+      name: 'Hasatdaş',
+      kind: 'Direct-from-farmer shopping',
+      summary:
+        'Backend for a mobile app offering pickup orders from small producers, threshold-based harvest campaigns, ride sharing and group buying.',
+      details: [
+        'Clean architecture on .NET 10; business rules depend on no packages',
+        'One-time SMS code sign-in, rate limiting, health checks',
+        '68 unit tests and a 78-step end-to-end smoke test',
+      ],
+      stack: ['.NET 10', 'EF Core', 'PostgreSQL', 'Docker', 'xUnit'],
+      repo: 'https://github.com/ridvanKarsli/HasatDasAPI',
+      featured: true,
     },
     {
       name: 'Carbovira',
       kind: 'Industrial symbiosis API',
       summary:
-        'A REST API where companies list their waste as another company’s raw material, search listings and message each other.',
+        'A REST API where companies list their waste as another company’s raw material, search listings and agree on deals by message.',
       details: [
-        'Feature-based modules',
-        'JWT authentication and Flyway migrations',
-        'End-to-end tests with Testcontainers',
+        'Spring Boot on Java 25 with feature-based modules',
+        'Flyway, MapStruct, single-query filtering with the Criteria API',
+        'End-to-end tests with Testcontainers, CI on GitHub Actions',
       ],
-      stack: ['Spring Boot', 'PostgreSQL', 'JWT', 'Flyway', 'MapStruct', 'Docker'],
+      stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Flyway', 'Testcontainers'],
       repo: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+    },
+    {
+      name: 'TAMİ Payment SDK',
+      kind: 'Java payment library',
+      summary:
+        'An independent Java client for the Garanti BBVA / TAMİ virtual POS: sales, 3D Secure, pre-authorization, cancel/refund and queries.',
+      details: [
+        'Synchronous and CompletableFuture-based async calls for every operation',
+        'Request signing with JWK/JWS (HS512)',
+        'Exception hierarchy separating validation, API, connection and security errors',
+      ],
+      stack: ['Java', 'Maven', 'JUnit'],
+      repo: 'https://github.com/ridvanKarsli/tamiPaymentSdk',
+    },
+    {
+      name: 'Blog platform',
+      kind: 'Blog with admin panel',
+      summary:
+        'A personal blog engine with post, category, tag and media management, full-text search and a sitemap.',
+      details: [
+        'Spring Boot API with JWT in an HttpOnly cookie',
+        'PostgreSQL full-text search, image storage on MinIO',
+        'Next.js front end, one-command setup with Docker Compose and Nginx',
+      ],
+      stack: ['Spring Boot', 'Next.js', 'PostgreSQL', 'MinIO', 'Docker'],
+      repo: 'https://github.com/ridvanKarsli/BlogBackend',
+    },
+    {
+      name: 'Mollaoğlu İnşaat',
+      kind: 'Company website',
+      summary:
+        'Website for a construction firm: services, a filterable project list, project pages, careers and a quote form.',
+      details: ['React and Vite with multi-page routing', 'All content managed from a single data file'],
+      stack: ['React', 'Vite', 'CSS'],
+      repo: 'https://github.com/ridvanKarsli/mollaogluins',
     },
   ],
   projectsPage: {
     intro:
-      'Personal projects with public source code. Company work is confidential and is summarized under experience instead.',
+      'Full stack and backend projects with public source code. Company work is confidential and is summarized under experience instead.',
     repo: 'Source code',
+    live: 'Open site',
     stack: 'Stack',
-    more: 'More of my work is on my GitHub profile.',
+    more: 'Mobile apps and more of my work are on my GitHub profile.',
   },
   education: [
     {
       school: 'Manisa Celal Bayar University',
-      program: 'Computer Engineering, BSc',
-      period: '2022 — Present',
+      program: 'Computer Engineering',
     },
     {
       school: 'Kütahya Dumlupınar University',
-      program: 'Computer Programming, associate degree',
-      period: '2020 — 2022',
+      program: 'Computer Programming',
     },
   ],
   skills: [
-    { group: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'C#', '.NET 8', 'REST', 'Microservices'] },
-    { group: 'Data', items: ['PostgreSQL', 'Entity Framework Core', 'Flyway', 'SQL optimization', 'Data modeling'] },
-    { group: 'Quality', items: ['JUnit', 'Testcontainers', 'OpenAPI / Swagger', 'SOLID', 'Design patterns'] },
-    { group: 'Other', items: ['React', 'Kotlin', 'SwiftUI', 'Docker', 'Git'] },
+    { group: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'C#', '.NET 10', 'ASP.NET Core', 'REST'] },
+    { group: 'Front end', items: ['React', 'TypeScript', 'Next.js', 'Vite'] },
+    { group: 'Data', items: ['PostgreSQL', 'EF Core', 'Flyway', 'MinIO', 'Data modeling'] },
+    { group: 'Quality and delivery', items: ['JUnit', 'xUnit', 'Testcontainers', 'GitHub Actions', 'Docker', 'Nginx'] },
+    { group: 'Mobile', items: ['SwiftUI', 'Kotlin'] },
   ],
   about: {
     title: 'About',
     paragraphs: [
-      'I am a software engineer building production backend systems with Java and Spring Boot. Most of my work is service design, data modeling and making systems talk to each other securely.',
-      'When I write code I think about readability and changeability first: clear layers, small testable units, meaningful names. I approach performance problems by measuring, not guessing.',
-      'Having worked with hardware in industrial automation and with iOS and Android on the mobile side helps me see how a backend service is actually consumed. I am continuing my Computer Engineering degree at Manisa Celal Bayar University.',
+      'I am a computer engineer developing full stack projects. On the backend I work with Java/Spring Boot and .NET; on the front end with React, TypeScript and Next.js.',
+      'I start a project from the data model: first I pin down the tables and the API contract, then I write business rules in layers that are independent of infrastructure, and finally I build the interface on top of that API. I test critical flows against a real database and automate delivery with Docker and CI.',
+      'Having worked with hardware in industrial automation and with iOS and Android on mobile helps me see how the services I write are actually consumed. I currently work at Yaşar Bilgi in Izmir.',
     ],
     principlesTitle: 'How I work',
     principles: [
-      { title: 'Contract first', text: 'Before writing the API I pin down endpoints, error responses and the shape of the data.' },
+      { title: 'Contract first', text: 'Before writing code I pin down endpoints, error responses and the shape of the data.' },
       { title: 'Testable design', text: 'I keep business rules apart from infrastructure and test critical flows against a real database.' },
-      { title: 'Plain communication', text: 'I hear requirements directly from clients or the team and write assumptions down.' },
+      { title: 'All the way to production', text: 'I hand over projects running: Docker, CI and the live environment included.' },
     ],
   },
   contactPage: {

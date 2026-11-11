@@ -49,11 +49,13 @@ export function Experience() {
                 <span className="timeline__company">{job.company}</span>
               </h3>
               <p>{job.summary}</p>
-              <ul className="ticks">
-                {job.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
+              {job.points.length > 0 && (
+                <ul className="ticks">
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </li>
         ))}
@@ -84,10 +86,18 @@ export function ProjectEntry({ project, detailed = false }) {
             <li key={s}>{s}</li>
           ))}
         </ul>
-        <a className="text-link" href={project.repo} target="_blank" rel="noreferrer">
-          {t.projectsPage.repo}
-          <ExternalIcon />
-        </a>
+        <div className="project__links">
+          {project.live && (
+            <a className="text-link" href={project.live} target="_blank" rel="noreferrer">
+              {t.projectsPage.live}
+              <ExternalIcon />
+            </a>
+          )}
+          <a className="text-link" href={project.repo} target="_blank" rel="noreferrer">
+            {t.projectsPage.repo}
+            <ExternalIcon />
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -106,8 +116,10 @@ export function SelectedProjects() {
       }
     >
       <div className="project-list">
-        {t.projects.map((p) => (
-          <ProjectEntry key={p.name} project={p} />
+        {t.projects
+          .filter((p) => p.featured)
+          .map((p) => (
+            <ProjectEntry key={p.name} project={p} />
         ))}
       </div>
     </Section>
@@ -143,11 +155,8 @@ export function Education() {
       <ul className="plain-rows">
         {t.education.map((e) => (
           <li key={e.school}>
-            <p className="plain-rows__period">{e.period}</p>
-            <div>
-              <h3>{e.school}</h3>
-              <p>{e.program}</p>
-            </div>
+            <h3>{e.program}</h3>
+            <p>{e.school}</p>
           </li>
         ))}
       </ul>
