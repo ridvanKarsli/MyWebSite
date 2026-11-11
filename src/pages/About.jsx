@@ -1,6 +1,6 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import Seo from '../components/Seo';
-import { ContactBand, Education, Experience, Section, Skills } from '../components/Sections';
+import { ContactBand, Education, Experience, Skills } from '../components/Sections';
 
 export default function About() {
   const { t } = useLanguage();
@@ -15,17 +15,6 @@ export default function About() {
           ))}
         </div>
       </section>
-
-      <Section id="principles" title={t.about.principlesTitle}>
-        <div className="focus-grid">
-          {t.about.principles.map((p) => (
-            <article key={p.title} className="focus-item">
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
 
       <Experience />
       <Education />

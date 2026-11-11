@@ -19,7 +19,7 @@ const tr = {
     notFoundTitle: 'Sayfa bulunamadı — Rıdvan Şevki Karslı',
   },
   nav: {
-    home: 'Genel bakış',
+    home: 'Ana sayfa',
     about: 'Hakkımda',
     projects: 'Projeler',
     contact: 'İletişim',
@@ -35,17 +35,9 @@ const tr = {
     status: 'Yaşar Bilgi’de yazılım geliştirme uzman yardımcısı',
   },
   home: {
-    headline: 'Veritabanından arayüze, uçtan uca çalışan yazılımlar geliştiriyorum.',
+    headline: 'Merhaba, ben Rıdvan.',
     lead:
-      'Full stack projeler geliştiriyorum: backend tarafında Java, Spring Boot ve .NET; arayüz tarafında React, TypeScript ve Next.js. Bir projeyi veri modelinden yayına kadar tek başıma taşıyabiliyorum.',
-    primaryAction: 'İletişime geç',
-    secondaryAction: 'Projeleri incele',
-    factsLabel: 'Kısaca',
-    facts: [
-      { value: '3+ yıl', label: 'profesyonel yazılım geliştirme' },
-      { value: '20+', label: 'GitHub’da açık proje' },
-      { value: 'TR / EN', label: 'çalışma dilleri' },
-    ],
+      'İzmir’de yaşayan bir bilgisayar mühendisiyim, Yaşar Bilgi’de çalışıyorum. Java, .NET ve React ile full stack projeler geliştiriyorum; bu sitede üzerinde çalıştığım projeleri ve geçtiğim yolları bir araya topluyorum.',
   },
   sections: {
     focus: 'Çalışma alanlarım',
@@ -162,20 +154,6 @@ const tr = {
       featured: true,
     },
     {
-      name: 'Hasatdaş',
-      kind: 'Üreticiden doğrudan alışveriş',
-      summary:
-        'Küçük üreticiden gel-al siparişi, eşikli hasat kampanyaları, ortak yolculuk ve ortak alım sunan mobil uygulamanın backend’i.',
-      details: [
-        '.NET 10 ile temiz mimari; iş kuralları hiçbir pakete bağımlı değil',
-        'SMS ile tek kullanımlık kodla giriş, rate limit, health check',
-        '68 birim testi ve 78 adımlı uçtan uca duman testi',
-      ],
-      stack: ['.NET 10', 'EF Core', 'PostgreSQL', 'Docker', 'xUnit'],
-      repo: 'https://github.com/ridvanKarsli/HasatDasAPI',
-      featured: true,
-    },
-    {
       name: 'Carbovira',
       kind: 'Endüstriyel simbiyoz API’si',
       summary:
@@ -187,6 +165,7 @@ const tr = {
       ],
       stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Flyway', 'Testcontainers'],
       repo: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+      featured: true,
     },
     {
       name: 'TAMİ Ödeme SDK',
@@ -259,17 +238,11 @@ const tr = {
       'Bir projeye veri modelinden başlarım: önce tabloları ve API sözleşmesini netleştirir, sonra iş kurallarını altyapıdan bağımsız katmanlarda yazar, en son arayüzü bu API’nin üzerine kurarım. Kritik akışları gerçek veritabanına karşı test eder, yayını Docker ve CI ile otomatik hale getiririm.',
       'Otomasyon sektöründe donanımla, mobil tarafta iOS ve Android ile çalışmış olmam, yazdığım servislerin karşı tarafta nasıl kullanıldığını görmemi kolaylaştırıyor. Şu anda İzmir’de Yaşar Bilgi’de çalışıyorum.',
     ],
-    principlesTitle: 'Nasıl çalışırım',
-    principles: [
-      { title: 'Önce sözleşme', text: 'Kodlamadan önce uç noktaları, hata yanıtlarını ve veri şeklini netleştiririm.' },
-      { title: 'Test edilebilir tasarım', text: 'İş kurallarını altyapıdan ayırır, kritik akışları gerçek veritabanıyla test ederim.' },
-      { title: 'Yayına kadar', text: 'Projeyi çalışır halde teslim ederim: Docker, CI ve canlı ortam kurulumu dahil.' },
-    ],
   },
   contactPage: {
     title: 'İletişim',
     intro:
-      'İş teklifleri, serbest projeler veya teknik sorular için yazabilirsiniz. Genellikle iki iş günü içinde dönüş yaparım.',
+      'Bir proje, bir kod parçası ya da aklınıza takılan bir şey hakkında yazmak isterseniz e-posta kutum açık.',
     channels: 'Doğrudan ulaşın',
     email: 'E-posta',
     phone: 'Telefon',
@@ -292,7 +265,7 @@ const tr = {
   notFound: {
     title: 'Bu sayfa bulunamadı.',
     text: 'Adres değişmiş ya da yanlış yazılmış olabilir.',
-    back: 'Genel bakışa dön',
+    back: 'Ana sayfaya dön',
   },
 };
 
@@ -307,7 +280,7 @@ const en = {
     notFoundTitle: 'Page not found — Rıdvan Şevki Karslı',
   },
   nav: {
-    home: 'Overview',
+    home: 'Home',
     about: 'About',
     projects: 'Projects',
     contact: 'Contact',
@@ -323,17 +296,9 @@ const en = {
     status: 'Assistant software development specialist at Yaşar Bilgi',
   },
   home: {
-    headline: 'I build software that works end to end, from the database to the interface.',
+    headline: 'Hi, I’m Rıdvan.',
     lead:
-      'I develop full stack projects: Java, Spring Boot and .NET on the backend; React, TypeScript and Next.js on the front end. I can take a project from the data model all the way to production on my own.',
-    primaryAction: 'Get in touch',
-    secondaryAction: 'See projects',
-    factsLabel: 'In short',
-    facts: [
-      { value: '3+ years', label: 'of professional software development' },
-      { value: '20+', label: 'public projects on GitHub' },
-      { value: 'TR / EN', label: 'working languages' },
-    ],
+      'I’m a computer engineer living in Izmir, working at Yaşar Bilgi. I build full stack projects with Java, .NET and React; this site collects the projects I work on and the places I’ve been along the way.',
   },
   sections: {
     focus: 'What I work on',
@@ -449,20 +414,6 @@ const en = {
       featured: true,
     },
     {
-      name: 'Hasatdaş',
-      kind: 'Direct-from-farmer shopping',
-      summary:
-        'Backend for a mobile app offering pickup orders from small producers, threshold-based harvest campaigns, ride sharing and group buying.',
-      details: [
-        'Clean architecture on .NET 10; business rules depend on no packages',
-        'One-time SMS code sign-in, rate limiting, health checks',
-        '68 unit tests and a 78-step end-to-end smoke test',
-      ],
-      stack: ['.NET 10', 'EF Core', 'PostgreSQL', 'Docker', 'xUnit'],
-      repo: 'https://github.com/ridvanKarsli/HasatDasAPI',
-      featured: true,
-    },
-    {
       name: 'Carbovira',
       kind: 'Industrial symbiosis API',
       summary:
@@ -474,6 +425,7 @@ const en = {
       ],
       stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Flyway', 'Testcontainers'],
       repo: 'https://github.com/ridvanKarsli/CarboviraRestAPI',
+      featured: true,
     },
     {
       name: 'TAMİ Payment SDK',
@@ -543,17 +495,11 @@ const en = {
       'I start a project from the data model: first I pin down the tables and the API contract, then I write business rules in layers that are independent of infrastructure, and finally I build the interface on top of that API. I test critical flows against a real database and automate delivery with Docker and CI.',
       'Having worked with hardware in industrial automation and with iOS and Android on mobile helps me see how the services I write are actually consumed. I currently work at Yaşar Bilgi in Izmir.',
     ],
-    principlesTitle: 'How I work',
-    principles: [
-      { title: 'Contract first', text: 'Before writing code I pin down endpoints, error responses and the shape of the data.' },
-      { title: 'Testable design', text: 'I keep business rules apart from infrastructure and test critical flows against a real database.' },
-      { title: 'All the way to production', text: 'I hand over projects running: Docker, CI and the live environment included.' },
-    ],
   },
   contactPage: {
     title: 'Contact',
     intro:
-      'Write to me about job offers, freelance projects or technical questions. I usually reply within two business days.',
+      'If you’d like to talk about a project, a piece of code or anything else, my inbox is open.',
     channels: 'Reach me directly',
     email: 'Email',
     phone: 'Phone',
@@ -576,7 +522,7 @@ const en = {
   notFound: {
     title: 'This page could not be found.',
     text: 'The address may have changed or been mistyped.',
-    back: 'Back to overview',
+    back: 'Back to home',
   },
 };
 
