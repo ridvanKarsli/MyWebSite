@@ -1,38 +1,48 @@
-import React from "react";
-import { Helmet } from 'react-helmet-async';
-import Hero from "../components/Hero";
-import FeatureList from "../components/FeatureList";
-import AboutSection from "../components/AboutSection";
-import WorkExperience from "../components/WorkExperience";
-import Projects from "../components/Projects";
-import ContactForm from "../components/ContactForm";
-import Skills from "../components/Skills";
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext';
+import Seo from '../components/Seo';
+import {
+  ContactBand,
+  Education,
+  Experience,
+  FocusAreas,
+  SelectedProjects,
+  Skills,
+} from '../components/Sections';
 
-const Home = () => {
+export default function Home() {
+  const { t } = useLanguage();
   return (
     <>
-      <Helmet>
-        <title>Rıdvan Şevki Karslı — Java Backend Developer</title>
-        <meta 
-          name="description" 
-          content="Rıdvan Şevki Karslı'nın kişisel web sitesi. Java Backend, Spring Boot, PostgreSQL, REST API ve üretim odaklı yazılım geliştirme." 
-        />
-        <meta name="keywords" content="Rıdvan Karslı, Java Backend Developer, Spring Boot, REST API, PostgreSQL, Yazılım Geliştirici, Portföy" />
-        <meta property="og:title" content="Rıdvan Şevki Karslı — Java Backend Developer" />
-        <meta property="og:description" content="Java Backend, Spring Boot, PostgreSQL, React ve Swift ile yazılım geliştirme uzmanı." />
-        <meta property="og:url" content="https://www.ridvankarsli.com/" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.ridvankarsli.com/" />
-      </Helmet>
-      <Hero/>
-      <AboutSection/>
-      <FeatureList/>
-      <Skills/>
-      <Projects/>
-      <WorkExperience/>
-      <ContactForm/>
+      <Seo title={t.meta.homeTitle} path="/" />
+
+      <section className="intro" aria-labelledby="intro-title">
+        <h1 id="intro-title">{t.home.headline}</h1>
+        <p className="intro__lead">{t.home.lead}</p>
+        <div className="actions">
+          <Link to="/contact" className="button button--primary">
+            {t.home.primaryAction}
+          </Link>
+          <Link to="/projects" className="button">
+            {t.home.secondaryAction}
+          </Link>
+        </div>
+        <dl className="facts" aria-label={t.home.factsLabel}>
+          {t.home.facts.map((f) => (
+            <div key={f.label}>
+              <dt>{f.value}</dt>
+              <dd>{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <FocusAreas />
+      <Experience />
+      <SelectedProjects />
+      <Skills />
+      <Education />
+      <ContactBand />
     </>
   );
-};
-
-export default Home;
+}

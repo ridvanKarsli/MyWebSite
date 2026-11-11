@@ -1,29 +1,36 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Box } from '@mui/material';
-import About from '../components/About';
+import { useLanguage } from '../i18n/LanguageContext';
+import Seo from '../components/Seo';
+import { ContactBand, Education, Experience, Section, Skills } from '../components/Sections';
 
-const AboutPage = () => {
+export default function About() {
+  const { t } = useLanguage();
   return (
     <>
-      <Helmet>
-        <title>Hakkımda — Rıdvan Şevki Karslı</title>
-        <meta 
-          name="description" 
-          content="Rıdvan Şevki Karslı'nın kariyeri, yazılım deneyimi, uzmanlık alanları ve kişisel yolculuğu. Java Backend Developer, Spring Boot uzmanı." 
-        />
-        <meta name="keywords" content="Rıdvan Karslı Hakkında, Java Developer Kariyer, Spring Boot Deneyim, Yazılım Geliştirici Profil" />
-        <meta property="og:title" content="Hakkımda — Rıdvan Şevki Karslı" />
-        <meta property="og:description" content="Rıdvan Şevki Karslı'nın kariyeri, yazılım deneyimi ve uzmanlık alanları." />
-        <meta property="og:url" content="https://www.ridvankarsli.com/about" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.ridvankarsli.com/about" />
-      </Helmet>
-      <Box>
-        <About />
-      </Box>
+      <Seo title={t.meta.aboutTitle} path="/about" />
+      <section className="page-head">
+        <h1>{t.about.title}</h1>
+        <div className="prose">
+          {t.about.paragraphs.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
+          ))}
+        </div>
+      </section>
+
+      <Section id="principles" title={t.about.principlesTitle}>
+        <div className="focus-grid">
+          {t.about.principles.map((p) => (
+            <article key={p.title} className="focus-item">
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Experience />
+      <Education />
+      <Skills />
+      <ContactBand />
     </>
   );
-};
-
-export default AboutPage;
+}

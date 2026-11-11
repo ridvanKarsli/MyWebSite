@@ -1,73 +1,44 @@
-# Ridvan Karsli Portfolio Website
+# ridvankarsli.com
 
-Modern ve profesyonel bir portfolyo web sitesi. React, Material-UI ve Vite kullanılarak geliştirilmiştir.
+Kişisel web sitemin kaynak kodu. React 18, React Router ve Vite ile yazıldı; stil için düz CSS kullanılıyor.
 
-## 🚀 Özellikler
+## Çalıştırma
 
-- Modern ve responsive tasarım
-- Material-UI bileşenleri
-- Framer Motion animasyonları
-- SEO dostu yapı
-- Performans optimizasyonu
-- Kolay özelleştirilebilir tema
+Node.js 18 veya üzeri gerekir.
 
-## 🛠️ Teknolojiler
-
-- React 19
-- Material-UI
-- Vite
-- Framer Motion
-- React Router
-- TailwindCSS
-- ESLint & Prettier
-- Vitest & Testing Library
-
-## 📦 Kurulum
-
-1. Projeyi klonlayın:
-```bash
-git clone https://github.com/yourusername/ridvanskwebsite.git
-cd ridvanskwebsite
-```
-
-2. Bağımlılıkları yükleyin:
 ```bash
 npm install
-```
-
-3. Geliştirme sunucusunu başlatın:
-```bash
 npm run dev
 ```
 
-## 🧪 Test
+Geliştirme sunucusu http://localhost:5174 adresinde açılır.
 
-```bash
-npm test
+## Diğer komutlar
+
+| Komut | Açıklama |
+| --- | --- |
+| `npm run build` | `dist/` klasörüne üretim çıktısı alır |
+| `npm run preview` | Üretim çıktısını yerelde sunar |
+| `npm run lint` | ESLint kontrolü |
+| `npm run format` | Prettier ile biçimlendirme |
+
+## Yapı
+
+```
+src/
+  i18n/content.js      Türkçe ve İngilizce tüm metinler, iletişim bilgileri
+  i18n/LanguageContext Dil seçimi
+  components/          Yerleşim, bölümler, ikonlar
+  pages/               Genel bakış, Hakkımda, Projeler, İletişim
+  styles/main.css      Renkler, tipografi ve yerleşim
 ```
 
-## 📝 Kod Kalitesi
+Deneyim, proje veya yetenek eklemek için yalnızca `src/i18n/content.js` dosyasını düzenlemek yeterli.
 
-```bash
-# Linting
-npm run lint
+## Yayın
 
-# Formatting
-npm run format
-```
+Vercel üzerinde yayınlanıyor; `vercel.json` tüm yolları `index.html`'e yönlendirir.
 
-## 🏗️ Build
+## Lisans
 
-```bash
-npm run build
-```
-
-## 📄 Lisans
-
-MIT License - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
-
-## 👤 İletişim
-
-Ridvan Karsli - [@ridvankarsli](https://twitter.com/ridvankarsli)
-
-Proje Linki: [https://github.com/yourusername/ridvanskwebsite](https://github.com/yourusername/ridvanskwebsite)
+MIT
