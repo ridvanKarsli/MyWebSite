@@ -1,13 +1,6 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import Seo from '../components/Seo';
-import {
-  ContactBand,
-  Education,
-  Experience,
-  FocusAreas,
-  SelectedProjects,
-  Skills,
-} from '../components/Sections';
+import { Education, Experience, SelectedProjects, Skills } from '../components/Sections';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -16,16 +9,16 @@ export default function Home() {
       <Seo title={t.meta.homeTitle} path="/" />
 
       <section className="intro" aria-labelledby="intro-title">
-        <h1 id="intro-title">{t.home.headline}</h1>
+        <h1 id="intro-title" className="visually-hidden">
+          {t.home.headline}
+        </h1>
         <p className="intro__lead">{t.home.lead}</p>
       </section>
 
-      <FocusAreas />
       <Experience />
       <SelectedProjects />
       <Skills />
       <Education />
-      <ContactBand />
     </>
   );
 }

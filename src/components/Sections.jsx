@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
-import { contact } from '../i18n/content';
-import { ExternalIcon, MailIcon, PhoneIcon } from './Icons';
+import { ExternalIcon } from './Icons';
 
 export function Section({ id, title, action, children, className = '' }) {
   const headingId = `${id}-title`;
@@ -13,22 +12,6 @@ export function Section({ id, title, action, children, className = '' }) {
       </header>
       {children}
     </section>
-  );
-}
-
-export function FocusAreas() {
-  const { t } = useLanguage();
-  return (
-    <Section id="focus" title={t.sections.focus}>
-      <div className="focus-grid">
-        {t.focus.map((item) => (
-          <article key={item.title} className="focus-item">
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </Section>
   );
 }
 
@@ -68,25 +51,24 @@ export function ProjectEntry({ project, detailed = false }) {
   const { t } = useLanguage();
   return (
     <article className="project">
-      <div className="project__head">
+      <div className="project__name">
         <h3>{project.name}</h3>
         <p className="project__kind">{project.kind}</p>
       </div>
-      <p className="project__summary">{project.summary}</p>
-      {detailed && (
-        <ul className="ticks">
-          {project.details.map((d) => (
-            <li key={d}>{d}</li>
-          ))}
-        </ul>
-      )}
-      <div className="project__foot">
-        <ul className="stack" aria-label={t.projectsPage.stack}>
-          {project.stack.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ul>
-        <div className="project__links">
+      <div className="project__body">
+        <p>{project.summary}</p>
+        {detailed && (
+          <ul className="ticks">
+            {project.details.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        )}
+        <p className="project__meta">
+          <span className="visually-hidden">{t.projectsPage.stack}: </span>
+          {project.stack.join(', ')}
+        </p>
+        <p className="project__links">
           {project.live && (
             <a className="text-link" href={project.live} target="_blank" rel="noreferrer">
               {t.projectsPage.live}
@@ -97,7 +79,7 @@ export function ProjectEntry({ project, detailed = false }) {
             {t.projectsPage.repo}
             <ExternalIcon />
           </a>
-        </div>
+        </p>
       </div>
     </article>
   );
@@ -120,7 +102,7 @@ export function SelectedProjects() {
           .filter((p) => p.featured)
           .map((p) => (
             <ProjectEntry key={p.name} project={p} />
-        ))}
+          ))}
       </div>
     </Section>
   );
@@ -134,13 +116,7 @@ export function Skills() {
         {t.skills.map((row) => (
           <div key={row.group} className="skill-table__row">
             <dt>{row.group}</dt>
-            <dd>
-              <ul className="stack">
-                {row.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </dd>
+            <dd>{row.items.join(', ')}</dd>
           </div>
         ))}
       </dl>
@@ -161,25 +137,5 @@ export function Education() {
         ))}
       </ul>
     </Section>
-  );
-}
-
-export function ContactBand() {
-  const { t } = useLanguage();
-  return (
-    <section className="contact-band" aria-labelledby="contact-band-title">
-      <h2 id="contact-band-title">{t.sections.contact}</h2>
-      <p>{t.contactPage.intro}</p>
-      <div className="contact-band__links">
-        <a href={`mailto:${contact.email}`}>
-          <MailIcon />
-          {contact.email}
-        </a>
-        <a href={contact.phoneHref}>
-          <PhoneIcon />
-          {contact.phone}
-        </a>
-      </div>
-    </section>
   );
 }

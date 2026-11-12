@@ -1,6 +1,6 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import Seo from '../components/Seo';
-import { ContactBand, Education, Experience, Skills } from '../components/Sections';
+import { Experience, Skills } from '../components/Sections';
 
 export default function About() {
   const { t } = useLanguage();
@@ -17,9 +17,7 @@ export default function About() {
       </section>
 
       <Experience />
-      <Education />
       <Skills />
-      <ContactBand />
     </>
   );
 }

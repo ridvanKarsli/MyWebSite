@@ -35,12 +35,11 @@ const tr = {
     status: 'Yaşar Bilgi’de yazılım geliştirme uzman yardımcısı',
   },
   home: {
-    headline: 'Merhaba, ben Rıdvan.',
+    headline: 'Rıdvan Şevki Karslı',
     lead:
-      'İzmir’de yaşayan bir bilgisayar mühendisiyim, Yaşar Bilgi’de çalışıyorum. Java, .NET ve React ile full stack projeler geliştiriyorum; bu sitede üzerinde çalıştığım projeleri ve geçtiğim yolları bir araya topluyorum.',
+      'İzmir’de yaşayan bir bilgisayar mühendisiyim. Yaşar Bilgi’de yazılım geliştirme ekibinde çalışıyorum. Java, .NET ve React ile full stack projeler geliştiriyorum.',
   },
   sections: {
-    focus: 'Çalışma alanlarım',
     experience: 'Deneyim',
     projects: 'Seçili projeler',
     education: 'Eğitim',
@@ -49,20 +48,6 @@ const tr = {
     allProjects: 'Tüm projeler',
     fullProfile: 'Profilin tamamı',
   },
-  focus: [
-    {
-      title: 'Backend ve API',
-      text: 'Spring Boot ve ASP.NET Core ile katmanlı mimaride REST servisleri; JWT, rol yönetimi, PostgreSQL veri modeli ve migration yönetimi.',
-    },
-    {
-      title: 'Web arayüzleri',
-      text: 'React, TypeScript ve Next.js ile yönetim panelleri, kurumsal siteler ve API’yi tüketen tek sayfa uygulamalar.',
-    },
-    {
-      title: 'Entegrasyon ve yayın',
-      text: 'Ödeme sistemi entegrasyonları, gerçek zamanlı bildirimler, Docker Compose, Nginx, GitHub Actions ve Vercel/Railway üzerinde yayın.',
-    },
-  ],
   experience: [
     {
       role: 'Yazılım Geliştirme Uzman Yardımcısı',
@@ -234,9 +219,9 @@ const tr = {
   about: {
     title: 'Hakkımda',
     paragraphs: [
-      'Bilgisayar mühendisiyim ve full stack projeler geliştiriyorum. Backend tarafında Java/Spring Boot ve .NET ile, arayüz tarafında React, TypeScript ve Next.js ile çalışıyorum.',
-      'Bir projeye veri modelinden başlarım: önce tabloları ve API sözleşmesini netleştirir, sonra iş kurallarını altyapıdan bağımsız katmanlarda yazar, en son arayüzü bu API’nin üzerine kurarım. Kritik akışları gerçek veritabanına karşı test eder, yayını Docker ve CI ile otomatik hale getiririm.',
-      'Otomasyon sektöründe donanımla, mobil tarafta iOS ve Android ile çalışmış olmam, yazdığım servislerin karşı tarafta nasıl kullanıldığını görmemi kolaylaştırıyor. Şu anda İzmir’de Yaşar Bilgi’de çalışıyorum.',
+      'İzmir’de yaşıyorum ve Eylül 2026’dan bu yana Yaşar Bilgi’de yazılım geliştirme uzman yardımcısı olarak çalışıyorum.',
+      'Backend tarafında Java/Spring Boot ve .NET, arayüz tarafında React, TypeScript ve Next.js kullanıyorum. Daha önce Kalem Web’de kurumsal web projelerinde, Yalın Otomasyon’da endüstriyel otomasyon yazılımlarında ve ENM Digital’de hem mobil hem backend tarafında çalıştım.',
+      'Manisa Celal Bayar Üniversitesi’nde Bilgisayar Mühendisliği, Kütahya Dumlupınar Üniversitesi’nde Bilgisayar Programcılığı okudum.',
     ],
   },
   contactPage: {
@@ -296,12 +281,11 @@ const en = {
     status: 'Assistant software development specialist at Yaşar Bilgi',
   },
   home: {
-    headline: 'Hi, I’m Rıdvan.',
+    headline: 'Rıdvan Şevki Karslı',
     lead:
-      'I’m a computer engineer living in Izmir, working at Yaşar Bilgi. I build full stack projects with Java, .NET and React; this site collects the projects I work on and the places I’ve been along the way.',
+      'I’m a computer engineer based in Izmir, working in the software development team at Yaşar Bilgi. I build full stack projects with Java, .NET and React.',
   },
   sections: {
-    focus: 'What I work on',
     experience: 'Experience',
     projects: 'Selected projects',
     education: 'Education',
@@ -310,20 +294,6 @@ const en = {
     allProjects: 'All projects',
     fullProfile: 'Full profile',
   },
-  focus: [
-    {
-      title: 'Backend and APIs',
-      text: 'Layered REST services with Spring Boot and ASP.NET Core; JWT, role management, PostgreSQL data models and managed migrations.',
-    },
-    {
-      title: 'Web interfaces',
-      text: 'Admin panels, company websites and single-page apps on top of the API, built with React, TypeScript and Next.js.',
-    },
-    {
-      title: 'Integration and delivery',
-      text: 'Payment integrations, real-time notifications, Docker Compose, Nginx, GitHub Actions, and deployment on Vercel and Railway.',
-    },
-  ],
   experience: [
     {
       role: 'Assistant Software Development Specialist',
@@ -491,9 +461,9 @@ const en = {
   about: {
     title: 'About',
     paragraphs: [
-      'I am a computer engineer developing full stack projects. On the backend I work with Java/Spring Boot and .NET; on the front end with React, TypeScript and Next.js.',
-      'I start a project from the data model: first I pin down the tables and the API contract, then I write business rules in layers that are independent of infrastructure, and finally I build the interface on top of that API. I test critical flows against a real database and automate delivery with Docker and CI.',
-      'Having worked with hardware in industrial automation and with iOS and Android on mobile helps me see how the services I write are actually consumed. I currently work at Yaşar Bilgi in Izmir.',
+      'I live in Izmir and have been working at Yaşar Bilgi as an assistant software development specialist since September 2026.',
+      'On the backend I use Java/Spring Boot and .NET; on the front end React, TypeScript and Next.js. Before this I worked on corporate web projects at Kalem Web, industrial automation software at Yalın Otomasyon, and both mobile and backend at ENM Digital.',
+      'I studied Computer Engineering at Manisa Celal Bayar University and Computer Programming at Kütahya Dumlupınar University.',
     ],
   },
   contactPage: {
