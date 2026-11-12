@@ -149,6 +149,21 @@ a:hover {
   gap: 1.25rem;
 }
 
+.monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 3px;
+  background: var(--on-dark);
+  color: var(--petrol-deep);
+  font-family: var(--font-cond);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
 .identity__text {
   display: flex;
   flex-direction: column;
@@ -261,6 +276,7 @@ a:hover {
 main {
   flex: 1;
   width: 100%;
+  margin-inline: auto;
   max-width: calc(var(--measure) + 2 * var(--gutter));
   padding: clamp(3rem, 8vh, 6rem) var(--gutter) 4rem;
 }
@@ -270,6 +286,8 @@ main:focus {
 }
 
 .site-footer {
+  width: 100%;
+  margin-inline: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -438,13 +456,12 @@ h3 {
 
 .timeline__company {
   display: block;
-  color: var(--petrol);
-  font-weight: 500;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .timeline__body > p {
   margin-top: 0.625rem;
-  color: var(--muted);
 }
 
 .ticks {
@@ -570,6 +587,10 @@ h3 {
   padding-bottom: 2.5rem;
   border-bottom: 1px solid var(--rule-strong);
   margin-bottom: 3rem;
+}
+
+.page-head--plain {
+  border-bottom: 0;
 }
 
 .page-head .button {
@@ -748,8 +769,9 @@ h3 {
   }
 
   .identity .monogram {
-    width: 34px;
-    height: 34px;
+    width: 2.125rem;
+    height: 2.125rem;
+    font-size: 0.9375rem;
   }
 
   .identity__name {

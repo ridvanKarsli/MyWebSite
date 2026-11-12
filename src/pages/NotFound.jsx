@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <>
       <Seo title={t.meta.notFoundTitle} path="/" />
-      <section className="page-head">
+      <section className="page-head page-head--plain">
         <h1>{t.notFound.title}</h1>
         <p className="page-head__intro">{t.notFound.text}</p>
         <Link to="/" className="button button--primary">

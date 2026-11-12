@@ -123,12 +123,7 @@ export default function Layout() {
           <Outlet />
         </main>
         <footer className="site-footer">
-          <p>
-            © {new Date().getFullYear()} Rıdvan Şevki Karslı. {t.footer.rights}
-          </p>
-          <a href="https://github.com/ridvanKarsli/MyWebSite" target="_blank" rel="noreferrer">
-            {t.footer.source}
-          </a>
+          <p>© {new Date().getFullYear()} Rıdvan Şevki Karslı</p>
         </footer>
       </div>
     </div>

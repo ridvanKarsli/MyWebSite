@@ -52,16 +52,16 @@ const tr = {
     {
       role: 'Yazılım Geliştirme Uzman Yardımcısı',
       company: 'Yaşar Bilgi',
-      period: 'Eylül 2026 — Günümüz',
-      place: 'İzmir, iş yerinde, tam zamanlı',
-      summary: 'Yaşar Bilgi’nin yazılım geliştirme ekibinde kurumsal uygulamalar üzerinde çalışıyorum.',
+      period: 'Eylül 2026 – Günümüz',
+      place: 'İzmir',
+      summary: '',
       points: [],
     },
     {
       role: 'Yazılım Mühendisi',
       company: 'ENM Digital',
-      period: 'Aralık 2025 — Ağustos 2026',
-      place: 'Manisa, hibrit, tam zamanlı',
+      period: 'Aralık 2025 – Ağustos 2026',
+      place: 'Manisa, hibrit',
       summary:
         'CeyBer Dijital’in yapay zekâ destekli müşteri deneyimi platformu Plukto için katmanlı mimari ve mikroservis yaklaşımıyla backend geliştirdim.',
       points: [
@@ -73,21 +73,20 @@ const tr = {
     {
       role: 'Yazılım Uzmanı',
       company: 'Yalın Otomasyon',
-      period: 'Mart 2025 — Aralık 2025',
-      place: 'Kemalpaşa, İzmir, hibrit, tam zamanlı',
+      period: 'Mart 2025 – Aralık 2025',
+      place: 'Kemalpaşa, İzmir',
       summary:
         'Kurumsal müşteriler için otomasyon makinelerinin yazılımını geliştirdim, donanım ile yazılım arasındaki entegrasyonu yönettim.',
       points: [
         'Sensör verisini gerçek zamanlı işleyen backend modülleri geliştirdim',
         'PostgreSQL tabanlı veri toplama, analiz ve raporlama altyapısı kurdum',
-        'Müşterilerle doğrudan çalışarak gereksinimleri analiz ettim ve çözümü teslim ettim',
       ],
     },
     {
       role: 'Stajyer Mühendis',
       company: 'ENM Digital',
-      period: 'Aralık 2024 — Aralık 2025',
-      place: 'Manisa, hibrit, staj',
+      period: 'Aralık 2024 – Aralık 2025',
+      place: 'Manisa, hibrit',
       summary:
         'Proje Sihirbazı mobil uygulamasını SwiftUI (iOS) ve Kotlin (Android) ile geliştiren ekipte yer aldım.',
       points: [
@@ -98,14 +97,11 @@ const tr = {
     {
       role: 'Bilgisayar Mühendisi',
       company: 'Kalem Web Yazılım Ltd. Şti.',
-      period: 'Şubat 2023 — Ekim 2024',
-      place: 'İzmir, uzaktan, tam zamanlı',
+      period: 'Şubat 2023 – Ekim 2024',
+      place: 'Uzaktan',
       summary:
         'Web geliştirici olarak kurumsal projelerin API ve backend tarafında çalıştım.',
-      points: [
-        'Kurumsal projelere üretime hazır backend modülleri teslim ettim',
-        'Modüler tasarımla bakım yükünü azalttım',
-      ],
+      points: [],
     },
   ],
   projects: [
@@ -113,7 +109,7 @@ const tr = {
       name: 'Sağlıktan',
       kind: 'Sağlık topluluğu platformu',
       summary:
-        'Hastaları, hasta yakınlarını ve uzman doktorları hastalığa özel gruplarda bir araya getiren paylaşım platformu. Yayında.',
+        'Hastaları, hasta yakınlarını ve uzman doktorları hastalığa özel gruplarda bir araya getiren paylaşım platformu.',
       details: [
         'Spring Boot ve Java 21 ile REST API, Spring Security ve JWT',
         'PostgreSQL ve Flyway ile şema yönetimi, OpenAPI dokümantasyonu',
@@ -244,7 +240,6 @@ const tr = {
     opened: 'E-posta uygulamanız açıldı. Açılmadıysa doğrudan rdvn.35050@gmail.com adresine yazabilirsiniz.',
   },
   footer: {
-    rights: 'Tüm hakları saklıdır.',
     source: 'Kaynak kodu',
   },
   notFound: {
@@ -298,16 +293,16 @@ const en = {
     {
       role: 'Assistant Software Development Specialist',
       company: 'Yaşar Bilgi',
-      period: 'Sep 2026 — Present',
-      place: 'Izmir, on-site, full-time',
-      summary: 'Working on enterprise applications in Yaşar Bilgi’s software development team.',
+      period: 'Sep 2026 – Present',
+      place: 'Izmir',
+      summary: '',
       points: [],
     },
     {
       role: 'Software Engineer',
       company: 'ENM Digital',
-      period: 'Dec 2025 — Aug 2026',
-      place: 'Manisa, hybrid, full-time',
+      period: 'Dec 2025 – Aug 2026',
+      place: 'Manisa, hybrid',
       summary:
         'Built the backend of Plukto, CeyBer Dijital’s AI-assisted customer experience platform, using a layered architecture and microservices.',
       points: [
@@ -319,21 +314,20 @@ const en = {
     {
       role: 'Software Specialist',
       company: 'Yalın Otomasyon',
-      period: 'Mar 2025 — Dec 2025',
-      place: 'Kemalpaşa, Izmir, hybrid, full-time',
+      period: 'Mar 2025 – Dec 2025',
+      place: 'Kemalpaşa, Izmir',
       summary:
         'Developed software for automation machines used by corporate clients and managed hardware–software integration.',
       points: [
         'Built backend modules that process sensor data in real time',
         'Set up PostgreSQL-based data collection, analysis and reporting',
-        'Worked directly with clients to analyze requirements and deliver the solution',
       ],
     },
     {
       role: 'Engineering Intern',
       company: 'ENM Digital',
-      period: 'Dec 2024 — Dec 2025',
-      place: 'Manisa, hybrid, internship',
+      period: 'Dec 2024 – Dec 2025',
+      place: 'Manisa, hybrid',
       summary:
         'Part of the team building the Proje Sihirbazı mobile app with SwiftUI (iOS) and Kotlin (Android).',
       points: [
@@ -344,13 +338,10 @@ const en = {
     {
       role: 'Computer Engineer',
       company: 'Kalem Web Yazılım Ltd. Şti.',
-      period: 'Feb 2023 — Oct 2024',
-      place: 'Izmir, remote, full-time',
+      period: 'Feb 2023 – Oct 2024',
+      place: 'Remote',
       summary: 'Worked as a web developer on the API and backend side of corporate projects.',
-      points: [
-        'Delivered production-ready backend modules for corporate projects',
-        'Reduced maintenance effort through modular design',
-      ],
+      points: [],
     },
   ],
   projects: [
@@ -358,7 +349,7 @@ const en = {
       name: 'Sağlıktan',
       kind: 'Health community platform',
       summary:
-        'Brings patients, their relatives and specialist doctors together in illness-specific groups. Live in production.',
+        'Brings patients, their relatives and specialist doctors together in illness-specific groups.',
       details: [
         'REST API with Spring Boot and Java 21, Spring Security and JWT',
         'PostgreSQL with Flyway migrations, OpenAPI documentation',
@@ -486,7 +477,6 @@ const en = {
     opened: 'Your email app has been opened. If it did not open, write to rdvn.35050@gmail.com directly.',
   },
   footer: {
-    rights: 'All rights reserved.',
     source: 'Source code',
   },
   notFound: {

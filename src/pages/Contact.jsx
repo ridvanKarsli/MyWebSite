@@ -102,7 +102,7 @@ export default function Contact() {
             </div>
             <div>
               <dt><LinkedInIcon /> LinkedIn</dt>
-              <dd><a href={contact.linkedin} target="_blank" rel="noreferrer">ridvan-karsli</a></dd>
+              <dd><a href={contact.linkedin} target="_blank" rel="noreferrer">Rıdvan Karslı</a></dd>
             </div>
             <div>
               <dt><GitHubIcon /> GitHub</dt>

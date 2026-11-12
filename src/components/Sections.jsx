@@ -31,7 +31,7 @@ export function Experience() {
                 {job.role}
                 <span className="timeline__company">{job.company}</span>
               </h3>
-              <p>{job.summary}</p>
+              {job.summary && <p>{job.summary}</p>}
               {job.points.length > 0 && (
                 <ul className="ticks">
                   {job.points.map((point) => (
@@ -64,10 +64,12 @@ export function ProjectEntry({ project, detailed = false }) {
             ))}
           </ul>
         )}
-        <p className="project__meta">
-          <span className="visually-hidden">{t.projectsPage.stack}: </span>
-          {project.stack.join(', ')}
-        </p>
+        {!detailed && (
+          <p className="project__meta">
+            <span className="visually-hidden">{t.projectsPage.stack}: </span>
+            {project.stack.join(', ')}
+          </p>
+        )}
         <p className="project__links">
           {project.live && (
             <a className="text-link" href={project.live} target="_blank" rel="noreferrer">
